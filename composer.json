@@ -10,6 +10,13 @@
         }
     ],
     "require": {},
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Hexters\\Ladmin\\LadminServiceProvider"
+            ]
+        }
+    },
     "autoload": {
         "psr-4": {
             "Hexters\\Ladmin\\": "src/"

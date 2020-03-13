@@ -21,8 +21,16 @@ class LadminServiceProvider extends ServiceProvider
      *
      * @return void
      */
-    public function boot()
-    {
-        //
+    public function boot() {
+        
+        /**
+         * Load for routing
+         */
+        $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+
+        /**
+         * Load views component
+         */
+        $this->loadViewsFrom(__DIR__.'../Resources/views', 'ladmin');
     }
 }
