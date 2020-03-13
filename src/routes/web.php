@@ -7,7 +7,7 @@ Route::group([
     'namespace' => 'Hexters\\Ladmin\\Http\\Controllers',
     'as' => 'administrator.'
   ], function() {
-    Route::resource('/login', 'Auth\LoginController')->only(['index']);
+    Route::resource('/login', 'Auth\LoginController')->only(['index', 'store']);
     Route::group([
       'middleware' => [ LadminLoginMiddleware::class ],
     ], function() {
