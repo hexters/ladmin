@@ -29,7 +29,7 @@ class LadminServiceProvider extends ServiceProvider
         $this->loadRoutesFrom( __DIR__ . '/routes/web.php');
 
         /**
-         * Load views component
+         * Load view template
          */
         $this->loadViewsFrom( __DIR__ . '/../Resources/Views', 'ladmin');
     }
