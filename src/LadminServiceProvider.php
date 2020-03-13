@@ -31,6 +31,6 @@ class LadminServiceProvider extends ServiceProvider
         /**
          * Load views component
          */
-        $this->loadViewsFrom(__DIR__.'../Resources/views', 'ladmin');
+        $this->loadViewsFrom(__DIR__.'../Resources/Views', 'ladmin');
     }
 }
