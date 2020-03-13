@@ -3,6 +3,7 @@
 namespace Hexters\Ladmin\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
+use Hexters\Ladmin\Http\Controllers\Controller;
 
 class LoginController extends Controller {
     
