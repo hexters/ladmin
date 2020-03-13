@@ -13,7 +13,7 @@ class LoginController extends Controller {
      */
     public function index()
     {
-        return view('ladmin::auth.index');
+        return view('ladmin::auth.login');
     }
 
     /**
