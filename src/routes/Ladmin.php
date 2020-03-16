@@ -7,7 +7,7 @@ use Hexters\Ladmin\Http\Middleware\LadminLoginMiddleware;
 
 class Ladmin {
 
-  public static  function route($func) {
+  public static  function route($function) {
     BaseRoute::group([ 
       'prefix' => 'administrator',
       'namespace' => 'Administrator',
@@ -20,7 +20,7 @@ class Ladmin {
   
         BaseRoute::resource('/', 'HomeController')->only(['index']);
 
-        $func;
+        $function();
   
       });
     });
