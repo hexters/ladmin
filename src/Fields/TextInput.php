@@ -4,7 +4,7 @@ namespace Hexters\Ladmin\Fields;
 
 class TextInput {
   
-  public static function render($name, $value, $addon, $attributes) {
+  public function render($name, $value, $addon, $attributes) {
     $attr = $this->options($attributes);
     return view('ladmin::fields.text_input', compact($name, $value, $addon, $attr));
   }
