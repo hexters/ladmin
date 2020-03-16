@@ -41,5 +41,13 @@ class LadminServiceProvider extends ServiceProvider
             __DIR__ . '/../dist/app.js' => public_path('/js/ladmin/app.js'),
             __DIR__ . '/../dist/app.css' => public_path('/css/ladmin/app.css'),
         ], 'assets');
+
+        /**
+         * Publish 
+         * php artisan vendor:publish --tag=core
+         */
+        $this->publishes([
+            __DIR__ . '/Http/Controllers/' => app_path('Http/Controllers/Administrator')
+        ], 'core');
     }
 }

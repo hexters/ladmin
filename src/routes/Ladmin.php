@@ -10,7 +10,7 @@ class Ladmin {
   public static  function route($func) {
     BaseRoute::group([ 
       'prefix' => 'administrator',
-      'namespace' => 'Hexters\\Ladmin\\Http\\Controllers',
+      'namespace' => 'Administrator',
       'as' => 'administrator.'
     ], function() {
       BaseRoute::resource('/login', 'Auth\LoginController')->only(['index', 'store']);
