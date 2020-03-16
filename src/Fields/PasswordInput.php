@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Fields;
+namespace Hexters\Ladmin\Fields;
 
 class PasswordInput {
   
