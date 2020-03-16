@@ -1,9 +1,9 @@
 <?php
 
-namespace Hexters\Ladmin\Http\Controllers\Auth;
+namespace App\Http\Controllers\Administrator\Auth;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use Hexters\Ladmin\Http\Controllers\Controller;
 use  Facades\ {
     Hexters\Ladmin\Fields\EmailInput,
     Hexters\Ladmin\Fields\PasswordInput,

@@ -1,6 +1,7 @@
 <?php
 
-namespace Hexters\Ladmin\Http\Controllers;
+namespace App\Http\Controllers\Administrator;
+use App\Http\Controllers\Controller;
 
 class HomeController extends Controller {
     
