@@ -12,11 +12,11 @@ class Ladmin {
       'prefix' => 'administrator',
       'namespace' => 'Administrator',
       'as' => 'administrator.'
-    ], function() {
+    ], function() use ($function) {
       BaseRoute::resource('/login', 'Auth\LoginController')->only(['index', 'store']);
       BaseRoute::group([
         'middleware' => [ LadminLoginMiddleware::class ],
-      ], function() {
+      ], function() use ($function) {
   
         BaseRoute::resource('/', 'HomeController')->only(['index']);
 
