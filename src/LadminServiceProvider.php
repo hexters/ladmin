@@ -32,5 +32,13 @@ class LadminServiceProvider extends ServiceProvider
          * Load view template
          */
         $this->loadViewsFrom( __DIR__ . '/../Resources/Views', 'ladmin');
+
+        /**
+         * Publish asset
+         */
+        $this->publishes([
+            __DIR__ . '/../dist/app.js' => public_path('/js/ladmin/app.js'),
+            __DIR__ . '/../dist/app.css' => public_path('/css/ladmin/app.css'),
+        ], 'assets');
     }
 }
