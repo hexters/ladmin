@@ -7,6 +7,6 @@
         </span>
       </div>
     @endif
-    <input type="text" name="{{ $name }}" value="{{ $value }}" class="form-control {{ $addon ? 'border-left-0' : null }}" {{ $attr }}>
+    <input type="text" name="{{ $name }}" value="{{ $value }}" class="form-control {{ $addon ? 'border-left-0' : null }}" {!! $attr !!}>
   </div>
 </div>
