@@ -34,7 +34,8 @@ class LadminServiceProvider extends ServiceProvider
         $this->loadViewsFrom( __DIR__ . '/../Resources/Views', 'ladmin');
 
         /**
-         * Publish asset
+         * Publish 
+         * php artisan vendor:publish --tag=assets --force
          */
         $this->publishes([
             __DIR__ . '/../dist/app.js' => public_path('/js/ladmin/app.js'),
