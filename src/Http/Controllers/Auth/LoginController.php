@@ -4,6 +4,10 @@ namespace Hexters\Ladmin\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Hexters\Ladmin\Http\Controllers\Controller;
+use  Facades\ {
+    Hexters\Ladmin\Fields\EmailInput,
+    Hexters\Ladmin\Fields\PasswordInput,
+};
 
 class LoginController extends Controller {
     
@@ -12,9 +16,12 @@ class LoginController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        return view('ladmin::auth.login');
+    public function index() {
+        $data['forms'] = [
+            [EmailInput::render('email', null, '<i class="fas fa-envelope"></i>', [ 'placeholder' => 'Email Address' ])],
+            [PasswordInput::render('password', null, '<i class="fas fa-lock"></i>', ['placeholder' => 'Password'])]
+        ];
+        return view('ladmin::auth.login', $data);
     }
 
     /**

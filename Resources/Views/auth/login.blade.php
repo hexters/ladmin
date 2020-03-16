@@ -12,23 +12,12 @@
             <div class="card-body p-5">
             <form action="{{ route('administrator.login.store') }}" method="post">
                 @csrf
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0" id="basic-addon1"><i class="fas fa-envelope"></i></span>
-                        </div>
-                        <input type="email" name="email" placeholder="Email Address" class="form-control border-left-0">
-                    </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0" id="basic-addon1"><i class="fas fa-lock"></i></span>
-                        </div>
-                        <input type="password" placeholder="Password" name="password" class="form-control border-left-0">
-                    </div>
-                </div>
+                @foreach ($forms as $items)
+                    @foreach ($items as $item)
+                        {!! $item !!}
+                    @endforeach
+                @endforeach
 
                 <div class="form-group">
                     <input type="checkbox" name="remember" id="remember"> <label for="remember">Remember me</label>
