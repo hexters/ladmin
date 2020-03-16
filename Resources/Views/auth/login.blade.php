@@ -15,7 +15,7 @@
                 <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                        <span class="input-group-text bg-white border-right-0" id="basic-addon1"><i class="fas fa-envelope"></i></span>
+                            <span class="input-group-text bg-white border-right-0" id="basic-addon1"><i class="fas fa-envelope"></i></span>
                         </div>
                         <input type="email" name="email" placeholder="Email Address" class="form-control border-left-0">
                     </div>
@@ -24,7 +24,7 @@
                 <div class="form-group">
                     <div class="input-group mb-3">
                         <div class="input-group-prepend">
-                        <span class="input-group-text bg-white border-right-0" id="basic-addon1"><i class="fas fa-lock"></i></span>
+                            <span class="input-group-text bg-white border-right-0" id="basic-addon1"><i class="fas fa-lock"></i></span>
                         </div>
                         <input type="password" placeholder="Password" name="password" class="form-control border-left-0">
                     </div>
