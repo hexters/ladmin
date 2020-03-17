@@ -101,12 +101,13 @@
 .ladmin-container{
   
   .ladmin-sidebar {
+    z-index: 1000;
     width: 250px;
     float: left;
     min-height: 100vh;
     background-color: #ffffff;
     display: block;
-    clear: left;
+    clear: right;
     margin-right: 1rem;
     border-right: solid 1px rgba(0, 0, 0, 0.075);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
@@ -208,7 +209,17 @@
     }
   }
   .ladmin-content {
-    padding: 1rem;
+    padding: .5rem 1rem;
+    .ladmin-page-title {
+      h4 {
+        margin: 0;
+        padding-top: .8rem;
+      }
+      .breadcrumb {
+        float: right;
+        background: none !important;
+      }
+    }
   }
 }
 
@@ -220,7 +231,7 @@
 }
 
 @media (max-width: 575.98px) {
-  .ladmin-container{
+  .ladmin-container {
     .ladmin-sidebar {
       display: none;
       position: absolute;
