@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ config('app.name') }}</title>
+  <title>{{ config('app.name') }} | Administrator</title>
   <link rel="stylesheet" href="{{ asset('/css/ladmin/app.css') }}">
 </head>
 <body>
   
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0">
-      <a class="navbar-brand mr-0 p-3" href="/">
-        Ladmin
+      <a class="navbar-brand mr-0 p-3" href="{{ route('administrator.index') }}">
+        {{ config('app.name') }}
       </a>
       
       <ul class="navbar-nav mr-auto">
@@ -97,7 +97,7 @@
           <li class="nav-item dropdown">
             
             <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                Jhone Due <span class="caret"></span>
+                {{ auth()->user()->name }} <span class="caret"></span>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">
