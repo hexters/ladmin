@@ -3,6 +3,7 @@
 namespace Hexters\Ladmin\Routes;
 
 use Illuminate\Support\Facades\Route as BaseRoute;
+use Hexters\Ladmin\Http\Middleware\LadminLoginMiddleware;
 
 class Ladmin {
 
@@ -14,7 +15,7 @@ class Ladmin {
     ], function() use ($function) {
       BaseRoute::resource('/login', 'Auth\LoginController')->only(['index', 'store']);
       BaseRoute::group([
-        'middleware' => [ 'auth:' . config('ladmin.auth.guard', 'web') ],
+        'middleware' => [ LadminLoginMiddleware::class ],
       ], function() use ($function) {
   
         BaseRoute::resource('/', 'HomeController')->only(['index']);
