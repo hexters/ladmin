@@ -97,7 +97,7 @@
           <li class="nav-item dropdown">
             
             <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ auth()->user()->name }} <span class="caret"></span>
+                {{ Str::limit(auth()->user()->name, 10) }} <span class="caret"></span>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">
