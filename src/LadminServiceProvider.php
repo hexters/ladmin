@@ -50,5 +50,10 @@ class LadminServiceProvider extends ServiceProvider
             __DIR__ . '/config/ladmin.php' => base_path('/config/ladmin.php'),
             __DIR__ . '/Http/Controllers/' => app_path('Http/Controllers/Administrator')
         ], 'core');
+
+        /**
+         * Migration file
+         */
+        $this->loadMigrationsFrom(__DIR__ . '/database/migrations/');
     }
 }
