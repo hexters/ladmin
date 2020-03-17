@@ -13,6 +13,8 @@
             <form action="{{ route('administrator.login.store') }}" method="post">
                 @csrf
 
+                @include('ladmin::layouts._alert')
+
                 @foreach ($forms as $items)
                     @foreach ($items as $item)
                         {!! $item !!}

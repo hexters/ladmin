@@ -47,6 +47,7 @@ class LadminServiceProvider extends ServiceProvider
          * php artisan vendor:publish --tag=core
          */
         $this->publishes([
+            __DIR__ . '/config/ladmin.php' => base_path('/config/ladmin.php'),
             __DIR__ . '/Http/Controllers/' => app_path('Http/Controllers/Administrator')
         ], 'core');
     }

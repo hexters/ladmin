@@ -10,6 +10,7 @@
 <body>
   
   <div id="app">
+    @include('ladmin::layouts._alert')
     @yield('content')
   </div>
 

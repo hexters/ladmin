@@ -8,6 +8,7 @@ use  Facades\ {
     Hexters\Ladmin\Fields\EmailInput,
     Hexters\Ladmin\Fields\PasswordInput,
 };
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller {
     
@@ -29,8 +30,7 @@ class LoginController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
         //
     }
 
@@ -40,9 +40,16 @@ class LoginController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        $credentials = $request->only('email', 'password');
+        
+        if (Auth::guard(config('ladmin.auth.guard', 'web'))->attempt($credentials, $request->remember)) {
+            return redirect()->route('administrator.index');
+        }
+
+        return redirect()
+            ->back()
+            ->withErrors(['Email and password not match!']);
     }
 
     /**
