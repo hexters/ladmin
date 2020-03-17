@@ -10,6 +10,10 @@ class LadminGatePermisison extends Model {
   protected $fillable = [
     'gate_permission'
   ];
+
+  protected $casts = [
+    'gate_permission' => 'array'
+  ];
   
   public function permissionable() {
     return $this->morphTo();
