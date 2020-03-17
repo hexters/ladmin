@@ -100,7 +100,79 @@ try {
   __webpack_require__(/*! bootstrap */ "./node_modules/bootstrap/dist/js/bootstrap.js");
 
   __webpack_require__(/*! @fortawesome/fontawesome-free/js/all */ "./node_modules/@fortawesome/fontawesome-free/js/all.js");
+
+  __webpack_require__(/*! ./ladmin */ "./Resources/js/ladmin.js");
 } catch (error) {}
+
+/***/ }),
+
+/***/ "./Resources/js/ladmin.js":
+/*!********************************!*\
+  !*** ./Resources/js/ladmin.js ***!
+  \********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/**
+ * Button togle sidebar
+ */
+var sidebar = document.querySelector('.ladmin-sidebar');
+var btnToggleSidebar = document.querySelector('.ladmin-sidebar-toggle');
+var sidebarDisplay = window.localStorage.getItem('ladmin_sidebar_visible');
+
+if (sidebarDisplay) {
+  sidebar.style.display = sidebarDisplay;
+}
+
+function saveSidebar(display) {
+  window.localStorage.setItem('ladmin_sidebar_visible', display);
+}
+
+btnToggleSidebar.addEventListener('click', function () {
+  if (sidebar.style.display === 'none') {
+    saveSidebar('block');
+    sidebar.style.display = 'block';
+  } else {
+    saveSidebar('none');
+    sidebar.style.display = 'none';
+  }
+});
+window.addEventListener('resize', function (el) {
+  if (el.target.innerWidth <= 575.98) {
+    saveSidebar('none');
+    sidebar.style.display = 'none';
+  }
+
+  ;
+});
+var menus = document.querySelectorAll('.ladmin-sidebar ul li');
+menus.forEach(function (el) {
+  if (el.querySelector('ul')) {
+    var span = document.createElement('span');
+    span.className = 'caret float-right mt-2';
+
+    var _a = el.querySelector('a');
+
+    if (!_a.querySelector('.badge')) {
+      _a.appendChild(span);
+    }
+  }
+
+  var a = el.querySelector('a');
+  a.addEventListener('click', function () {
+    var classList = el.classList.value;
+    var classes = classList.split(' ');
+
+    if (classes.indexOf('show') === -1) {
+      el.className = classes.join(' ') + ' show';
+    } else {
+      var classesNew = classes.filter(function (item) {
+        return item !== 'show';
+      });
+      el.className = classesNew.join(' ');
+    }
+  });
+});
 
 /***/ }),
 

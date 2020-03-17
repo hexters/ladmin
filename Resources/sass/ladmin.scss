@@ -1,0 +1,228 @@
+.ladmin-top-menu {
+  position: absolute !important;
+  padding: 0;
+  border: none;
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+
+  .ladmin-top-menu-header {
+    padding: 1rem;
+    font-weight: bold;
+  }
+  .ladmin-top-menu-body-notification {
+    height: 300px;
+    overflow-y: auto;
+  }
+  .ladmin-top-menu-footer {
+    a {
+      display: block;
+      padding: 1rem;
+      text-align: center;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+}
+.ladmin-top-menu-list {
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+
+  li {
+    padding: 0;
+
+    a {
+      display: block;
+      line-height: $line-height-base;
+      padding: .5rem;
+      color: #333333;
+
+      &:hover {
+        text-decoration: none;
+        background-color: $blue;
+        color: #ffffff;
+      }
+    }
+  }
+}
+.ladmin-navbar-nav {
+  display: flex;
+  flex-direction: row;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+
+  a {
+    color: #333333;
+  }
+}
+.ladmin-notification-menu {
+  position: relative;
+  .badge {
+    position: absolute;
+    top: 0px;
+    right: 5px;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    border: #ffffff 2px solid;
+  }
+  &:after {
+    display: none;
+  }
+}
+.ladmin-notification-menu-component {
+  width: 300px;
+  right: -100px;
+}
+
+.ladmin-notification-item{
+  .media {
+    padding: .5rem;
+    margin: 0 !important;
+    text-decoration: none;
+    border-top: solid 1px rgba(0, 0, 0, 0.075);
+    &:last-child {
+      border-bottom: solid 1px rgba(0, 0, 0, 0.075);
+    }
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.075);
+    }
+  }
+}
+.ladmin-substr {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  width: 100%;
+  display: inline-block;
+}
+
+.ladmin-container{
+  
+  .ladmin-sidebar {
+    width: 250px;
+    float: left;
+    min-height: 100vh;
+    background-color: #ffffff;
+    display: block;
+    clear: left;
+    margin-right: 1rem;
+    border-right: solid 1px rgba(0, 0, 0, 0.075);
+    box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+    padding: 1rem;
+
+    > ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none;
+      padding-top: 1rem;
+
+      li {
+        padding: 0;
+        a {
+          color: #333333;
+          text-decoration: none;
+          display: block;
+          line-height: 25px;
+          padding:.3rem;
+
+          i {
+            width: 35px;
+          }
+          svg {
+            width: 35px;
+          }
+
+          &:hover {
+            color: $blue;
+          }
+
+          .caret {
+            border-bottom: 4px solid transparent;
+            border-top: 4px solid transparent;
+            border-left: 4px solid;
+            display: inline-block;
+            height: 0;
+            opacity: 0.3;
+            vertical-align: top;
+            width: 0;
+          }
+          
+        }
+
+        &.active {
+          color: $blue;
+          a {
+            color: $blue;
+          }
+          > ul {
+            display: block;
+          }
+
+          > a > .caret {
+            display: inline-block;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+          }
+        }
+
+        &.show{
+          > ul {
+            display: block;
+          }
+
+          > a > .caret {
+            display: inline-block;
+            margin-left: 0.255em;
+            vertical-align: 0.255em;
+            content: "";
+            border-top: 0.3em solid;
+            border-right: 0.3em solid transparent;
+            border-bottom: 0;
+            border-left: 0.3em solid transparent;
+          }
+        }
+
+        // Sub Menu
+        ul {
+          // list-style-type: unset;
+          margin-left: .5rem;
+          display: none;
+          li {
+            a {
+              color: #888888;
+              text-decoration: none;
+              display: block;
+              line-height: 25px;
+              padding:.3rem;
+            }
+          }
+        }
+      }
+    }
+  }
+  .ladmin-content {
+    padding: 1rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .navbar-brand {
+    width: 250px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 575.98px) {
+  .ladmin-container{
+    .ladmin-sidebar {
+      display: none;
+    }
+  }
+}
