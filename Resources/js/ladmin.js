@@ -14,13 +14,22 @@ function saveSidebar (display) {
 
 btnToggleSidebar.addEventListener('click', function() {
   if(sidebar.style.display === 'none') {
-    saveSidebar('block');
+    if(window.innerWidth > 575.98) {
+      saveSidebar('block');
+    }
     sidebar.style.display = 'block';
   } else {
-    saveSidebar('none');
+    if(window.innerWidth > 575.98) {
+      saveSidebar('none');
+    }
     sidebar.style.display = 'none';
   }
 });
+
+if(window.innerWidth <= 575.98) {
+  saveSidebar('none');
+  sidebar.style.display = 'none';
+}
 
 window.addEventListener('resize', function(el) {
   if(el.target.innerWidth <= 575.98) {
