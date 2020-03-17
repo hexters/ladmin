@@ -41,7 +41,10 @@ class LoginController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        $credentials = $request->only('email', 'password');
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
         
         if (Auth::guard(config('ladmin.auth.guard', 'web'))->attempt($credentials, $request->remember)) {
             return redirect()->route('administrator.index');
