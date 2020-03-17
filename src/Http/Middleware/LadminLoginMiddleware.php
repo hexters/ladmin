@@ -3,6 +3,7 @@
 namespace Hexters\Ladmin\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class LadminLoginMiddleware {
     /**
@@ -18,6 +19,7 @@ class LadminLoginMiddleware {
             return redirect()->route('administrator.login.index');
         }
 
+        Auth::shouldUse(config('ladmin.auth.guard', 'web'));
         return $next($request);
     }
 }
