@@ -36,7 +36,7 @@
         </div>
 
         <div class="text-center mt-5">
-            <a href="">&larr; Back To Home</a>
+            <a href="{{ url('/') }}">&larr; Back To Home</a>
         </div>
         </div>
     </div>
