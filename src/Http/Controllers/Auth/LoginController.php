@@ -52,7 +52,7 @@ class LoginController extends Controller {
 
         return redirect()
             ->back()
-            ->withErrors(['Email and password not match!']);
+            ->withErrors(['Login failed. Please recheck the username and password and try again.']);
     }
 
     /**
