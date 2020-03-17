@@ -9,8 +9,13 @@ use  Facades\ {
     Hexters\Ladmin\Fields\PasswordInput,
 };
 use Illuminate\Support\Facades\Auth;
+use Hexters\Ladmin\Http\Middleware\LadminGuestMiddleware;
 
 class LoginController extends Controller {
+
+    public function __construct() {
+        $this->middleware([LadminGuestMiddleware::class]);
+    }
     
   /**
      * Display a listing of the resource.
