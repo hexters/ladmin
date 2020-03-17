@@ -2,7 +2,9 @@
 
 namespace Hexters\Ladmin\Fields;
 
-class Input {
+use Illuminate\Support\Facades\Facade;
+
+class Input extends Facade {
 
   protected function options($attributes) {
     $attribute = '';
