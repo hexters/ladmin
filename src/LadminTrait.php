@@ -2,7 +2,7 @@
 
 namespace Hexters\Ladmin;
 
-class LadminTrait {
+trait LadminTrait {
 
   public function permission() {
     return $this->morphOne('Hexters\Ladmin\Models\LadminGatePermisison', 'permissionable');
