@@ -19,6 +19,10 @@ class Ladmin {
       ], function() use ($function) {
   
         BaseRoute::resource('/', 'HomeController')->only(['index']);
+        BaseRoute::gourp(['as' => 'access.', 'prefix' => 'access'], function() {
+          BaseRoute::resource('/role', 'RoleController');
+          BaseRoute::resource('/permission', 'PermissionController');
+        });
 
         $function();
   
