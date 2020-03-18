@@ -3,17 +3,21 @@
 namespace Hexters\Ladmin\Components\Menus;
 
 use Illuminate\View\Component;
+use Hexters\ladmin\Helpers\Menu;
 
 class Sidebar extends Component {
 
+    public $menu;
+    public $permissions;
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct() {
-        
+    public function __construct(Menu $menu) {
+        $this->menu = $menu;
+        $this->permissions = auth()->user()->permission;
     }
 
     /**

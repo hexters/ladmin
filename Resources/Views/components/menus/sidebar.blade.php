@@ -1,33 +1,21 @@
+@php
+    $viewMenu = function($menus) use (&$viewMenu) {
+        $html = '';
+        foreach($menus as $menu) {
+            if(in_array($menu['gate'], $permissions)) {
+                $html .= view('ladmin::components.menus._partials._sidebar_item', ['menu' => $menu, 'view' => $viewMenu]);
+            }
+        }
+        return $html;
+    }
+@endphp
+
 <ul>
-  <li class="active other and other">
-    <a href="#"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
-  </li>
-  <li>
-    <a href="#"><i class="fas fa-lock"></i> Role</a>
-  </li>
-  <li>
-    <a href="#"><i class="fas fa-lock"></i> Permission</a>
-  </li>
-  <li>
-    <a href="#"><i class="fas fa-line-chart"></i> Report</a>
-  </li>
-  <li>
-    <a href="#"><i class="fas fa-help"></i> Help</a>
-  </li>
-  <li>
-    <a href="#"><i class="fas fa-user-circle"></i>Account
-      <!-- <span class="badge float-right mt-1 badge-danger">1</span> -->
+  <li class="{{ request()->is('/administrator') ? 'active' : null }}">
+    <a href="{{ route('administrator.index') }}">
+      <i class="fas fa-tachometer-alt"></i> Dashboard
     </a>
-    <!-- Sub Menu -->
-    <ul>
-      <li>
-        <a href="#">Admin
-          <span class="badge float-right mt-1 badge-danger">1</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">Member</a>
-      </li>
-    </ul>
   </li>
+
+  {!! $viewMenu($menu->sidebar) !!}
 </ul>
