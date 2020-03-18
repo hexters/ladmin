@@ -5,7 +5,7 @@ return [
     'gate' => 'administrator.access',
     'name' => 'Access',
     'route' => null,
-    'isActive' => '/access/*',
+    'isActive' => 'access/*',
     'icon' => 'fas fa-lock',
     'id' => '',
     'gates' => [],
@@ -18,7 +18,7 @@ return [
          * ['administrator.access.role.show', ['uuid-uuid-uuid', 'foo' => 'bar']] --> https://domain.com/administrator/access/role/uuid-uuid-uuid?foo=bar
          */
         'route' => ['administrator.access.role.index', []],
-        'isActive' => '/access/role/*',
+        'isActive' => 'access/role/*',
         'id' => '',
         'gates' => [
           [
@@ -37,7 +37,7 @@ return [
         'gate' => 'administrator.access.permission.index',
         'name' => 'Permission',
         'route' => ['administrator.access.permission.index', []],
-        'isActive' => '/access/permission/*',
+        'isActive' => 'access/permission/*',
         'id' => '',
         'gates' => [
           [
