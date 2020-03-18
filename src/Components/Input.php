@@ -10,7 +10,7 @@ class Input extends Component {
     public $name;
     public $type;
     public $value;
-    protected $placeholder;
+    public $placeholder;
 
     /**
      * Create a new component instance.
