@@ -14,8 +14,17 @@
 
                     @include('ladmin::layouts._alert')
 
-                    <x-ladmin-input type="email" name="email" value="{{ old('email') }}" />
-                    <x-ladmin-input type="password" name="password" />
+                    <x-ladmin-input type="email" name="email" :value="old('email')">
+                        <x-slot name="prepend">
+                            <i class="fas fa-envelope"></i>
+                        </x-slot>
+                    </x-ladmin-input>
+
+                    <x-ladmin-input type="password" name="password">
+                        <x-slot name="prepend">
+                            <i class="fas fa-lock"></i>
+                        </x-slot>
+                    </x-ladmin-input>
                     
                     <div class="form-group">
                         <input type="checkbox" name="remember" id="remember"> <label for="remember">Remember me</label>
