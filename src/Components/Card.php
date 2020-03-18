@@ -15,7 +15,7 @@ class Card extends Component {
      *
      * @return void
      */
-    public function __construct($class, $title) {
+    public function __construct($class = null, $title = null) {
         $this->class = $class;
         $this->title = $title;
     }
