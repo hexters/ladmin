@@ -1,5 +1,5 @@
 @php
-    $viewMenu = function($menus) use (&$viewMenu) {
+    $viewMenu = function($menus) use (&$viewMenu, $permissions) {
         $html = '';
         foreach($menus as $menu) {
             if(in_array($menu['gate'], $permissions)) {
