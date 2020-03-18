@@ -15,7 +15,7 @@ class LadminGatePermission extends Migration
     {
         Schema::create('ladmin_gate_permissions', function (Blueprint $table) {
             $table->id();
-            $table->json('gate_permission');
+            $table->json('permission');
             $table->integer('permissionable_id');
             $table->string('permissionable_type');
             $table->timestamps();
