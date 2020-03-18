@@ -15,7 +15,9 @@
   </a>
 
   @if(isset($menu['submenus']))
-    {!! $viewMenu($menu['submenus']) !!}
+    <ul>
+      {!! $viewMenu($menu['submenus']) !!}
+    </ul>
   @endif
 </li>
 
