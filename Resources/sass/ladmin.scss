@@ -238,6 +238,10 @@
   }
 }
 
+.is-invalid {
+  border-color: $red !important;
+}
+
 @media (min-width: 1200px) {
   .navbar-brand {
     width: 250px;
