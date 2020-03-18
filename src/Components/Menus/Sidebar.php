@@ -17,7 +17,7 @@ class Sidebar extends Component {
      */
     public function __construct(Menu $menu) {
         $this->menu = $menu;
-        $this->permissions = auth()->user()->permission;
+        $this->permissions = auth()->user()->permission ?? [];
     }
 
     /**
