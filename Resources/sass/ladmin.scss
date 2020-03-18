@@ -98,7 +98,7 @@
   display: inline-block;
 }
 
-.ladmin-container{
+.ladmin-container {
   
   .ladmin-sidebar {
     z-index: 1000;
@@ -112,6 +112,8 @@
     border-right: solid 1px rgba(0, 0, 0, 0.075);
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     padding: 1rem;
+    position: absolute;
+    z-index: 10000;
 
     > ul {
       padding: 0;
@@ -210,6 +212,7 @@
   }
   .ladmin-content {
     padding: .5rem 1rem;
+    margin-left: 260px;
     .ladmin-page-title {
       h4 {
         margin: 0;
@@ -219,6 +222,15 @@
         float: right;
         background: none !important;
       }
+    }
+  }
+
+  &.ladmin-container-full {
+    .ladmin-sidebar {
+      display: none !important;
+    }
+    .ladmin-content {
+      margin-left: 0 !important;
     }
   }
 }
@@ -232,9 +244,8 @@
 
 @media (max-width: 575.98px) {
   .ladmin-container {
-    .ladmin-sidebar {
-      display: none;
-      position: absolute;
+    .ladmin-content {
+      margin-left: 0 !important;
     }
   }
 }

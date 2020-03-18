@@ -1,42 +1,39 @@
 /**
  * Button togle sidebar
  */
-const sidebar = document.querySelector('.ladmin-sidebar');
-const btnToggleSidebar = document.querySelector('.ladmin-sidebar-toggle');
-const sidebarDisplay = window.localStorage.getItem('ladmin_sidebar_visible');
-if(sidebarDisplay) {
-  sidebar.style.display = sidebarDisplay;
+const content = document.querySelector('.ladmin-container');
+const btnToggle = document.querySelector('.ladmin-sidebar-toggle');
+
+if(window.localStorage.getItem('side_bar_class')) {
+  content.className = window.localStorage.getItem('side_bar_class');
 }
 
-function saveSidebar (display) {
-  window.localStorage.setItem('ladmin_sidebar_visible', display);
-}
-
-btnToggleSidebar.addEventListener('click', function() {
-  if(sidebar.style.display === 'none') {
-    if(window.innerWidth > 575.98) {
-      saveSidebar('block');
-    }
-    sidebar.style.display = 'block';
+btnToggle.addEventListener('click', function () {
+  let classes = content.className.split(' ');
+  if(classes.indexOf('ladmin-container-full') === -1) {
+    content.className = 'ladmin-container ladmin-container-full';
+    save_position('ladmin-container ladmin-container-full');
   } else {
-    if(window.innerWidth > 575.98) {
-      saveSidebar('none');
-    }
-    sidebar.style.display = 'none';
+    content.className = 'ladmin-container';
+    save_position('ladmin-container');
   }
 });
 
 if(window.innerWidth <= 575.98) {
-  saveSidebar('none');
-  sidebar.style.display = 'none';
+  save_position('ladmin-container ladmin-container-full');
+  content.className = 'ladmin-container ladmin-container-full';
 }
 
-window.addEventListener('resize', function(el) {
-  if(el.target.innerWidth <= 575.98) {
-    saveSidebar('none');
-    sidebar.style.display = 'none';
-  };
+window.addEventListener('resize', function () {
+  if(window.innerWidth <= 575.98) {
+    save_position('ladmin-container ladmin-container-full');
+    content.className = 'ladmin-container ladmin-container-full';
+  }
 });
+
+function save_position(className) {
+  window.localStorage.setItem('side_bar_class', className);
+}
 
 let menus = document.querySelectorAll('.ladmin-sidebar ul li');
 menus.forEach(el => {
