@@ -4,10 +4,6 @@ namespace App\Http\Controllers\Administrator\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use  Facades\ {
-    Hexters\Ladmin\Fields\EmailInput,
-    Hexters\Ladmin\Fields\PasswordInput,
-};
 use Illuminate\Support\Facades\Auth;
 use Hexters\Ladmin\Http\Middleware\LadminGuestMiddleware;
 
@@ -23,11 +19,7 @@ class LoginController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $data['forms'] = [
-            [EmailInput::render('email', null, '<i class="fas fa-envelope"></i>', [ 'placeholder' => 'Email Address' ])],
-            [PasswordInput::render('password', null, '<i class="fas fa-lock"></i>', ['placeholder' => 'Password'])]
-        ];
-        return view('ladmin::auth.login', $data);
+        return view('ladmin::auth.login');
     }
 
     /**
