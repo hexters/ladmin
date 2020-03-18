@@ -3,7 +3,7 @@
         $html = '';
         foreach($menus as $menu) {
             if(in_array($menu['gate'], $permissions)) {
-                $html .= view('ladmin::components.menus._partials._sidebar_item', ['menu' => $menu, 'view' => $viewMenu]);
+                $html .= view('ladmin::components.menus._partials._sidebar_item', ['menu' => $menu, 'viewMenu' => $viewMenu]);
             }
         }
         return $html;
