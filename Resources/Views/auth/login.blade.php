@@ -14,7 +14,7 @@
 
                     @include('ladmin::layouts._alert')
 
-                    <x-ladmin-input type="email" name="email" old="true" placeholder="Email Address">
+                    <x-ladmin-input type="email" name="email" :old="true" placeholder="Email Address">
                         <x-slot name="prepend">
                             <i class="fas fa-envelope"></i>
                         </x-slot>
