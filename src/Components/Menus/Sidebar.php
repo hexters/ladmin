@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Ladmin\Components;
+namespace Hexters\Ladmin\Components\Menus;
 
 use Illuminate\View\Component;
 
