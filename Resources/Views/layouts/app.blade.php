@@ -129,11 +129,7 @@
         @include('ladmin::layouts._alert')
         <div class="ladmin-page-title">
           <div class="container-fluid" style="position: relative;">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Library</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Data</li>
-            </ol>
+            <x-ladmin-breadcrumb />
             <h4>@yield('title', 'Page Title')</h4>
           </div>
         </div>

@@ -9,6 +9,7 @@ use Illuminate\Support\ServiceProvider;
 use Hexters\Ladmin\Components\Card;
 use Hexters\Ladmin\Components\Input;
 use Hexters\Ladmin\Components\Menus\Sidebar;
+use Hexters\Ladmin\Components\Cores\Breadcrumb;
 
 class LadminServiceProvider extends ServiceProvider
 {
@@ -63,7 +64,8 @@ class LadminServiceProvider extends ServiceProvider
         $this->loadViewComponentsAs('ladmin', [
             Card::class,
             Input::class,
-            Sidebar::class
+            Sidebar::class,
+            Breadcrumb::class
         ]);
     }
 }
