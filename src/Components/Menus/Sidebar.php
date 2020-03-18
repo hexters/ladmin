@@ -3,7 +3,7 @@
 namespace Hexters\Ladmin\Components\Menus;
 
 use Illuminate\View\Component;
-use Hexters\ladmin\Helpers\Menu;
+use Hexters\Ladmin\Helpers\Menu;
 
 class Sidebar extends Component {
 
