@@ -158,10 +158,11 @@
         </ul>
 
       </div>
+
       <div class="ladmin-content">
-        <div class="container">
+        <div class="ladmin-page-title">
           @include('ladmin::layouts._alert')
-          <div class="ladmin-page-title">
+          <div class="container-fluid" style="position: relative;">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item"><a href="#">Library</a></li>
@@ -169,11 +170,14 @@
             </ol>
             <h4>@yield('title')</h4>
           </div>
-
+        </div>
+        <div class="container-fluid">
+          
           @yield('content')
 
         </div>
       </div>
+
     </div>
 
   </div>

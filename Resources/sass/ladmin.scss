@@ -213,14 +213,17 @@
   .ladmin-content {
     padding: .5rem 1rem;
     margin-left: 260px;
+    display: inline-block;
     .ladmin-page-title {
+      margin-bottom: 1rem;
+      .breadcrumb {
+        background: none !important;
+        position: absolute;
+        right: 0;
+      }
       h4 {
         margin: 0;
         padding-top: .8rem;
-      }
-      .breadcrumb {
-        float: right;
-        background: none !important;
       }
     }
   }
