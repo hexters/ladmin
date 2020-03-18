@@ -14,7 +14,6 @@ class Menu {
 
   public function gates($menus) {
     $gates = [];
-    $subGates = [];
     foreach($menus as $menu) {
       $gates[] = $menu['gate'];
       foreach($menu['gates'] as $gate) {
@@ -23,12 +22,13 @@ class Menu {
       if(isset($menu['submenus'])) {
         if($this->gates($menu['submenus'])) {
           foreach($this->gates($menu['submenus']) as $sub) {
-            $subGates[] = $sub;
+            if(!in_array($sub, $gates)) {
+              $gates[] = $sub;
+            }
           }
         }
       }
     }
-    $result = array_merge($gates, $subGates);
-    return $result > 0 ? $result : null;
+    return $gates > 0 ? $gates : null;
   }
 }
