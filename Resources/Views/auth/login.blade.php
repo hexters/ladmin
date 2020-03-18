@@ -8,8 +8,7 @@
             <h4 class="font-weight-bold">Sign In</h4>
             <p><strong>Welcome!</strong> Go sign in to access administrator page.</p>
         </div>
-        <div class="card border-0 shadow-sm rounded-lg mt-3">
-            <div class="card-body p-5">
+        <x-ladmin-card class="mt-3">
             <form action="{{ route('administrator.login.store') }}" method="post">
                 @csrf
 
@@ -48,8 +47,7 @@
                     </button>
                 </div>
             </form>
-            </div>
-        </div>
+        </x-ladmin-card>
 
         <div class="text-center mt-5">
             <a href="{{ url('/') }}">&larr; Back To Home</a>

@@ -3,6 +3,7 @@
 namespace Hexters\Ladmin;
 
 use Illuminate\Support\ServiceProvider;
+use Hexters\Ladmin\Components\Card;
 
 class LadminServiceProvider extends ServiceProvider
 {
@@ -55,5 +56,12 @@ class LadminServiceProvider extends ServiceProvider
          * Migration file
          */
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations/');
+
+        /**
+         * View Component
+         */
+        $this->loadViewComponentsAs('ladmin', [
+            Card::class
+        ]);
     }
 }
