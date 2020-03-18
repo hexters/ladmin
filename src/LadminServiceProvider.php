@@ -28,12 +28,7 @@ class LadminServiceProvider extends ServiceProvider
      * @return void
      */
     public function boot() {
-        
-        /**
-         * Load for routing
-         */
-        // $this->loadRoutesFrom( __DIR__ . '/routes/web.php');
-
+    
         /**
          * Load view template
          */

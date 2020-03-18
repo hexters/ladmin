@@ -122,7 +122,7 @@
     <div class="ladmin-container">
       <div class="ladmin-sidebar">
         <strong class="ml-3">Main Menu</strong>
-        <x-ladmin-menus.sidebar />
+        <x-ladmin-sidebar />
       </div>
 
       <div class="ladmin-content">
