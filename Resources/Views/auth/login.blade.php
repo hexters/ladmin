@@ -9,7 +9,7 @@
                 <p><strong>Welcome!</strong> Go sign in to access administrator page.</p>
             </div>
             <x-ladmin-card class="mt-3">
-                <form action="{{ route('administrator.login.store') }}" method="post" class="mt-5">
+                <form action="{{ route('administrator.login.store') }}" method="post" class="m-5">
                     @csrf
 
                     @include('ladmin::layouts._alert')
