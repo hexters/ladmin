@@ -10,7 +10,7 @@
           </span>
       </div>
     @endif
-    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{{ $value }}" class="form-control border-0 @error($name) is-invalid @enderror">
+    <input type="{{ $type }}" name="{{ $name }}" id="{{ $name }}" value="{!! $value !!}" class="form-control border-0 @error($name) is-invalid @enderror">
     @if(isset($append))
       <div class="input-group-append">
           <span class="input-group-text bg-white border-0">
