@@ -29,6 +29,6 @@ class Menu {
         }
       }
     }
-    return $gates > 0 ? $gates : null;
+    return count($gates) > 0 ? $gates : null;
   }
 }
