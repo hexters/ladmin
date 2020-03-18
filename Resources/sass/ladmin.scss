@@ -194,7 +194,6 @@
 
         // Sub Menu
         ul {
-          // list-style-type: unset;
           margin-left: .5rem;
           display: none;
           li {
@@ -212,8 +211,9 @@
   }
   .ladmin-content {
     padding: .5rem 1rem;
-    margin-left: 260px;
+    padding-left: 260px;
     display: inline-block;
+    width: 100%;
     .ladmin-page-title {
       margin-bottom: 1rem;
       .breadcrumb {
@@ -233,7 +233,7 @@
       display: none !important;
     }
     .ladmin-content {
-      margin-left: 0 !important;
+      padding-left: 0 !important;
     }
   }
 }
@@ -248,7 +248,7 @@
 @media (max-width: 575.98px) {
   .ladmin-container {
     .ladmin-content {
-      margin-left: 0 !important;
+      padding-left: 0 !important;
     }
   }
 }
