@@ -1,6 +1,6 @@
 <?php 
 
-namespace Hexters\Ladmin\Helper;
+namespace Hexters\Ladmin\Helpers;
 
 class Menu {
 
