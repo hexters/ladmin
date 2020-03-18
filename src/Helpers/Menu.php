@@ -23,7 +23,7 @@ class Menu {
       if(isset($menu['submenus'])) {
         if($this->gates($menu['submenus'])) {
           foreach($this->gates($menu['submenus']) as $sub) {
-            $gates[] = $sub['gate'];
+            $gates[] = $sub;
           }
         }
       }
