@@ -21,8 +21,8 @@ class Menu {
         $gates[] = $gate['gate'];
       }
       if(isset($menu['submenus'])) {
-        if($this->loopGates($menu['submenus'])) {
-          foreach($this->loopGates($menu['submenus']) as $sub) {
+        if($this->gates($menu['submenus'])) {
+          foreach($this->gates($menu['submenus']) as $sub) {
             $gates[] = $sub['gate'];
           }
         }
