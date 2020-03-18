@@ -1,5 +1,5 @@
 <div {{ $attributes->merge(['class' => 'card border-0 shadow-sm rounded-lg ' . $class]) }}>
-  @if($header)
+  @if(isset($header))
     <div class="card-header">
       {{ $header }}
     </div>
@@ -10,9 +10,9 @@
     @endif
     {{ $slot }}
   </div>
-  @if($header)
+  @if(isset($footer))
     <div class="card-footer">
-      {{ $header }}
+      {{ $footer }}
     </div>
   @endif
 </div>
