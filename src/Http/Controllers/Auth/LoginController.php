@@ -49,6 +49,7 @@ class LoginController extends Controller {
 
         return redirect()
             ->back()
+            ->withInput()
             ->withErrors(['Login failed. Please recheck the username and password and try again.']);
     }
 
