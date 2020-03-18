@@ -13,7 +13,7 @@ class LadminGatePermission extends Migration
      */
     public function up()
     {
-        Schema::create('ladmin_gate_permissions', function (Blueprint $table) {
+        Schema::create('ladmin_permissions', function (Blueprint $table) {
             $table->id();
             $table->json('permission');
             $table->integer('permissionable_id');
@@ -29,6 +29,6 @@ class LadminGatePermission extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ladmin_gate_permissions');
+        Schema::dropIfExists('ladmin_permissions');
     }
 }

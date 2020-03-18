@@ -6,13 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class LadminGatePermisison extends Model {
 
-  protected $table = 'ladmin_gate_permissions';
+  protected $table = 'ladmin_permissions';
   protected $fillable = [
-    'gate_permission'
+    'permission'
   ];
 
   protected $casts = [
-    'gate_permission' => 'array'
+    'permission' => 'array'
   ];
   
   public function permissionable() {
