@@ -3,7 +3,11 @@
 namespace Hexters\Ladmin;
 
 use Illuminate\Support\ServiceProvider;
+/**
+ * Components
+ */
 use Hexters\Ladmin\Components\Card;
+use Hexters\Ladmin\Components\Input;
 
 class LadminServiceProvider extends ServiceProvider
 {
@@ -61,7 +65,8 @@ class LadminServiceProvider extends ServiceProvider
          * View Component
          */
         $this->loadViewComponentsAs('ladmin', [
-            Card::class
+            Card::class,
+            Input::class
         ]);
     }
 }

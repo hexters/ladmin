@@ -6,19 +6,18 @@ use Illuminate\View\Component;
 
 class Card extends Component {
 
-    public $title = null;
+    public $title;
     
     public $class;
-
 
     /**
      * Create a new component instance.
      *
      * @return void
      */
-    public function __construct()
-    {
-        //
+    public function __construct($class, $title) {
+        $this->class = $class;
+        $this->title = $title;
     }
 
     /**

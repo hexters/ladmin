@@ -4,54 +4,35 @@
 <div class="container">
     <div class="row justify-content-md-center">
         <div class="col col-lg-5 mt-5">
-        <div class="text-center">
-            <h4 class="font-weight-bold">Sign In</h4>
-            <p><strong>Welcome!</strong> Go sign in to access administrator page.</p>
-        </div>
-        <x-ladmin-card class="mt-3">
-            <form action="{{ route('administrator.login.store') }}" method="post">
-                @csrf
+            <div class="text-center">
+                <h4 class="font-weight-bold">Sign In</h4>
+                <p><strong>Welcome!</strong> Go sign in to access administrator page.</p>
+            </div>
+            <x-ladmin-card class="mt-3">
+                <form action="{{ route('administrator.login.store') }}" method="post" class="mt-5">
+                    @csrf
 
-                @include('ladmin::layouts._alert')
+                    @include('ladmin::layouts._alert')
 
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0">
-                                <i class="fas fa-envelope"></i>
-                            </span>
-                        </div>
-                        <input type="email" name="email" value="{{ old('email') }}" class="form-control border-left-0">
+                    <x-ladmin-input type="email" name="email" value="{{ old('email') }}" />
+                    <x-ladmin-input type="password" name="password" />
+                    
+                    <div class="form-group">
+                        <input type="checkbox" name="remember" id="remember"> <label for="remember">Remember me</label>
+                        <a href="" class="float-right mb-3">Forgot password ?</a>
                     </div>
-                </div>
 
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text bg-white border-right-0">
-                                <i class="fas fa-lock"></i>
-                            </span>
-                        </div>
-                        <input type="password" name="password" class="form-control border-left-0">
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-block btn-primary">
+                            Sign In
+                        </button>
                     </div>
-                </div>
+                </form>
+            </x-ladmin-card>
 
-                <div class="form-group">
-                    <input type="checkbox" name="remember" id="remember"> <label for="remember">Remember me</label>
-                    <a href="" class="float-right mb-3">Forgot password ?</a>
-                </div>
-
-                <div class="form-group">
-                    <button type="submit" class="btn btn-block btn-primary">
-                        Sign In
-                    </button>
-                </div>
-            </form>
-        </x-ladmin-card>
-
-        <div class="text-center mt-5">
-            <a href="{{ url('/') }}">&larr; Back To Home</a>
-        </div>
+            <div class="text-center mt-5">
+                <a href="{{ url('/') }}">&larr; Back To Home</a>
+            </div>
         </div>
     </div>
 </div>
