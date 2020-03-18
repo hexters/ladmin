@@ -23,6 +23,6 @@ class Sidebar extends Component {
      */
     public function render() {
       
-        return view('ladmin::components.menus.side_menu');
+        return view('ladmin::components.menus.sidebar');
     }
 }
