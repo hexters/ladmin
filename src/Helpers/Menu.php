@@ -12,10 +12,10 @@ class Menu {
     $this->menus = array_merge($sidebar, $topRright);
   }
 
-  public function gates() {
+  public function gates($menus) {
     $gates = [];
     $subGates = [];
-    foreach($this->menus as $menu) {
+    foreach($menus as $menu) {
       $gates[] = $menu['gate'];
       foreach($menu['gates'] as $gate) {
         $gates[] = $gate['gate'];
