@@ -160,15 +160,15 @@
       </div>
 
       <div class="ladmin-content">
+        @include('ladmin::layouts._alert')
         <div class="ladmin-page-title">
-          @include('ladmin::layouts._alert')
           <div class="container-fluid" style="position: relative;">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
               <li class="breadcrumb-item"><a href="#">Library</a></li>
               <li class="breadcrumb-item active" aria-current="page">Data</li>
             </ol>
-            <h4>@yield('title')</h4>
+            <h4>@yield('title', 'Page Title')</h4>
           </div>
         </div>
         <div class="container-fluid">
