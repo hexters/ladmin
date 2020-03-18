@@ -18,7 +18,7 @@ class Breadcrumb extends Component {
         $paths = collect(explode('/', request()->path()));
         $url = '';
         foreach($paths->toArray() as $path) {
-          $path = in_array($path, ['administrator']) ? 'home' : $path;
+          $path = in_array($path, ['administrator']) ? 'Dashboard' : $path;
           if($path && (!$this->isUuid($path) || !is_numeric($path))) {
             $url .= "/{$path}";
             $items->push([
