@@ -14,13 +14,13 @@
 
                     @include('ladmin::layouts._alert')
 
-                    <x-ladmin-input type="email" name="email" :value="old('email')">
+                    <x-ladmin-input type="email" name="email" :value="old('email')" placeholder="Email Address">
                         <x-slot name="prepend">
                             <i class="fas fa-envelope"></i>
                         </x-slot>
                     </x-ladmin-input>
 
-                    <x-ladmin-input type="password" name="password">
+                    <x-ladmin-input type="password" name="password" placeholder="Password">
                         <x-slot name="prepend">
                             <i class="fas fa-lock"></i>
                         </x-slot>
