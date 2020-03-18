@@ -4,7 +4,7 @@ namespace Hexters\Ladmin\Components;
 
 use Illuminate\View\Component;
 
-class SideMenu extends Component {
+class Sidebar extends Component {
 
 
     /**
@@ -23,6 +23,6 @@ class SideMenu extends Component {
      */
     public function render() {
       
-        return view('ladmin::components.side_menu');
+        return view('ladmin::components.menus.side_menu');
     }
 }
