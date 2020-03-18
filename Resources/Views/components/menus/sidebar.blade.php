@@ -17,5 +17,5 @@
     </a>
   </li>
 
-  {!! $viewMenu($menu->sidebar) !!}
+  {!! $viewMenu($menu->menus) !!}
 </ul>

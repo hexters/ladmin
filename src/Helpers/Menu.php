@@ -4,18 +4,18 @@ namespace Hexters\Ladmin\Helpers;
 
 class Menu {
 
-  public $sidebar = [];
-  public $topRright = [];
+  public $menus = [];
 
   public function __construct() {
-    $this->sidebar = require(app_path('/Menus/sidebar.php'));
-    $this->topRright = require(app_path('/Menus/top_right.php'));
+    $sidebar = require(app_path('/Menus/sidebar.php'));
+    $topRright = require(app_path('/Menus/top_right.php'));
+    $this->menus = array_merge($sidebar, $topRright);
   }
 
-  public function gates($menus) {
+  public function gates() {
     $gates = [];
     $subGates = [];
-    foreach($menus as $menu) {
+    foreach($this->menus as $menu) {
       $gates[] = $menu['gate'];
       foreach($menu['gates'] as $gate) {
         $gates[] = $gate['gate'];
