@@ -5,7 +5,7 @@ namespace Hexters\Ladmin\Components\Menus;
 use Illuminate\View\Component;
 use Hexters\Ladmin\Helpers\Menu;
 
-class TopRightMemu extends Component {
+class Toprightmenu extends Component {
 
     public $menu;
     public $permissions;
