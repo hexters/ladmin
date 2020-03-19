@@ -20,6 +20,12 @@ class Ladmin {
       ], function() use ($function) {
   
         BaseRoute::resource('/', 'HomeController')->only(['index']);
+        BaseRoute::resource('/profile', 'ProfileController')->only(['index', 'store']);
+
+        BaseRoute::group(['as' => 'account.', 'prefix' => 'account'], function() {
+          BaseRoute::resource('/admin', 'UserAdminController');
+        });
+
         BaseRoute::group(['as' => 'access.', 'prefix' => 'access'], function() {
           BaseRoute::resource('/role', 'RoleController');
           BaseRoute::resource('/permission', 'PermissionController');

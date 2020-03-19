@@ -106,11 +106,10 @@
                     <li>
                       <a href="#">Profile</a>
                     </li>
+                    <x-ladmin-toprightmenu />
                     <li>
-                      <a href="#">Withdrawal</a>
-                    </li>
-                    <li>
-                      <a href="#">Logout</a>
+                      <a href="javascript:void(0);" onclick="document.getElementById('ladmin-logout').submit()">Logout</a>
+                      <form action="{{ route('administrator.logout') }}" id="ladmin-logout" method="post">@csrf</form>
                     </li>
                   </ul>
                 </li>

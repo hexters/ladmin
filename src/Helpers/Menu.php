@@ -5,11 +5,13 @@ namespace Hexters\Ladmin\Helpers;
 class Menu {
 
   public $menus = [];
+  public $sidebar = [];
+  public $topRright = [];
 
   public function __construct() {
-    $sidebar = require(app_path('/Menus/sidebar.php'));
-    $topRright = require(app_path('/Menus/top_right.php'));
-    $this->menus = array_merge($sidebar, $topRright);
+    $this->sidebar = require(app_path('/Menus/sidebar.php'));
+    $this->topRright = require(app_path('/Menus/top_right.php'));
+    $this->menus = array_merge($this->sidebar, $this->topRright);
   }
 
   public function gates($menus) {
