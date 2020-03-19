@@ -28,7 +28,7 @@
                     
                     <div class="form-group">
                         <input type="checkbox" name="remember" id="remember"> <label for="remember">Remember me</label>
-                        <a href="" class="float-right mb-3">Forgot password ?</a>
+                        <a href="{{ route('administrator.password.request') }}" class="float-right mb-3">Forgot password ?</a>
                     </div>
 
                     <div class="form-group">
