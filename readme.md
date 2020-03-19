@@ -166,3 +166,7 @@ Input Component
 |`old`|Boolean default `false`|NO|
 |`value`|String|NO|
 |`required`|Boolean default `false`|NO|
+
+### Menus
+
+Open file `app/menus/sidenar.php` and `top_right.php` for manage admin menu
