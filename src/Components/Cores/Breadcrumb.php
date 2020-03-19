@@ -41,6 +41,6 @@ class Breadcrumb extends Component {
     }
 
     public function isUuid($value) {
-      return preg_match('/[a-f0-9]{8}\-[a-f0-9]{4}\-4[a-f0-9]{3}\-(8|9|a|b)[a-f0-9]{3‌​}\-[a-f0-9]{12}/', $value);
+      return preg_match('/^[a-f\d]{8}(-[a-f\d]{4}){4}[a-f\d]{8}$/i', $value);
     }
 }
