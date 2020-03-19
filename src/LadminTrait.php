@@ -3,15 +3,25 @@
 namespace Hexters\Ladmin;
 
 use Hexters\Ladmin\Notifications\ResetPasswordNotification;
+use Hexters\Ladmin\Models\Role;
 
 trait LadminTrait {
 
-  public function gate() {
-    return $this->morphOne('Hexters\Ladmin\Models\LadminGatePermisison', 'permissionable');
+  public function gates() {
+    return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id', 'id', 'id');
   }
 
   public function getPermissionAttribute() {
-    return $this->gate->permission;
+    $permissions = [];
+    foreach($this->gates as $gate) {
+      $gates = $gate->gates ?? [];
+      foreach($gates as $gate) {
+        if(!in_array($gate, $permissions)) {
+          $permissions[] = $gate->gates;
+        }
+      }
+    }
+    return $permissions;
   }
 
   /**

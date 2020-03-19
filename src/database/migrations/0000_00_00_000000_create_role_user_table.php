@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class LadminGatePermission extends Migration
+class CreateRolesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,10 @@ class LadminGatePermission extends Migration
      */
     public function up()
     {
-        Schema::create('ladmin_permissions', function (Blueprint $table) {
+        Schema::create('role_user', function (Blueprint $table) {
             $table->id();
-            $table->json('permission');
-            $table->integer('permissionable_id');
-            $table->string('permissionable_type');
+            $table->integer('role_id');
+            $table->integer('user_id');
             $table->timestamps();
         });
     }
@@ -29,6 +28,6 @@ class LadminGatePermission extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ladmin_permissions');
+        Schema::dropIfExists('roles');
     }
 }
