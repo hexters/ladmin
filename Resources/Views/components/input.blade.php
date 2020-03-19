@@ -1,8 +1,8 @@
-<div class="form-group">
+<div {{ $attributes->merge(['class' => 'form-group ' . $class]) }}>
   @if($label)
     <label for="{{ $name }}">{{ $label }}</label>
   @endif
-  <div class="input-group mb-3 border rounded @error($name) is-invalid @enderror">
+  <div class="input-group border rounded @error($name) is-invalid @enderror">
     @if(isset($prepend))
       <div class="input-group-prepend">
           <span class="input-group-text bg-white border-0">
