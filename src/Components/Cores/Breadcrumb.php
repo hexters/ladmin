@@ -20,7 +20,7 @@ class Breadcrumb extends Component {
         foreach($paths->toArray() as $path) {
           $path = in_array($path, ['administrator']) ? 'Dashboard' : $path;
           if($path && (!$this->isUuid($path) || !is_numeric($path))) {
-            $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/{$path}";
+            $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/" . strtolower($path);
             $items->push([
               'url' => url($url),
               'name' => ucwords($path)
