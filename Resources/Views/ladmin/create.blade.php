@@ -1,5 +1,5 @@
 @extends('ladmin::layouts.app')
-@section('title', 'Dashboard');
+@section('title', $title ?? null);
 @section('content')
     Home Administrator
 @endsection
