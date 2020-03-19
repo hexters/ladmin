@@ -7,13 +7,13 @@ use Hexters\Ladmin\Models\Role;
 
 trait LadminTrait {
 
-  public function gates() {
+  public function roles() {
     return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id', 'id', 'id');
   }
 
   public function getPermissionAttribute() {
     $permissions = [];
-    foreach($this->gates as $gate) {
+    foreach($this->roles as $gate) {
       $gates = $gate->gates ?? [];
       foreach($gates as $gate) {
         if(!in_array($gate, $permissions)) {
