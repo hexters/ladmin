@@ -13,8 +13,8 @@ trait LadminTrait {
 
   public function getPermissionAttribute() {
     $permissions = [];
-    foreach($this->roles as $gate) {
-      $gates = $gate->gates ?? [];
+    foreach($this->roles as $role) {
+      $gates = $role->gates ?? [];
       foreach($gates as $gate) {
         if(!in_array($gate, $permissions)) {
           $permissions[] = $gate->gates;
