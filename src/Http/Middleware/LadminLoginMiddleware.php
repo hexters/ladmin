@@ -16,7 +16,7 @@ class LadminLoginMiddleware {
     public function handle($request, Closure $next) {
 
         if(auth()->guard(config('ladmin.auth.guard', 'web'))->guest()) {
-            return redirect()->route('administrator.login.index');
+            return redirect()->route('administrator.login');
         }
 
         Auth::shouldUse(config('ladmin.auth.guard', 'web'));
