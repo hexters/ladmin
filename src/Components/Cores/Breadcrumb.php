@@ -22,7 +22,7 @@ class Breadcrumb extends Component {
           $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/{$path}";
           $items->push([
             'url' => url($url),
-            'name' => !$this->isUuid($path) || !is_numeric($path) ? ucwords($path) : 'Details'
+            'name' => !$this->isUuid($path) ? ucwords($path) : 'Details'
           ]);
         }
         $this->items = $items;
