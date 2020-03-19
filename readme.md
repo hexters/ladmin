@@ -89,6 +89,17 @@ Ladmin::route(function() {
 
 ```
 
+Open file `app/Http/Kernel.php` and replace `Authenticate::class`
+```
+. . .
+
+protected $routeMiddleware = [
+  'auth' => \App\Http\Middleware\LadminAuthenticate::class,
+
+. . .
+
+```
+
 Blade extend layout
 ```
 
