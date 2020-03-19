@@ -22,7 +22,7 @@ class Breadcrumb extends Component {
           $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/{$path}";
           $items->push([
             'url' => url($url),
-            'name' => !$this->isUuid($path) ? ucwords($path) : 'Details'
+            'name' => $this->isUuid($path) || is_numeric($path) ? 'Details' : $this->name($path)
           ]);
         }
         $this->items = $items;
@@ -36,6 +36,12 @@ class Breadcrumb extends Component {
     public function render()
     {
         return view('ladmin::components.cores.breadcrumb');
+    }
+
+    public function name($name) {
+      $name = str_replace('-', ' ', $name);
+      $name = str_replace('_', ' ', $name);
+      return ucwords($name);
     }
 
     public function isUuid($value) {
