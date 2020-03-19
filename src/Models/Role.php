@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+namespace Hexters\Ladmin\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
