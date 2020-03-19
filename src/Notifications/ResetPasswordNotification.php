@@ -19,7 +19,6 @@ class ResetPasswordNotification extends Notification implements ShouldQueue {
      * @return void
      */
     public function __construct($token, $email) {
-        parent::__construct($token);
         $this->email = $email;
     }
 
