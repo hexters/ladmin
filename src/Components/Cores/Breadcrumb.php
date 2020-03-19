@@ -19,13 +19,11 @@ class Breadcrumb extends Component {
         $url = '';
         foreach($paths->toArray() as $path) {
           $path = in_array($path, ['administrator']) ? 'Dashboard' : $path;
-          if($path && (!$this->isUuid($path) || !is_numeric($path))) {
-            $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/{$path}";
-            $items->push([
-              'url' => url($url),
-              'name' => ucwords($path)
-            ]);
-          }
+          $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/{$path}";
+          $items->push([
+            'url' => url($url),
+            'name' => !$this->isUuid($path) ? ucwords($path) : 'Details'
+          ]);
         }
         $this->items = $items;
     }
