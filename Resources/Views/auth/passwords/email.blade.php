@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col col-lg-5 mt-5">
 
-            <div class="text-center">
+            <div class="text-center mb-5">
                 <h4 class="font-weight-bold">Reset Password</h4>
             </div>
 
