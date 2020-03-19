@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Administrator\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Hexters\Ladmin\Http\Middleware\LadminGuestMiddleware;
 
 class LoginController extends Controller
 {
@@ -34,8 +35,7 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct() {
-        $guard = config('ladmin.auth.guard', 'web');
-        $this->middleware("guest:{$guard}")->except('logout');
+        $this->middleware([LadminGuestMiddleware::class])->except('logout');
     }
 
     /**
