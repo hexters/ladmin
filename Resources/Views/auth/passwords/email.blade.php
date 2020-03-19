@@ -22,6 +22,7 @@
                     </x-ladmin-input>
                     
                     <div class="form-group text-right mb-0">
+                        <a href="{{ route('administrator.login') }}" class="btn btn-link float-left">&larr; Back to Login</a>
                         <button type="submit" class="btn btn-primary">
                             {{ __('Send Password Reset Link') }}
                         </button>
