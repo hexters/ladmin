@@ -2,6 +2,7 @@
 
 namespace Hexters\Ladmin\Routes;
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route as BaseRoute;
 use Hexters\Ladmin\Http\Middleware\LadminLoginMiddleware;
 
@@ -13,7 +14,7 @@ class Ladmin {
       'namespace' => 'Administrator',
       'as' => 'administrator.'
     ], function() use ($function) {
-      BaseRoute::resource('/login', 'Auth\LoginController')->only(['index', 'store']);
+      Auth::routes([ 'register' => false ]);
       BaseRoute::group([
         'middleware' => [ LadminLoginMiddleware::class ],
       ], function() use ($function) {
