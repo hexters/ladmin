@@ -9,7 +9,9 @@
             "email": "hexters@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "laravel/ui": "^2.0"
+    },
     "extra": {
         "laravel": {
             "providers": [
