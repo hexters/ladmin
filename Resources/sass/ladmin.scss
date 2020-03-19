@@ -216,10 +216,13 @@
     width: 100%;
     .ladmin-page-title {
       margin-bottom: 1rem;
-      .breadcrumb {
-        background: none !important;
-        position: absolute;
-        right: 0;
+      .breadcrumb-container {
+        text-align: right;
+        .breadcrumb {
+          background: none !important;
+          margin: 0;
+          display: inline-flex;
+        }
       }
       h4 {
         margin: 0;
@@ -254,5 +257,10 @@
     .ladmin-content {
       padding-left: 0 !important;
     }
+  }
+
+  .breadcrumb-container {
+    display: none;
+
   }
 }

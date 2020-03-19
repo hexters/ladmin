@@ -129,8 +129,20 @@
         @include('ladmin::layouts._alert')
         <div class="ladmin-page-title">
           <div class="container-fluid" style="position: relative;">
-            <x-ladmin-breadcrumb />
-            <h4>@yield('title', 'Page Title')</h4>
+
+            <div class="row">
+              <div class="col-lg-6">
+                <h4>
+                  @if(request()->has('back'))
+                    <a href="{{ request()->get('back') }}" class="btn btn-outline-primary btn-sm mr-1 px-3">&larr;</a>
+                  @endif
+                  <h4>@yield('title', 'Page Title')</h4>
+                </h4>
+              </div>
+              <div class="col-lg-6 breadcrumb-container">
+                <x-ladmin-breadcrumb />
+              </div>
+            </div>
           </div>
         </div>
         <div class="container-fluid">
