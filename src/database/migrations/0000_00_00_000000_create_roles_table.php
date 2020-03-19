@@ -27,7 +27,7 @@ class CreateRolesTable extends Migration
         $menu = new Menu;
         Role::create([
             'name' => 'Super Admin',
-            'gates' => $menu->gates($menu->menus)
+            'gates' => $menu->gates($menu->menus) ?? []
         ]);
     }
 
