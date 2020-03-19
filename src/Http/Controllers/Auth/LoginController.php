@@ -60,7 +60,7 @@ class LoginController extends Controller
 
         $request->session()->invalidate();
 
-        return redirect()->route('administrator.login.index');
+        return redirect()->route('administrator.login');
     }
 
 }
