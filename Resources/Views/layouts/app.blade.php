@@ -102,16 +102,7 @@
 
             <ul class="dropdown-menu dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">
                 <li class="ladmin-top-menu-body">
-                  <ul class="ladmin-top-menu-list">
-                    <li>
-                      <a href="#">Profile</a>
-                    </li>
-                    <x-ladmin-toprightmenu />
-                    <li>
-                      <a href="javascript:void(0);" onclick="document.getElementById('ladmin-logout').submit()">Logout</a>
-                      <form action="{{ route('administrator.logout') }}" id="ladmin-logout" method="post">@csrf</form>
-                    </li>
-                  </ul>
+                  <x-ladmin-toprightmenu />
                 </li>
             </ul>
         </li>
