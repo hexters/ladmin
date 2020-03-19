@@ -17,7 +17,7 @@ trait LadminTrait {
       $gates = $role->gates ?? [];
       foreach($gates as $gate) {
         if(!in_array($gate, $permissions)) {
-          $permissions[] = $gate->gates;
+          $permissions[] = $gate;
         }
       }
     }
