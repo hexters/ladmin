@@ -13,6 +13,8 @@ class ResetPasswordNotification extends Notification implements ShouldQueue {
 
     protected $email;
 
+    protected $token;
+
     /**
      * Create a new notification instance.
      *
@@ -20,6 +22,7 @@ class ResetPasswordNotification extends Notification implements ShouldQueue {
      */
     public function __construct($token, $email) {
         $this->email = $email;
+        $this->token = $token;
     }
 
     /**
