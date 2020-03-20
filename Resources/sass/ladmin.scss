@@ -156,9 +156,10 @@
 
         &.active {
           color: $blue;
-          a {
+          > a {
             color: $blue;
           }
+          
           > ul {
             display: block;
           }
