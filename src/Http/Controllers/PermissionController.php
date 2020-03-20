@@ -12,9 +12,9 @@ class PermissionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
-        //
+    public function index() {
+        
+        return view('ladmin::ladmin.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class PermissionController extends Controller
      */
     public function create()
     {
-        //
+        return view('ladmin::ladmin.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class PermissionController extends Controller
      */
     public function show($id)
     {
-        //
+        return view('ladmin::ladmin.show');
     }
 
     /**
@@ -57,7 +57,7 @@ class PermissionController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('ladmin::ladmin.edit');
     }
 
     /**

@@ -13,8 +13,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        
-        return view('ladmin::ladmin.index');
+        $data['title'] = 'User Admin';
+        return view('ladmin::ladmin.index', $data);
     }
 
     /**
