@@ -12,6 +12,11 @@ use Hexters\Ladmin\Components\Menus\Sidebar;
 use Hexters\Ladmin\Components\Menus\Toprightmenu;
 use Hexters\Ladmin\Components\Cores\Breadcrumb;
 
+/**
+ * Facades
+ */
+use Hexters\Ladmin\Helpers\TableData;
+
 class LadminServiceProvider extends ServiceProvider
 {
     /**
@@ -71,5 +76,13 @@ class LadminServiceProvider extends ServiceProvider
             Breadcrumb::class,
             Toprightmenu::class
         ]);
+
+
+        /**
+         * Binding Facades
+         */
+        $this->app->bind('TableData', function() {
+            return new TableData;
+        });
     }
 }

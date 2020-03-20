@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Hexters\Ladmin\Facades\TableData;
+use App\User;
 
 class UserAdminController extends Controller {
   
@@ -13,8 +15,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        $data['title'] = 'User Admin';
-        return view('ladmin::ladmin.index', $data);
+        return TableData::title('User Admin')->render(User::class);
     }
 
     /**
