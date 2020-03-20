@@ -19,7 +19,7 @@ return [
          * ['administrator.account.admin.show', ['uuid-uuid-uuid', 'foo' => 'bar']] --> https://domain.com/administrator/account/admin/uuid-uuid-uuid?foo=bar
          */
         'route' => ['administrator.account.admin.index', []],
-        'isActive' => 'account/admin/*',
+        'isActive' => 'account/admin*',
         'id' => '',
         'gates' => [
           [
@@ -51,7 +51,7 @@ return [
         'gate' => 'administrator.access.role.index',
         'name' => 'Role',
         'route' => ['administrator.access.role.index', []],
-        'isActive' => 'access/role/*',
+        'isActive' => 'access/role*',
         'id' => '',
         'gates' => [
           [
@@ -71,7 +71,7 @@ return [
         'gate' => 'administrator.access.permission.index',
         'name' => 'Permission',
         'route' => ['administrator.access.permission.index', []],
-        'isActive' => 'access/permission/*',
+        'isActive' => 'access/permission*',
         'id' => '',
         'gates' => [
           [
