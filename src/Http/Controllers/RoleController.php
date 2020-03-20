@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Hexters\Ladmin\Facades\TableData;
+use Hexters\Ladmin\Models\Role;
 
 class RoleController extends Controller
 {
@@ -13,8 +15,7 @@ class RoleController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        
-        return view('ladmin::ladmin.index');
+        return TableData::title('Role')->render(Role::class);
     }
 
     /**

@@ -24,7 +24,7 @@ interface MasterCrud {
    * @param [String] $name
    * @return String
    */
-  public function createdRouteName($name);
+  public function createdRouteName();
 
   /**
    * Action
@@ -32,5 +32,5 @@ interface MasterCrud {
    * @param [Collection] $item
    * @return String
    */
-  public function actions($item);
+  public function actions();
 }
