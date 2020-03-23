@@ -3,7 +3,7 @@
 @section('content')
     
   <x-ladmin-card>
-    <form action="{{ route('administrator.account.admin.edit', $user->id) }}" method="post">
+    <form action="{{ route('administrator.account.admin.update', $user->id) }}" method="post">
       @csrf 
       @method('PUT')
       
