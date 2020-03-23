@@ -81,6 +81,11 @@ $(function() {
   });
 });
 
+document.querySelectorAll('.dt-bootstrap4').forEach(el => {
+  let row = el.querySelectorAll('.row')[0];
+  row.querySelectorAll('div')[0].remove();
+});
+
 setTimeout(() => {
   document.querySelectorAll('.dt-bootstrap4').forEach(el => {
     let row = el.querySelectorAll('.row')[0];
