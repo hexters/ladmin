@@ -12,7 +12,7 @@ class UserRepository extends Repository {
   }
 
   public function datatables() {
-    return Datatables::eloquent($this->model)
+    return Datatables::eloquent($this->model->whereNotNull('id'))
       ->addColumn('action', function($item) {
         return 'Action';
       })
