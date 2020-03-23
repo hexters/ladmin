@@ -3,8 +3,6 @@
 namespace App\Repositories;
 
 use App\User;
-use Datatable;
-use Yajra\Datatables\Facades\Datatables;
 
 class UserRepository extends Repository {
   
@@ -13,7 +11,7 @@ class UserRepository extends Repository {
   }
 
   public function datatables() {
-    return Datatable::eloquest($this->model);
+    return Datatables::eloquest($this->model);
   }
 
   public function datatablesOptions() {
