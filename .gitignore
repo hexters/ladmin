@@ -1,5 +1,5 @@
 .vscode
 /vendor
 node_modules
-#composer.lock
+
 dist/app.js.LICENSE.txt
