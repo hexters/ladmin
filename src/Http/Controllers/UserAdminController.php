@@ -12,7 +12,7 @@ class UserAdminController extends Controller {
 
     protected $repository;
 
-    public function __construct(UserRepository $request) {
+    public function __construct(UserRepository $repository) {
         $this->repository = $repository; 
     }
   
