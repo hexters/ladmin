@@ -24,9 +24,9 @@ class PermissionController extends Controller {
     public function index(Request $request) {
         if(Gate::denies('administrator.access.permission.index')) abort(403);
         if($request->ajax()) {
-            return $this->repository->datatables();
+            return $this->repository->datatablesPermission();
         }
-        return view('ladmin::ladmin.index', $this->repository->datatablesOptions());
+        return view('ladmin::ladmin.index', $this->repository->datatablesOptionsPermission());
     }
     
 
