@@ -25,11 +25,11 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
           'show' => null,
           'edit' => [
             'gate' => 'administrator.account.admin.update',
-            'url' => route('administrator.account.admin.edit', $item->id)
+            'url' => route('administrator.account.admin.edit', [$item->id, 'back' => request()->fullUrl()])
           ],
           'destroy' => [
             'gate' => 'administrator.account.admin.destroy',
-            'url' => route('administrator.account.admin.destroy', $item->id),
+            'url' => route('administrator.account.admin.destroy', [$item->id, 'back' => request()->fullUrl()]),
           ]
         ]);
       })

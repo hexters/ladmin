@@ -54,7 +54,7 @@ class UserAdminController extends Controller {
         ]);
 
         try {
-            $this->repository->createUser($request, $id);
+            $this->repository->createUser($request);
             session()->flash('success', [
                 'User has been created sucessfully'
             ]);
