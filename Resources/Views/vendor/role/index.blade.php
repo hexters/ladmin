@@ -1,5 +1,5 @@
 @extends('ladmin::layouts.app')
-@section('title', 'Role Admin')
+@section('title', 'Admin Role')
 @section('content')
     
   <x-ladmin-card>
