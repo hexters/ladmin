@@ -14,7 +14,7 @@ use Hexters\Ladmin\Components\Input;
 use Hexters\Ladmin\Components\Menus\Sidebar;
 use Hexters\Ladmin\Components\Menus\Toprightmenu;
 use Hexters\Ladmin\Components\Cores\Breadcrumb;
-use Hexters\Ladmin\Components\Cores\Datatables;
+use Hexters\Ladmin\Components\Datatables;
 
 
 class LadminServiceProvider extends ServiceProvider
