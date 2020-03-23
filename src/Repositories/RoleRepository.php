@@ -76,7 +76,6 @@ class RoleRepository extends Repository implements MasterRepositoryInterface {
         return view('ladmin::table.action', [
           'show' => [
             'title' => 'Assign Permission',
-            'icon' => null,
             'gate' => 'administrator.access.permission.show',
             'url' => route('administrator.access.permission.show', [$item->id, 'back' => request()->fullUrl()])
           ]
