@@ -19,8 +19,7 @@
                 "Hexters\\Ladmin\\LadminServiceProvider"
             ],
             "aliases": {
-                "Ladmin": "Hexters\\Ladmin\\Ladmin",
-                "Datatables": "Yajra\\Datatables\\Facades\\Datatables"
+                "Ladmin": "Hexters\\Ladmin\\Ladmin"
             }
         }
     },
