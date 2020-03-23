@@ -1,6 +1,6 @@
 <x-ladmin-input name="name" label="Full Name" type="text" :value="$user->name" old="true" required="true">
   <x-slot name="prepend">
-    <i class="fas fa-account"></i>
+    <i class="fas fa-user-circle"></i>
   </x-slot>
 </x-ladmin-input>
 
