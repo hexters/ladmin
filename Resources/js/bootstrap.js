@@ -2,7 +2,7 @@ try {
   
   window.jQuery = require('jquery').default;
   window.Popper = require('popper.js').default;
-  window.dt = require( 'datatables.net' )();
+  window.dt = require( 'datatables.net').default;
   
   require('bootstrap');
   require('datatables.net-dt');
