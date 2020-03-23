@@ -12,6 +12,11 @@ class UserRepository extends Repository {
     parent::__construct($model);
   }
 
+  /**
+   * Data for datatables
+   *
+   * @return Array
+   */
   public function datatables() {
     return Datatables::eloquent($this->model->whereNotNull('id'))
       ->addColumn('action', function($item) {
@@ -31,6 +36,11 @@ class UserRepository extends Repository {
       ->make(true);
   }
 
+  /**
+   * Option for datatables
+   *
+   * @return Array
+   */
   public function datatablesOptions() {
     return [
       'fields' => [
@@ -53,15 +63,22 @@ class UserRepository extends Repository {
     ];
   }
 
-  public function userUpdate(Request $request, $user) {
+  /**
+   * Update user
+   *
+   * @param Request $request
+   * @param [Model] $user
+   * @return Void
+   */
+  public function userUpdate(Request $request, $id) {
 
     if($request->has('pass')) {
       $request->merge([
         'password' => bcrypt($request->pass)
       ]);
     }
-
-    $this->model->update($request);
+    
+    $this->model->findOrFail($id)->update($request->all());
   }
 
 }
