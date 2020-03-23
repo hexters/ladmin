@@ -1,15 +1,15 @@
-@if(isset($edit))
-  @can($edit['gate'])
-    <a href="{{ $edit['url'] }}" class="btn btn-link text-muted">
-      <i class="far text-muted fa-edit"></i>
-    </a>
-  @endcan
-@endif
-
 @if(isset($show))
   @can($show['gate'])
     <a href="{{ $show['url'] }}" class="btn btn-link">
       <i class="far text-muted fa-eye"></i>
+    </a>
+  @endcan
+@endif
+
+@if(isset($edit))
+  @can($edit['gate'])
+    <a href="{{ $edit['url'] }}" class="btn btn-link text-muted">
+      <i class="far text-muted fa-edit"></i>
     </a>
   @endcan
 @endif
@@ -38,7 +38,7 @@
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">NO</button>
-              <button type="button" class="btn btn-outline-danger">YES</button>
+              <button type="submit" class="btn btn-outline-danger">YES</button>
             </div>
           </form>
         </div>
