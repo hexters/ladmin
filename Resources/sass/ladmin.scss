@@ -256,6 +256,14 @@
   }
 }
 
+.table-responsive {
+  .top-button {
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+  }
+}
+
 @media (min-width: 1200px) {
   .navbar-brand {
     width: 250px;
