@@ -59,4 +59,17 @@ menus.forEach(el => {
       el.className = classesNew.join(' ');
     }
   })
-})
+});
+
+/**
+ * Jquery Section
+ */
+$(function() {
+
+  document.querySelectorAll('.ladmin-datatable').forEach((el) => {
+    let table = el.querySelector('.table');
+    let options = $(table).data('options');
+    $(table).DataTable(options);
+  })
+
+});
