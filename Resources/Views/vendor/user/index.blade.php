@@ -4,7 +4,7 @@
     
   <x-ladmin-card>
     <x-slot name="flat">
-      <x-ladmin-datatables :fields="$fields" :optinos="$options" />
+      <x-ladmin-datatables :fields="$fields" :options="$options" />
     </x-slot>
   </x-ladmin-card>
 
