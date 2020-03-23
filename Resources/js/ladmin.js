@@ -1,3 +1,5 @@
+window.dt = require('datatables.net').default;
+
 /**
  * Button togle sidebar
  */
