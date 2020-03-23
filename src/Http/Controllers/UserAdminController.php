@@ -75,7 +75,7 @@ class UserAdminController extends Controller {
      */
     public function show($id)
     {
-        return abort(404);
+        return redirect()->route('administrator.account.admin.index');
     }
 
     /**
