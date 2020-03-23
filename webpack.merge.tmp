@@ -1,9 +1,10 @@
 /*
-| @fortawesome/fontawesome-free
-| datatables.net
-| datatables.net-bs4
+| Package required
 |
-| Ladmin asset
+| npm i @fortawesome/fontawesome-free --save
+| npm i datatables.net --save
+| npm i datatables.net-bs4 --save
+|
 */
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
