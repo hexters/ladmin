@@ -18,11 +18,11 @@ class UserRepository extends Repository {
           'show' => null,
           'edit' => [
             'gate' => 'administrator.account.admin.update',
-            'url' => route('administrator.account.user.edit', $item->id)
+            'url' => route('administrator.account.admin.edit', $item->id)
           ],
           'destroy' => [
             'gate' => 'administrator.account.admin.destroy',
-            'url' => route('administrator.account.user.destroy', $item->id),
+            'url' => route('administrator.account.admin.destroy', $item->id),
           ]
         ]);
       })
