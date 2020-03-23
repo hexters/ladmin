@@ -22,7 +22,12 @@ class UserRepository extends Repository {
 
   public function datatablesOptions() {
     return [
-      'fields' => ['ID', 'Name', 'Email', 'Action'],
+      'fields' => [
+        [ 'name' => 'ID', 'class' => 'text-center'],
+        [ 'name' => 'Name' ],
+        [ 'name' => 'Email' ],
+        [ 'name' => 'Action', 'class' => 'text-center' ]
+      ],
       'options' => [
         'processing' => true,
             'serverSide' => true,

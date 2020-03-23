@@ -246,6 +246,16 @@
 .is-invalid {
   border-color: $red !important;
 }
+.dt-bootstrap4 {
+  .row {
+    &:first-child {
+      padding: 1rem !important;
+    }
+    &:last-child {
+      padding: 1rem !important;
+    }
+  }
+}
 
 @media (min-width: 1200px) {
   .navbar-brand {

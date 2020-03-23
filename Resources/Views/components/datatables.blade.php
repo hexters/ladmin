@@ -3,7 +3,7 @@
     <thead>
       <tr>
         @foreach ($fields as $field)
-          <td>{{ $field }}</td>
+          <th class="{{ $field['class'] ?? null }}">{{ $field['name'] }}</th>
         @endforeach
       </tr>
     </thead>
