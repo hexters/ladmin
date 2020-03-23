@@ -101,7 +101,7 @@
 .ladmin-container {
   
   .ladmin-sidebar {
-    z-index: 1000;
+    z-index: 1040;
     width: 250px;
     float: left;
     min-height: 100vh;
@@ -113,7 +113,6 @@
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     padding: 1rem;
     position: absolute;
-    z-index: 10000;
 
     > ul {
       padding: 0;
