@@ -1,6 +1,6 @@
 @extends('ladmin::layouts.app')
 @section('title', 'User Admin')
-@section('component')
+@section('content')
     
   <x-ladmin-card>
     <x-slot name="flat">
