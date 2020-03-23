@@ -103,7 +103,7 @@ class RoleRepository extends Repository implements MasterRepositoryInterface {
         'topButton' => null,
         'processing' => true,
             'serverSide' => true,
-            'ajax' => route('administrator.access.role.index'),
+            'ajax' => route('administrator.access.permission.index'),
             'columns' => [
                 ['data' => 'id', 'class' => 'text-center'],
                 ['data' => 'name'],
