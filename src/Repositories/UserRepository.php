@@ -85,8 +85,11 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
 
   public function createUser(Request $request) {
     
+    $request->merge([
+      'password' => bcrypt($request->pass)
+    ]);
     $this->model->create($request->all());
-    
+
   }
 
 }

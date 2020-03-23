@@ -50,7 +50,7 @@ class UserAdminController extends Controller {
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email'],
-            'password' => ['required']
+            'pass' => ['required']
         ]);
 
         try {
