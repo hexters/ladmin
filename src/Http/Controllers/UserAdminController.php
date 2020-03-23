@@ -98,7 +98,7 @@ class UserAdminController extends Controller {
                 'Delete has been sucessfully'
             ]);
             return redirect()->back();
-        } catch (\LadminException $e) {
+        } catch (LadminException $e) {
             return redirect()->back()->withErrors([
                 $e->getMessage()
             ]);
