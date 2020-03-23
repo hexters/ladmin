@@ -26,8 +26,7 @@
           <form action="{{ $destroy['url'] }}" method="post">
             @csrf
             @method('DELETE')
-
-            <div class="modal-header">
+            <div class="modal-header border-0">
               <h5 class="modal-title" id="action-{{ Str::slug($destroy['url']) }}Label">Confirmation!</h5>
               <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
@@ -36,9 +35,9 @@
             <div class="modal-body">
               Do you want to delete this item?
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">NO</button>
-              <button type="submit" class="btn btn-outline-danger">YES</button>
+            <div class="modal-footer border-0">
+              <button type="button" class="btn btn-sm btn-outline-secondary" data-dismiss="modal">NO</button>
+              <button type="submit" class="btn btn-sm btn-danger">YES</button>
             </div>
           </form>
         </div>

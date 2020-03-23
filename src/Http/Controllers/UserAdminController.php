@@ -6,8 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Gate;
-
-
+use Hexters\Ladmin\Exceptions\LadminException;
 
 class UserAdminController extends Controller {
 
@@ -91,8 +90,18 @@ class UserAdminController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        
+        try {
+            $this->repository->getModel()->findOrFail($id)->delete();
+            session()->flash('success', [
+                'Delete has been sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (\LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
     }
 }

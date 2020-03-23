@@ -116,7 +116,7 @@
       </div>
 
       <div class="ladmin-content">
-        @include('ladmin::layouts._alert')
+        <x-ladmin-alert />
         <div class="ladmin-page-title">
           <div class="container-fluid" style="position: relative;">
 

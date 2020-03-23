@@ -12,7 +12,7 @@
                 <form action="{{ url('administrator/login') }}" method="post" class="my-3 mx-4">
                     @csrf
 
-                    @include('ladmin::layouts._alert')
+                    <x-ladmin-alert />
 
                     <x-ladmin-input type="email" name="email" :old="true" placeholder="Email Address">
                         <x-slot name="prepend">

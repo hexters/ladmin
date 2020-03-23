@@ -10,3 +10,15 @@
         </ul>
     </div>
 @endif
+
+@foreach ($status as $state)
+    @if(session()->has($state))
+      <div class="alert alert-{{ $state }}">
+        <ul>
+          @foreach (session()->get($state) as $item)
+            <li>{!! $item !!}</li>
+          @endforeach
+        </ul>
+      </div>
+    @endif
+@endforeach
