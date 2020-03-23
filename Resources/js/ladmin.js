@@ -67,11 +67,10 @@ menus.forEach(el => {
  * Jquery Section
  */
 $(function() {
-
-  document.querySelectorAll('.ladmin-datatable').forEach((el) => {
-    let table = el.querySelector('.table');
-    let options = $(table).data('options');
-    $(table).DataTable(options);
-  })
+  
+  $('.ladmin-datatable').each(function() {
+    let options = $(this).data('options');
+    $(this).DataTable(options);
+  });
 
 });
