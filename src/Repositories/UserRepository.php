@@ -70,14 +70,14 @@ class UserRepository extends Repository {
    * @param [Model] $user
    * @return Void
    */
-  public function userUpdate(Request $request, $id) {
+  public function updateUser(Request $request, $id) {
 
     if($request->has('pass')) {
       $request->merge([
         'password' => bcrypt($request->pass)
       ]);
     }
-    
+
     $this->model->findOrFail($id)->update($request->all());
   }
 
