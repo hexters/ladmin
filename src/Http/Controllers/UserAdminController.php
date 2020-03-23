@@ -14,7 +14,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('ladmin::ladmin.index');
+        return view('vendor.ladmin.user.index');
     }
 
     /**
