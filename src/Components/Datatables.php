@@ -17,7 +17,7 @@ class Datatables extends Component {
      */
     public function __construct($fields, $options) {
         $this->fields = $fields;
-        $this->topButton = $topButton;
+        $this->topButton = $topButton = null;
         $this->options = $options ?? [];
     }
 
