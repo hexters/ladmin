@@ -14,6 +14,7 @@ use Hexters\Ladmin\Components\Input;
 use Hexters\Ladmin\Components\Menus\Sidebar;
 use Hexters\Ladmin\Components\Menus\Toprightmenu;
 use Hexters\Ladmin\Components\Cores\Breadcrumb;
+use Hexters\Ladmin\Components\Cores\Alert;
 use Hexters\Ladmin\Components\Datatables;
 
 
@@ -79,7 +80,8 @@ class LadminServiceProvider extends ServiceProvider
             Sidebar::class,
             Breadcrumb::class,
             Toprightmenu::class,
-            Datatables::class
+            Datatables::class,
+            Alert::class
         ]);
         
 
