@@ -3,6 +3,7 @@
 namespace Hexters\Ladmin\Exceptions;
 
 use Exception;
+use Log;
 use Carbon\Carbon;
 
 class LadminException extends Exception {
