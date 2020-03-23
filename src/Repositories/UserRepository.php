@@ -5,8 +5,9 @@ namespace App\Repositories;
 use App\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\Datatables;
+use Hexters\Ladmin\Contracts\MasterRepositoryInterface;
 
-class UserRepository extends Repository {
+class UserRepository extends Repository implements MasterRepositoryInterface {
   
   public function __construct(User $model) {
     parent::__construct($model);
@@ -80,6 +81,12 @@ class UserRepository extends Repository {
     }
 
     $this->model->findOrFail($id)->update($request->all());
+  }
+
+  public function createUser(Request $request) {
+    
+    $this->model->create($request->all());
+    
   }
 
 }

@@ -45,9 +45,26 @@ class UserAdminController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'password' => ['required']
+        ]);
+
+        try {
+            $this->repository->createUser($request, $id);
+            session()->flash('success', [
+                'User has been created sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
+        
     }
 
     /**
