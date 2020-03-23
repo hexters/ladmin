@@ -14,7 +14,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return view('ladmin::ladmin.index');
+        return view('vendor.ladmin.user.index');
     }
 
     /**
@@ -24,7 +24,7 @@ class UserAdminController extends Controller {
      */
     public function create()
     {
-        return view('ladmin::ladmin.create');
+        return view('vendor.ladmin.user.create');
     }
 
     /**
@@ -46,7 +46,7 @@ class UserAdminController extends Controller {
      */
     public function show($id)
     {
-        return view('ladmin::ladmin.show');
+        return abort(404);
     }
 
     /**
@@ -57,7 +57,7 @@ class UserAdminController extends Controller {
      */
     public function edit($id)
     {
-        return view('ladmin::ladmin.edit');
+        return view('vendor.ladmin.user.edit');
     }
 
     /**

@@ -23,7 +23,7 @@ class Ladmin {
         BaseRoute::resource('/profile', 'ProfileController')->only(['index', 'store']);
 
         BaseRoute::group(['as' => 'account.', 'prefix' => 'account'], function() {
-          BaseRoute::resource('/admin', 'UserAdminController');
+          BaseRoute::resource('/admin', 'UserAdminController')->except(['show']);
         });
 
         BaseRoute::group(['as' => 'access.', 'prefix' => 'access'], function() {
