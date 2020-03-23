@@ -10,6 +10,11 @@
     @endif
     {{ $slot }}
   </div>
+  @if(isset($flat))
+  <div>
+    {{ $flat }}
+  </div>
+  @endif
   @if(isset($footer))
     <div class="card-footer">
       {{ $footer }}

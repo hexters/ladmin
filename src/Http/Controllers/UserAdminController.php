@@ -4,17 +4,27 @@ namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\UserRepository;
+use Illuminate\Support\Facades\Gate;
 
 
 class UserAdminController extends Controller {
+
+    protected $repository;
+
+    public function __construct(UserRepository $request) {
+        $this->repository = $repository; 
+    }
   
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        return view('vendor.ladmin.user.index');
+    public function index(Request $request) {
+        if(Gate::denies('administrator.account.admin.index')) abort(403);
+        if($request->ajax()) return $this->repository->datatables();
+        return view('vendor.ladmin.user.index', $this->repository->datatablesOptions());
     }
 
     /**
