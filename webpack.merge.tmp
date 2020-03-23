@@ -1,0 +1,2 @@
+mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
+   .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');

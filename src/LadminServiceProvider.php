@@ -48,6 +48,8 @@ class LadminServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../dist/app.js' => public_path('/js/ladmin/app.js'),
             __DIR__ . '/../dist/app.css' => public_path('/css/ladmin/app.css'),
+            __DIR__ . '/../Resources/sass/' => base_path('/resources/sass/ladmin'),
+            __DIR__ . '/../Resources/js/' => base_path('/resources/js/ladmin'),
         ], 'assets');
 
         /**
