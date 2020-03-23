@@ -8,6 +8,7 @@ use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Gate;
 
 
+
 class UserAdminController extends Controller {
 
     protected $repository;
@@ -23,7 +24,9 @@ class UserAdminController extends Controller {
      */
     public function index(Request $request) {
         if(Gate::denies('administrator.account.admin.index')) abort(403);
-        if($request->ajax()) return $this->repository->datatables();
+        if($request->ajax()) {
+            return $this->repository->datatables();
+        }
         return view('vendor.ladmin.user.index', $this->repository->datatablesOptions());
     }
 
