@@ -4,28 +4,31 @@ namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\RoleRepository;
+use Illuminate\Support\Facades\Gate;
+use Hexters\Ladmin\Exceptions\LadminException;
 
-class PermissionController extends Controller
-{
+class PermissionController extends Controller {
+
+    protected $repository;
+
+    public function __construct(RoleRepository $repository) {
+        $this->repository = $repository; 
+    }
+  
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        
-        return view('ladmin::ladmin.index');
+    public function index(Request $request) {
+        if(Gate::denies('administrator.access.permission.index')) abort(403);
+        if($request->ajax()) {
+            return $this->repository->datatables();
+        }
+        return view('ladmin::ladmin.index', $this->repository->datatablesOptions());
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        return view('ladmin::ladmin.create');
-    }
+    
 
     /**
      * Store a newly created resource in storage.
@@ -33,9 +36,25 @@ class PermissionController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        if(Gate::denies('administrator.access.permission.create')) abort(403);
+
+        $request->validate([
+            'name' => ['required']
+        ]);
+
+        try {
+            $this->repository->createRole($request);
+            session()->flash('success', [
+                'Permission has been signed sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
+        
     }
 
     /**
@@ -44,42 +63,12 @@ class PermissionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return view('ladmin::ladmin.show');
+    public function show($id) {
+        if(Gate::denies('administrator.access.permission.update')) abort(403);
+
+        $data['role'] = $this->repository->getModel()->findOrFail($id);
+        return view('vendor.ladmin.permission.show', $data);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        return view('ladmin::ladmin.edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }
