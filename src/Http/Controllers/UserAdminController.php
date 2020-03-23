@@ -67,9 +67,9 @@ class UserAdminController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        return view('vendor.ladmin.user.edit');
+    public function edit($id) {
+        $data['user'] = $this->repository->getModel()->findOrFail($id);
+        return view('vendor.ladmin.user.edit', $data);
     }
 
     /**
