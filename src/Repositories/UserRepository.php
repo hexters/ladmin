@@ -13,7 +13,7 @@ class UserRepository extends Repository {
 
   public function datatables() {
     return Datatables::eloquent($this->model)
-      ->addColumd('action', function($item) {
+      ->addColumn('action', function($item) {
         return 'Action';
       })
       ->escapeColumns([])
