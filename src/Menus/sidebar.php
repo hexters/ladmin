@@ -85,7 +85,7 @@ return [
             'description' => 'User can view detail for all permission'
           ],
           [
-            'gate' => 'administrator.access.permission.update',
+            'gate' => 'administrator.access.permission.store',
             'title' => 'Assign Permission',
             'description' => 'User can assign for all permission'
           ]
