@@ -10,7 +10,7 @@
   </x-slot>
 </x-ladmin-input>
 
-<x-ladmin-input name="password" label="Password" type="password">
+<x-ladmin-input name="pass" label="Password" type="password" required="false">
   <x-slot name="prepend">
     <i class="fas fa-lock"></i>
   </x-slot>

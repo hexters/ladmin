@@ -79,9 +79,22 @@ class UserAdminController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email']
+        ]);
+        try {
+            $this->repository->updateUser($request, $id);
+            session()->flash('success', [
+                'Update has been sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
     }
 
     /**

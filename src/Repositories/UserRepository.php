@@ -3,6 +3,7 @@
 namespace App\Repositories;
 
 use App\User;
+use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\Datatables;
 
 class UserRepository extends Repository {
@@ -50,6 +51,17 @@ class UserRepository extends Repository {
             ]
       ]
     ];
+  }
+
+  public function userUpdate(Request $request, $user) {
+
+    if($request->has('pass')) {
+      $request->merge([
+        'password' => bcrypt($request->pass)
+      ]);
+    }
+
+    $this->model->update($request);
   }
 
 }
