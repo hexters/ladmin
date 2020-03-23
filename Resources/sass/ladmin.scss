@@ -254,6 +254,10 @@
       padding: 1rem !important;
     }
   }
+
+  .dataTables_wrapper div.dataTables_filter {
+    text-align: left;
+  }
 }
 
 @media (min-width: 1200px) {
