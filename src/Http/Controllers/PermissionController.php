@@ -37,7 +37,7 @@ class PermissionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        if(Gate::denies('administrator.access.permission.create')) abort(403);
+        if(Gate::denies('administrator.access.permission.assign')) abort(403);
 
         $request->validate([
             'name' => ['required']
@@ -64,7 +64,7 @@ class PermissionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        if(Gate::denies('administrator.access.permission.update')) abort(403);
+        if(Gate::denies('administrator.access.permission.show')) abort(403);
 
         $data['role'] = $this->repository->getModel()->findOrFail($id);
         return view('vendor.ladmin.permission.show', $data);
