@@ -53,6 +53,16 @@ class LadminServiceProvider extends ServiceProvider
         ], 'assets');
 
         /**
+         * Merge asset
+         */
+        if(file_exists(base_path('webpack.mix.js'))) {
+            try {
+                $merge = __DIR__ . '/../webpack.merge.tmp';
+                file_put_contents(base_path('webpack.mix.js'), $merge);
+            } catch (\Exception $e) {}
+        }
+
+        /**
          * Publish 
          * php artisan vendor:publish --tag=core
          */
