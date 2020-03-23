@@ -69,6 +69,19 @@ menus.forEach(el => {
 $(function() {
   $('.ladmin-datatables').each(function() {
     let options = $(this).data('options');
-    $(this).DataTable(options);
+    $(this).DataTable({
+      language: {
+        search: '',
+        searchPlaceholder: 'Search...'
+      },
+      bLengthChange: false,
+      iDisplayLength: 50,
+      ...options
+    });
   });
+});
+
+document.querySelectorAll('.dt-bootstrap4').forEach(el => {
+  let row = el.querySelectorAll('.row')[0];
+  row.querySelectorAll('div')[0].remove();
 });
