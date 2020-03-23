@@ -2,7 +2,7 @@
   <x-slot name="flat">
     <div class="table-responsive">
       <div class="top-button">
-        {!! $topButton ?? null !!}
+        {!! $options['topButton'] ?? null !!}
       </div>
       <table class="table ladmin-datatables" data-options='{!! json_encode($options) !!}'>
         <thead>

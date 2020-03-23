@@ -49,8 +49,8 @@ class UserRepository extends Repository {
         [ 'name' => 'Email' ],
         [ 'name' => 'Action', 'class' => 'text-center' ]
       ],
-      'topButton' => view('vendor.ladmin.user._partials._topButton'),
       'options' => [
+        'topButton' => view('vendor.ladmin.user._partials._topButton'),
         'processing' => true,
             'serverSide' => true,
             'ajax' => route('administrator.account.admin.index'),
