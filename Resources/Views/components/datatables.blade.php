@@ -1,5 +1,5 @@
 <div class="table-responsive">
-  <table class="table ladmin-datatable" data-options='{!! json_encode($options) !!}'>
+  <table class="table ladmin-datatables" data-options='{!! json_encode($options) !!}'>
     <thead>
       <tr>
         @foreach ($fields as $field)

@@ -189,7 +189,21 @@
         </div>
         <div class="container-fluid">
           <div class="card border-0 shadow-sm">
-            <div class="card-body"></div>
+            <div class="card-body">
+
+              <table class="table ladmin-datatables" data-options='{"processing":true,"serverSide":true,"ajax":"http:\/\/admin.dep\/administrator\/account\/admin","columns":[{"data":"id","class":"text-center"},{"data":"name"},{"data":"email"},{"data":"action","class":"text-center","orderable":false}]}'>
+                <thead>
+                  <tr>
+                    <td>ID</td>
+                    <td>Name</td>
+                    <td>Email</td>
+                    <td>Action</td>
+                  </tr>
+                </thead>
+                <tbody></tbody>
+              </table>
+
+            </div>
           </div>
         </div>
       </div>
