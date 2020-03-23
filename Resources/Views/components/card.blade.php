@@ -4,12 +4,16 @@
       {{ $header }}
     </div>
   @endif
+
+  @if(empty($flat))
   <div class="card-body">
     @if($title)
       <h4 class="card-title">{{ $title }}</h4>
     @endif
     {{ $slot }}
   </div>
+  @endif
+
   @if(isset($flat))
   <div>
     {{ $flat }}

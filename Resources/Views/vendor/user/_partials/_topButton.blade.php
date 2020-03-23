@@ -1,0 +1,1 @@
+<a href="{{ route('administrator.account.admin.create') }}" class="btn btn-primary">Create User</a>

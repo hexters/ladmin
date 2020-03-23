@@ -49,6 +49,7 @@ class UserRepository extends Repository {
         [ 'name' => 'Email' ],
         [ 'name' => 'Action', 'class' => 'text-center' ]
       ],
+      'topButton' => view('vendor.ladmin.user._partial._topButton'),
       'options' => [
         'processing' => true,
             'serverSide' => true,
