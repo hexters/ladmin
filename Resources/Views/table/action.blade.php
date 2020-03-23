@@ -1,12 +1,7 @@
 @if(isset($show))
   @can($show['gate'])
     <a href="{{ $show['url'] }}" class="btn btn-link">
-      @if(isset($show['icon']) && !is_null($show['icon']))
-        <i class="text-muted {{ $show['icon'] ?? null }}"></i>
-      @else 
-        <i class="far text-muted fa-eye"></i>
-      @endif
-      {!! $show['title'] ?? null !!}
+      {!! $show['title'] ?? '<i class="far text-muted fa-eye"></i>' !!}
     </a>
   @endcan
 @endif
@@ -14,12 +9,7 @@
 @if(isset($edit))
   @can($edit['gate'])
     <a href="{{ $edit['url'] }}" class="btn btn-link text-muted">
-      @if(isset($edit['icon']) && !is_null($edit['icon']))
-        <i class="text-muted {{ $edit['icon'] ?? null }}"></i>
-      @else 
-        <i class="far text-muted fa-edit"></i>
-      @endif
-      {!! $edit['title'] ?? null !!}
+      {!! $edit['title'] ?? '<i class="far text-muted fa-edit"></i>' !!}
     </a>
   @endcan
 @endif
@@ -27,12 +17,7 @@
 @if(isset($destroy))
   @can($destroy['gate'])
     <a href="{{ $destroy['url'] }}" class="btn btn-link" data-toggle="modal" data-target="#action-{{ Str::slug($destroy['url']) }}">
-      @if(isset($destroy['icon']) && !is_null($destroy['icon']))
-        <i class="text-muted {{ $destroy['icon'] ?? null }}"></i>
-      @else 
-        <i class="far text-muted fa-trash-alt"></i>
-      @endif
-      {!! $destroy['title'] ?? null !!}
+      {!! $destroy['title'] ?? '<i class="far text-muted fa-trash-alt"></i>' !!}
     </a>
 
     <div class="modal fade" id="action-{{ Str::slug($destroy['url']) }}" tabindex="-1" role="dialog" aria-labelledby="action-{{ Str::slug($destroy['url']) }}Label" aria-hidden="true">
