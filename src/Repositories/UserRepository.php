@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\User;
 use Datatable;
+use Yajra\Datatables\Facades\Datatables;
 
 class UserRepository extends Repository {
   
