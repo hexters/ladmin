@@ -44,6 +44,7 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
    */
   public function datatablesOptions() {
     return [
+      'title' => 'User Admin',
       'fields' => [
         [ 'name' => 'ID', 'class' => 'text-center'],
         [ 'name' => 'Name' ],

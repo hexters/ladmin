@@ -26,7 +26,7 @@ class UserAdminController extends Controller {
         if($request->ajax()) {
             return $this->repository->datatables();
         }
-        return view('vendor.ladmin.user.index', $this->repository->datatablesOptions());
+        return view('ladmin::ladmin.index', $this->repository->datatablesOptions());
     }
 
     /**

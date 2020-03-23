@@ -44,6 +44,7 @@ class RoleRepository extends Repository implements MasterRepositoryInterface {
    */
   public function datatablesOptions() {
     return [
+      'title' => 'Admin Role',
       'fields' => [
         [ 'name' => 'ID', 'class' => 'text-center'],
         [ 'name' => 'Name' ],
