@@ -34,8 +34,9 @@ class UserAdminController extends Controller {
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
+    public function create() {
+        if(Gate::denies('administrator.account.admin.create')) abort(403);
+
         return view('vendor.ladmin.user.create');
     }
 
@@ -46,7 +47,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        
+        if(Gate::denies('administrator.account.admin.create')) abort(403);
+
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email'],
@@ -73,8 +75,7 @@ class UserAdminController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         return redirect()->route('administrator.account.admin.index');
     }
 
@@ -85,6 +86,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
+        if(Gate::denies('administrator.account.admin.update')) abort(403);
+
         $data['user'] = $this->repository->getModel()->findOrFail($id);
         return view('vendor.ladmin.user.edit', $data);
     }
@@ -97,6 +100,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
+        if(Gate::denies('administrator.account.admin.update')) abort(403);
+
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email']
@@ -121,6 +126,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
+        if(Gate::denies('administrator.account.admin.destroy')) abort(403);
         
         try {
             $this->repository->getModel()->findOrFail($id)->delete();

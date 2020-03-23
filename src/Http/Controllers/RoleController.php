@@ -4,17 +4,29 @@ namespace App\Http\Controllers\Administrator;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Repositories\RoleRepository;
+use Illuminate\Support\Facades\Gate;
+use Hexters\Ladmin\Exceptions\LadminException;
 
-class RoleController extends Controller
-{
+class RoleController extends Controller {
+
+    protected $repository;
+
+    public function __construct(RoleRepository $repository) {
+        $this->repository = $repository; 
+    }
+  
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index() {
-        
-        return view('ladmin::ladmin.index');
+    public function index(Request $request) {
+        if(Gate::denies('administrator.access.role.index')) abort(403);
+        if($request->ajax()) {
+            return $this->repository->datatables();
+        }
+        return view('vendor.ladmin.role.index', $this->repository->datatablesOptions());
     }
 
     /**
@@ -22,9 +34,10 @@ class RoleController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return view('ladmin::ladmin.create');
+    public function create() {
+        if(Gate::denies('administrator.access.role.create')) abort(403);
+
+        return view('vendor.ladmin.role.create');
     }
 
     /**
@@ -33,9 +46,25 @@ class RoleController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(Request $request) {
+        if(Gate::denies('administrator.access.role.create')) abort(403);
+
+        $request->validate([
+            'name' => ['required']
+        ]);
+
+        try {
+            $this->repository->createRole($request);
+            session()->flash('success', [
+                'Role has been created sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
+        
     }
 
     /**
@@ -44,9 +73,8 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
-        return view('ladmin::ladmin.show');
+    public function show($id) {
+        return redirect()->route('administrator.access.role.index');
     }
 
     /**
@@ -55,9 +83,11 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
-        return view('ladmin::ladmin.edit');
+    public function edit($id) {
+        if(Gate::denies('administrator.access.role.update')) abort(403);
+
+        $data['role'] = $this->repository->getModel()->findOrFail($id);
+        return view('vendor.ladmin.role.edit', $data);
     }
 
     /**
@@ -67,9 +97,23 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        if(Gate::denies('administrator.access.role.update')) abort(403);
+
+        $request->validate([
+            'name' => ['required']
+        ]);
+        try {
+            $this->repository->updateRole($request, $id);
+            session()->flash('success', [
+                'Update has been sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
     }
 
     /**
@@ -78,8 +122,19 @@ class RoleController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        if(Gate::denies('administrator.access.role.destroy')) abort(403);
+        
+        try {
+            $this->repository->getModel()->findOrFail($id)->delete();
+            session()->flash('success', [
+                'Delete has been sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
     }
 }
