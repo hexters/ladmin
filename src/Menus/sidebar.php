@@ -31,6 +31,11 @@ return [
             'gate' => 'administrator.account.admin.update',
             'title' => 'Update admin',
             'description' => 'User can update admin'
+          ],
+          [
+            'gate' => 'administrator.account.admin.destroy',
+            'title' => 'Delete account',
+            'description' => 'User can delete account'
           ]
         ],
       ]
