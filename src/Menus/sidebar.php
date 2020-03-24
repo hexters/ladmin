@@ -44,6 +44,7 @@ return [
 
     ]
   ],
+
   [
     'gate' => 'administrator.access',
     'name' => 'Access',
@@ -99,12 +100,13 @@ return [
       ]
     ]
   ],
+
   [
     'gate' => 'administrator.system',
     'name' => 'System',
-    'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    'description' => 'System application control',
     'route' => null,
-    'isActive' => 'access/system*',
+    'isActive' => 'system*',
     'icon' => 'fas fa-cogs',
     'id' => '',
     'gates' => [],
@@ -113,8 +115,8 @@ return [
         'gate' => 'administrator.system.log.index',
         'name' => 'System Log',
         'description' => 'Display for Ladmin error log',
-        'route' => ['administrator.access.log.index', []],
-        'isActive' => 'access/system/log*',
+        'route' => ['administrator.system.log.index', []],
+        'isActive' => 'system/log*',
         'id' => '',
         'gates' => []
       ]
