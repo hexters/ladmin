@@ -26,7 +26,9 @@
       </ul>
 
       <div class="text-right">
-        <button type="submit" class="btn btn-primary">Save Permission</button>
+        @can('administrator.access.permission.assign')
+          <button type="submit" class="btn btn-primary">Save Permission</button>
+        @endcan
       </div>
     </form>
   </x-ladmin-card>
