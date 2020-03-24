@@ -14,8 +14,11 @@
     </ul>
   @endif
 
-  @if(isset($menu['gates']))
-    <ul>
+  @if(isset($menu['gates']) && count($menu['gates']) > 0)
+    <button  style="text-decoration:none; width:90%;" type="button" class="btn ml-4 mb-3  btn-light btn-sm btn-block text-left" data-toggle="collapse" data-target="#collapse-{{ $rand }}">
+      <strong>Open Permission <i class="fas fa-caret-down float-right"></i></strong>
+    </button>
+    <ul class="collapse" id="collapse-{{ $rand }}">
       {!! $viewMenu($menu['gates']) !!}
     </ul>
   @endif
