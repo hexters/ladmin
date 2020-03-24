@@ -23,7 +23,7 @@
                     <td>{{ $log['error'] ?? '-' }}</td>
                     <td>{{ $log['file_name'] ?? '-' }}:{{ $log['line'] }}</td>
                     <td>
-                      @include('ladmin::logs._partials._button_details', ['payload' => $log['file_name', 'id' => $i]])
+                      @include('ladmin::logs._partials._button_details', ['payload' => $log['file_name'], 'id' => $i])
                     </td>
                   </tr>
               @empty
