@@ -4,6 +4,7 @@ namespace Hexters\Ladmin;
 
 use Hexters\Ladmin\Notifications\ResetPasswordNotification;
 use Hexters\Ladmin\Models\Role;
+use Hexters\Ladmin\Models\LadminNotification;
 
 trait LadminTrait {
 
@@ -23,7 +24,7 @@ trait LadminTrait {
     }
     return $permissions;
   }
-
+  
   /**
    * Send the password reset notification.
    *

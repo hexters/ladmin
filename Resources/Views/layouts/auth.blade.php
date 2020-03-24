@@ -4,7 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>{{ config('app.name') }} | Login</title>
+  <title>{{ config('app.name') }} | Auth</title>
+  <meta name="csrf-token" content="{{ csrf_token() }}">
   <link rel="stylesheet" href="{{ asset('/css/ladmin/app.css') }}">
 </head>
 <body>
