@@ -1,5 +1,5 @@
 @extends('ladmin::layouts.app')
-@section('title', 'Module Title')
+@section('title', 'System Log')
 @section('content')
     
     <x-ladmin-card>
