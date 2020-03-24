@@ -4,7 +4,7 @@
 </button>
 
 <div class="modal fade" id="modal-log-{{ $i }}" tabindex="-1" role="dialog" aria-labelledby="modal-log-{{ $i }}Label" aria-hidden="true">
-  <div class="modal-dialog modal-lg" role="document">
+  <div class="modal-dialog modal-xl" role="document">
     <div class="modal-content">
       <div class="modal-header border-0">
         <h5 class="modal-title" id="modal-log-{{ $i }}Label">Trace</h5>
