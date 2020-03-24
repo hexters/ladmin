@@ -13,6 +13,11 @@ class NotificationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
+
+        if(!config('ladmin.notification')) {
+            return abort(404);
+        }
+
         $data['notifications'] = app(config('ladmin.auth.user', App\User::class))
             ->ladmin_notifications->orderby('id', 'DESC')
             ->paginate(request()->get('per_page', 10));
