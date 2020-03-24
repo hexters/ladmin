@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\RoleRepository;
 use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
+use Hexters\Ladmin\Helpers\Menu;
 
 class PermissionController extends Controller {
 
@@ -67,6 +68,7 @@ class PermissionController extends Controller {
         if(Gate::denies('administrator.access.permission.show')) abort(403);
 
         $data['role'] = $this->repository->getModel()->findOrFail($id);
+        $data['menu'] = new Menu;
         return view('vendor.ladmin.permission.show', $data);
     }
 
