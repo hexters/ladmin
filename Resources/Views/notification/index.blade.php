@@ -7,12 +7,12 @@
       @forelse ($notifications as $item)
         <a href="javascript:void(0);" data-link="{{ $item->link }}" data-id="{{ $item->id }}" class="media my-4 ladmin-notification-link">
           @if(!is_null($item->image_link))
-            <img src="{{ $item->image_link }}" class="mr-3">
+            <img src="{{ $item->image_link }}" class="mr-3" width="50">
           @endif
           <div class="media-body ladmin-substr">
             <small class="text-muted float-right">{{ $item->created_at->diffForHumans() }}</small>
-            <strong class="mt-0 mb-1">{{ $item->title }}</strong>
-            <p class="m-0">{!! $item->description !!}</p>
+            <strong class="mt-0 mb-1 text-dark">{{ $item->title }}</strong>
+            <p class="m-0 text-muted">{!! $item->description !!}</p>
           </div>
         </a>
       @empty
