@@ -13,4 +13,10 @@
       {!! $viewMenu($menu['submenus']) !!}
     </ul>
   @endif
+
+  @if(isset($menu['gates']))
+    <ul>
+      {!! $viewMenu($menu['gates']) !!}
+    </ul>
+  @endif
 </li>
