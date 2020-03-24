@@ -75,7 +75,7 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
    */
   public function updateUser(Request $request, $id) {
 
-    if($request->has('pass')) {
+    if(!is_null($request->pass)) {
       $request->merge([
         'password' => bcrypt($request->pass)
       ]);
