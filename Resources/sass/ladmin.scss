@@ -99,11 +99,10 @@
 }
 
 .ladmin-container {
-  
+    position: relative;
   .ladmin-sidebar {
     z-index: 1040;
     width: 250px;
-    min-height: 100vh;
     background-color: #ffffff;
     display: block;
     margin-right: 1rem;
@@ -112,6 +111,7 @@
     padding: 1rem;
     position: absolute;
     bottom: 0;
+    top: 0;
 
     > ul {
       padding: 0;
@@ -213,6 +213,7 @@
     padding-left: 260px;
     display: inline-block;
     width: 100%;
+    min-height: 900px;
     .ladmin-page-title {
       margin-bottom: 1rem;
       .breadcrumb-container {
