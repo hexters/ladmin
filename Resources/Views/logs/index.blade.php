@@ -12,8 +12,7 @@
                 <th>Code</th>
                 <th>Error</th>
                 <th>Payload</th>
-                <th>File</th>
-                <th>Line</th>
+                <th>File:line</th>
               </tr>
             </thead>
             <tbody>
@@ -23,8 +22,7 @@
                     <td>{{ $log['code'] ?? '-' }}</td>
                     <td>{{ $log['error'] ?? '-' }}</td>
                     <td>{{ json_encode($log['payload']) }}</td>
-                    <td>{{ $log['file_name'] ?? '-' }}</td>
-                    <td>{{ $log['line'] ?? '-' }}</td>
+                    <td>{{ $log['file_name'] ?? '-' }}:{{ $log['line'] }}</td>
                   </tr>
               @empty
                   <tr>
