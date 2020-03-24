@@ -5,7 +5,9 @@
   <input style="vertical-align:top;" type="checkbox" id="{{ $rand }}" {{ in_array($menu['gate'], $permissions) ? 'checked' : null }} name="gates[]" value="{{ $menu['gate'] }}">
   <label for="{{ $rand }}">
     <strong>{{ $menu['name'] ?? $menu['title'] }}</strong>
-    <p>{{ $menu['description'] ?? null }}</p>
+    @if($menu['description'])
+      <p>{{ $menu['description'] ?? null }}</p>
+    @endif
   </label>
 
   @if(isset($menu['submenus']))
