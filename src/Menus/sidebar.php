@@ -4,6 +4,7 @@ return [
   [
     'gate' => 'administrator.account',
     'name' => 'Account',
+    'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     'route' => null,
     'isActive' => 'account/*',
     'icon' => 'fas fa-user-circle',
@@ -14,6 +15,7 @@ return [
       [
         'gate' => 'administrator.account.admin.index',
         'name' => 'User Admin',
+        'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
         /**
          * Declaration route Example
          * ['administrator.account.admin.show', ['uuid-uuid-uuid', 'foo' => 'bar']] --> https://domain.com/administrator/account/admin/uuid-uuid-uuid?foo=bar
@@ -45,6 +47,7 @@ return [
   [
     'gate' => 'administrator.access',
     'name' => 'Access',
+    'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     'route' => null,
     'isActive' => 'access/*',
     'icon' => 'fas fa-lock',
@@ -55,6 +58,7 @@ return [
       [
         'gate' => 'administrator.access.role.index',
         'name' => 'Role',
+        'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
         'route' => ['administrator.access.role.index', []],
         'isActive' => 'access/role*',
         'id' => '',
@@ -75,6 +79,7 @@ return [
       [
         'gate' => 'administrator.access.permission.index',
         'name' => 'Permission',
+        'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
         'route' => ['administrator.access.permission.index', []],
         'isActive' => 'access/permission*',
         'id' => '',

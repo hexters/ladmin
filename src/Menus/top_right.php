@@ -4,6 +4,7 @@
     [
       'gate' => 'administrator.profile.index',
       'name' => 'Profile',
+      'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
       'route' => ['administrator.profile.index', []],
       'gates' => [
         [
