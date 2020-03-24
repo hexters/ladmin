@@ -20,9 +20,17 @@
               return $html;
           }
       @endphp
-
+      
+      <h3>Main Menu <small>(sidebar)</small></h3>
       <ul class="list-permissions">
-        {!! $viewMenu($menu->menus) !!}
+        {!! $viewMenu($menu->sidebar) !!}
+      </ul>
+      
+      <div class="mt-4 mb-3"></div>
+
+      <h3>Top Right Menu</h3>
+      <ul class="list-permissions">
+        {!! $viewMenu($menu->topRright) !!}
       </ul>
 
       <div class="text-right">
