@@ -178,9 +178,12 @@ Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` 
 /*
 | Package required
 |
+| npm i jquery --save
 | npm i @fortawesome/fontawesome-free --save
 | npm i datatables.net --save
 | npm i datatables.net-bs4 --save
+| npm i bootstrap --save
+| npm i popper.js --save
 |
 */
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
