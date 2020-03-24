@@ -89,12 +89,15 @@ class LadminServiceProvider extends ServiceProvider
          * definde gates
          */
         $menu = new Menu;
-        foreach($menu->gates($menu->menus) as $gate) {
-            Gate::define($gate, function(Authenticatable $user) use ($gate) {
-                foreach($user->roles as $role) {
-                    return in_array($gate, $role->gates);
-                }
-            });
+        $gates = $menu->gates($menu->menus);
+        if(is_array($gates)) {
+            foreach($gates as $gate) {
+                Gate::define($gate, function(Authenticatable $user) use ($gate) {
+                    foreach($user->roles as $role) {
+                        return in_array($gate, $role->gates);
+                    }
+                });
+            }
         }
     }
 }
