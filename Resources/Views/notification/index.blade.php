@@ -22,6 +22,10 @@
           </div>
       @endforelse
     </div>
+
+    <div class="mt-3 text-right">
+      {{ $notifications->links() }}
+    </div>
   </x-ladmin-card>
 
 @endsection

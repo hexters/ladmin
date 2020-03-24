@@ -97,7 +97,7 @@ $(function() {
     const id = $(this).data('id');
     const link = $(this).data('link');
 
-    $.post(`/administrator/notificaitons/${id}`, {}, function() {
+    $.post(`/administrator/notification/${id}`, { _method : 'PUT' }, function() {
       window.location.href = link;
     });
 

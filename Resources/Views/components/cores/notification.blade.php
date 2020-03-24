@@ -28,8 +28,8 @@
               </a>
             @empty
                 <div class="pt-5 text-center">
-                  <i class="fa fa-bell fa-lg"></i>
-                  <strong class="text-muted">No Notification</strong>
+                  <i class="fa fa-bell fa-lg text-muted"></i>
+                  <p class="text-muted">No Notification</p>
                 </div>
             @endforelse
           </div>
