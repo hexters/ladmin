@@ -10,7 +10,7 @@ class LadminException extends Exception {
     protected $errorMessage;
     public function __construct($errorMessage) {
         $this->errorMessage = $errorMessage;
-        $code = time();
+        $code = time() . rand(1, 100);
         $this->message = 'Error Code : ' . $code;
 
         Log::error('LADMIN_EXCEPTION ' . $code . '||' . $this->errorMessage);
