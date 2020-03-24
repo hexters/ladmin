@@ -79,4 +79,14 @@ $(function() {
       ...options
     });
   });
+
+
+  $('.permission-checkbox').click(function () {
+    $(this).parent().find('li .permission-checkbox').prop('checked', $(this).is(':checked'));
+    var sibs = false;
+    $(this).closest('ul').children('li').each(function () {
+        if ($('.permission-checkbox', this).is(':checked')) sibs = true;
+    })
+    $(this).parents('ul').prev().prop('checked', sibs);
+  });
 });
