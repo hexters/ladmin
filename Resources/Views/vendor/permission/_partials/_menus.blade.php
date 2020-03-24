@@ -2,11 +2,13 @@
   $rand = rand();    
 @endphp
 <li style="border-left:solid 1px #ddd;">
-  <input class="permission-checkbox" style="vertical-align:top;margin-left:-5px;" type="checkbox" id="{{ $rand }}" {{ in_array($menu['gate'], $permissions) ? 'checked' : null }} name="gates[]" value="{{ $menu['gate'] }}">
-  <label for="{{ $rand }}">
-    <strong>{{ $menu['name'] ?? $menu['title'] }}</strong>
-    <p class="mb-0">{{ $menu['description'] ?? null }}</p>
-  </label>
+  <div style="cursor:pointer;">
+    <input class="permission-checkbox" style="vertical-align:top;margin-left:-5px;" type="checkbox" id="{{ $rand }}" {{ in_array($menu['gate'], $permissions) ? 'checked' : null }} name="gates[]" value="{{ $menu['gate'] }}">
+    <label for="{{ $rand }}">
+      <strong>{{ $menu['name'] ?? $menu['title'] }}</strong>
+      <p class="mb-0">{{ $menu['description'] ?? null }}</p>
+    </label>
+  </div>
 
   @if(isset($menu['submenus']))
     <ul>

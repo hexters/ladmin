@@ -3,8 +3,9 @@
 @section('content')
     
   <x-ladmin-card>
-    <form action="" method="post">
-      
+    <form action="{{ route('administrator.access.permission.update', $role->id) }}" method="post">
+      @csrf 
+      @method('PUT')
       @php
           $permissions = $role->gates;
           $viewMenu = function($menus) use (&$viewMenu, $permissions) {

@@ -37,15 +37,18 @@ class PermissionController extends Controller {
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
+    public function update(Request $request, $id) {
         if(Gate::denies('administrator.access.permission.assign')) abort(403);
 
         $request->validate([
-            'name' => ['required']
+            'gates' => ['required']
         ]);
 
         try {
-            $this->repository->createRole($request);
+            $role = $this->repository->getModel()->findOrFail($id);
+            $role->update([
+                'gates' => $request->gates
+            ]);
             session()->flash('success', [
                 'Permission has been signed sucessfully'
             ]);
