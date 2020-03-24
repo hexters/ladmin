@@ -26,6 +26,10 @@ class Ladmin {
           BaseRoute::resource('/admin', 'UserAdminController');
         });
 
+        BaseRoute::group(['as' => 'system.', 'prefix' => 'system'], function() {
+          BaseRoute::resource('/log', 'LogController')->only(['index']);
+        });
+
         BaseRoute::group(['as' => 'access.', 'prefix' => 'access'], function() {
           BaseRoute::resource('/role', 'RoleController');
           BaseRoute::resource('/permission', 'PermissionController')->only(['index', 'show', 'update']);

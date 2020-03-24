@@ -98,5 +98,26 @@ return [
         ],
       ]
     ]
+  ],
+  [
+    'gate' => 'administrator.system',
+    'name' => 'System',
+    'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
+    'route' => null,
+    'isActive' => 'access/system*',
+    'icon' => 'fas fa-cogs',
+    'id' => '',
+    'gates' => [],
+    'submenus' => [
+      [
+        'gate' => 'administrator.system.log.index',
+        'name' => 'System Log',
+        'description' => 'Display for Ladmin error log',
+        'route' => ['administrator.access.log.index', []],
+        'isActive' => 'access/system/log*',
+        'id' => '',
+        'gates' => []
+      ]
+    ]
   ]
 ];

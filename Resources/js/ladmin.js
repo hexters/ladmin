@@ -80,6 +80,9 @@ $(function() {
     });
   });
 
+  $('.ladmin-datatable-base').each(function() {
+    $(this).DataTable();
+  });
 
   $('.permission-checkbox').click(function () {
     $(this).parent().find('li .permission-checkbox').prop('checked', $(this).is(':checked'));
