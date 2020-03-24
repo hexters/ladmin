@@ -22,7 +22,7 @@
       @endphp
 
       <ul class="list-permissions">
-        {!! $viewMenu($menu->sidebar) !!}
+        {!! $viewMenu($menu->menus) !!}
       </ul>
 
       <div class="text-right">
