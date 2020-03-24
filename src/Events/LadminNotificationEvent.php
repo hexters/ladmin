@@ -53,6 +53,6 @@ class LadminNotificationEvent implements ShouldBroadcast {
      */
     public function broadcastWith() {
 
-        return $this->model;
+        return $this->model->toArray();
     }
 }
