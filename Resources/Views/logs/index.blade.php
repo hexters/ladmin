@@ -11,18 +11,20 @@
                 <th>Date</th>
                 <th>Code</th>
                 <th>Error</th>
-                <th>Payload</th>
                 <th>File:line</th>
+                <th>Trace</th>
               </tr>
             </thead>
             <tbody>
-              @forelse ($logs as $log)
+              @forelse ($logs as $i => $log)
                   <tr>
                     <td>{{ $log['date'] ?? '-' }}</td>
                     <td>{{ $log['code'] ?? '-' }}</td>
                     <td>{{ $log['error'] ?? '-' }}</td>
-                    <td>{{ json_encode($log['payload']) }}</td>
                     <td>{{ $log['file_name'] ?? '-' }}:{{ $log['line'] }}</td>
+                    <td>
+                      @include('ladmin::logs._partials._button_details', ['payload' => $log['file_name', 'id' => $i]])
+                    </td>
                   </tr>
               @empty
                   <tr>
