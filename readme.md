@@ -170,3 +170,19 @@ Input Component
 ### Menus
 
 Open file `app/menus/sidenar.php` and `top_right.php` for manage admin menu
+
+## Custom Style
+Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` and `resource/sass/ladmin`
+
+```
+/*
+| Package required
+|
+| npm i @fortawesome/fontawesome-free --save
+| npm i datatables.net --save
+| npm i datatables.net-bs4 --save
+|
+*/
+mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
+   .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
+```
