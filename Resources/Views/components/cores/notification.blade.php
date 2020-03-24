@@ -35,7 +35,7 @@
 
       </li>
       <li class="ladmin-top-menu-footer">
-        <a href="{{ route('administrator.notifications.index') }}">
+        <a href="{{ route('administrator.notification.index') }}">
           View All
         </a>
       </li>
