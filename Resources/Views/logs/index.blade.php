@@ -18,12 +18,12 @@
           <tbody>
             @forelse ($logs as $log)
                 <tr>
-                  <td>{{ $log['date'] }}</td>
-                  <td>{{ $log['code'] }}</td>
-                  <td>{{ $log['error'] }}</td>
+                  <td>{{ $log['date'] ?? '-' }}</td>
+                  <td>{{ $log['code'] ?? '-' }}</td>
+                  <td>{{ $log['error'] ?? '-' }}</td>
                   <td>{{ json_encode($log['payload']) }}</td>
-                  <td>{{ $log['file'] }}</td>
-                  <td>{{ $log['line'] }}</td>
+                  <td>{{ $log['file_name'] ?? '-' }}</td>
+                  <td>{{ $log['line'] ?? '-' }}</td>
                 </tr>
             @empty
                 <tr>
