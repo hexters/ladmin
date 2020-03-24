@@ -107,7 +107,7 @@ return [
     'description' => 'System application control',
     'route' => null,
     'isActive' => 'system*',
-    'icon' => 'fas fa-cogs',
+    'icon' => 'fas fa-cog',
     'id' => '',
     'gates' => [],
     'submenus' => [
