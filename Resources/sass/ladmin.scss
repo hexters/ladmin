@@ -265,6 +265,13 @@
   }
 }
 
+.list-permissions{
+  list-style-type: none;
+  ul {
+    list-style-type: none;
+  }
+}
+
 @media (min-width: 1200px) {
   .navbar-brand {
     width: 250px;

@@ -20,7 +20,7 @@
           }
       @endphp
 
-      <ul>
+      <ul class="list-permissions">
         {!! $viewMenu($menu->sidebar) !!}
       </ul>
 
