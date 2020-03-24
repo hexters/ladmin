@@ -9,8 +9,8 @@ class Menu {
   public $topRright = [];
 
   public function __construct() {
-    $this->sidebar = require(app_path('/Menus/sidebar.php'));
-    $this->topRright = require(app_path('/Menus/top_right.php'));
+    $this->sidebar = file_exists(app_path('/Menus/sidebar.php')) ?  require(app_path('/Menus/sidebar.php')) : [];
+    $this->topRright =  file_exists(app_path('/Menus/top_right.php')) ? require(app_path('/Menus/top_right.php')) : [];
     $this->menus = array_merge($this->sidebar, $this->topRright);
   }
 
