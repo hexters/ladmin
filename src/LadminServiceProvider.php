@@ -16,6 +16,7 @@ use Hexters\Ladmin\Components\Menus\Toprightmenu;
 use Hexters\Ladmin\Components\Cores\Breadcrumb;
 use Hexters\Ladmin\Components\Cores\Alert;
 use Hexters\Ladmin\Components\Datatables;
+use Hexters\Ladmin\Components\Cores\Notification;
 
 
 class LadminServiceProvider extends ServiceProvider
@@ -81,7 +82,8 @@ class LadminServiceProvider extends ServiceProvider
             Breadcrumb::class,
             Toprightmenu::class,
             Datatables::class,
-            Alert::class
+            Alert::class,
+            Notification::class
         ]);
         
 

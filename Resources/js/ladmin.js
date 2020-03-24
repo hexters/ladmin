@@ -92,4 +92,14 @@ $(function() {
     })
     $(this).parents('ul').prev().prop('checked', sibs);
   });
+
+  $('.ladmin-notification-link').click(function() {
+    const id = $(this).data('id');
+    const link = $(this).data('link');
+
+    $.post(`/administrator/notificaitons/${id}`, {}, function() {
+      window.location.href = link;
+    });
+
+  });
 });

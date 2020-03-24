@@ -19,6 +19,8 @@ class Ladmin {
         'middleware' => [ LadminLoginMiddleware::class ],
       ], function() use ($function) {
   
+        BaseRoute::resource('/notification', 'NotificationController')->only(['index', 'update']);
+
         BaseRoute::resource('/', 'HomeController')->only(['index']);
         BaseRoute::resource('/profile', 'ProfileController')->only(['index', 'store']);
 

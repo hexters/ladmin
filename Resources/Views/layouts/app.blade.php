@@ -25,76 +25,7 @@
       </ul>
       
       <ul class="ladmin-navbar-nav ml-auto pr-3">
-          <li class="nav-item dropdown">
-              
-              <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0 ladmin-notification-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                  <i class="fa fa-bell"></i>
-                  <span class="badge badge-danger">1</span>
-              </a>
-
-              <ul class="dropdown-menu dropdown-menu-right ladmin-top-menu ladmin-notification-menu-component" aria-labelledby="navbarDropdown">
-                  <li class="ladmin-top-menu-header text-center">
-                    <strong>Notifications</strong>
-                  </li>
-                  <li class="ladmin-top-menu-body-notification">
-                    
-                    <div class="list-unstyled ladmin-notification-item">
-                      <a href="#" class="media">
-                        <div class="media-body ladmin-substr">
-                          <small class="text-muted float-right">1 minutes a go</small>
-                          <strong class="mt-0 mb-1">Notification Title</strong>
-                          <p class="m-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                        </div>
-                      </a>
-                      <a href="#" class="media my-4">
-                        <img src="https://via.placeholder.com/50" class="mr-3">
-                        <div class="media-body ladmin-substr">
-                          <small class="text-muted float-right">1 minutes a go</small>
-                          <strong class="mt-0 mb-1">Notification Title</strong>
-                          <p class="m-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                        </div>
-                      </a>
-                      <a href="#" class="media">
-                        <img src="https://via.placeholder.com/50" class="mr-3">
-                        <div class="media-body ladmin-substr">
-                          <small class="text-muted float-right">1 minutes a go</small>
-                          <strong class="mt-0 mb-1">Notification Title</strong>
-                          <p class="m-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                        </div>
-                      </a>
-                      <a href="#" class="media">
-                        <img src="https://via.placeholder.com/50" class="mr-3">
-                        <div class="media-body ladmin-substr">
-                          <small class="text-muted float-right">1 minutes a go</small>
-                          <strong class="mt-0 mb-1">Notification Title</strong>
-                          <p class="m-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                        </div>
-                      </a>
-                      <a href="#" class="media">
-                        <div class="media-body ladmin-substr">
-                          <small class="text-muted float-right">1 minutes a go</small>
-                          <strong class="mt-0 mb-1">Notification Title</strong>
-                          <p class="m-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                        </div>
-                      </a>
-                      <a href="#" class="media">
-                        <img src="https://via.placeholder.com/50" class="mr-3">
-                        <div class="media-body ladmin-substr">
-                          <small class="text-muted float-right">1 minutes a go</small>
-                          <strong class="mt-0 mb-1">Notification Title</strong>
-                          <p class="m-0">Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque ante sollicitudin.</p>
-                        </div>
-                      </a>
-                    </div>
-
-                  </li>
-                  <li class="ladmin-top-menu-footer">
-                    <a href="#">
-                      View All
-                    </a>
-                  </li>
-              </ul>
-          </li>
+          <x-ladmin-notification />
           <li class="nav-item dropdown">
             
             <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
