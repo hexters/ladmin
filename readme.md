@@ -2,7 +2,7 @@
 
 This package will be handle admin page for yor laravel project.
 
-### Installation
+## Installation
 
 Follow installation step below
 
@@ -99,8 +99,10 @@ protected $routeMiddleware = [
 . . .
 
 ```
+## Blade
+Open folder `resources/views/vendor/ladmin`
 
-Blade extend layout
+extended for Blade layout
 ```
 
 @extends('ladmin::layouts.app')
@@ -119,7 +121,7 @@ http://domain.com/administrator
 ```
 
 
-### Blade Component
+## Blade Component
 
 Card Component
 ```
@@ -167,7 +169,7 @@ Input Component
 |`value`|String|NO|
 |`required`|Boolean default `false`|NO|
 
-### Menus
+## Menus
 
 Open file `app/menus/sidenar.php` and `top_right.php` for manage admin menu
 
@@ -188,4 +190,32 @@ Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` 
 */
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
+```
+
+## Notificaiton
+
+Send notification
+```
+(new User)->ladminSendNotification([
+  'title' => 'New invoice',
+  'link' => 'http://localhost:8000/invoice/2',
+  'image_link' => null,
+  'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
+]);
+
+```
+Notification require
+|Option|Type|required|
+|-|-|:-:|
+|`title`|String|YES|
+|`link`|String|YES|
+|`image_link`|String|NO|
+|`description`|String|YES|
+
+Listening For Notification
+```
+Echo.channel(`ladmin`)
+    .listen('.notification', (e) => {
+        console.log(e.update);
+    });
 ```
