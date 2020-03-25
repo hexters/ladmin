@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class HomeController extends Controller {
+class DashboardController extends Controller {
     
   /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class HomeController extends Controller {
      */
   public function index() {
 
-    return view('ladmin::home');
+    return view('vendor.dashboard.index');
   }
 
 }
