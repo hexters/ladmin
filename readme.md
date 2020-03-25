@@ -194,6 +194,16 @@ mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
 
 ## Notificaiton
 
+Set true for notification status in ladmin config file
+
+```
+. . .
+
+'notification' => true
+
+. . .
+```
+
 Send notification
 ```
 (new User)->ladminSendNotification([
@@ -204,7 +214,7 @@ Send notification
 ]);
 
 ```
-Notification require
+Notification required
 |Option|Type|required|
 |-|-|:-:|
 |`title`|String|YES|
