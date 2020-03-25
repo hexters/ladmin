@@ -14,7 +14,7 @@ class DashboardController extends Controller {
      */
   public function index() {
 
-    return view('vendor.dashboard.index');
+    return view('vendor.ladmin.dashboard.index');
   }
 
 }
