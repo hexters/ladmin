@@ -14,7 +14,7 @@ class ProfileController extends Controller {
      */
     public function index()
     {
-        //
+        return view('ladmin::profile.index');
     }
     
     /**
@@ -25,6 +25,29 @@ class ProfileController extends Controller {
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => ['required'],
+            'email' => ['required', 'email'],
+            'pass' => ['required']
+        ]);
+
+        try {
+            
+            if(!is_null($request->pass)) {
+                $request->merge([
+                    'password' => bcrypt($request->pass)
+                ]);
+            }
+            
+            auth()->user()->update($request->all());
+            session()->flash('success', [
+                'Profile has been created sucessfully'
+            ]);
+            return redirect()->back();
+        } catch (LadminException $e) {
+            return redirect()->back()->withErrors([
+                $e->getMessage()
+            ]);
+        }
     }
 }
