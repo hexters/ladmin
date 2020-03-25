@@ -16,7 +16,7 @@
               </tr>
             </thead>
             <tbody>
-              @forelse ($logs as $i => $log)
+              @foreach ($logs as $i => $log)
                   <tr>
                     <td>{{ $log['date'] ?? '-' }}</td>
                     <td>{{ $log['code'] ?? '-' }}</td>
@@ -26,11 +26,7 @@
                       @include('ladmin::logs._partials._button_details', ['payload' => $log['payload'], 'id' => $i])
                     </td>
                   </tr>
-              @empty
-                  <tr>
-                    <td colspan="6">No record found</td>
-                  </tr>
-              @endforelse
+              @endforeach
             </tbody>
           </table>
         </div>
