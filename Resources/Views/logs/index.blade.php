@@ -21,7 +21,7 @@
                     <td>{{ $log['date'] ?? '-' }}</td>
                     <td>{{ $log['code'] ?? '-' }}</td>
                     <td>{{ $log['error'] ?? '-' }}</td>
-                    <td>{{ $log['file_name'] ?? '-' }}:{{ $log['line'] }}</td>
+                    <td>{{ $log['file_name'] ?? '-' }}:{{ $log['line'] ?? null }}</td>
                     <td>
                       @include('ladmin::logs._partials._button_details', ['payload' => $log['payload'], 'id' => $i])
                     </td>
