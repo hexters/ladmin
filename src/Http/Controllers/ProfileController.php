@@ -27,8 +27,7 @@ class ProfileController extends Controller {
     {
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email'],
-            'pass' => ['required']
+            'email' => ['required', 'email']
         ]);
 
         try {
