@@ -1,6 +1,6 @@
 ## Ladmin (Laravel Admin)
 
-This package will be handle admin page for yor laravel project.
+This package will handle the admin page for your laravel project.
 
 ## Installation
 
@@ -68,7 +68,7 @@ $user->roles()->attach($role->id, [], false);
 ```
 
 
-Add Ladmin route to route project `routes/web.php`
+Add Ladmin route to your route project `routes/web.php`
 ```
 . . .
 
@@ -89,7 +89,7 @@ Ladmin::route(function() {
 
 ```
 
-Open file `app/Http/Kernel.php` and replace `Authenticate::class`
+Open file `app/Http/Kernel.php` and replace `auth` middleware like below
 ```
 . . .
 
