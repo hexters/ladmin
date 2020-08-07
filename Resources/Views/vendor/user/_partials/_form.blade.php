@@ -15,3 +15,13 @@
     <i class="fas fa-lock"></i>
   </x-slot>
 </x-ladmin-input>
+
+<div class="form-group">
+  <label for="role_id">Role</label>
+  <select name="role_id" id="role_id" class="form-control" required>
+    <option value="">- Select Role -</option>
+    @foreach ($roles as $role)
+      <option value="{{ $role->id }}" {{ isset($user->role->id) && $user->role->id == $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+    @endforeach
+  </select>
+</div>

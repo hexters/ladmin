@@ -13,6 +13,7 @@ class CreateLadminNotificationsTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('ladmin_notifications', function (Blueprint $table) {
             $table->id();
             $table->string('title');
@@ -22,6 +23,7 @@ class CreateLadminNotificationsTable extends Migration
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
     }
 
     /**
@@ -31,6 +33,8 @@ class CreateLadminNotificationsTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('ladmin_notifications');
+        Schema::enableForeignKeyConstraints();
     }
 }

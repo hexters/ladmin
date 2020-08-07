@@ -16,12 +16,14 @@ class CreateRolesTable extends Migration
      */
     public function up()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::create('roles', function (Blueprint $table) {
             $table->id();
             $table->string('name');
             $table->json('gates')->nullable();
             $table->timestamps();
         });
+        Schema::enableForeignKeyConstraints();
 
         // Insert for first data
         $menu = new Menu;
@@ -38,6 +40,8 @@ class CreateRolesTable extends Migration
      */
     public function down()
     {
+        Schema::disableForeignKeyConstraints();
         Schema::dropIfExists('roles');
+        Schema::enableForeignKeyConstraints();
     }
 }

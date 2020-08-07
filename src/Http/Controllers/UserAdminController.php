@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
+use Hexters\Ladmin\Models\Role;
 
 class UserAdminController extends Controller {
 
@@ -36,8 +37,8 @@ class UserAdminController extends Controller {
      */
     public function create() {
         if(Gate::denies('administrator.account.admin.create')) abort(403);
-
-        return view('vendor.ladmin.user.create');
+        $data['roles'] = Role::all();
+        return view('vendor.ladmin.user.create', $data);
     }
 
     /**
@@ -87,7 +88,7 @@ class UserAdminController extends Controller {
      */
     public function edit($id) {
         if(Gate::denies('administrator.account.admin.update')) abort(403);
-
+        $data['roles'] = Role::all();
         $data['user'] = $this->repository->getModel()->findOrFail($id);
         return view('vendor.ladmin.user.edit', $data);
     }
