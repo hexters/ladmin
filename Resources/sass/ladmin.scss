@@ -15,7 +15,7 @@
   .ladmin-top-menu-footer {
     a {
       display: block;
-      padding: 1rem;
+      padding: 2rem;
       text-align: center;
       &:hover {
         text-decoration: none;
@@ -73,12 +73,12 @@
 }
 .ladmin-notification-menu-component {
   width: 300px;
-  right: -100px;
+  right: -60px;
 }
 
 .ladmin-notification-item{
   .media {
-    padding: .5rem;
+    padding: 1rem;
     margin: 0 !important;
     text-decoration: none;
     border-top: solid 1px rgba(0, 0, 0, 0.075);
@@ -90,6 +90,49 @@
     }
   }
 }
+
+.tracking-item {
+  border-left:1px solid #e5e5e5;
+  position:relative;
+  padding:1rem 1rem 1.5rem 2.5rem;
+  font-size:.9rem;
+  margin-left:3rem;
+  min-height:5rem
+ }
+ .tracking-item .tracking-content {
+  padding:.5rem .8rem;
+  background-color:#f4f4f4;
+  border-radius:.5rem
+ }
+ .tracking-item .tracking-content span {
+  display:block;
+  color:#888;
+  font-size:85%
+ }
+ .tracking-item .tracking-icon {
+  line-height:2.6rem;
+  position:absolute;
+  left:-1.3rem;
+  width:2.6rem;
+  height:2.6rem;
+  text-align:center;
+  border-radius:50%;
+  font-size:1.1rem;
+  background-color:#fff;
+  color:#fff
+ }
+ .tracking-item .tracking-icon {
+  background-color: $blue;
+ }
+ @media(min-width:992px) {
+ 
+  .tracking-item .tracking-content {
+   padding:0;
+   background-color:transparent
+  }
+ }
+
+
 .ladmin-substr {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -126,7 +169,8 @@
           text-decoration: none;
           display: block;
           line-height: 25px;
-          padding:.3rem;
+          padding:.5rem;
+          font-size: 16px;
 
           i {
             width: 35px;
@@ -296,4 +340,42 @@
   #DataTables_Table_0_filter {
     text-align: right;
   }
+}
+
+.callout {
+  padding: 20px;
+  margin: 20px 0;
+  border: 1px solid #eee;
+  border-left-width: 5px;
+  border-radius: 3px;
+  h4 {
+    margin-top: 0;
+    margin-bottom: 5px;
+  }
+  p:last-child {
+    margin-bottom: 0;
+  }
+  code {
+    border-radius: 3px;
+  }
+  & + .bs-callout {
+    margin-top: -5px;
+  }
+}
+@each $name,$color in (default,#777),(primary,#428bca),(success,#5cb85c),(danger,#d9534f),(warning,#f0ad4e),(info,#5bc0de), (bdc,#29527a) {
+  .callout-#{$name} {
+    border-left-color: $color;
+    h4 {
+      color: $color;
+    }
+  }
+}
+
+.btn-primary {
+  color: white;
+}
+
+#toast-container > .toast-success {
+  background-image: none !important;
+  padding: 1rem;
 }
