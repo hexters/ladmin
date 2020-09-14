@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\User;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\Datatables;
 use Hexters\Ladmin\Contracts\MasterRepositoryInterface;

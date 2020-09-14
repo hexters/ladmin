@@ -6,7 +6,7 @@
      * Authentication Setting
      */
     'auth' => [
-      'user' => App\User::class,
+      'user' => App\Models\User::class,
       'guard' => 'web'
     ],
 
