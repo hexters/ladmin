@@ -56,7 +56,7 @@ $ php artisan migrate
 Attach role to user admin with database seed or other
 ```
 . . .
-use App\User;
+use App\Models\User;
 use Hexters\Ladmin\Models\Role;
 . . .
 
