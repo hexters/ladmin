@@ -50,7 +50,7 @@
       <div class="ladmin-content">
         <x-ladmin-alert />
         <div class="ladmin-page-title">
-          <div class="container-fluid" style="position: relative;">
+          <div class="container" style="position: relative;">
 
             <div class="row">
               <div class="col-lg-6">
@@ -67,7 +67,7 @@
             </div>
           </div>
         </div>
-        <div class="container-fluid">
+        <div class="container">
           
           @yield('content')
 
