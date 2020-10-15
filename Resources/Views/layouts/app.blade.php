@@ -14,7 +14,11 @@
   <div id="app">
     <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm p-0">
       <a class="navbar-brand mr-0 p-3" href="{{ route('administrator.index') }}">
-        {{ config('app.name') }}
+        @if (config('ladmin.logo'))
+          <img src="{{ config('ladmin.logo') }}" alt="Logo" width="150">
+        @else 
+          {{ config('app.name') }}
+        @endif
       </a>
       
       <ul class="navbar-nav mr-auto">
