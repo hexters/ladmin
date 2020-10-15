@@ -2,6 +2,8 @@
 
   return [
     
+    'logo' => env('LADMIN_LOGO', null),
+    
     /**
      * Authentication Setting
      */
