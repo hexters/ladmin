@@ -1,4 +1,4 @@
-## Ladmin (Laravel Admin)
+## Ladmin (Laravel 7.* Admin)
 
 This package will handle the admin page for your laravel project.
 
