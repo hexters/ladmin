@@ -2,6 +2,9 @@
 
   return [
     
+    /**
+     * Url image logo
+     */
     'logo' => env('LADMIN_LOGO', null),
     
     /**
