@@ -2,6 +2,8 @@
 
 This package will handle the admin page for your laravel project without jetstream.
 
+![Example Image](https://github.com/hexters/ladmin/blob/master/ss.png?raw=true)
+
 ## Installation
 
 Follow installation step below
