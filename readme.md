@@ -1,6 +1,6 @@
 ## Ladmin (Laravel Admin)
 
-This package will handle the admin page for your laravel project.
+This package will handle the admin page for your laravel project without jetstream.
 
 ## Installation
 
