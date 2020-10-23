@@ -2,13 +2,14 @@
 
 namespace Hexters\Ladmin\Routes;
 
+use Closure;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route as BaseRoute;
 use Hexters\Ladmin\Http\Middleware\LadminLoginMiddleware;
 
 class Ladmin {
 
-  public static function route($function) {
+  public static function route(Closure $function) {
     BaseRoute::group([ 
       'prefix' => 'administrator',
       'namespace' => 'Administrator',
@@ -36,7 +37,7 @@ class Ladmin {
           BaseRoute::resource('/permission', 'PermissionController')->only(['index', 'show', 'update']);
         });
 
-        $function();
+        return $function();
   
       });
     });
