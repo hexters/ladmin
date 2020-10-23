@@ -7,34 +7,48 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route as BaseRoute;
 use Hexters\Ladmin\Http\Middleware\LadminLoginMiddleware;
 
+use App\Http\Controllers\Administrator\DashboardController;
+use App\Http\Controllers\Administrator\NotificationController;
+use App\Http\Controllers\Administrator\ProfileController;
+use App\Http\Controllers\Administrator\UserAdminController;
+use App\Http\Controllers\Administrator\LogController;
+use App\Http\Controllers\Administrator\RoleController;
+use App\Http\Controllers\Administrator\PermissionController;
+
 class Ladmin {
 
   public static function route(Closure $function) {
+    
     BaseRoute::group([ 
       'prefix' => 'administrator',
-      'namespace' => 'Administrator',
       'as' => 'administrator.'
     ], function() use ($function) {
-      Auth::routes([ 'register' => false ]);
+      
+      BaseRoute::group([
+        'namespace' => 'App\Http\Controllers\Administrator',
+      ], function() {
+        Auth::routes([ 'register' => false ]);
+      });
+      
       BaseRoute::group([
         'middleware' => [ LadminLoginMiddleware::class ],
       ], function() use ($function) {
   
-        BaseRoute::resource('/', 'DashboardController')->only(['index']);
-        BaseRoute::resource('/notification', 'NotificationController')->only(['index', 'update']);
-        BaseRoute::resource('/profile', 'ProfileController')->only(['index', 'store']);
+        BaseRoute::resource('/', DashboardController::class)->only(['index']);
+        BaseRoute::resource('/notification', NotificationController::class)->only(['index', 'update']);
+        BaseRoute::resource('/profile', ProfileController::class)->only(['index', 'store']);
 
         BaseRoute::group(['as' => 'account.', 'prefix' => 'account'], function() {
-          BaseRoute::resource('/admin', 'UserAdminController');
+          BaseRoute::resource('/admin', UserAdminController::class);
         });
 
         BaseRoute::group(['as' => 'system.', 'prefix' => 'system'], function() {
-          BaseRoute::resource('/log', 'LogController')->only(['index']);
+          BaseRoute::resource('/log', LogController::class)->only(['index']);
         });
 
         BaseRoute::group(['as' => 'access.', 'prefix' => 'access'], function() {
-          BaseRoute::resource('/role', 'RoleController');
-          BaseRoute::resource('/permission', 'PermissionController')->only(['index', 'show', 'update']);
+          BaseRoute::resource('/role', RoleController::class);
+          BaseRoute::resource('/permission', PermissionController::class)->only(['index', 'show', 'update']);
         });
 
         return $function();

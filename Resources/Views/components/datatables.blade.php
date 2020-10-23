@@ -4,7 +4,7 @@
       <div class="top-button">
         {!! $options['topButton'] ?? null !!}
       </div>
-      <table class="table ladmin-datatables" data-options='{!! json_encode($options) !!}'>
+      <table class="table ladmin-datatables table-striped m-0" data-options='{!! json_encode($options) !!}'>
         <thead>
           <tr>
             @foreach ($fields as $field)

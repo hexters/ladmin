@@ -2,10 +2,6 @@
 @section('title', 'Admin Role')
 @section('content')
     
-  <x-ladmin-card>
-    <x-slot name="flat">
-      <x-ladmin-datatables :fields="$fields" :options="$options" />
-    </x-slot>
-  </x-ladmin-card>
+  <x-ladmin-datatables :fields="$fields" :options="$options" />
 
 @endsection

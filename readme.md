@@ -65,15 +65,18 @@ Add Ladmin route to your route project `routes/web.php`
 . . .
 
 use Hexters\Ladmin\Routes\Ladmin;
+use App\Http\Controllers\HomeController;
+
+. . .
+
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 . . .
 
 Ladmin::route(function() {
 
     // Your module route here
-    
-    // namespace App\Http\Controllers\Administrator
-    Route::resource('withdrawal', 'WithdrawalController');
+    Route::resource('withdrawal', WithdrawalController::class);
 
 });
 
@@ -167,8 +170,8 @@ Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` 
 */
 
 mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/css/app.scss', 'public/css');
-    
+    .sass('resources/sass/app.scss', 'public/css');
+
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
 ```
