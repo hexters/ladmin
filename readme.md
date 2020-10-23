@@ -89,16 +89,6 @@ Ladmin::route(function() {
 
 ```
 
-Open file `app/Http/Kernel.php` and replace `auth` middleware like below
-```
-. . .
-
-protected $routeMiddleware = [
-  'auth' => \App\Http\Middleware\LadminAuthenticate::class,
-
-. . .
-
-```
 ## Blade
 Open folder `resources/views/vendor/ladmin`
 
@@ -180,12 +170,7 @@ Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` 
 /*
 | Package required
 |
-| npm i jquery --save
-| npm i @fortawesome/fontawesome-free --save
-| npm i datatables.net --save
-| npm i datatables.net-bs4 --save
-| npm i bootstrap --save
-| npm i popper.js --save
+| npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4 --save
 |
 */
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
