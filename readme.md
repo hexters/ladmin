@@ -1,4 +1,4 @@
-## Ladmin (Laravel 7.* Admin)
+## Ladmin (Laravel Admin)
 
 This package will handle the admin page for your laravel project.
 
@@ -6,27 +6,14 @@ This package will handle the admin page for your laravel project.
 
 Follow installation step below
 
-Add github repository to `composer.json` (beta)
-```
-. . .
+Laravel vserion
+|Version|Laravel|
+|:-:|:-:|
+| v1.x| 7.x |
 
-"require": {
-    . . .
-    "hexters/ladmin": "dev-master",
-    . . .
-},
-"repositories": [
-    {
-        "type": "vcs",
-        "url":  "git@github.com:hexters/ladmin.git"
-    }
-]
-. . .
+You can install this package via composer:
 ```
-
-Update the package
-```
-$ composer update hexters/ladmin
+$ composer require hexters/ladmin
 ```
 
 Add this trait to your user model
