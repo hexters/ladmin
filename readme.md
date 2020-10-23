@@ -16,6 +16,11 @@ You can install this package via composer:
 $ composer require hexters/ladmin
 ```
 
+Generate login / registration scaffolding
+```
+$ php artisan ui bootstrap --auth
+```
+
 Add this trait to your user model
 ```
 . . .
@@ -160,6 +165,10 @@ Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` 
 | npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4 --save
 |
 */
+
+mix.js('resources/js/app.js', 'public/js')
+    .sass('resources/css/app.scss', 'public/css');
+    
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
 ```
