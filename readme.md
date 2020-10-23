@@ -11,8 +11,8 @@ Follow installation step below
 Laravel vserion
 |Version|Laravel|
 |:-:|:-:|
-| v1.x| 7.x |
-| v2.x| 8.x |
+| v1.0.x| 7.x |
+| v1.1.x| 8.x |
 
 You can install this package via composer:
 ```
