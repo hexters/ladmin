@@ -61,7 +61,7 @@ class LadminServiceProvider extends ServiceProvider
          */
         $this->publishes([
             __DIR__ . '/Menus/' => app_path('/Menus'),
-            __DIR__ . '/Datatables/' => app_path('/Datatables'),
+            __DIR__ . '/DataTables/' => app_path('/DataTables'),
             __DIR__ . '/config/ladmin.php' => base_path('/config/ladmin.php'),
             __DIR__ . '/Http/Controllers/' => app_path('Http/Controllers/Administrator'),
             __DIR__ . '/Http/Middleware/LadminAuthenticate.php' => app_path('Http/Middleware/LadminAuthenticate.php'),
