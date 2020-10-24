@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Ladmin;
+namespace Hexters\Ladmin\Commands;
 
 use Exception;
 use Illuminate\Support\Facades\Storage;
