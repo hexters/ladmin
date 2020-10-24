@@ -17,7 +17,7 @@ use Hexters\Ladmin\Components\Cores\Breadcrumb;
 use Hexters\Ladmin\Components\Cores\Alert;
 use Hexters\Ladmin\Components\Datatables;
 use Hexters\Ladmin\Components\Cores\Notification;
-use Hexters\Ladmin\DataTablesCommand;
+use Hexters\Ladmin\Commands\DataTablesCommand;
 
 
 class LadminServiceProvider extends ServiceProvider
