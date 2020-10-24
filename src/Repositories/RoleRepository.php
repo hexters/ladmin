@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use Hexters\Ladmin\Models\Role;
+use App\Models\Role;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\Datatables;
 use Hexters\Ladmin\Contracts\MasterRepositoryInterface;
