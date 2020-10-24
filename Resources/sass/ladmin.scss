@@ -379,3 +379,15 @@
   background-image: none !important;
   padding: 1rem;
 }
+
+table.ladmin-datatables {
+  tbody {
+    tr {
+      td {
+        padding-top: 1px;
+        padding-bottom: 1px;
+        vertical-align: middle;
+      }
+    }
+  }
+}
