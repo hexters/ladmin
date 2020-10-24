@@ -5,7 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
 use Hexters\Ladmin\Helpers\Menu;
-use Hexters\Ladmin\Models\Role;
+use App\Models\Role;
 
 class CreateRolesTable extends Migration
 {
