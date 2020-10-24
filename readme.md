@@ -52,13 +52,12 @@ Attach role to user admin with database seed or other
 ```
 . . .
 use App\Models\User;
-use Hexters\Ladmin\Models\Role;
+use App\Models\Role;
 . . .
 
-$user = User::first();
-$role = Role::first();
-$user->roles()->attach($role->id, [], false);
-
+\App\Models\User::factory(10)
+  ->has(Role::factory()->count(1))
+  ->create();
 
 ```
 
@@ -85,6 +84,11 @@ Ladmin::route(function() {
 
 . . .
 
+```
+
+Create Datatables server render with command
+```
+$ php artisan make:datatables UserDataTables  --model=User
 ```
 
 ## Blade

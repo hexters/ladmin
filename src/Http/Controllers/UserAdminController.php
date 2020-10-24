@@ -8,13 +8,16 @@ use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Hexters\Ladmin\Models\Role;
+use App\DataTables\UserDatatables;
 
 class UserAdminController extends Controller {
 
     protected $repository;
+    protected $datatables;
 
-    public function __construct(UserRepository $repository) {
+    public function __construct(UserRepository $repository, UserDatatables $datatables) {
         $this->repository = $repository; 
+        $this->datatables = $datatables; 
     }
   
     /**
@@ -25,9 +28,9 @@ class UserAdminController extends Controller {
     public function index(Request $request) {
         if(Gate::denies('administrator.account.admin.index')) abort(403);
         if($request->ajax()) {
-            return $this->repository->datatables();
+            return $this->datatables->render();
         }
-        return view('ladmin::ladmin.index', $this->repository->datatablesOptions());
+        return view('ladmin::ladmin.index', $this->datatables->options());
     }
 
     /**

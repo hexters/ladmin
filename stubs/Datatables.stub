@@ -1,0 +1,37 @@
+<?php 
+
+  namespace {{ namespace }};
+
+  use App\Models\{{ model }};
+  use Yajra\DataTables\Datatables;
+  use Hexters\Ladmin\Contracts\DataTablesInterface;
+
+  class {{ filename }} extends Datatables implements DataTablesInterface {
+
+    public function render() {
+      return $this->eloquent({{ model }}::query())
+        ->escapeColumns([])
+        ->make(true);
+    }
+
+    public function options() {
+      
+      return [
+        'title' => 'List Of {{ model }}',
+        'fields' => [
+          [ 'name' => 'ID', 'class' => 'text-center'],
+        ],
+        'options' => [
+          'topButton' => null,
+          'processing' => true,
+              'serverSide' => true,
+              'ajax' => route('index'),
+              'columns' => [
+                  ['data' => 'id', 'class' => 'text-center'],
+              ]
+        ]
+      ];
+
+    }
+
+  }

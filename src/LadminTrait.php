@@ -2,7 +2,7 @@
 
 namespace Hexters\Ladmin;
 
-use Hexters\Ladmin\Models\Role;
+use App\Models\Role;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Hexters\Ladmin\Models\LadminNotification;
 use Hexters\Ladmin\Notifications\ResetPasswordNotification;

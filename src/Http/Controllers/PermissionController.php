@@ -8,13 +8,16 @@ use App\Repositories\RoleRepository;
 use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Hexters\Ladmin\Helpers\Menu;
+use App\DataTables\PermissionDatatables;
 
 class PermissionController extends Controller {
 
     protected $repository;
+    protected $datatables;
 
-    public function __construct(RoleRepository $repository) {
+    public function __construct(RoleRepository $repository, PermissionDatatables $datatables) {
         $this->repository = $repository; 
+        $this->datatables = $datatables; 
     }
   
     /**
@@ -25,9 +28,9 @@ class PermissionController extends Controller {
     public function index(Request $request) {
         if(Gate::denies('administrator.access.permission.index')) abort(403);
         if($request->ajax()) {
-            return $this->repository->datatablesPermission();
+            return $this->datatables->render();
         }
-        return view('ladmin::ladmin.index', $this->repository->datatablesOptionsPermission());
+        return view('ladmin::ladmin.index', $this->datatables->options());
     }
     
 

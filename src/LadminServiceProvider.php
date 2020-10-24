@@ -17,6 +17,7 @@ use Hexters\Ladmin\Components\Cores\Breadcrumb;
 use Hexters\Ladmin\Components\Cores\Alert;
 use Hexters\Ladmin\Components\Datatables;
 use Hexters\Ladmin\Components\Cores\Notification;
+use Hexters\Ladmin\DataTablesCommand;
 
 
 class LadminServiceProvider extends ServiceProvider
@@ -60,10 +61,13 @@ class LadminServiceProvider extends ServiceProvider
          */
         $this->publishes([
             __DIR__ . '/Menus/' => app_path('/Menus'),
+            __DIR__ . '/Datatables/' => app_path('/Datatables'),
             __DIR__ . '/config/ladmin.php' => base_path('/config/ladmin.php'),
             __DIR__ . '/Http/Controllers/' => app_path('Http/Controllers/Administrator'),
             __DIR__ . '/Http/Middleware/LadminAuthenticate.php' => app_path('Http/Middleware/LadminAuthenticate.php'),
             __DIR__ . '/Repositories/' => app_path('Repositories'),
+            __DIR__ . '/Models/Role.php' => app_path('/Models/Role.php'),
+            __DIR__ . '/database/factories/RoleFactory.php' => base_path('/database/factories/RoleFactory.php'),
             __DIR__ . '/../Resources/Views/vendor/' => base_path('/resources/views/vendor/ladmin/')
         ], 'core');
 
@@ -71,6 +75,15 @@ class LadminServiceProvider extends ServiceProvider
          * Migration file
          */
         $this->loadMigrationsFrom(__DIR__ . '/database/migrations/');
+
+        /**
+         * Command
+         */
+        if ($this->app->runningInConsole()) {
+            $this->commands([
+                DataTablesCommand::class
+            ]);
+        }
 
         /**
          * View Component

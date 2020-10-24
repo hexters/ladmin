@@ -7,13 +7,16 @@ use App\Http\Controllers\Controller;
 use App\Repositories\RoleRepository;
 use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
+use App\DataTables\RoleDatatables;
 
 class RoleController extends Controller {
 
     protected $repository;
+    protected $datatables;
 
-    public function __construct(RoleRepository $repository) {
+    public function __construct(RoleRepository $repository, RoleDatatables $datatables) {
         $this->repository = $repository; 
+        $this->datatables = $datatables; 
     }
   
     /**
@@ -24,9 +27,9 @@ class RoleController extends Controller {
     public function index(Request $request) {
         if(Gate::denies('administrator.access.role.index')) abort(403);
         if($request->ajax()) {
-            return $this->repository->datatables();
+            return $this->datatables->render();
         }
-        return view('ladmin::ladmin.index', $this->repository->datatablesOptions());
+        return view('ladmin::ladmin.index', $this->datatables->options());
     }
 
     /**
