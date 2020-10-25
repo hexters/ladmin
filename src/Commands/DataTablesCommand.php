@@ -84,7 +84,6 @@ class DataTablesCommand extends Command
                 throw new Exception($filename . '.php already exists!');
             }
             
-            $this->line($content);
             file_put_contents($content, $php);
             $this->info($filename . '.php has been created');
 
