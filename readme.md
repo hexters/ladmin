@@ -58,7 +58,7 @@ use App\Models\Role;
 $role = Role::first();
 \App\Models\User::factory(10)->create()
     ->each(function($user) use ($role) {
-        $user->roles()->attach($role->id, [], false);
+        $user->roles()->sync([$role->id]);
     });
 
 ```
