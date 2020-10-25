@@ -1,11 +1,11 @@
 @extends('ladmin::layouts.app')
-@section('title', 'List of Notification')
+@section('title', 'List of Notifications')
 @section('content')
     
 <div>
   <div class="tracking-list">
     @forelse ($notifications as $item)
-    <div class="tracking-item">
+    <div class="tracking-item {{ is_null($item->read_at) ? 'font-weight-bold' : '' }}">
       <div class="tracking-icon">
         <i class="fas fa-bell"></i>
       </div>
@@ -16,7 +16,7 @@
               <img src="{{ $item->image_link }}" class="mr-3" width="50">
             @endif
             <div class="media-body ladmin-substr">
-              <small class="text-muted float-right">{{ $item->created_at->diffForHumans() }}</small>
+              <small class="text-muted {{ is_null($item->read_at) ? 'font-weight-bold' : '' }} float-right">{{ $item->created_at->diffForHumans() }}</small>
               <strong class="mt-0 mb-1 text-dark">{{ $item->title }}</strong>
               <p class="m-0 text-muted">{!! $item->description !!}</p>
             </div>

@@ -15,27 +15,30 @@
   .ladmin-top-menu-footer {
     a {
       display: block;
-      padding: 2rem;
+      padding: .5rem;
       text-align: center;
       &:hover {
         text-decoration: none;
+        color: $primary;
       }
     }
   }
 }
 .ladmin-top-menu-list {
+  border: solid 1px rgba($color: #000000, $alpha: .09);
   padding: 0;
   margin: 0;
   list-style-type: none;
-
+  min-width: 250px;
   li {
     padding: 0;
 
     a {
       display: block;
       line-height: $line-height-base;
-      padding: .5rem;
+      padding: .5rem 1rem;
       color: #333333;
+      border-bottom: solid 1px rgba($color: #000000, $alpha: .09);
 
       &:hover {
         text-decoration: none;
