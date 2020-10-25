@@ -12,6 +12,15 @@
             <x-ladmin-alert />
 
             <x-ladmin-card class="mt-3">
+
+                <div class="text-center mb-3">
+                    @if (config('ladmin.logo'))
+                        <img src="{{ config('ladmin.logo') }}" alt="Logo" width="150">
+                    @else 
+                        {{ config('app.name') }}
+                    @endif
+                </div>
+
                 <form action="{{ url('administrator/login') }}" method="post" class="my-3 mx-4">
                     @csrf
                     <x-ladmin-input type="email" name="email" :old="true" placeholder="Email Address">
