@@ -84,7 +84,7 @@ $(function() {
     $(this).DataTable();
   });
 
-  $('.permission-checkbox').click(function () {
+  $('.permission-checkbox').on('click', function () {
     $(this).parent().find('li .permission-checkbox').prop('checked', $(this).is(':checked'));
     var sibs = false;
     $(this).closest('ul').children('li').each(function () {
@@ -93,7 +93,7 @@ $(function() {
     $(this).parents('ul').prev().prop('checked', sibs);
   });
 
-  $('.ladmin-notification-link').click(function() {
+  $('.ladmin-notification-link').on('click', function() {
     const id = $(this).data('id');
     const link = $(this).data('link');
 

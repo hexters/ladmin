@@ -18,7 +18,7 @@ class Notification extends Component {
      */
     public function __construct() {
       $this->notifications = LadminNotification::whereNull('read_at')->orderby('id', 'DESC')->limit(10)->get();
-      $this->badge = LadminNotification::whereNull('read_at')->count();
+      $this->badge = LadminNotification::whereNull('read_at')->limit(10)->count();
     }
 
     /**

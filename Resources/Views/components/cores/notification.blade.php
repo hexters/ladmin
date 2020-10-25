@@ -1,10 +1,10 @@
 @if(config('ladmin.notification', true))
-  <li class="nav-item dropdown">
+  <li class="nav-item dropdown mr-2">
                 
     <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0 ladmin-notification-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
         <i class="fa fa-bell"></i>
         @if($badge > 0)
-          <span class="badge badge-danger">{{ $badge > 9 ? '+9' : $badge }}</span>
+          <span class="badge badge-danger badge-pill">{{ $badge > 9 ? '+9' : $badge }}</span>
         @endif
     </a>
 
