@@ -5,7 +5,7 @@
     /**
      * Url image logo
      */
-    'logo' => env('LADMIN_LOGO', null),
+    'logo' => env('LADMIN_LOGO', 'https://github.com/hexters/ladmin/blob/master/logo.svg?raw=true'),
     
     /**
      * Authentication Setting
