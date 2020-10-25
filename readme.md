@@ -54,9 +54,11 @@ Attach role to user admin with database seed or other
 use App\Models\Role;
 . . .
 
-\App\Models\User::factory(10)
-  ->has(Role::factory()->count(1))
-  ->create();
+$role = Role::first();
+\App\Models\User::factory(10)->create()
+    ->each(function($user) use ($role) {
+        $user->roles()->attach($role->id, [], false);
+    });
 
 ```
 

@@ -53,7 +53,9 @@
       </div>
 
       <div class="ladmin-content">
-        <x-ladmin-alert />
+        <div class="container">
+          <x-ladmin-alert />
+        </div>
         <div class="ladmin-page-title">
           <div class="container" style="position: relative;">
 

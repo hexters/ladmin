@@ -20,6 +20,15 @@ trait LadminTrait {
   }
 
   /**
+   * Get role first
+   *
+   * @return Collection
+   */
+  public function getRoleAttribute() {
+    return $this->roles()->first();
+  }
+
+  /**
    * List of permissions
    *
    * @return void
