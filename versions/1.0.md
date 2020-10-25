@@ -6,27 +6,9 @@ This package will handle the admin page for your laravel project.
 
 Follow installation step below
 
-Add github repository to `composer.json` (beta)
-```
-. . .
-
-"require": {
-    . . .
-    "hexters/ladmin": "dev-master",
-    . . .
-},
-"repositories": [
-    {
-        "type": "vcs",
-        "url":  "git@github.com:hexters/ladmin.git"
-    }
-]
-. . .
-```
-
 Update the package
 ```
-$ composer update hexters/ladmin
+$ composer require hexters/ladmin:1.0
 ```
 
 Add this trait to your user model
