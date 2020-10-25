@@ -30,22 +30,20 @@
     public function options() {
 
       return [
-        'title' => 'User Admin',
+        'title' => 'Roles',
         'fields' => [
           [ 'name' => 'ID', 'class' => 'text-center'],
           [ 'name' => 'Name' ],
-          [ 'name' => 'Email' ],
           [ 'name' => 'Action', 'class' => 'text-center' ]
         ],
         'options' => [
-          'topButton' => view('vendor.ladmin.user._partials._topButton'),
+          'topButton' => view('vendor.ladmin.role._partials._topButton'),
           'processing' => true,
               'serverSide' => true,
-              'ajax' => route('administrator.account.admin.index'),
+              'ajax' => route('administrator.access.role.index'),
               'columns' => [
                   ['data' => 'id', 'class' => 'text-center'],
                   ['data' => 'name'],
-                  ['data' => 'email'],
                   ['data' => 'action', 'class' => 'text-center', 'orderable' => false]
               ]
         ]

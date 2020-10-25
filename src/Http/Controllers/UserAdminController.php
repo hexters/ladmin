@@ -56,7 +56,8 @@ class UserAdminController extends Controller {
         $request->validate([
             'name' => ['required'],
             'email' => ['required', 'email'],
-            'pass' => ['required']
+            'pass' => ['required'],
+            'role_id' => ['required']
         ]);
 
         try {
@@ -108,7 +109,8 @@ class UserAdminController extends Controller {
 
         $request->validate([
             'name' => ['required'],
-            'email' => ['required', 'email']
+            'email' => ['required', 'email'],
+            'role_id' => ['required']    
         ]);
         try {
             $this->repository->updateUser($request, $id);
