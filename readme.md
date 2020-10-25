@@ -51,7 +51,6 @@ $ php artisan migrate
 Attach role to user admin with database seed or other
 ```
 . . .
-use App\Models\User;
 use App\Models\Role;
 . . .
 
@@ -173,6 +172,8 @@ Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` 
 | Package required
 |
 | npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4 --save
+|
+| yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4
 |
 */
 
