@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Hexters\Ladmin\Helpers\Menu;
 use Illuminate\Contracts\Auth\Authenticatable;
+use Illuminate\Pagination\Paginator;
 /**
  * Components
  */
@@ -45,6 +46,11 @@ class LadminServiceProvider extends ServiceProvider
      */
     public function boot() {
     
+        /**
+         * Pagination
+         */
+        Paginator::useBootstrap();
+
         /**
          * Load view template
          */

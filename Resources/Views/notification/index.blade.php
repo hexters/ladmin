@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<div class="mt-3 text-right">
+<div class="mt-3 float-right mr-3">
   {{ $notifications->links() }}
 </div>
 
