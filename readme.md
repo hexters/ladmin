@@ -82,7 +82,6 @@ Route::get('/home', [HomeController::class, 'index'])->name('home'); // optional
 
 Ladmin::route(function() {
 
-    // Your module route here
     Route::resource('withdrawal', WithdrawalController::class); // Example
 
 });
