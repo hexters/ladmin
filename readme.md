@@ -71,6 +71,7 @@ Add Ladmin route to your route project `routes/web.php`
 ```
 . . .
 
+use Illuminate\Support\Facades\Route;
 use Hexters\Ladmin\Routes\Ladmin;
 use App\Http\Controllers\HomeController; // optional
 
@@ -82,7 +83,7 @@ Route::get('/home', [HomeController::class, 'index'])->name('home'); // optional
 
 Ladmin::route(function() {
 
-    Route::resource('withdrawal', WithdrawalController::class); // Example
+    Route::resource('/withdrawal', WithdrawalController::class); // Example
 
 });
 
