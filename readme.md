@@ -2,7 +2,7 @@
 
 This package will handle the admin page for your laravel project.
 
-![Example Image](https://github.com/hexters/ladmin/blob/master/ss.png?raw=true)
+![Example Image](https://github.com/hexters/ladmin/blob/master/user.png?raw=true)
 
 ## Laravel Version
 
@@ -116,6 +116,7 @@ And you can Access admin page in this link below.
 ```
 http://localhost:8000/administrator
 ```
+![Example Image](https://github.com/hexters/ladmin/blob/master/login.png?raw=true)
 
 ## Ladmin Menu
 
