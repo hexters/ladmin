@@ -2,7 +2,7 @@
 @section('title', 'List of Notifications')
 @section('content')
     
-<div>
+<div class="mb-3">
   <div class="tracking-list">
     @forelse ($notifications as $item)
     <div class="tracking-item {{ is_null($item->read_at) ? 'font-weight-bold' : '' }}">
@@ -33,7 +33,7 @@
   </div>
 </div>
 
-<div class="mt-3 float-right mr-3">
+<div class="float-right mr-3">
   {{ $notifications->links() }}
 </div>
 

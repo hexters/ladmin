@@ -1,26 +1,30 @@
 ## Ladmin (Laravel Admin)
 
-This package will handle the admin page for your laravel project without jetstream.
+This package will handle the admin page for your laravel project.
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/ss.png?raw=true)
 
-Laravel Version
+## Laravel Version
 
 |Version|Laravel|
 |:-:|:-:|
 | [v1.0.x](https://github.com/hexters/ladmin/blob/master/versions/1.0.md) | 7.x |
 | v1.1.x | 8.x |
 
-## Installation
+## Package Requirement
+- [Laravel UI](https://github.com/laravel/ui)
+- [DataTables](https://github.com/yajra/laravel-datatables)
+- [Single Table Inheritance
+](https://github.com/jonspalmer/single-table-inheritance)
 
-Follow installation step below
+## Installation
 
 You can install this package via composer:
 ```
 $ composer require hexters/ladmin
 ```
 
-Generate login / registration scaffolding
+Generate login / registration scaffolding (optional)
 ```
 $ php artisan ui bootstrap --auth
 ```
@@ -44,23 +48,22 @@ $ php artisan vendor:publish --tag=core
 
 ```
 
-Install database
-```
-$ php artisan migrate
-```
-
 Attach role to user admin with database seed or other
 ```
 . . .
-use App\Models\Role;
-. . .
 
-$role = Role::first();
+$role = \App\Models\Role::first();
 \App\Models\User::factory(10)->create()
-    ->each(function($user) use ($role) {
-        $user->roles()->sync([$role->id]);
-    });
+  ->each(function($user) use ($role) {
+    $user->roles()->sync([$role->id]);
+  });
 
+. . .
+```
+
+Install database
+```
+$ php artisan migrate --seed
 ```
 
 
@@ -69,18 +72,18 @@ Add Ladmin route to your route project `routes/web.php`
 . . .
 
 use Hexters\Ladmin\Routes\Ladmin;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\HomeController; // optional
 
 . . .
 
-Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home'); // optional
 
 . . .
 
 Ladmin::route(function() {
 
     // Your module route here
-    Route::resource('withdrawal', WithdrawalController::class);
+    Route::resource('withdrawal', WithdrawalController::class); // Example
 
 });
 
@@ -88,15 +91,15 @@ Ladmin::route(function() {
 
 ```
 
-Create Datatables server render with command
+Create Datatables server
 ```
 $ php artisan make:datatables UserDataTables  --model=User
 ```
 
 ## Blade
-Open folder `resources/views/vendor/ladmin`
+Ladmin layout in `resources/views/vendor/ladmin`
 
-extended for Blade layout
+Extends your content module to ladmin layout
 ```
 
 @extends('ladmin::layouts.app')
@@ -109,11 +112,14 @@ extended for Blade layout
 
 ```
 
-Access admin page
+And you can Access admin page in this link below.
 ```
-http://domain.com/administrator
+http://localhost:8000/administrator
 ```
 
+## Ladmin Menu
+
+Open `app/menus/sidenar.php` file and `top_right.php` file to manage ladmin menu
 
 ## Blade Component
 
@@ -163,22 +169,19 @@ Input Component
 |`value`|String|NO|
 |`required`|Boolean default `false`|NO|
 
-## Menus
-
-Open file `app/menus/sidenar.php` and `top_right.php` for manage admin menu
-
 ## Custom Style
-Add this code to your file `webpack.mix.js` and check file `resource/js/ladmin` and `resource/sass/ladmin`
+Install node modules
+```
+$ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4 --save
+
+// OR
+
+$ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4
 
 ```
-/*
-| Package required
-|
-| npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4 --save
-|
-| yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4
-|
-*/
+
+Add this code to your  `webpack.mix.js` file
+```
 
 mix.js('resources/js/app.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');
@@ -187,9 +190,9 @@ mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
 ```
 
-## Notificaiton
+## Notification
 
-Set true for notification status in ladmin config file
+Set the true to activated notification
 
 ```
 . . .
@@ -210,17 +213,18 @@ Send notification
 
 ```
 Notification required
-|Option|Type|required|
-|-|-|:-:|
-|`title`|String|YES|
-|`link`|String|YES|
-|`image_link`|String|NO|
-|`description`|String|YES|
+|Option|Type|required|Note|
+|-|-|:-:|-|
+|`title`|String|YES|-|
+|`link`|String|YES|-|
+|`image_link`|String|NO|-|
+|`description`|String|YES|-|
 
 Listening For Notification
 ```
 Echo.channel(`ladmin`)
     .listen('.notification', (e) => {
         console.log(e.update);
+        // Notification handle
     });
 ```

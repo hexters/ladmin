@@ -20,6 +20,7 @@ class CreateLadminNotificationsTable extends Migration
             $table->text('link')->nullable();
             $table->string('image_link')->nullable();
             $table->string('description');
+            $table->json('gates')->nullable();
             $table->timestamp('read_at')->nullable();
             $table->timestamps();
         });

@@ -11,7 +11,8 @@
     ],
     "require": {
         "laravel/ui": "^2.3",
-        "yajra/laravel-datatables-oracle": "~9.0"
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "nanigans/single-table-inheritance": "0.8.*"
     },
     "extra": {
         "laravel": {
