@@ -208,7 +208,7 @@ Notification required
 |`setDescription`|String|YES|-|
 |`setGates`|Array|YES|-|
 
-Listening For Notification
+Listen with [Larave Echo Server](https://github.com/tlaverdure/laravel-echo-server)
 ```
 Echo.channel(`ladmin`)
     .listen('.notification', (e) => {
