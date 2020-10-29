@@ -104,6 +104,8 @@ class UserController {
 
 For an other you can use `@can()` from blade or `auth()->user()->can()` more [Gates](https://laravel.com/docs/8.x/authorization#gates)
 
+![Example Image](https://github.com/hexters/ladmin/blob/master/gates.png?raw=true)
+
 ## Blade
 Ladmin layout in `resources/views/vendor/ladmin`
 
