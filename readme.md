@@ -55,11 +55,10 @@ Attach role to user admin with database seed or other
 . . .
 ```
 
-Install database
+Migrate database
 ```
 $ php artisan migrate --seed
 ```
-
 
 Add Ladmin route to your route project `routes/web.php`
 ```
@@ -172,10 +171,6 @@ $ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.n
 
 Add this code to your  `webpack.mix.js` file
 ```
-
-mix.js('resources/js/app.js', 'public/js')
-    .sass('resources/sass/app.scss', 'public/css');
-
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
 ```
