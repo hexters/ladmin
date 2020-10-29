@@ -12,21 +12,15 @@ This package will handle the admin page for your laravel project.
 | v1.1.x | 8.x |
 
 ## Package Requirement
-- [Laravel UI](https://github.com/laravel/ui)
 - [DataTables](https://github.com/yajra/laravel-datatables)
-- [Single Table Inheritance
-](https://github.com/jonspalmer/single-table-inheritance)
 
 ## Installation
+
+Before using this package you must already have a login page or route login `route('login')` for your members, you can use larave/ui or laravel jetstream.
 
 You can install this package via composer:
 ```
 $ composer require hexters/ladmin
-```
-
-Generate login / registration scaffolding (optional)
-```
-$ php artisan ui bootstrap --auth
 ```
 
 Add this trait to your user model
@@ -52,11 +46,11 @@ Attach role to user admin with database seed or other
 ```
 . . .
 
-$role = \App\Models\Role::first();
-\App\Models\User::factory(10)->create()
-  ->each(function($user) use ($role) {
-    $user->roles()->sync([$role->id]);
-  });
+  $role = \App\Models\Role::first();
+  \App\Models\User::factory(10)->create()
+    ->each(function($user) use ($role) {
+      $user->roles()->sync([$role->id]);
+    });
 
 . . .
 ```
@@ -73,11 +67,6 @@ Add Ladmin route to your route project `routes/web.php`
 
 use Illuminate\Support\Facades\Route;
 use Hexters\Ladmin\Routes\Ladmin;
-use App\Http\Controllers\HomeController; // optional
-
-. . .
-
-Route::get('/home', [HomeController::class, 'index'])->name('home'); // optional
 
 . . .
 
