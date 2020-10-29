@@ -16,7 +16,7 @@ This package will handle the admin page for your laravel project.
 
 ## Installation
 
-Before using this package you must already have a login page or route login `route('login')` for your members, you can use larave/ui or laravel jetstream.
+Before using this package you must already have a login page or route login `route('login')` for your members, you can use [larave/ui](https://github.com/laravel/ui) or [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html).
 
 You can install this package via composer:
 ```
