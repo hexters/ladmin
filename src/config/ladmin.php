@@ -18,7 +18,8 @@
     /**
      * Notification status
      */
-    'notification' => true
+    'notification' => true,
+    'notification_limit' => 100 // Notification will only appear as many as 100 data
 
     
   ];

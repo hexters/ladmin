@@ -19,8 +19,8 @@ class NotificationController extends Controller {
         }
 
         $data['notifications'] = app(config('ladmin.auth.user', App\Models\User::class))
-            ->ladmin_notifications->orderby('id', 'DESC')
-            ->paginate(request()->get('per_page', 10));
+            ->ladmin_notifications->latest('id')
+            ->limit(config('ladmin.notification_limit', 100));
 
         return view('ladmin::notification.index', $data);
     }

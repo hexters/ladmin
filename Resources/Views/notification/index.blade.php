@@ -32,9 +32,5 @@
     @endforelse
   </div>
 </div>
-
-<div class="float-right mr-3">
-  {{ $notifications->links() }}
-</div>
-
+  
 @endsection

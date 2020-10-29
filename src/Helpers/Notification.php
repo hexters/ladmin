@@ -11,7 +11,7 @@ class Notification {
 
   private $title;
   private $link;
-  private $image_link;
+  private $image_link = null;
   private $description;
   private $gates = [];
   private $menu;

@@ -61,7 +61,7 @@ trait LadminTrait {
    * @return void
    */
   public function getLadminNotificationUnreadAttribute() {
-    return LadminNotification::whereNull('read_at');
+    return LadminNotification::whereNull('read_at')->limit(config('ladmin.notification_limit', 100));
   }
 
   /**

@@ -189,21 +189,24 @@ Set the true to activated notification
 
 Send notification
 ```
-ladmin()->ladminSendNotification([
-  'title' => 'New invoice',
-  'link' => 'http://localhost:8000/invoice/2',
-  'image_link' => null,
-  'description' => 'Lorem ipsum dolor sit amet consectetur adipisicing elit.'
-]);
+ladmin()
+  ->notification()
+    ->setTitle('new Invoice')
+    ->setLink('http://project.test/invoice/31eb6d58-3622-42a4-9206-d36e7a8d6c06')
+    ->setDescription('Pay invoice #123455')
+    ->setImageLink('http://porject.test/icon-invoice.ong') // optional
+    ->setGates(['administrator.accounting', 'administrator.owner']) // optional
+  ->send()
 
 ```
 Notification required
 |Option|Type|required|Note|
 |-|-|:-:|-|
-|`title`|String|YES|-|
-|`link`|String|YES|-|
-|`image_link`|String|NO|-|
-|`description`|String|YES|-|
+|`setTitle`|String|YES|-|
+|`setLink`|String|YES|-|
+|`setImageLink`|String|NO|-|
+|`setDescription`|String|YES|-|
+|`setGates`|Array|YES|-|
 
 Listening For Notification
 ```
