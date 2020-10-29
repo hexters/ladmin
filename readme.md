@@ -84,6 +84,26 @@ Create Datatables server
 $ php artisan make:datatables UserDataTables  --model=User
 ```
 
+## Sidebar Menu
+To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
+
+## Permission
+Protect your module with the Controller
+```
+. . . 
+class userController {
+
+. . .
+
+  public function index() {
+    ladmin()->allow(['administrator.account.admin.index']) // Call the gates based on menu `app/Menus/sidebar.php`
+  }
+
+}
+```
+
+For an other you can use `@can()` from blade or `auth()->user()->can()` more [Gates](https://laravel.com/docs/8.x/authorization#gates)
+
 ## Blade
 Ladmin layout in `resources/views/vendor/ladmin`
 
