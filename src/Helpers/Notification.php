@@ -51,7 +51,7 @@ class Notification {
     return $this;
   }
 
-  public function send($option) {
+  public function send() {
     try {
       if(empty($this->title)) {
         throw new Exception('Title is required');
