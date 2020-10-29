@@ -2,9 +2,9 @@
   <li class="nav-item dropdown mr-2">
                 
     <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0 ladmin-notification-menu" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-        <i class="fa fa-bell"></i>
-        @if($badge > 0)
-          <span class="badge badge-danger badge-pill">{{ $badge > 9 ? '+9' : $badge }}</span>
+        <i class="fa fa-lg fa-bell"></i>
+        @if(count($notifications) > 0)
+          <span class="badge badge-sm badge-danger badge-pill">&nbsp;</span>
         @endif
     </a>
 
@@ -16,6 +16,7 @@
           
           <div class="list-unstyled ladmin-notification-item">
             @forelse ($notifications as $item)
+            @if(auth()->guard(config('ladmin.auth.guard', 'web'))->user()->can($item->gates))
               <a href="javascript:void(0);" data-link="{{ $item->link }}" data-id="{{ $item->id }}" class="media my-4 ladmin-notification-link">
                 @if(!is_null($item->image_link))
                   <img src="{{ $item->image_link }}" class="mr-3" width="50">
@@ -26,6 +27,7 @@
                   <p class="m-0">{!! $item->description !!}</p>
                 </div>
               </a>
+              @endif
             @empty
                 <div class="pt-5 text-center">
                   <i class="fa fa-bell fa-lg text-muted"></i>
