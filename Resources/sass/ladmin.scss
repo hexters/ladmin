@@ -127,6 +127,14 @@
  .tracking-item .tracking-icon {
   background-color: $primary;
  }
+
+ .ladmin-notification-link {
+  text-decoration: none;
+   &:hover {
+    text-decoration: none;
+   }
+ }
+
  @media(min-width:992px) {
  
   .tracking-item .tracking-content {
