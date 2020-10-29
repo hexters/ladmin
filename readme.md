@@ -189,7 +189,7 @@ Set the true to activated notification
 
 Send notification
 ```
-(new User)->ladminSendNotification([
+ladmin()->ladminSendNotification([
   'title' => 'New invoice',
   'link' => 'http://localhost:8000/invoice/2',
   'image_link' => null,

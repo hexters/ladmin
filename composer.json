@@ -25,6 +25,9 @@
     "autoload": {
         "psr-4": {
             "Hexters\\Ladmin\\": "src/"
-        }
+        },
+        "files": [
+            "src/Helpers/function.php"
+        ]
     }
 }
