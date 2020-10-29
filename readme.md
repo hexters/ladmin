@@ -216,3 +216,4 @@ Echo.channel(`ladmin`)
         // Notification handle
     });
 ```
+![Example Image](https://github.com/hexters/ladmin/blob/master/notification.png?raw=true)
