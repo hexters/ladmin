@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use Hexters\Ladmin\Helpers\ReadLog;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Gate;
 
 class LogController extends Controller
 {
@@ -15,7 +14,7 @@ class LogController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        if(Gate::denies('administrator.system.log.index')) abort(403);
+        ladmin()->allow('administrator.system.log.index');
         $data['logs'] = (new ReadLog)->handle();
         return view('ladmin::logs.index', $data);
 

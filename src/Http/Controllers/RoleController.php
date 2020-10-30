@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\RoleRepository;
-use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
 use App\DataTables\RoleDatatables;
 
@@ -25,7 +24,8 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        if(Gate::denies('administrator.access.role.index')) abort(403);
+        ladmin()->allow('administrator.access.role.index');
+
         if($request->ajax()) {
             return $this->datatables->render();
         }
@@ -38,7 +38,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        if(Gate::denies('administrator.access.role.create')) abort(403);
+        ladmin()->allow('administrator.access.role.create');
 
         return view('vendor.ladmin.role.create');
     }
@@ -50,7 +50,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        if(Gate::denies('administrator.access.role.create')) abort(403);
+        ladmin()->allow('administrator.access.role.create');
 
         $request->validate([
             'name' => ['required']
@@ -87,7 +87,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        if(Gate::denies('administrator.access.role.update')) abort(403);
+        ladmin()->allow('administrator.access.role.update');
 
         $data['role'] = $this->repository->getModel()->findOrFail($id);
         return view('vendor.ladmin.role.edit', $data);
@@ -101,7 +101,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        if(Gate::denies('administrator.access.role.update')) abort(403);
+        ladmin()->allow('administrator.access.role.update');
 
         $request->validate([
             'name' => ['required']
@@ -126,7 +126,7 @@ class RoleController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        if(Gate::denies('administrator.access.role.destroy')) abort(403);
+        ladmin()->allow('administrator.access.role.destroy');
         
         try {
             $this->repository->getModel()->findOrFail($id)->delete();

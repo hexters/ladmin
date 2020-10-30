@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\RoleRepository;
-use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Hexters\Ladmin\Helpers\Menu;
 use App\DataTables\PermissionDatatables;
@@ -26,7 +25,7 @@ class PermissionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        if(Gate::denies('administrator.access.permission.index')) abort(403);
+        ladmin()->allow('administrator.access.permission.index');
         if($request->ajax()) {
             return $this->datatables->render();
         }
@@ -41,7 +40,7 @@ class PermissionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        if(Gate::denies('administrator.access.permission.assign')) abort(403);
+        ladmin()->allow('administrator.access.permission.assign');
 
         $request->validate([
             'gates' => ['required']
@@ -71,7 +70,7 @@ class PermissionController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function show($id) {
-        if(Gate::denies('administrator.access.permission.show')) abort(403);
+        ladmin()->allow('administrator.access.permission.show');
 
         $data['role'] = $this->repository->getModel()->findOrFail($id);
         $data['menu'] = new Menu;

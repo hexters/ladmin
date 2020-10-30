@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Administrator;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Repositories\UserRepository;
-use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Exceptions\LadminException;
 use App\Models\Role;
 use App\DataTables\UserDatatables;
@@ -26,7 +25,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index(Request $request) {
-        if(Gate::denies('administrator.account.admin.index')) abort(403);
+        ladmin()->allow('administrator.account.admin.index');
+
         if($request->ajax()) {
             return $this->datatables->render();
         }
@@ -39,7 +39,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        if(Gate::denies('administrator.account.admin.create')) abort(403);
+        ladmin()->allow('administrator.account.admin.create');
+
         $data['roles'] = Role::all();
         return view('vendor.ladmin.user.create', $data);
     }
@@ -51,7 +52,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request) {
-        if(Gate::denies('administrator.account.admin.create')) abort(403);
+        ladmin()->allow('administrator.account.admin.create');
 
         $request->validate([
             'name' => ['required'],
@@ -91,7 +92,8 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function edit($id) {
-        if(Gate::denies('administrator.account.admin.update')) abort(403);
+        ladmin()->allow('administrator.account.admin.update');
+
         $data['roles'] = Role::all();
         $data['user'] = $this->repository->getModel()->findOrFail($id);
         return view('vendor.ladmin.user.edit', $data);
@@ -105,7 +107,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        if(Gate::denies('administrator.account.admin.update')) abort(403);
+        ladmin()->allow('administrator.account.admin.update');
 
         $request->validate([
             'name' => ['required'],
@@ -132,7 +134,7 @@ class UserAdminController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        if(Gate::denies('administrator.account.admin.destroy')) abort(403);
+        ladmin()->allow('administrator.account.admin.destroy');
         
         try {
             $this->repository->getModel()->findOrFail($id)->delete();
