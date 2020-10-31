@@ -88,7 +88,7 @@ $ php artisan make:datatables UserDataTables  --model=User
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
 ## Gates & Permission
-Protect your module with the Controller
+Protect your module in the Controller
 ```
 . . . 
 class UserController {
