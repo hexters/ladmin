@@ -128,10 +128,6 @@ http://localhost:8000/administrator
 ```
 ![Example Image](https://github.com/hexters/ladmin/blob/master/login.png?raw=true)
 
-## Ladmin Menu
-
-Open `app/menus/sidenar.php` file and `top_right.php` file to manage ladmin menu
-
 ## Blade Component
 
 Card Component
