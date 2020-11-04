@@ -27,7 +27,11 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/administrator';
+    protected $redirectTo;
+
+    public function redirectTo() {
+        return '/' . config('ladmin.prefix', 'administrator');
+    }
 
     /**
      * Create a new controller instance.
@@ -35,6 +39,7 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct() {
+        $this->redirectTo = $this->redirectTo();
         $this->middleware([LadminGuestMiddleware::class])->except('logout');
     }
 

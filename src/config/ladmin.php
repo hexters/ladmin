@@ -8,7 +8,7 @@
     'logo' => env('LADMIN_LOGO', 'https://github.com/hexters/ladmin/blob/master/logo.svg?raw=true'),
 
     /**
-     * Menu Prefix
+     * Administrator prefix page
      */
     'prefix' => 'administrator',
     

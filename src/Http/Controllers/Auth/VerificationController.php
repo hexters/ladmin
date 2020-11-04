@@ -25,7 +25,11 @@ class VerificationController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/administrator';
+    protected $redirectTo;
+
+    public function redirectTo() {
+        return '/' . config('ladmin.prefix', 'administrator');
+    }
 
     /**
      * Create a new controller instance.
@@ -33,6 +37,7 @@ class VerificationController extends Controller
      * @return void
      */
     public function __construct() {
+        $this->redirectTo = $this->redirectTo();
         $guard = config('ladmin.auth.guard', 'web');
         $this->middleware("auth:{$guard}");
         $this->middleware('signed')->only('verify');

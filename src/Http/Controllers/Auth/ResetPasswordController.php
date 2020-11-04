@@ -8,6 +8,13 @@ use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
+    /**
+     * Where to redirect users after resetting their password.
+     *
+     * @var string
+     */
+    protected $redirectTo;
+    
     /*
     |--------------------------------------------------------------------------
     | Password Reset Controller
@@ -21,12 +28,13 @@ class ResetPasswordController extends Controller
 
     use ResetsPasswords;
 
-    /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/administrator';
+    public function __construct() {
+        $this->redirectTo = $this->redirectTo();
+    }
+    
+    public function redirectTo() {
+        return '/' . config('ladmin.prefix', 'administrator');
+    }
 
 
     public function showResetForm(Request $request, $token = null)
