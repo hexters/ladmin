@@ -1,4 +1,4 @@
-<li class="{{ request()->is("administrator/{$menu['isActive']}") ? 'active' : null }}" id="{{ $menu['id'] ?? null }}">
+<li class="{{ request()->is( config('ladmin.prefix', 'administrator') . "/" . $menu['isActive']) ? 'active' : null }}" id="{{ $menu['id'] ?? null }}">
   @php 
     $router = 'javascript:void(0);';
     if($menu['route']) {

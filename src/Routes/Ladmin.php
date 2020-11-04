@@ -20,7 +20,7 @@ class Ladmin {
   public static function route(Closure $function) {
     
     BaseRoute::group([ 
-      'prefix' => 'administrator',
+      'prefix' => config('ladmin.prefix', 'administrator'),
       'as' => 'administrator.'
     ], function() use ($function) {
       
