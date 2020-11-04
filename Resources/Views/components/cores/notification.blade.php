@@ -17,7 +17,7 @@
           <div class="list-unstyled ladmin-notification-item">
             @forelse ($notifications as $item)
             @if(auth()->guard(config('ladmin.auth.guard', 'web'))->user()->can($item->gates))
-              <a href="javascript:void(0);" data-link="{{ $item->link }}" data-id="{{ $item->id }}" class="media my-4 ladmin-notification-link">
+              <a href="{{ route('administrator.notification.update', [$item->id]) }}" data-link="{{ $item->link }}" class="media my-4 ladmin-notification-link">
                 @if(!is_null($item->image_link))
                   <img src="{{ $item->image_link }}" class="mr-3" width="50">
                 @endif

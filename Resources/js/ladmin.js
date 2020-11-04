@@ -93,12 +93,17 @@ $(function() {
     $(this).parents('ul').prev().prop('checked', sibs);
   });
 
-  $('.ladmin-notification-link').on('click', function() {
-    const id = $(this).data('id');
+  $('.ladmin-notification-link').on('click', function(e) {
+    e.preventDefault();
+    const route = $(this).attr('href');
     const link = $(this).data('link');
 
-    $.post(`/administrator/notification/${id}`, { _method : 'PUT' }, function() {
+    $.post(route, { _method : 'PUT' }, function() {
       window.location.href = link;
+    }).catch(e => {
+      if(e.response.status > 200) {
+        alert(e.response.data.message);
+      }
     });
 
   });
