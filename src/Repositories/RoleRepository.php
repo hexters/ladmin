@@ -31,8 +31,7 @@ class RoleRepository extends Repository implements MasterRepositoryInterface {
    * @return void
    */
   public function createRole(Request $request) {
-    $this->model->create($request->all());
-
+    $this->model->create(array_merge($request->all(), ['gates' => []]));
   }
 
 }
