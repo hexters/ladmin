@@ -28,7 +28,11 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
       ]);
     }
 
-    $this->model->findOrFail($id)->update($request->all());
+    $user = $this->model->findOrFail($id);
+    $user->update($request->all());
+    if($request->has('role_id')) {
+      $user->roles()->sync($request->role_id);
+    }
   }
 
   public function createUser(Request $request) {
@@ -36,7 +40,10 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
     $request->merge([
       'password' => bcrypt($request->pass)
     ]);
-    $this->model->create($request->all());
+    $user = $this->model->create($request->all());
+    if($request->has('role_id')) {
+      $user->roles()->sync($request->role_id);
+    }
 
   }
 
