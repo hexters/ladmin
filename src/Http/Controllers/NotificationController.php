@@ -20,7 +20,8 @@ class NotificationController extends Controller {
 
         $data['notifications'] = app(config('ladmin.auth.user', App\Models\User::class))
             ->ladmin_notifications->latest('id')
-            ->limit(config('ladmin.notification_limit', 100));
+            ->limit(config('ladmin.notification_limit', 100))
+            ->get();
 
         return view('ladmin::notification.index', $data);
     }

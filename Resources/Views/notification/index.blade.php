@@ -5,7 +5,7 @@
 <div class="mb-3">
   <div class="tracking-list">
     @forelse ($notifications as $item)
-    @if(auht()->guard(config('ladmin.auth.guard', 'web'))->user()->can($item->gates))
+    @if(auth()->guard(config('ladmin.auth.guard', 'web'))->user()->can($item->gates))
       <div class="tracking-item {{ is_null($item->read_at) ? 'font-weight-bold' : '' }}">
         <div class="tracking-icon">
           <i class="fas fa-bell"></i>
