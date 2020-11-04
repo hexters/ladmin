@@ -21,7 +21,7 @@
                     @endif
                 </div>
 
-                <form action="{{ url('administrator/login') }}" method="post" class="my-3 mx-4">
+                <form action="{{ url( config('ladmin.prefix', 'administrator') . '/login') }}" method="post" class="my-3 mx-4">
                     @csrf
                     <x-ladmin-input type="email" name="email" :old="true" placeholder="Email Address">
                         <x-slot name="prepend">

@@ -18,8 +18,9 @@ class Breadcrumb extends Component {
         $paths = collect(explode('/', request()->path()));
         $url = '';
         foreach($paths->toArray() as $path) {
-          $path = in_array($path, ['administrator']) ? 'Dashboard' : $path;
-          $url .= in_array($path, ['Dashboard']) ? '/administrator' : "/{$path}";
+          $prefix = config('ladmin.prefix', 'administrator');
+          $path = in_array($path, [$prefix]) ? 'Dashboard' : $path;
+          $url .= in_array($path, ['Dashboard']) ? '/' . $prefix : "/{$path}";
           $items->push([
             'url' => url($url),
             'name' => $this->isUuid($path) || is_numeric($path) ? 'Details' : $this->name($path)
