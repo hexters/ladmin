@@ -88,7 +88,7 @@ $ php artisan make:datatables UserDataTables  --model=User
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
 ## Gates & Permission
-Protect your module with the Controller
+Protect your module in the Controller
 ```
 . . . 
 class UserController {
@@ -127,10 +127,6 @@ And you can Access admin page in this link below.
 http://localhost:8000/administrator
 ```
 ![Example Image](https://github.com/hexters/ladmin/blob/master/login.png?raw=true)
-
-## Ladmin Menu
-
-Open `app/menus/sidenar.php` file and `top_right.php` file to manage ladmin menu
 
 ## Blade Component
 
