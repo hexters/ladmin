@@ -11,7 +11,7 @@
           <i class="fas fa-bell"></i>
         </div>
         <div class="tracking-content">
-          <a href="javascript:void(0);" data-link="{{ $item->link }}" data-id="{{ $item->id }}" class="ladmin-notification-link">
+          <a href="{{ route('administrator.notification.update', [$item->id]) }}" data-link="{{ $item->link }}" class="ladmin-notification-link">
             <x-ladmin-card class="mb-0">
               <div class="media">
                 @if(!is_null($item->image_link))
