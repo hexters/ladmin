@@ -1,6 +1,6 @@
 ## Ladmin (Laravel Admin)
 
-This package will handle the admin page for your laravel project.
+Make Administrator page in 5 minutes
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/user.png?raw=true)
 
