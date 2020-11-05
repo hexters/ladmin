@@ -1,6 +1,6 @@
 ## Ladmin (Laravel Admin)
 
-Make Administrator page in 5 minutes
+Make an Administrator page in 5 minutes
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/user.png?raw=true)
 
