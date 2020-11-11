@@ -1,3 +1,10 @@
+---
+ogImage:
+  title: "Ladmin The Laravel Package"
+  subtitle: "Make an Administrator page in 5 minutes"
+  imageUrl: "https://github.com/hexters/ladmin/blob/master/banner.jpeg?raw=true"
+---
+
 ## Ladmin (Laravel Admin)
 
 Make an Administrator page in 5 minutes
