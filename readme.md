@@ -14,6 +14,11 @@ Make an Administrator page in 5 minutes
 ## Package Requirement
 - [DataTables](https://github.com/yajra/laravel-datatables)
 
+## Suggestion
+*For the member page, you should use a different guard from the admin.*
+
+![Scheme](https://github.com/hexters/ladmin/blob/master/scheme.png?raw=true)
+
 ## Installation
 
 Before using this package you must already have a login page or route login `route('login')` for your members, you can use [larave/ui](https://github.com/laravel/ui) or [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html).
