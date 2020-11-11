@@ -15,14 +15,13 @@ Make an Administrator page in 5 minutes
 - [DataTables](https://github.com/yajra/laravel-datatables)
 
 ## Suggestion
-*For the member page, you should use a different guard from the admin.*
+Before using this package you must already have a login page or route login `route('login')` for your members, you can use [laravel/breeze](https://github.com/laravel/breeze), [larave/ui](https://github.com/laravel/ui) or [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html).
+
+*For member pages, you should use a different guard from admin or vice versa.*
 
 ![Scheme](https://github.com/hexters/ladmin/blob/master/scheme.png?raw=true)
 
 ## Installation
-
-Before using this package you must already have a login page or route login `route('login')` for your members, you can use [laravel/breeze](https://github.com/laravel/breeze), [larave/ui](https://github.com/laravel/ui) or [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html).
-
 You can install this package via composer:
 ```
 $ composer require hexters/ladmin
