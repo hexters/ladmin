@@ -1,5 +1,10 @@
 ## Ladmin (Laravel Admin)
 
+[![Latest Stable Version](https://poser.pugx.org/hexters/ladmin/v/stable)](https://packagist.org/packages/hexters/ladmin)
+[![Total Downloads](https://poser.pugx.org/hexters/ladmin/downloads)](https://packagist.org/packages/hexters/ladmin)
+[![License](https://poser.pugx.org/hexters/ladmin/license)](https://packagist.org/packages/hexters/ladmin)
+
+
 Make an Administrator page in 5 minutes
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/user.png?raw=true)
