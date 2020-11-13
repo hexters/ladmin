@@ -73,6 +73,11 @@ return [
             'gate' => 'administrator.access.role.update',
             'title' => 'Update Role',
             'description' => 'User can update role'
+          ],
+          [
+            'gate' => 'administrator.access.role.destroy',
+            'title' => 'Delete Role',
+            'description' => 'User can delete role'
           ]
         ],
       ],
