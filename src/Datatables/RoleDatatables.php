@@ -17,10 +17,10 @@
               'gate' => 'administrator.access.role.update',
               'url' => route('administrator.access.role.edit', [$item->id, 'back' => request()->fullUrl()])
             ],
-            'destroy' => [
+            'destroy' => ($item->id > 1) ? [
               'gate' => 'administrator.access.role.destroy',
               'url' => route('administrator.access.role.destroy', [$item->id, 'back' => request()->fullUrl()]),
-            ]
+            ] : null
           ]);
         })
         ->escapeColumns([])
