@@ -14,12 +14,12 @@
           return view('ladmin::table.action', [
             'show' => null,
             'edit' => [
-              'gate' => 'administrator.account.admin.update',
-              'url' => route('administrator.account.admin.edit', [$item->id, 'back' => request()->fullUrl()])
+              'gate' => 'administrator.access.role.update',
+              'url' => route('administrator.access.role.edit', [$item->id, 'back' => request()->fullUrl()])
             ],
             'destroy' => [
-              'gate' => 'administrator.account.admin.destroy',
-              'url' => route('administrator.account.admin.destroy', [$item->id, 'back' => request()->fullUrl()]),
+              'gate' => 'administrator.access.role.destroy',
+              'url' => route('administrator.access.role.destroy', [$item->id, 'back' => request()->fullUrl()]),
             ]
           ]);
         })
