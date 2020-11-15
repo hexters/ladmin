@@ -166,13 +166,7 @@ Card Component
 
 Form Group Componenet
 ```
-<x-ladmin-form-group 
-  name="money" 
-  label="Money" 
-  help="Information for form input"
-  col-label="4"
-  col-input="8"
->
+<x-ladmin-form-group name="money" label="Money" help="Information for form input" col-label="4" col-input="8">
   <x-slot name="prepend">
     <i class="fas fa-wallet"></i>
   </x-slot>
