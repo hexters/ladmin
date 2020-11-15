@@ -142,20 +142,28 @@ http://localhost:8000/administrator
 Card Component
 ```
 <x-ladmin-card class="mb-3">
-  <x-slot name="header"> <!-- not required -->
+  <x-slot name="header">
     Card Header
   </x-slot>
 
     Card Content
 
-  <x-slot name="footer"> <!-- not required -->
+  <x-slot name="footer">
     Card Footer
   </x-slot>
 </x-ladmin-card>
 ```
+
+### Attributes
 |Attribute|value|require|
 |-|-|-|
 |`class`|String|NO|
+
+### Slot 
+|Slot Name|Require|
+|-|-|
+|header|NO|
+|footer|NO|
 
 Form Group Componenet
 ```
@@ -182,16 +190,23 @@ Form Group Componenet
   </x-slot>
 </x-ladmin-form-group>
 ```
+### Attributes
+|Attribute|Type|Require|Note|
+|-|-|-|-|
+|`name`|String|YES||
+|`label`|String|YES||
+|`type`|String|NO|`vertical` or `horizontal`|
+|`help`|String|NO||
+|`col-label`|int|NO| Grid `col 1 - 12`|
+|`col-input`|int|NO| Grid `col 1 - 12`|
 
-|Attribute|value|require|
-|-|-|-|
-|`name`|String|YES|
-|`type`|String|YES|
-|`label`|String|NO|
-|`placeholder`|String|NO|
-|`old`|Boolean default `false`|NO|
-|`value`|String|NO|
-|`required`|Boolean default `false`|NO|
+### Slot 
+|Slot Name|Require|
+|-|-|
+|prepent|NO|
+|append|NO|
+|caption|NO|
+
 
 ## Custom Style
 Install node modules
