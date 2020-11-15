@@ -178,7 +178,7 @@ Form Group Componenet
   </x-slot>
 
   {-- Your bootstrap input component here --}
-  <input type="number" class="form-control">
+  <input type="number" name="money" class="form-control">
 
   <x-slot name="append">
     IDR
@@ -192,7 +192,7 @@ Form Group Componenet
 ### Attributes
 |Attribute|Type|Require|Note|
 |-|-|-|-|
-|`name`|String|YES||
+|`name`|String|YES|Name must be the same as the input form|
 |`label`|String|YES||
 |`type`|String|NO|`vertical` or `horizontal`|
 |`help`|String|NO||
