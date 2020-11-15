@@ -136,9 +136,9 @@ http://localhost:8000/administrator
 ```
 ![Example Image](https://github.com/hexters/ladmin/blob/master/login.png?raw=true)
 
-## Blade Component
+## Blade Components
 
-Card Component
+### Card Component
 ```
 <x-ladmin-card class="mb-3">
   <x-slot name="header">
@@ -153,18 +153,18 @@ Card Component
 </x-ladmin-card>
 ```
 
-### Attributes
+#### Attributes
 |Attribute|value|require|
 |-|-|-|
 |`class`|String|NO|
 
-### Slot 
+#### Slots 
 |Slot Name|Require|
 |-|-|
 |header|NO|
 |footer|NO|
 
-Form Group Componenet
+### Form Group Componenet
 ```
 <x-ladmin-form-group name="money" label="Money" help="Information for form input" col-label="4" col-input="8">
   <x-slot name="prepend">
@@ -183,7 +183,7 @@ Form Group Componenet
   </x-slot>
 </x-ladmin-form-group>
 ```
-### Attributes
+#### Attributes
 |Attribute|Type|Require|Note|
 |-|-|-|-|
 |`name`|String|YES|Name must be the same as the input form|
@@ -193,7 +193,7 @@ Form Group Componenet
 |`col-label`|int|NO| Grid `col 1 - 12`|
 |`col-input`|int|NO| Grid `col 1 - 12`|
 
-### Slot 
+#### Slots
 |Slot Name|Require|
 |-|-|
 |prepent|NO|
