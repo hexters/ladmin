@@ -118,17 +118,17 @@ For an other you can use `@can()` from blade or `auth()->user()->can()` more [Ga
 ## Blade
 Ladmin layout in `resources/views/vendor/ladmin`
 
-Extends your content module to ladmin layout
+Insert your module content to ladmin layout
+
 ```
 
-@extends('ladmin::layouts.app')
-@section('title', 'Module Title')
-@section('content')
-    
-    <!-- Component here -->
+  <x-ladmin-layout>
+    <x-slot name="title">Title Page</x-slot>
 
-@endsection
+    {-- Your content here --}    
 
+  </x-ladmin-layout>
+  
 ```
 
 And you can Access admin page in this link below.
@@ -157,22 +157,30 @@ Card Component
 |-|-|-|
 |`class`|String|NO|
 
-Input Component
+Form Group Componenet
 ```
-<x-ladmin-input name="money" type="number" placeholder="Input your income">
-  <x-slot name="prepend"> <!-- not required -->
+<x-ladmin-form-group 
+  name="money" 
+  label="Money" 
+  help="Information for form input"
+  col-label="4"
+  col-input="8"
+>
+  <x-slot name="prepend">
     <i class="fas fa-wallet"></i>
   </x-slot>
 
-  <x-slot name="append"> <!-- not required -->
-    USD
+  {-- Your bootstrap input component --}
+  <input type="number" class="form-control">
+
+  <x-slot name="append">
+    IDR
   </x-slot>
-</x-ladmin-input>
 
-// OR
-
-<x-ladmin-input name="email" type="email" label="E-Mail Address" />
-
+  <x-slot name="caption">
+    Form input informatin
+  </x-slot>
+</x-ladmin-form-group>
 ```
 
 |Attribute|value|require|

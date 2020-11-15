@@ -1,4 +1,4 @@
-<div class="form-group {{ $type == 'horizontal' ? 'row' : '' }} form-group-custom">
+<div class="form-group {{ $type == 'horizontal' ? 'row' : '' }} ladmin-form-group">
     <label for="{{ $name }}" class="{{ $type == 'horizontal' ? 'col-sm-' . $colLabel . ' col-form-label' : '' }} font-weight-bold">
         {{ $label }}
         @if ($help)

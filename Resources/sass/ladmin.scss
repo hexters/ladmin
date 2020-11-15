@@ -424,3 +424,15 @@ table.ladmin-datatables {
     }
   }
 }
+
+.form-group-custom {
+  input, 
+  select {
+    border: none;
+    &:focus,
+    &:hover{
+      box-shadow: none;
+      border: none;
+    }
+  }
+}
