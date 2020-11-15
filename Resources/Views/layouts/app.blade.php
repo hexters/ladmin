@@ -27,18 +27,19 @@
           <button class="border-0 btn btn-link ladmin-sidebar-toggle" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
+          <span>Hi, {{ Str::limit($ladminUser->name, 10) }} <small class="text-muted">/ {{ $ladminUser->role->name }}</small></span>
         </li>
       </ul>
       
-      <ul class="ladmin-navbar-nav ml-auto pr-3">
+      <ul class="ladmin-navbar-nav d-flex align-items-center justify-content-center ml-auto pr-3">
           <x-ladmin-notification />
           <li class="nav-item dropdown">
             
             <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Str::limit($ladminUser->name, 10) }} <span class="caret"></span>
+              <div style="width:40px;height:40px;" class="rounded-circle font-weight-bold d-flex align-items-center justify-content-center bg-primary text-white">{{ strtoupper(substr($ladminUser->name, 0, 2)) }}</div>
             </a>
 
-            <ul class="dropdown-menu dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">
+            <ul style="right:0;" class="dropdown-menu mt-2 rounded shadow-sm dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">
                 <li class="ladmin-top-menu-body">
                   <x-ladmin-toprightmenu />
                 </li>
