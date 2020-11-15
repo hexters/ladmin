@@ -14,7 +14,6 @@ Make an Administrator page in 5 minutes
 |Version|Laravel|
 |:-:|:-:|
 | [v1.0.x](https://github.com/hexters/ladmin/blob/master/versions/1.0.md) | 7.x |
-| v1.2.x | 8.x |
 
 ## Package Requirement
 - [DataTables](https://github.com/yajra/laravel-datatables)
@@ -146,7 +145,7 @@ Card Component
     Card Header
   </x-slot>
 
-    Card Content
+    {-- Card Content here --}
 
   <x-slot name="footer">
     Card Footer
@@ -178,7 +177,7 @@ Form Group Componenet
     <i class="fas fa-wallet"></i>
   </x-slot>
 
-  {-- Your bootstrap input component --}
+  {-- Your bootstrap input component here --}
   <input type="number" class="form-control">
 
   <x-slot name="append">
