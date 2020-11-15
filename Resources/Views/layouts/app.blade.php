@@ -81,7 +81,11 @@
           {{ $slot }}
 
         </div>
+        
       </div>
+      <footer class="ladmin-footer py-3 bg-white">
+        @include('vendor.ladmin.footer')
+      </footer>
 
     </div>
 

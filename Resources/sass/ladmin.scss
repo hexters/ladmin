@@ -270,6 +270,7 @@
   .ladmin-content {
     padding: .5rem 1rem;
     padding-left: 260px;
+    padding-bottom: 3rem;
     display: inline-block;
     width: 100%;
     min-height: 926px;
@@ -291,12 +292,20 @@
     }
   }
 
+  .ladmin-footer {
+    width: 100%;
+    padding-left: 260px !important;
+  }
+
   &.ladmin-container-full {
     .ladmin-sidebar {
       display: none !important;
     }
     .ladmin-content {
       padding-left: 0 !important;
+    }
+    .ladmin-footer{
+      padding-left: 1rem !important;
     }
   }
 }
@@ -342,6 +351,11 @@
   .ladmin-container {
     .ladmin-content {
       padding-left: 0 !important;
+    }
+    .ladmin-footer{
+      padding-left: .5rem !important;
+      text-align: center;
+      font-weight: 80%;
     }
   }
 
