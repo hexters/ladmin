@@ -168,8 +168,8 @@
     box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
     padding: 1rem;
     position: absolute;
-    bottom: 0;
     top: 0;
+    min-height: 100%;
 
     > ul {
       padding: 0;
@@ -272,7 +272,7 @@
     padding-left: 260px;
     display: inline-block;
     width: 100%;
-    min-height: 900px;
+    min-height: 926px;
     .ladmin-page-title {
       margin-bottom: 1rem;
       .breadcrumb-container {
