@@ -10,7 +10,7 @@
       @endif
     </a>
 
-    <ul style="right:0;" class="dropdown-menu shadow-sm mt-3 rounded dropdown-menu-right ladmin-top-menu ladmin-notification-menu-component" aria-labelledby="navbarDropdown">
+    <ul class="dropdown-menu shadow-sm mt-3 rounded dropdown-menu-right ladmin-top-menu ladmin-notification-menu-component" aria-labelledby="navbarDropdown">
         <li class="ladmin-top-menu-header text-center">
           <strong>Notifications</strong>
         </li>

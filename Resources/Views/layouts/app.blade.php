@@ -27,7 +27,7 @@
           <button class="border-0 btn btn-link ladmin-sidebar-toggle" type="button">
             <span class="navbar-toggler-icon"></span>
           </button>
-          <span>Hi, {{ Str::limit($ladminUser->name, 10) }} <small class="text-muted">/ {{ $ladminUser->role->name }}</small></span>
+          <span class="ladmin-greating">Hi, {{ Str::limit($ladminUser->name, 10) }} <small class="text-muted">/ {{ $ladminUser->role->name }}</small></span>
         </li>
       </ul>
       

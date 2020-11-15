@@ -188,11 +188,11 @@ Input Component
 ## Custom Style
 Install node modules
 ```
-$ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4 --save
+$ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21 --save
 
 // OR
 
-$ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net datatables.net-bs4
+$ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21
 
 ```
 
