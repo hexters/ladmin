@@ -10,15 +10,19 @@ use Illuminate\Pagination\Paginator;
 /**
  * Components
  */
-use Hexters\Ladmin\Components\Card;
-use Hexters\Ladmin\Components\Input;
+use Hexters\Ladmin\Components\Components\Card;
+use Hexters\Ladmin\Components\Components\Input;
+use Hexters\Ladmin\Components\Components\Datatables;
+use Hexters\Ladmin\Components\Components\FormGroup;
+
 use Hexters\Ladmin\Components\Menus\Sidebar;
 use Hexters\Ladmin\Components\Menus\Toprightmenu;
-use Hexters\Ladmin\Components\Cores\Breadcrumb;
+
 use Hexters\Ladmin\Components\Cores\Alert;
-use Hexters\Ladmin\Components\Datatables;
+use Hexters\Ladmin\Components\Cores\Layout;
+use Hexters\Ladmin\Components\Cores\Breadcrumb;
 use Hexters\Ladmin\Components\Cores\Notification;
-use Hexters\Ladmin\Components\FormGroup;
+
 
 /**
  * Command
@@ -108,7 +112,8 @@ class LadminServiceProvider extends ServiceProvider
             Datatables::class,
             Alert::class,
             Notification::class,
-            FormGroup::class
+            FormGroup::class,
+            Layout::class
         ]);
         
 

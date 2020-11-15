@@ -1,6 +1,5 @@
-@extends('ladmin::layouts.app')
-@section('title', 'System Log')
-@section('content')
+<x-ladmin-layout>
+  <x-slot name="title">System Log</x-slot>
     
     <x-ladmin-card>
       <x-slot name="flat">
@@ -33,4 +32,4 @@
       </x-slot>
     </x-ladmin-card>
 
-@endsection
+</x-ladmin-layout>

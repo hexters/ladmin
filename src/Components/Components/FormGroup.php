@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Ladmin\Components;
+namespace Hexters\Ladmin\Components\Components;
 
 use Illuminate\View\Component;
 
@@ -33,6 +33,6 @@ class FormGroup extends Component
      */
     public function render()
     {
-        return view('ladmin::components.form-group');
+        return view('ladmin::components.components.form-group');
     }
 }

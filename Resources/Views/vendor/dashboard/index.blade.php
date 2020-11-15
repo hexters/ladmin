@@ -1,6 +1,5 @@
-@extends('ladmin::layouts.app')
-@section('title', 'Dashboard')
-@section('content')
+<x-ladmin-layout>
+    <x-slot name="title">Dashboard</x-slot>
     
     <div class="row">
         <div class="col-md-6 col-12">
@@ -51,4 +50,4 @@
         </div>
     </div>
 
-@endsection
+</x-ladmin-layout>

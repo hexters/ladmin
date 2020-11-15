@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Ladmin\Components;
+namespace Hexters\Ladmin\Components\Components;
 
 use Illuminate\View\Component;
 
@@ -28,6 +28,6 @@ class Datatables extends Component {
      */
     public function render()
     {
-        return view('ladmin::components.datatables');
+        return view('ladmin::components.components.datatables');
     }
 }

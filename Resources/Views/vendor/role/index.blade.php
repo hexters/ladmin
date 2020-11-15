@@ -1,7 +1,6 @@
-@extends('ladmin::layouts.app')
-@section('title', 'Admin Role')
-@section('content')
+<x-ladmin-layout>
+  <x-slot name="title">Admin Role</x-slot>
     
   <x-ladmin-datatables :fields="$fields" :options="$options" />
 
-@endsection
+</x-ladmin-layout>

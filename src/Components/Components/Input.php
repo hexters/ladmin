@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Ladmin\Components;
+namespace Hexters\Ladmin\Components\Components;
 
 use Illuminate\View\Component;
 
@@ -36,6 +36,6 @@ class Input extends Component {
      * @return \Illuminate\View\View|string
      */
     public function render() {
-        return view('ladmin::components.input');
+        return view('ladmin::components.components.input');
     }
 }

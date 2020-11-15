@@ -1,6 +1,6 @@
 <?php
 
-namespace Hexters\Ladmin\Components;
+namespace Hexters\Ladmin\Components\Components;
 
 use Illuminate\View\Component;
 
@@ -27,6 +27,6 @@ class Card extends Component {
      */
     public function render()
     {
-        return view('ladmin::components.card');
+        return view('ladmin::components.components.card');
     }
 }

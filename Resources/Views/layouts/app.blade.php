@@ -8,6 +8,7 @@
   <meta name="csrf-token" content="{{ csrf_token() }}">
   <meta name="robots" content="noindex,nofollow">
   <link rel="stylesheet" href="{{ asset('/css/ladmin/app.css') }}">
+  @stack('styles')
 </head>
 <body>
   
@@ -34,7 +35,7 @@
           <li class="nav-item dropdown">
             
             <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                {{ Str::limit(auth()->user()->name, 10) }} <span class="caret"></span>
+                {{ Str::limit($ladminUser->name, 10) }} <span class="caret"></span>
             </a>
 
             <ul class="dropdown-menu dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">
@@ -47,10 +48,10 @@
     </nav>
     
     <div class="ladmin-container">
-      <div class="ladmin-sidebar">
+      <aside class="ladmin-sidebar">
         <strong class="ml-3">Main Menu</strong>
         <x-ladmin-sidebar />
-      </div>
+      </aside>
 
       <div class="ladmin-content">
         <div class="container">
@@ -65,7 +66,7 @@
                   @if(request()->has('back'))
                     <a href="{{ request()->get('back') }}" class="btn btn-outline-primary btn-sm mr-1 px-3">&larr;</a>
                   @endif
-                  @yield('title', 'Page Title')
+                  {!! $title ?? 'Title Page' !!}
                 </h4>
               </div>
               <div class="col-lg-6 breadcrumb-container">
@@ -76,7 +77,7 @@
         </div>
         <div class="container">
           
-          @yield('content')
+          {{ $slot }}
 
         </div>
       </div>
@@ -86,6 +87,6 @@
   </div>
 
   <script src="{{ asset('/js/ladmin/app.js') }}"></script>
-
+  @stack('scripts')
 </body>
 </html>

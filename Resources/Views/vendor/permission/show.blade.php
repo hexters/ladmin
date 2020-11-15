@@ -1,6 +1,5 @@
-@extends('ladmin::layouts.app')
-@section('title', 'Assign Permission')
-@section('content')
+<x-ladmin-layout>
+  <x-slot name="title">Assign Permission</x-slot>
     
   <x-ladmin-card>
     <form action="{{ route('administrator.access.permission.update', $role->id) }}" method="post">
@@ -41,4 +40,4 @@
     </form>
   </x-ladmin-card>
 
-@endsection
+</x-ladmin-layout>
