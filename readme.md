@@ -196,7 +196,7 @@ http://localhost:8000/administrator
 #### Slots
 |Slot Name|Require|
 |-|-|
-|prepent|NO|
+|prepend|NO|
 |append|NO|
 |caption|NO|
 
