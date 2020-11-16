@@ -188,7 +188,7 @@ http://localhost:8000/administrator
 |-|-|-|-|
 |`name`|String|YES|Name must be the same as the input form|
 |`label`|String|YES||
-|`type`|String|NO|`vertical` or `horizontal`|
+|`type`|String|NO|`vertical` or `horizontal` default `horizontal`|
 |`help`|String|NO||
 |`col-label`|int|NO| Grid `col 1 - 12`|
 |`col-input`|int|NO| Grid `col 1 - 12`|
@@ -249,7 +249,7 @@ Notification required
 |`setLink`|String|YES|-|
 |`setImageLink`|String|NO|-|
 |`setDescription`|String|YES|-|
-|`setGates`|Array|YES|-|
+|`setGates`|Array|NO| default all gates |
 
 Listen with [Larave Echo Server](https://github.com/tlaverdure/laravel-echo-server)
 ```
