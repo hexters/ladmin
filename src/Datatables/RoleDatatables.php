@@ -39,13 +39,13 @@
         'options' => [
           'topButton' => view('vendor.ladmin.role._partials._topButton'),
           'processing' => true,
-              'serverSide' => true,
-              'ajax' => route('administrator.access.role.index'),
-              'columns' => [
-                  ['data' => 'id', 'class' => 'text-center'],
-                  ['data' => 'name'],
-                  ['data' => 'action', 'class' => 'text-center', 'orderable' => false]
-              ]
+          'serverSide' => true,
+          'ajax' => route('administrator.access.role.index'),
+          'columns' => [
+              ['data' => 'id', 'class' => 'text-center'],
+              ['data' => 'name'],
+              ['data' => 'action', 'class' => 'text-center', 'orderable' => false]
+          ]
         ]
       ];
 

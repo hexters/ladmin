@@ -8,23 +8,35 @@
     'logo' => env('LADMIN_LOGO', 'https://github.com/hexters/ladmin/blob/master/logo.svg?raw=true'),
 
     /**
-     * Administrator prefix page
+     * Ladmin prefix page
      */
-    'prefix' => 'administrator',
+    'prefix' => env('LADMIN_PREFIX_PAGE', 'administrator'),
     
     /**
      * Authentication Setting
      */
     'auth' => [
       'user' => App\Models\User::class,
-      'guard' => 'web'
+
+      /**
+       * Set the guard to be used during authentication.
+       */
+      'guard' => 'web',
+      
+      /**
+       * Set the broker to be used during password reset.
+       */
+      'broker' => 'users'
     ],
 
     /**
      * Notification status
      */
-    'notification' => true,
-    'notification_limit' => 100 // Notification will only appear as many as 100 data
+    'notification' => env('LADMIN_NOTIFICATION', true),
 
+    /**
+     * Notification will only appear as many as 100 data
+     */
+    'notification_limit' => env('LADMIN_NOTIFICATION_LIMIT', 100) 
     
   ];

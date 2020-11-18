@@ -18,8 +18,6 @@ class ConfirmPasswordController extends Controller
     |
     */
 
-    
-
     use ConfirmsPasswords;
 
     /**
@@ -27,8 +25,6 @@ class ConfirmPasswordController extends Controller
      *
      * @var string
      */
-    protected $redirectTo;
-    
     public function redirectTo() {
         return '/' . config('ladmin.prefix', 'administrator');
     }
@@ -40,7 +36,6 @@ class ConfirmPasswordController extends Controller
      */
     public function __construct() {
         $guard = config('ladmin.auth.guard', 'web');
-        $this->redirectTo = $this->redirectTo();
         $this->middleware("auth:{$guard}");
     }
 }

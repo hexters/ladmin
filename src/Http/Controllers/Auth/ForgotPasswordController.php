@@ -23,4 +23,13 @@ class ForgotPasswordController extends Controller
     public function showLinkRequestForm() {
         return view('ladmin::auth.passwords.email');
     }
+
+    /**
+     * Get the broker to be used during password reset.
+     *
+     * @return PasswordBroker
+     */
+    public function broker() {
+        return Password::broker(config('ladmin.auth.broker', 'users'));
+    }
 }

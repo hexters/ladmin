@@ -22,13 +22,6 @@ class LoginController extends Controller
 
     use AuthenticatesUsers;
 
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo;
-
     public function redirectTo() {
         return '/' . config('ladmin.prefix', 'administrator');
     }
@@ -39,7 +32,6 @@ class LoginController extends Controller
      * @return void
      */
     public function __construct() {
-        $this->redirectTo = $this->redirectTo();
         $this->middleware([LadminGuestMiddleware::class])->except('logout');
     }
 
@@ -66,6 +58,16 @@ class LoginController extends Controller
         $request->session()->invalidate();
 
         return redirect()->route('administrator.login');
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard(config('ladmin.auth.guard', 'web'));
     }
 
 }

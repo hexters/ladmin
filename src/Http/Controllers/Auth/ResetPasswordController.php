@@ -8,12 +8,6 @@ use Illuminate\Http\Request;
 
 class ResetPasswordController extends Controller
 {
-    /**
-     * Where to redirect users after resetting their password.
-     *
-     * @var string
-     */
-    protected $redirectTo;
     
     /*
     |--------------------------------------------------------------------------
@@ -27,10 +21,6 @@ class ResetPasswordController extends Controller
     */
 
     use ResetsPasswords;
-
-    public function __construct() {
-        $this->redirectTo = $this->redirectTo();
-    }
     
     public function redirectTo() {
         return '/' . config('ladmin.prefix', 'administrator');
@@ -42,5 +32,24 @@ class ResetPasswordController extends Controller
         return view('ladmin::auth.passwords.reset')->with(
             ['token' => $token, 'email' => $request->email]
         );
+    }
+
+    /**
+     * Get the guard to be used during authentication.
+     *
+     * @return \Illuminate\Contracts\Auth\StatefulGuard
+     */
+    protected function guard()
+    {
+        return Auth::guard(config('ladmin.auth.guard', 'web'));
+    }
+
+    /**
+     * Get the broker to be used during password reset.
+     *
+     * @return PasswordBroker
+     */
+    public function broker() {
+        return Password::broker(config('ladmin.auth.broker', 'users'));
     }
 }

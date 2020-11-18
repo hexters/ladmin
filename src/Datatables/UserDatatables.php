@@ -40,14 +40,14 @@
         'options' => [
           'topButton' => view('vendor.ladmin.user._partials._topButton'),
           'processing' => true,
-              'serverSide' => true,
-              'ajax' => route('administrator.account.admin.index'),
-              'columns' => [
-                  ['data' => 'id', 'class' => 'text-center'],
-                  ['data' => 'name'],
-                  ['data' => 'email'],
-                  ['data' => 'action', 'class' => 'text-center', 'orderable' => false]
-              ]
+          'serverSide' => true,
+          'ajax' => route('administrator.account.admin.index'),
+          'columns' => [
+              ['data' => 'id', 'class' => 'text-center'],
+              ['data' => 'name'],
+              ['data' => 'email'],
+              ['data' => 'action', 'class' => 'text-center', 'orderable' => false]
+          ]
         ]
       ];
 
