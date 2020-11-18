@@ -14,6 +14,7 @@ Make an Administrator page in 5 minutes
 |Version|Laravel|
 |:-:|:-:|
 | [v1.0.x](https://github.com/hexters/ladmin/blob/master/versions/1.0.md) | 7.x |
+| Last version | 8.x |
 
 ## Package Requirement
 - [DataTables](https://github.com/yajra/laravel-datatables)
@@ -188,7 +189,7 @@ http://localhost:8000/administrator
 |-|-|-|-|
 |`name`|String|YES|Name must be the same as the input form|
 |`label`|String|YES||
-|`type`|String|NO|`vertical` or `horizontal`|
+|`type`|String|NO|`vertical` or `horizontal` default `horizontal`|
 |`help`|String|NO||
 |`col-label`|int|NO| Grid `col 1 - 12`|
 |`col-input`|int|NO| Grid `col 1 - 12`|
@@ -196,7 +197,7 @@ http://localhost:8000/administrator
 #### Slots
 |Slot Name|Require|
 |-|-|
-|prepent|NO|
+|prepend|NO|
 |append|NO|
 |caption|NO|
 
@@ -249,7 +250,7 @@ Notification required
 |`setLink`|String|YES|-|
 |`setImageLink`|String|NO|-|
 |`setDescription`|String|YES|-|
-|`setGates`|Array|YES|-|
+|`setGates`|Array|NO| default all gates |
 
 Listen with [Larave Echo Server](https://github.com/tlaverdure/laravel-echo-server)
 ```
