@@ -14,6 +14,7 @@ Make an Administrator page in 5 minutes
 |Version|Laravel|
 |:-:|:-:|
 | [v1.0.x](https://github.com/hexters/ladmin/blob/master/versions/1.0.md) | 7.x |
+| Last version | 8.x |
 
 ## Package Requirement
 - [DataTables](https://github.com/yajra/laravel-datatables)
