@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers\Administrator\Auth;
 
+use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;

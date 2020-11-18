@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Administrator\Auth;
 
+use Illuminate\Support\Facades\Password;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
