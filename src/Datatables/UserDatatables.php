@@ -9,8 +9,11 @@
 
     public function render() {
       return $this->eloquent(
-          app(config('ladmin.user', App\Models\User::class))->query()
+          app(config('ladmin.user', App\Models\User::class))->with(['roles'])
         )
+        ->editColumn('roles.name', function($item) {
+          return $item->roles->pluck('name');
+        })
         ->addColumn('action', function($item) {
           return view('ladmin::table.action', [
             'show' => null,
@@ -36,6 +39,7 @@
           [ 'name' => 'ID', 'class' => 'text-center'],
           [ 'name' => 'Name' ],
           [ 'name' => 'Email' ],
+          [ 'name' => 'Role' ],
           [ 'name' => 'Action', 'class' => 'text-center' ]
         ],
         'options' => [
@@ -47,6 +51,7 @@
               ['data' => 'id', 'class' => 'text-center'],
               ['data' => 'name'],
               ['data' => 'email'],
+              ['data' => 'roles.name', 'orderable' => false],
               ['data' => 'action', 'class' => 'text-center', 'orderable' => false]
           ]
         ]
