@@ -21,6 +21,10 @@
         'fields' => [
           [ 'name' => 'ID', 'class' => 'text-center'],
         ],
+        'foos' => [ // Custom data array. You can call in your blade with variable $foos
+          'bar' => 'baz',
+          'baz' => 'bar',
+        ],
         'options' => [
           'topButton' => null,
           'processing' => true,
