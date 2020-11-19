@@ -18,7 +18,7 @@ class NotificationController extends Controller {
             return abort(404);
         }
 
-        $data['notifications'] = app(config('ladmin.auth.user', App\Models\User::class))
+        $data['notifications'] = app(config('ladmin.user', App\Models\User::class))
             ->ladmin_notifications->latest('id')
             ->limit(config('ladmin.notification_limit', 100))
             ->get();
@@ -34,7 +34,7 @@ class NotificationController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id) {
-        return app(config('ladmin.auth.user', App\Models\User::class))->makeReadedLadminNotification($id);
+        return app(config('ladmin.user', App\Models\User::class))->makeReadedLadminNotification($id);
     }
     
 }

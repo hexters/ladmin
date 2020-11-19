@@ -5,7 +5,7 @@
     <form action="{{ route('administrator.account.admin.store') }}" method="post">
       @csrf 
       
-      @include('vendor.ladmin.user._partials._form', ['user' => app(config('ladmin.auth.user', App\Models\User::class))])
+      @include('vendor.ladmin.user._partials._form', ['user' => app(config('ladmin.user', App\Models\User::class))])
   
       <div class="text-right">
         <button type="submit" class="btn btn-primary">

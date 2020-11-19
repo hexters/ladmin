@@ -13,11 +13,14 @@
     'prefix' => env('LADMIN_PREFIX_PAGE', 'administrator'),
     
     /**
+     * Admin account Model
+     */
+    'user' => App\Models\User::class,
+
+    /**
      * Authentication Setting
      */
     'auth' => [
-      'user' => App\Models\User::class,
-
       /**
        * Set the guard to be used during authentication.
        */

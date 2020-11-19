@@ -9,7 +9,7 @@
 
     public function render() {
       return $this->eloquent(
-          app(config('ladmin.auth.user', App\Models\User::class))->query()
+          app(config('ladmin.user', App\Models\User::class))->query()
         )
         ->addColumn('action', function($item) {
           return view('ladmin::table.action', [

@@ -10,7 +10,7 @@ class UserRepository extends Repository implements MasterRepositoryInterface {
   
   public function __construct() {
     parent::__construct(
-      app(config('ladmin.auth.user', App\Models\User::class))
+      app(config('ladmin.user', App\Models\User::class))
     );
   }
   
