@@ -26,7 +26,7 @@
       /**
        * Set the broker to be used during password reset.
        */
-      'broker' => 'users'
+      'broker' => 'users' // table name
     ],
 
     /**

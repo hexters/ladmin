@@ -2,15 +2,16 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\Datatables;
 use Hexters\Ladmin\Contracts\MasterRepositoryInterface;
 
 class UserRepository extends Repository implements MasterRepositoryInterface {
   
-  public function __construct(User $model) {
-    parent::__construct($model);
+  public function __construct() {
+    parent::__construct(
+      app(config('ladmin.auth.user', App\Models\User::class))
+    );
   }
   
   /**

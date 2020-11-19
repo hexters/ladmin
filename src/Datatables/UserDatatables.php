@@ -2,14 +2,15 @@
 
   namespace App\DataTables;
 
-  use App\Models\User;
   use Yajra\DataTables\Datatables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
   class UserDatatables extends Datatables implements DataTablesInterface {
 
     public function render() {
-      return $this->eloquent(User::query())
+      return $this->eloquent(
+          app(config('ladmin.auth.user', App\Models\User::class))->query()
+        )
         ->addColumn('action', function($item) {
           return view('ladmin::table.action', [
             'show' => null,
