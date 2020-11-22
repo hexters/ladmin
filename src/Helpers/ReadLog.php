@@ -13,7 +13,7 @@ class ReadLog {
             $fn = fopen($log, "r");
             $getLine = 1;
             while(! feof($fn))  {
-                $line = fgets($fn);
+                $line = fgets($fn, 4096);
                 if(preg_match('/LADMIN_EXCEPTION.*/', $line)) {
                     $line = str_replace(' local.ERROR: ', '', $line);
                     $explode = explode('LADMIN_EXCEPTION', $line);
