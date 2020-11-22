@@ -71,8 +71,9 @@ class DataTablesCommand extends Command
                 $pathFirst = $pathFirst . DIRECTORY_SEPARATOR . $newPath;
             }
         }
-        $namespace = 'App\\Datatables\\' . implode('\\', $path);
-
+        $namespace = 'App\\DataTables\\' . implode('\\', $path);
+        $namespace = str_replace('\\' . $filename, '', $namespace);
+        
         $php = str_replace('{{ namespace }}', $namespace, $template);
         $php = str_replace('{{ model }}', $model, $php);
         $php = str_replace('{{ filename }}', $filename, $php);
