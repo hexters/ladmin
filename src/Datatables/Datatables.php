@@ -4,7 +4,7 @@ namespace Hexters\Ladmin\DataTables;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Yajra\DataTables\Datatables as BaseDatatables;
 
-class DataTables extends BaseDatatables {
+class Datatables extends BaseDatatables {
   
   /**
    * Render blade

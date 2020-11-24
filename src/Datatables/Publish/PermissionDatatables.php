@@ -3,7 +3,7 @@
   namespace App\DataTables;
 
   use App\Models\Role;
-  use Hexters\Ladmin\DataTables\DataTables;
+  use Hexters\Ladmin\DataTables\Datatables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
   class PermissionDatatables extends Datatables implements DataTablesInterface {

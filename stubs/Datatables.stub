@@ -3,7 +3,7 @@
   namespace {{ namespace }};
 
   use App\Models\{{ model }};
-  use Hexters\Ladmin\DataTables\DataTables;
+  use Hexters\Ladmin\DataTables\Datatables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
   class {{ filename }} extends Datatables implements DataTablesInterface {
