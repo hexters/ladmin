@@ -16,7 +16,7 @@ class Ladmin {
   }
 
   public function icon($path) {
-    $pathName = str_replace('.', '/', $path) . '.svg';
+    $pathName = str_replace('.', '/', trim($path)) . '.svg';
     $basePath = base_path('/resources/assets/icons/' . $pathName);
     if(file_exists($basePath)) {
       return file_get_contents($basePath);

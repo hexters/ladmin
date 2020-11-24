@@ -12,7 +12,7 @@ return [
      * Example to Custom SVG file 'icon' => 'somefolder.customsvgfile' --> resources/assets/icons/somefolder/customsvgfile.svg 
      * Exampe for fontawesome 'icon' => 'fas fa-user',
      */
-    'icon' => 'user',
+    'icon' => 'user-group',
     'id' => '',
     'gates' => [],
     'submenus' => [
