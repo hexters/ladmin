@@ -2,7 +2,7 @@
 
   namespace App\DataTables;
 
-  use Hexters\Ladmin\DataTables\Datatables;
+  use Hexters\Ladmin\Datatables\Datatables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
   class UserDatatables extends Datatables implements DataTablesInterface {

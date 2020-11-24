@@ -1,6 +1,6 @@
 <?php 
 
-namespace Hexters\Ladmin\DataTables;
+namespace Hexters\Ladmin\Datatables;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Yajra\DataTables\Datatables as BaseDatatables;
 
