@@ -3,20 +3,24 @@
   namespace App\DataTables;
 
   use App\Models\Role;
-  use Yajra\DataTables\Datatables;
+  use Hexters\Ladmin\DataTables\DataTables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
-  class PermissionDatatables extends Datatables implements DataTablesInterface {
+  class RoleDatatables extends Datatables implements DataTablesInterface {
 
     public function render() {
       return $this->eloquent(Role::query())
         ->addColumn('action', function($item) {
           return view('ladmin::table.action', [
-            'show' => [
-              'title' => 'Assign Permission',
-              'gate' => 'administrator.access.permission.show',
-              'url' => route('administrator.access.permission.show', [$item->id, 'back' => request()->fullUrl()])
-            ]
+            'show' => null,
+            'edit' => [
+              'gate' => 'administrator.access.role.update',
+              'url' => route('administrator.access.role.edit', [$item->id, 'back' => request()->fullUrl()])
+            ],
+            'destroy' => ($item->id > 1) ? [
+              'gate' => 'administrator.access.role.destroy',
+              'url' => route('administrator.access.role.destroy', [$item->id, 'back' => request()->fullUrl()]),
+            ] : null
           ]);
         })
         ->escapeColumns([])
@@ -24,19 +28,18 @@
     }
 
     public function options() {
-      
+
       return [
-        'title' => 'Select Role',
+        'title' => 'Roles',
         'fields' => [
           [ 'name' => 'ID', 'class' => 'text-center'],
           [ 'name' => 'Name' ],
           [ 'name' => 'Action', 'class' => 'text-center' ]
         ],
         'options' => [
-          'topButton' => null,
+          'topButton' => view('vendor.ladmin.role._partials._topButton'),
           'processing' => true,
           'serverSide' => true,
-          'ajax' => route('administrator.access.permission.index'),
           'columns' => [
               ['data' => 'id', 'class' => 'text-center'],
               ['data' => 'name'],

@@ -12,11 +12,9 @@ use App\DataTables\PermissionDatatables;
 class PermissionController extends Controller {
 
     protected $repository;
-    protected $datatables;
 
-    public function __construct(RoleRepository $repository, PermissionDatatables $datatables) {
+    public function __construct(RoleRepository $repository) {
         $this->repository = $repository; 
-        $this->datatables = $datatables; 
     }
   
     /**
@@ -26,10 +24,8 @@ class PermissionController extends Controller {
      */
     public function index(Request $request) {
         ladmin()->allow('administrator.access.permission.index');
-        if($request->ajax()) {
-            return $this->datatables->render();
-        }
-        return view('ladmin::ladmin.index', $this->datatables->options());
+        
+        return PermissionDatatables::view();
     }
     
 

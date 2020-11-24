@@ -11,11 +11,9 @@ use App\DataTables\RoleDatatables;
 class RoleController extends Controller {
 
     protected $repository;
-    protected $datatables;
-
-    public function __construct(RoleRepository $repository, RoleDatatables $datatables) {
+    
+    public function __construct(RoleRepository $repository) {
         $this->repository = $repository; 
-        $this->datatables = $datatables; 
     }
   
     /**
@@ -26,10 +24,7 @@ class RoleController extends Controller {
     public function index(Request $request) {
         ladmin()->allow('administrator.access.role.index');
 
-        if($request->ajax()) {
-            return $this->datatables->render();
-        }
-        return view('ladmin::ladmin.index', $this->datatables->options());
+        return RoleDatatables::view();
     }
 
     /**

@@ -3,7 +3,7 @@
   namespace {{ namespace }};
 
   use App\Models\{{ model }};
-  use Yajra\DataTables\Datatables;
+  use Hexters\Ladmin\DataTables\DataTables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
   class {{ filename }} extends Datatables implements DataTablesInterface {
@@ -29,7 +29,6 @@
           'topButton' => null,
           'processing' => true,
               'serverSide' => true,
-              'ajax' => route('index'),
               'columns' => [
                   ['data' => 'id', 'class' => 'text-center'],
               ]

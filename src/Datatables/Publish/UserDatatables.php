@@ -2,7 +2,7 @@
 
   namespace App\DataTables;
 
-  use Yajra\DataTables\Datatables;
+  use Hexters\Ladmin\DataTables\DataTables;
   use Hexters\Ladmin\Contracts\DataTablesInterface;
 
   class UserDatatables extends Datatables implements DataTablesInterface {
@@ -46,7 +46,6 @@
           'topButton' => view('vendor.ladmin.user._partials._topButton'),
           'processing' => true,
           'serverSide' => true,
-          'ajax' => route('administrator.account.admin.index'),
           'columns' => [
               ['data' => 'id', 'class' => 'text-center'],
               ['data' => 'name'],
