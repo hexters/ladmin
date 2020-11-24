@@ -83,7 +83,8 @@ class LadminServiceProvider extends ServiceProvider
             __DIR__ . '/Http/Middleware/LadminAuthenticate.php' => app_path('Http/Middleware/LadminAuthenticate.php'),
             __DIR__ . '/Repositories/' => app_path('Repositories'),
             __DIR__ . '/Models/Role.php' => app_path('/Models/Role.php'),
-            __DIR__ . '/../Resources/Views/vendor/' => base_path('/resources/views/vendor/ladmin/')
+            __DIR__ . '/../Resources/Views/vendor/' => base_path('/resources/views/vendor/ladmin/'),
+            __DIR__ . '/../Resources/assets/icons/' => base_path('/resources/assets/icons'),
         ], 'core');
 
         /**

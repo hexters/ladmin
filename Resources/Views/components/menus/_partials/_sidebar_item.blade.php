@@ -9,7 +9,7 @@
   @endphp
   <a href="{{ $router }}">
     @if(isset($menu['icon']))
-      <i class="{{ $menu['icon'] }}"></i> 
+      {!! ladmin()->icon($menu['icon']) !!}
     @endif
     {{ $menu['name'] }}
   </a>

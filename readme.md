@@ -88,10 +88,13 @@ Ladmin::route(function() {
 
 ```
 
-Create Datatables server
+## Create Datatables server
+Create datatables server to handle your list data, [click here](https://github.com/hexters/ladmin#gates--permission) for example uses
 ```
 $ php artisan make:datatables UserDataTables  --model=User
+
 ```
+
 
 ## Sidebar Menu
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
@@ -99,6 +102,10 @@ To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 ## Gates & Permission
 Protect your module in the Controller
 ```
+. . .
+
+use App\DataTables\UserDataTables;  // Datatables Server
+
 . . . 
 class UserController {
 
@@ -106,6 +113,14 @@ class UserController {
 
   public function index() {
     ladmin()->allow(['administrator.account.admin.index']) // Call the gates based on menu `app/Menus/sidebar.php`
+
+    . . .
+
+    return UserDataTables::view();
+
+    // OR custom view and custom data
+
+    return UserDataTables::view('your.custom.view', [ 'foo' => 'bar' ]);
   }
 
 }
@@ -138,6 +153,17 @@ http://localhost:8000/administrator
 ![Example Image](https://github.com/hexters/ladmin/blob/master/login.png?raw=true)
 
 ## Blade Components
+
+### Datatables Render
+If you have a custom view for render data from [Datatables server](https://github.com/hexters/ladmin#create-datatables-server) you should call this component to render your table
+```
+<x-ladmin-datatables :fields="$fields" :options="$options" />
+```
+#### Attributes
+|Attribute|value|require|
+|-|-|-|
+|`fields`|don't be changed the value should be still `$fields`|YES|
+|`options`|don't be changed the value should be still `$options`|YES|
 
 ### Card Component
 ```

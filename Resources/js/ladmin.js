@@ -64,12 +64,35 @@ menus.forEach(el => {
 });
 
 /**
- * Jquery Section
+ * Menu active detection
  */
-$(function() {
-  $('.ladmin-datatables').each(function() {
-    let options = $(this).data('options');
-    $(this).DataTable({
+  let ladminSidebar = document.querySelector('.ladmin-sidebar');
+  let activeMenus = ladminSidebar.querySelector('li.active');
+  
+  setActiveMenu = (menu) => {
+    let parent = menu.parentNode;
+    
+    if(parent.classList.contains('ladmin-sidebar')) {
+      return;
+    }
+
+    if(parent.nodeName === 'LI') {
+      parent.classList.add('show');
+    }
+
+    setActiveMenu(parent);
+    
+  }
+  setActiveMenu(activeMenus);
+
+  /**
+   * Datatables render
+   */
+  let ladmiDatatables = document.querySelectorAll('.ladmin-datatables');
+  ladmiDatatables.forEach((el) => {
+    let options = el.getAttribute('data-options');
+    options = JSON.parse(options);
+    $(el).DataTable({
       language: {
         search: '',
         searchPlaceholder: 'Search...'
@@ -79,6 +102,12 @@ $(function() {
       ...options
     });
   });
+
+  
+/**
+ * Jquery Section
+ */
+$(function() {
 
   $('.ladmin-datatable-base').each(function() {
     $(this).DataTable();
