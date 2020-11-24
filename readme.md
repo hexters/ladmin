@@ -228,7 +228,7 @@ If you have a custom view for render data from [Datatables server](https://githu
 |caption|NO|
 
 ## Icons 
-You can user [Fontawesome](https://fontawesome.com) of SVG file in `resources/assets/icons`, svg file retrieved from site [Heroicons](https://heroicons.com)
+You can user [Fontawesome](https://fontawesome.com) or SVG file in `resources/assets/icons`, svg file retrieved from site [Heroicons](https://heroicons.com)
 ```
   ladmin()->icon('fas fa-user')
 
