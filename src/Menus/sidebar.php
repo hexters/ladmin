@@ -7,11 +7,16 @@ return [
     'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     'route' => null,
     'isActive' => 'account/*',
-    'icon' => 'fas fa-user-circle',
+    /**
+     * You can use fontawesome or svg file, the svg file is viewable in the resources/assets/icons directory
+     * Example to Custom SVG file 'icon' => 'somefolder.customsvgfile' --> resources/assets/icons/somefolder/customsvgfile.svg 
+     * Exampe for fontawesome 'icon' => 'fas fa-user',
+     */
+    'icon' => 'user',
     'id' => '',
     'gates' => [],
     'submenus' => [
-      
+
       [
         'gate' => 'administrator.account.admin.index',
         'name' => 'User Admin',
@@ -51,7 +56,7 @@ return [
     'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     'route' => null,
     'isActive' => 'access/*',
-    'icon' => 'fas fa-lock',
+    'icon' => 'lock-open',
     'id' => '',
     'gates' => [],
     'submenus' => [
@@ -112,7 +117,7 @@ return [
     'description' => 'System application control',
     'route' => null,
     'isActive' => 'system*',
-    'icon' => 'fas fa-cog',
+    'icon' => 'cog',
     'id' => '',
     'gates' => [],
     'submenus' => [

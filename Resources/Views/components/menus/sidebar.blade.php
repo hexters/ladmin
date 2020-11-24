@@ -13,7 +13,7 @@
 <ul>
   <li class="{{ request()->is(config('ladmin.prefix', 'administrator')) ? 'active' : null }}">
     <a href="{{ route('administrator.index') }}">
-      <i class="fas fa-tachometer-alt"></i> Dashboard
+      {!! ladmin()->icon('view-boards') !!} Dashboard
     </a>
   </li>
 
