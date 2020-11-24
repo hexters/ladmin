@@ -14,7 +14,7 @@ class Datatables extends BaseDatatables {
    * 
    */
   public static function view($blade = 'ladmin::ladmin.index', $data = []) {
-    return self::build($blade, $data = []);
+    return self::build($blade, $data);
   }
 
   /**
