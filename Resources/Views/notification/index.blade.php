@@ -29,8 +29,10 @@
       @endif
       @empty
           <div class="pt-5 text-center">
-            <i class="fa fa-bell fa-lg text-muted"></i>
-            <p class="text-muted">No Notification</p>
+            <div class="mb-3">
+              {!! ladmin()->icon('bell') !!}
+            </div>
+            <p class="text-muted">Notification not found</p>
           </div>
       @endforelse
     </div>

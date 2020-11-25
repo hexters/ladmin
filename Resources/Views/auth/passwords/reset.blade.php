@@ -17,13 +17,13 @@
 
                     <x-ladmin-input name="password" type="password" placeholder="New Password" class="px-5" old="true" required="true">
                         <x-slot name="prepend">
-                            <i class="fas fa-lock"></i>
+                            {!! ladmin()->icon('lock-open') !!}
                         </x-slot>
                     </x-ladmin-input>
 
                     <x-ladmin-input name="password_confirmation" type="password" placeholder="Confirm Password" class="px-5" old="true" required="true">
                         <x-slot name="prepend">
-                            <i class="fas fa-lock"></i>
+                            {!! ladmin()->icon('lock-closed') !!}
                         </x-slot>
                     </x-ladmin-input>
                     

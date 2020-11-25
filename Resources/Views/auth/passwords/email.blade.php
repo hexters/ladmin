@@ -17,7 +17,7 @@
 
                     <x-ladmin-input name="email" type="email" placeholder="Email Address" class="px-5" old="true" required="true">
                         <x-slot name="prepend">
-                            <i class="fas fa-envelope"></i>
+                            {!! ladmin()->icon('at-symbol') !!}
                         </x-slot>
                     </x-ladmin-input>
                     

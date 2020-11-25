@@ -1,7 +1,7 @@
 @if(isset($show))
   @can($show['gate'])
     <a href="{{ $show['url'] }}" class="btn btn-link">
-      {!! $show['title'] ?? '<i class="far text-muted fa-eye"></i>' !!}
+      {!! $show['title'] ?? ladmin()->icon('document-search') !!}
     </a>
   @endcan
 @endif
@@ -9,7 +9,7 @@
 @if(isset($edit))
   @can($edit['gate'])
     <a href="{{ $edit['url'] }}" class="btn btn-link text-muted">
-      {!! $edit['title'] ?? '<i class="far text-muted fa-edit"></i>' !!}
+      {!! $edit['title'] ?? ladmin()->icon('pencil-alt') !!}
     </a>
   @endcan
 @endif
@@ -17,7 +17,7 @@
 @if(isset($destroy))
   @can($destroy['gate'])
     <a href="{{ $destroy['url'] }}" class="btn btn-link" data-toggle="modal" data-target="#action-{{ Str::slug($destroy['url']) }}">
-      {!! $destroy['title'] ?? '<i class="far text-muted fa-trash-alt"></i>' !!}
+      {!! $destroy['title'] ?? ladmin()->icon('trash') !!}
     </a>
 
     <div class="modal fade" id="action-{{ Str::slug($destroy['url']) }}" tabindex="-1" role="dialog" aria-labelledby="action-{{ Str::slug($destroy['url']) }}Label" aria-hidden="true">

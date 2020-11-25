@@ -196,6 +196,13 @@
 
           &:hover {
             color: $primary;
+
+            svg {
+              color: $primary;
+              path {
+                stroke: $primary;
+              }
+            }
           }
 
           .caret {
@@ -215,6 +222,17 @@
           color: $primary;
           > a {
             color: $primary;
+
+            svg {
+              color: $primary;
+              path {
+                stroke: $primary;
+              }
+            }
+
+            i {
+              color: $primary;
+            }
           }
           
           > ul {

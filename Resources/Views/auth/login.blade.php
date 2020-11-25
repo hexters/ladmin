@@ -25,13 +25,13 @@
                     @csrf
                     <x-ladmin-input type="email" name="email" :old="true" placeholder="Email Address">
                         <x-slot name="prepend">
-                            <i class="fas fa-envelope"></i>
+                            {!! ladmin()->icon('at-symbol') !!}
                         </x-slot>
                     </x-ladmin-input>
 
                     <x-ladmin-input type="password" name="password" placeholder="Password">
                         <x-slot name="prepend">
-                            <i class="fas fa-lock"></i>
+                            {!! ladmin()->icon('lock-closed') !!}
                         </x-slot>
                     </x-ladmin-input>
                     
