@@ -10,7 +10,7 @@ class Ladmin {
   }
 
   public function allow($gates) {
-    if(Gate::denies('administrator.account.admin.index')) {
+    if(Gate::denies($gates)) {
       return abort(403);
     }
   }
