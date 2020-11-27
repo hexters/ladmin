@@ -22,6 +22,12 @@ class LadminLogable extends Model {
         'old_data' => 'array'
     ];
 
+    public $colors = [
+        'create' => 'success',
+        'edit' => 'warning',
+        'delete' => 'danger',
+    ];
+
     public function user() {
         return $this->belongsTo(config('ladmin.user'), 'user_id', 'id');
     }

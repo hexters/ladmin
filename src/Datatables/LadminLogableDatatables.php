@@ -13,6 +13,9 @@
       ->editColumn('logable_type', function($item) {
           return $item->logable_type;
         })
+        ->editColumn('type', function($item) {
+          return '<span class="badge badge-' . ($item->colors[$item->type] ?? 'warning') . '">' . ucwords($item->type) . '</span>';
+        })
       ->editColumn('created_at', function($item) {
         return $item->created_at->format('d/m/y H:i') . ' - ' . $item->created_at->diffForHumans();
       })
@@ -32,7 +35,7 @@
         'title' => 'List Of Activity',
         'fields' => [
           [ 'name' => 'Date'],
-          [ 'name' => 'Type'],
+          [ 'name' => 'Type', 'class' => 'text-center'],
           [ 'name' => 'Model'],
           [ 'name' => 'User'],
           [ 'name' => 'Action'],
@@ -48,7 +51,7 @@
           "order" => [[0, "desc"]],
           'columns' => [
             ['data' => 'created_at'],
-            ['data' => 'type'],
+            ['data' => 'type', 'class' => 'text-center'],
             ['data' => 'logable_type'],
             ['data' => 'user.name'],
             ['data' => 'action', 'class' => 'text-right'],

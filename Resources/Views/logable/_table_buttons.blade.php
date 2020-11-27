@@ -31,7 +31,11 @@
 
             <tr>
               <td>Event Type</td>
-              <td>{{ ucwords($item->type) }}</td>
+              <td>
+                <span class="badge badge-{{ $item->colors[$item->type] ?? 'warning' }}">
+                  {{ ucwords($item->type) }}
+                </span>
+              </td>
             </tr>
 
             <tr>

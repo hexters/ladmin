@@ -129,6 +129,23 @@ For an other you can use `@can()` from blade or `auth()->user()->can()` more [Ga
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/gates.png?raw=true)
 
+## User Activity
+
+Add this trait `Hexters\Ladmin\LadminLogable` to all the models you want to monitor. Example below
+```
+. . .
+
+use Hexters\Ladmin\LadminLogable;
+
+class Role extends Model {
+    
+    use HasFactory, LadminLogable;
+
+. . .
+![Example Image](https://github.com/hexters/ladmin/blob/master/logable.png?raw=true)
+
+```
+
 ## Blade
 Ladmin layout in `resources/views/vendor/ladmin`
 
