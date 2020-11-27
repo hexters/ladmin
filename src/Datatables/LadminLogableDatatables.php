@@ -29,7 +29,7 @@
     public function options() {
       
       return [
-        'title' => 'List Of Model',
+        'title' => 'List Of Activity',
         'fields' => [
           [ 'name' => 'Date'],
           [ 'name' => 'Type'],
@@ -42,16 +42,17 @@
           'baz' => 'bar',
         ],
         'options' => [
-          'topButton' => null,
+          'topButton' => view('ladmin::logable._button_delete'),
           'processing' => true,
-              'serverSide' => true,
-              'columns' => [
-                ['data' => 'created_at'],
-                ['data' => 'type'],
-                ['data' => 'logable_type'],
-                ['data' => 'user.name'],
-                ['data' => 'action', 'class' => 'text-right'],
-              ]
+          'serverSide' => true,
+          "order" => [[0, "desc"]],
+          'columns' => [
+            ['data' => 'created_at'],
+            ['data' => 'type'],
+            ['data' => 'logable_type'],
+            ['data' => 'user.name'],
+            ['data' => 'action', 'class' => 'text-right'],
+          ]
         ]
       ];
 

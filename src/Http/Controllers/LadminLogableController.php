@@ -5,6 +5,7 @@ namespace Hexters\Ladmin\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Hexters\Ladmin\Datatables\LadminLogableDatatables;
+use Hexters\Ladmin\Models\LadminLogable;
 
 class LadminLogableController extends Controller
 {
@@ -68,9 +69,9 @@ class LadminLogableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(Request $request, $id) {
+        
+        
     }
 
     /**
@@ -79,8 +80,16 @@ class LadminLogableController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy($id) {
+        
+        $data = LadminLogable::where('created_at', '<', now()->addDays('-7')->format('Y-m-d h:i:s'));
+        $count = $data->count();
+        $data->delete();
+        
+        session()->flash('success', [
+            $count . ' has been deleted'
+        ]);
+
+        return redirect()->back();
     }
 }

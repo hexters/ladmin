@@ -47,7 +47,7 @@ class Ladmin {
 
         BaseRoute::group(['as' => 'system.', 'prefix' => 'system'], function() {
           BaseRoute::resource('/log', LogController::class)->only(['index']);
-          BaseRoute::resource('/activity', LadminLogableController::class)->only(['index']);
+          BaseRoute::resource('/activity', LadminLogableController::class)->only(['index', 'destroy']);
         });
 
         BaseRoute::group(['as' => 'access.', 'prefix' => 'access'], function() {

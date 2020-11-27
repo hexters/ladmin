@@ -9,7 +9,7 @@ trait LadminLogable {
     return $this->morphMany(LadminLogableModel::class, 'logable');
   }
 
-  public function createLog() {
+  public static function createLog($model, $event) {
     
     if(auth()->guard(config('ladmin.auth.guard'))->guest()){
       return;
@@ -17,12 +17,12 @@ trait LadminLogable {
 
     $user = auth()->guard(config('ladmin.auth.guard'))->user();
 
-    $instance = app( config('ladmin.auth') );
+    $instance = app( config('ladmin.user') );
     if(!($user instanceof  $instance )) {
       return;
     }
     
-    $model->activities()->create([
+    $model->ladmin_logable()->create([
       'user_id' => $user->id,
       'type' => $event,
       'old_data' => json_encode($model->getOriginal()),
@@ -45,10 +45,6 @@ trait LadminLogable {
     self::deleted(function($model) {
       self::createLog($model, 'delete');
     });
-
-    self::forceDeleted(function($model) {
-      self::createLog($model, 'force_delete');
-    });
-
+    
   }
 }

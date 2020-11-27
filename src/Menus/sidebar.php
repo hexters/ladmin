@@ -128,7 +128,13 @@ return [
         'route' => ['administrator.system.activity.index', []],
         'isActive' => 'system/activity*',
         'id' => '',
-        'gates' => []
+        'gates' => [
+          [
+            'gate' => 'administrator.system.activity.delete',
+            'title' => 'Delete',
+            'description' => 'Delete log activity after 7 days'
+          ],
+        ]
       ],
 
       [

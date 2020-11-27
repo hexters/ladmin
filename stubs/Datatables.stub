@@ -28,10 +28,10 @@
         'options' => [
           'topButton' => null,
           'processing' => true,
-              'serverSide' => true,
-              'columns' => [
-                  ['data' => 'id', 'class' => 'text-center'],
-              ]
+          'serverSide' => true,
+          'columns' => [
+              ['data' => 'id', 'class' => 'text-center'],
+          ]
         ]
       ];
 
