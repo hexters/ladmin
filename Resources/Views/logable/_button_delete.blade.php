@@ -1,29 +1,21 @@
 @can(['administrator.system.activity.delete'])
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modal-delete-data">
+<div class="dropdown d-inline">
+  <a class="btn btn-danger dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
     Delete
-  </button>
+  </a>
 
-  <div class="modal fade" id="modal-delete-data" tabindex="-1" aria-labelledby="modal-delete-dataLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <form method="POST" action="{{ route('administrator.system.activity.destroy', 0) }}">
-        @csrf
-        @method('DELETE')
-        <div class="modal-content">
-          <div class="modal-header border-0">
-            <h5 class="modal-title" id="modal-delete-dataLabel">Delete</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">
-            <p>Do you want to delete data older than 7 days permanently!?</p>
-          </div>
-          <div class="modal-footer border-0">
-            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="submit" class="btn btn-danger">Yes</button>
-          </div>
-        </div>
-      </form>
-    </div>
-  </div>  
+  <div class="dropdown-menu p-0 mt-2" aria-labelledby="dropdownMenuLink">
+    <a class="dropdown-item" href="javascript:void(0);">No</a>
+    <a class="dropdown-item bg-danger text-white" href="javascript:void(0);" onclick="
+      document.getElementById('form-delete-older-actifity').submit();
+      ">Yes!</a>
+  </div>
+</div>
+
+<strong class="ml-3 d-none d-md-inline">Delete data older than 7 days</strong>
+  
+  <form method="POST" id="form-delete-older-actifity" action="{{ route('administrator.system.activity.destroy', 0) }}">
+    @csrf
+    @method('DELETE')
+  </form>
 @endcan
