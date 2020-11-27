@@ -92,7 +92,7 @@ Ladmin::route(function() {
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
 ## Create Datatables server
-Create datatables server to handle your list data, [click here](https://github.com/hexters/ladmin#gates--permission) for example uses
+Create datatables server to handle your list data, [click here](https://github.com/hexters/ladmin#role--permission) for example uses
 ```
 $ php artisan make:datatables UserDataTables  --model=User
 
