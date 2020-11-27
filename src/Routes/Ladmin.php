@@ -8,12 +8,15 @@ use Illuminate\Support\Facades\Route as BaseRoute;
 use Hexters\Ladmin\Http\Middleware\LadminLoginMiddleware;
 
 use App\Http\Controllers\Administrator\DashboardController;
-use App\Http\Controllers\Administrator\NotificationController;
 use App\Http\Controllers\Administrator\ProfileController;
 use App\Http\Controllers\Administrator\UserAdminController;
-use App\Http\Controllers\Administrator\LogController;
 use App\Http\Controllers\Administrator\RoleController;
 use App\Http\Controllers\Administrator\PermissionController;
+
+use Hexters\Ladmin\Http\Controllers\LogController;
+use Hexters\Ladmin\Http\Controllers\NotificationController;
+use Hexters\Ladmin\Http\Controllers\LadminLogableController;
+
 
 class Ladmin {
 
@@ -44,6 +47,7 @@ class Ladmin {
 
         BaseRoute::group(['as' => 'system.', 'prefix' => 'system'], function() {
           BaseRoute::resource('/log', LogController::class)->only(['index']);
+          BaseRoute::resource('/activity', LadminLogableController::class)->only(['index']);
         });
 
         BaseRoute::group(['as' => 'access.', 'prefix' => 'access'], function() {

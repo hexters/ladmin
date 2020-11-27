@@ -1,0 +1,54 @@
+<?php
+
+namespace Hexters\Ladmin;
+use Hexters\Ladmin\Models\LadminLogable as LadminLogableModel;
+
+trait LadminLogable {
+
+  public function ladmin_logable() {
+    return $this->morphMany(LadminLogableModel::class, 'logable');
+  }
+
+  public function createLog() {
+    
+    if(auth()->guard(config('ladmin.auth.guard'))->guest()){
+      return;
+    }
+
+    $user = auth()->guard(config('ladmin.auth.guard'))->user();
+
+    $instance = app( config('ladmin.auth') );
+    if(!($user instanceof  $instance )) {
+      return;
+    }
+    
+    $model->activities()->create([
+      'user_id' => $user->id,
+      'type' => $event,
+      'old_data' => json_encode($model->getOriginal()),
+      'new_data' => json_encode($model)
+    ]);
+
+  }
+
+
+  protected static function bootLadminLogable() {
+    
+    self::created(function($model) {
+      self::createLog($model, 'create');
+    });    
+
+    self::updated(function($model) {
+      self::createLog($model, 'edit');
+    });    
+
+    self::deleted(function($model) {
+      self::createLog($model, 'delete');
+    });
+
+    self::forceDeleted(function($model) {
+      self::createLog($model, 'force_delete');
+    });
+
+  }
+}

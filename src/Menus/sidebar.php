@@ -122,6 +122,16 @@ return [
     'gates' => [],
     'submenus' => [
       [
+        'gate' => 'administrator.system.activity.index',
+        'name' => 'User Activity',
+        'description' => 'List of User activity',
+        'route' => ['administrator.system.activity.index', []],
+        'isActive' => 'system/activity*',
+        'id' => '',
+        'gates' => []
+      ],
+
+      [
         'gate' => 'administrator.system.log.index',
         'name' => 'System Log',
         'description' => 'Display for Ladmin error log',

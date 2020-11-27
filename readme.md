@@ -88,6 +88,9 @@ Ladmin::route(function() {
 
 ```
 
+## Sidebar Menu
+To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
+
 ## Create Datatables server
 Create datatables server to handle your list data, [click here](https://github.com/hexters/ladmin#gates--permission) for example uses
 ```
@@ -95,12 +98,8 @@ $ php artisan make:datatables UserDataTables  --model=User
 
 ```
 
-
-## Sidebar Menu
-To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
-
-## Gates & Permission
-Protect your module in the Controller
+## Role & Permission
+Protect your module via Controller
 ```
 . . .
 
