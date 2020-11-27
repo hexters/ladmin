@@ -39,7 +39,7 @@
             </tr>
 
             <tr>
-              <td>Table Name</td>
+              <td>Model</td>
               <td>{{ ucwords($item->logable_type) }}</td>
             </tr>
             <tr>
