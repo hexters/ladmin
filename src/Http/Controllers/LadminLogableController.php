@@ -86,9 +86,16 @@ class LadminLogableController extends Controller
         $count = $data->count();
         $data->delete();
         
-        session()->flash('success', [
-            $count . ' has been deleted'
-        ]);
+        if($count > 0) {
+            session()->flash('success', [
+                $count . ' has been deleted'
+            ]);
+        } else {
+            session()->flash('success', [
+                'No data available'
+            ]);
+        }
+
 
         return redirect()->back();
     }

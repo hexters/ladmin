@@ -5,7 +5,7 @@
 
   <div class="modal fade" id="modal-delete-data" tabindex="-1" aria-labelledby="modal-delete-dataLabel" aria-hidden="true">
     <div class="modal-dialog">
-      <form action="{{ route('administrator.system.activity.destroy', 0) }}">
+      <form method="POST" action="{{ route('administrator.system.activity.destroy', 0) }}">
         @csrf
         @method('DELETE')
         <div class="modal-content">
@@ -16,15 +16,11 @@
             </button>
           </div>
           <div class="modal-body">
-            <p>Are you sure you want to delete older data?</p>
-  
-            <div class="alert alert-warning">
-              This event will be delete data older than 7 days permanently!
-            </div>
+            <p>Do you want to delete data older than 7 days permanently!?</p>
           </div>
           <div class="modal-footer border-0">
             <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-            <button type="button" class="btn btn-danger">Yes</button>
+            <button type="submit" class="btn btn-danger">Yes</button>
           </div>
         </div>
       </form>
