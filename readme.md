@@ -142,9 +142,10 @@ class Role extends Model {
     use HasFactory, LadminLogable;
 
 . . .
-![Example Image](https://github.com/hexters/ladmin/blob/master/logable.png?raw=true)
 
 ```
+
+![Example Image](https://github.com/hexters/ladmin/blob/master/logable.png?raw=true)
 
 ## Blade
 Ladmin layout in `resources/views/vendor/ladmin`
