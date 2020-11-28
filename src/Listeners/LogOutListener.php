@@ -6,7 +6,6 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Illuminate\Support\Facades\DB;
-use Hexters\Ladmin\Models\LadminLogable;
 
 class LogOutListener
 {
@@ -41,13 +40,15 @@ class LogOutListener
                 'user_agent' => $_SERVER['HTTP_USER_AGENT'],
             ];
             
-            LadminLogable::create([
+            DB::table('ladmin_logables')->insert([
                 'user_id' => $user->id,
                 'new_data' => json_encode($new_data),
                 'logable_type' => get_class($user),
                 'logable_id' => $user->id,
                 'old_data' => '[]',
                 'type' => 'logout',
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
         } catch (LadminException $e) {}
 
