@@ -46,6 +46,7 @@
           'topButton' => view('vendor.ladmin.user._partials._topButton'),
           'processing' => true,
           'serverSide' => true,
+          'ajax' => request()->fullurl(),
           'columns' => [
               ['data' => 'id', 'class' => 'text-center'],
               ['data' => 'name'],

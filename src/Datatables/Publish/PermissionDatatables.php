@@ -36,6 +36,7 @@
           'topButton' => null,
           'processing' => true,
           'serverSide' => true,
+          'ajax' => request()->fullurl(),
           'columns' => [
               ['data' => 'id', 'class' => 'text-center'],
               ['data' => 'name'],

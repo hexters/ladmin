@@ -49,6 +49,7 @@
           'processing' => true,
           'serverSide' => true,
           "order" => [[0, "desc"]],
+          'ajax' => request()->fullurl(),
           'columns' => [
             ['data' => 'created_at'],
             ['data' => 'type', 'class' => 'text-center'],

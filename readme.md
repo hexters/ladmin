@@ -293,11 +293,11 @@ You can user [Fontawesome](https://fontawesome.com) or SVG file in `resources/as
 ## Custom Style
 Install node modules
 ```
-$ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21 --save
+$ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21 vue --save
 
 // OR
 
-$ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21
+$ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21 vue
 
 ```
 
