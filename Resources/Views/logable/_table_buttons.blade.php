@@ -46,7 +46,7 @@
               <td>{{ ucwords($item->logable_type) }}</td>
             </tr>
             <tr>
-              <td>Table ID</td>
+              <td>ID</td>
               <td>{{ ucwords($item->logable_id) }}</td>
             </tr>
             <tr>
