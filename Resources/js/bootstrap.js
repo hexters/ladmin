@@ -8,7 +8,6 @@ try {
   require('bootstrap');
   require('datatables.net-bs4');
   require('@fortawesome/fontawesome-free/js/all');
-  require('./ladmin');
 
 } catch (error) {}
 
