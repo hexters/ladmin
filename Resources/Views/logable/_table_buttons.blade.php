@@ -56,9 +56,13 @@
             </tr>
 
             @foreach ((Array) $item->new_data as $field => $data)
+            @php
+                $new = is_array($data) ? json_encode($data) : $data;
+                $old = isset($item->old_data[$field]) ? is_array($item->old_data[$field]) ? json_encode($item->old_data[$field]) : $item->old_data[$field] : $new
+            @endphp
                 <tr>
-                <td>{{ $field }}</td>
-                <td>{!!  is_array($data) ? json_encode($data) : $data !!}</td>
+                  <td>{{ $field }}</td>
+                  <td class="{{ ($old === $new) ? '' : 'text-danger' }}">{!!  $new !!}</td>
                 </tr>
             @endforeach
 
@@ -69,9 +73,13 @@
             </tr>
 
             @forelse ((Array) $item->old_data as $field => $data)
+              @php
+                  $old = is_array($data) ? json_encode($data) : $data;
+                  $new = isset($item->new_data[$field]) ? is_array($item->new_data[$field]) ? json_encode($item->new_data[$field]) : $item->new_data[$field] : $old
+              @endphp
                 <tr>
                   <td>{{ $field }}</td>
-                  <td>{!!  is_array($data) ? json_encode($data) : $data !!}</td>
+                  <td class="{{ ($old === $new) ? '' : 'text-warning' }}">{!!  $old !!}</td>
                 </tr>
                 @empty 
                 <tr>
