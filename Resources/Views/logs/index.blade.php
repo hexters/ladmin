@@ -4,25 +4,41 @@
     <x-ladmin-card>
       <x-slot name="flat">
         <div class="table-responsive">
-          <table class="table ladmin-datatable-base">
+          <div class="top-button">
+            <form action="">
+              <select onchange="submit();" name="log" id="" class="form-control">
+                @foreach ($files as $item)
+                  <option {{ $file == $item ? 'selected' : null }} value="{{ $item }}">File {{ $item }}</option>
+                @endforeach
+              </select>
+            </form>
+          </div>
+          <table class="table ladmin-datatables">
             <thead>
               <tr>
-                <th>Date</th>
-                <th>Code</th>
-                <th>Error</th>
-                <th>File:line</th>
-                <th>Trace</th>
+                <th width="20%">Date</th>
+                <th width="10%">ENV</th>
+                <th width="10%">Type</th>
+                <th width="50%">Message</th>
+                <th width="10%"></th>
               </tr>
             </thead>
             <tbody>
               @foreach ($logs as $i => $log)
                   <tr>
-                    <td>{{ $log['date'] ?? '-' }}</td>
-                    <td>{{ $log['code'] ?? '-' }}</td>
-                    <td>{{ $log['error'] ?? '-' }}</td>
-                    <td>{{ $log['file_name'] ?? '-' }}:{{ $log['line'] ?? null }}</td>
                     <td>
-                      @include('ladmin::logs._partials._button_details', ['payload' => $log['payload'], 'id' => $i])
+                      @if (isset($log['timestamp']))
+                      <strong>{{ Carbon\Carbon::parse($log['timestamp'])->format('d/m/y H:i') }}</strong> <br/>
+                      <small class="text-muted"><i class="far fa-clock"></i> {{ Carbon\Carbon::parse($log['timestamp'])->diffForHumans() }}</small>
+                      @endif
+                    </td>
+                    <td>{{ $log['env'] ?? '-' }}</td>
+                    <td>
+                      <span class="badge badge-{{ $log['color'] }}">{{ $log['type'] ?? '-' }}</span>
+                    </td>
+                    <td>{{ Str::limit($log['message'], 50) ?? '-' }}</td>
+                    <td class="text-center">
+                      @include('ladmin::logs._partials._button_details', ['log' => $log, 'id' => $i])
                     </td>
                   </tr>
               @endforeach
