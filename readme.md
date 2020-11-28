@@ -147,7 +147,7 @@ For an other you can use `@can()` from blade or `auth()->user()->can()` more [Ga
 
 ## User Activity
 
-Add this trait `Hexters\Ladmin\LadminLogable` to all the models you want to monitor. Example below
+Add this trait `Hexters\Ladmin\LadminLogable` to all the models you want to monitor.
 ```
 . . .
 
@@ -163,7 +163,7 @@ class Role extends Model {
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/logable.png?raw=true)
 
-## Blade
+## Blade Layout
 Ladmin layout in `resources/views/vendor/ladmin`
 
 Insert your module content to ladmin layout
