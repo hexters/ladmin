@@ -16,6 +16,12 @@ class LadminLogableController extends Controller
      */
     public function index() {
         
+        if(in_array(env('APP_ENV', 'local'), ['local'])) {
+            session()->flash('warning', [
+                'Add this trait <code>Hexters\Ladmin\LadminLogable</code> to all the Models you want to monitor'
+            ]);
+        }
+
         return LadminLogableDatatables::view();
     }
 
