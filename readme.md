@@ -88,7 +88,7 @@ Ladmin::route(function() {
 
 ```
 
-## Manage Sidebar and Top Menu
+## Manage Sidebar & Top Menu
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
 ## Create Datatables server
