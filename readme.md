@@ -103,7 +103,7 @@ Example below
 
 use App\DataTables\UserDataTables;
 
-class UserController {
+class UserController extends Controller {
 
   . . .
 
@@ -116,7 +116,7 @@ class UserController {
     // OR custom view and custom data
 
     return UserDataTables::view('your.custom.view', [ 'foo' => 'bar' ]);
-    
+
   }
 
 . . .
@@ -128,7 +128,7 @@ Protect your module via Controller
 ```
 
 . . . 
-class UserController {
+class UserController extends Controller {
 
   . . .
 
