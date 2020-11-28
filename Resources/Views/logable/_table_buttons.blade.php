@@ -19,7 +19,10 @@
                 <p class="card-title font-weight-bold my-2">User Account</p>
               </td>
             </tr>
-
+            <tr>
+              <td>Date</td>
+              <td>{{ $item->created_at->format('d/m/y H:i') }} - {{ $item->created_at->diffForHumans() }}</td>
+            </tr>
             <tr>
               <td>Name</td>
               <td>{{ $item->user->name }}</td>
@@ -48,7 +51,7 @@
             </tr>
             <tr>
               <td colspan="2">
-                <p class="card-title font-weight-bold my-2">New Data of Table</p>
+                <p class="card-title font-weight-bold my-2">New Data</p>
               </td>
             </tr>
 
@@ -61,16 +64,20 @@
 
             <tr>
               <td colspan="2">
-                <p class="card-title font-weight-bold my-2">Old Data of Table</p>
+                <p class="card-title font-weight-bold my-2">Old Data</p>
               </td>
             </tr>
 
-            @foreach ((Array) json_decode($item->old_data) as $field => $data)
+            @forelse ((Array) json_decode($item->old_data) as $field => $data)
                 <tr>
-                <td>{{ $field }}</td>
+                  <td>{{ $field }}</td>
                   <td>{!! str_replace('"', '', json_encode($data)) !!}</td>
                 </tr>
-            @endforeach
+                @empty 
+                <tr>
+                  <td colspan="2">No data available</td>
+                </tr>
+            @endforelse
           </tbody>
         </table>
       </div>

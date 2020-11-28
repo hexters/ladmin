@@ -26,6 +26,8 @@ class LadminLogable extends Model {
         'create' => 'success',
         'edit' => 'warning',
         'delete' => 'danger',
+        'login' => 'success',
+        'logout' => 'warning',
     ];
 
     public function user() {
