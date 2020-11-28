@@ -36,7 +36,7 @@ class LogOutListener
         }
 
         try {
-            $new_data = (Object) [
+            $new_data = [
                 'ip' => $_SERVER['REMOTE_ADDR'],
                 'user_agent' => $_SERVER['HTTP_USER_AGENT'],
             ];
