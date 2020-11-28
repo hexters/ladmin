@@ -3,6 +3,7 @@
 namespace Hexters\Ladmin;
 
 use App\Models\Role;
+use Hexters\Ladmin\Models\LadminLogable;
 use Hexters\Ladmin\Notifications\ResetPasswordNotification;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Hexters\Ladmin\Models\LadminNotification;
@@ -16,7 +17,7 @@ trait LadminTrait {
    * @return Collection
    */
   public function roles() {
-    return $this->belongsToMany(Role::class, 'role_user', 'user_id', 'role_id', 'id', 'id');
+    return $this->belongsToMany(Role::class, 'ladmin_role_user', 'user_id', 'role_id', 'id', 'id');
   }
 
   /**
@@ -88,4 +89,11 @@ trait LadminTrait {
     $this->notify(new ResetPasswordNotification($token, $this->email));
   }
 
+
+  /**
+   * Relation to activity log
+   */
+  public function activities() {
+    return $this->hasMany(LadminLogable::class, 'user_id', 'id');
+  }
 }

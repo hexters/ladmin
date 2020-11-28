@@ -14,7 +14,7 @@ class CreateRoleUserTable extends Migration
     public function up()
     {
         Schema::disableForeignKeyConstraints();
-        Schema::create('role_user', function (Blueprint $table) {
+        Schema::create('ladmin_role_user', function (Blueprint $table) {
             $table->integer('role_id');
             $table->integer('user_id');
         });
