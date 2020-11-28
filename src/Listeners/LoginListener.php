@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
+use Hexters\Ladmin\Models\LadminLogable;
 
 class LoginListener
 {
@@ -36,22 +37,19 @@ class LoginListener
         }
 
         try {
-            
 
             $new_data = (Object) [
                 'ip' => $_SERVER['REMOTE_ADDR'],
                 'user_agent' => $_SERVER['HTTP_USER_AGENT'],
             ];
             
-            DB::table('ladmin_logables')->insert([
+            LadminLogable::create([
                 'user_id' => $user->id,
-                'new_data' => json_encode($new_data),
+                'new_data' => $new_data,
                 'logable_type' => get_class($user),
                 'logable_id' => $user->id,
                 'old_data' => '[]',
                 'type' => 'login',
-                'created_at' => now(),
-                'updated_at' => now()
             ]);
         } catch (LadminException $e) {}
     }
