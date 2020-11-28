@@ -162,7 +162,7 @@ For an other you can use `@can()` from blade or `auth()->user()->can()` more [Ga
 
 ## User Activity
 
-Add this trait `Hexters\Ladmin\LadminLogable` to all the models you want to monitor.
+Add this trait `Hexters\Ladmin\LadminLogable` to all the models you want to monitor. Inspired by [haruncpi/laravel-user-activity](https://github.com/haruncpi/laravel-user-activity)
 ```
 . . .
 
