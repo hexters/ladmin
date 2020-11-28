@@ -46,7 +46,7 @@ class LogOutListener
                 'new_data' => $new_data,
                 'logable_type' => get_class($user),
                 'logable_id' => $user->id,
-                'old_data' => '[]',
+                'old_data' => [],
                 'type' => 'logout',
             ]);
         } catch (LadminException $e) {}
