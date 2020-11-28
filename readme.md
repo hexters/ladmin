@@ -17,7 +17,7 @@ Make an Administrator page in 5 minutes
 - [Create Datatables server](https://github.com/hexters/ladmin#create-datatables-server)
 - [Role & Permission](https://github.com/hexters/ladmin#role--permission)
 - [User Activity](https://github.com/hexters/ladmin#user-activity)
-- [Blade Layout](https://github.com/hexters/ladmin#blade)
+- [Blade Layout](https://github.com/hexters/ladmin#blade-layout)
 - [Blade Components](https://github.com/hexters/ladmin#blade-components)
   - [Datatables Render](https://github.com/hexters/ladmin#datatables-render)
   - [Card Component](https://github.com/hexters/ladmin#card-component)
