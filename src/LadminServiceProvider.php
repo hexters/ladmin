@@ -23,12 +23,6 @@ use Hexters\Ladmin\Components\Cores\Layout;
 use Hexters\Ladmin\Components\Cores\Breadcrumb;
 use Hexters\Ladmin\Components\Cores\Notification;
 
-use Illuminate\Auth\Events\Lockout;
-use Illuminate\Auth\Events\Login;
-
-use Hexters\Ladmin\Listeners\LoginListener;
-use Hexters\Ladmin\Listeners\LogOutListener;
-
 
 /**
  * Command
@@ -39,21 +33,7 @@ use Hexters\Ladmin\Commands\DataTablesCommand;
 
 class LadminServiceProvider extends ServiceProvider
 {
-
-    /**
-     * The event listener mappings for the application.
-     *
-     * @var array
-     */
-    protected $listen = [
-        Login::class => [
-            LoginListener::class,
-        ],
-        Lockout::class => [
-            LogOutListener::class
-        ]
-    ];
-
+    
     /**
      * Register any application services.
      *

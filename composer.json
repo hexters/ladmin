@@ -16,7 +16,8 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Hexters\\Ladmin\\LadminServiceProvider"
+                "Hexters\\Ladmin\\LadminServiceProvider",
+                "Hexters\\Ladmin\\EventServiceProvider"
             ],
             "aliases": {
                 "Ladmin": "Hexters\\Ladmin\\Ladmin"
