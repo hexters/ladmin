@@ -28,7 +28,7 @@
             <tr>
               <td>Type</td>
               <td>
-                <span class="badge badge-{{ $log['color'] }}">{{ $log['type'] }}</span>
+                <span class="badge badge-{{ $log['color'] ?? 'warning' }}">{{ $log['type'] }}</span>
               </td>
             </tr>
           </tbody>
