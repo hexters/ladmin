@@ -9,6 +9,24 @@ Make an Administrator page in 5 minutes
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/user.png?raw=true)
 
+## Index 
+- [Laravel Version](https://github.com/hexters/ladmin#laravel-version)
+- [Note](https://github.com/hexters/ladmin#note)
+- [Installation](https://github.com/hexters/ladmin#installation)
+- [Manage Sidebar & Top Menu](https://github.com/hexters/ladmin#manage-sidebar--top-menu)
+- [Create Datatables server](https://github.com/hexters/ladmin#create-datatables-server)
+- [Role & Permission](https://github.com/hexters/ladmin#role--permission)
+- [User Activity](https://github.com/hexters/ladmin#user-activity)
+- [Blade Layout](https://github.com/hexters/ladmin#blade)
+- [Blade Components](https://github.com/hexters/ladmin#blade-components)
+  - [Datatables Render](https://github.com/hexters/ladmin#datatables-render)
+  - [Card Component](https://github.com/hexters/ladmin#card-component)
+  - [Form Group Componenet](https://github.com/hexters/ladmin#form-group-componenet)
+- [Icons](https://github.com/hexters/ladmin#icons)
+- [Custom Style](https://github.com/hexters/ladmin#custom-style)
+- [Notification](https://github.com/hexters/ladmin#notification)
+
+
 ## Laravel Version
 
 |Version|Laravel|
@@ -16,10 +34,7 @@ Make an Administrator page in 5 minutes
 | [v1.0.x](https://github.com/hexters/ladmin/blob/master/versions/1.0.md) | 7.x |
 | Last version | 8.x |
 
-## Package Requirement
-- [DataTables](https://github.com/yajra/laravel-datatables)
-
-## Suggestion
+## Note
 Before using this package you must already have a login page or route login `route('login')` for your members, you can use [laravel/breeze](https://github.com/laravel/breeze), [larave/ui](https://github.com/laravel/ui) or [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html).
 
 *For member pages, you should use a different guard from admin or vice versa.*
