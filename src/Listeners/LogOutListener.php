@@ -26,27 +26,22 @@ class LogOutListener
      * @return void
      */
     public function handle($event) {
-
-        if(! request()->has('email')) return;
-
-        $user = app(config('ladmin.user'))->where('email', request()->get('email'))->first();
-        
-        if(is_null($user)) return;
-
         try {
-            $new_data = [
+            $user = $event->user;
+            $new_data = (Object) [
                 'ip' => $_SERVER['REMOTE_ADDR'],
                 'user_agent' => $_SERVER['HTTP_USER_AGENT'],
             ];
             
-            DB::table('ladmin_logables')->create([
+            DB::table('ladmin_logables')->insert([
                 'user_id' => $user->id,
                 'new_data' => json_encode($new_data),
                 'logable_type' => get_class($user),
                 'logable_id' => $user->id,
                 'old_data' => '[]',
                 'type' => 'logout',
-                'state'
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
         } catch (LadminException $e) {}
 

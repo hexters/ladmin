@@ -12,7 +12,7 @@
   </div>
 </div>
 
-<strong class="ml-3 d-none d-md-inline">Delete data older than 7 days</strong>
+<strong class="ml-3 d-none d-md-inline">Delete data older than {{ config('ladmin.log_activity_life', 7) }} days</strong>
   
   <form method="POST" id="form-delete-older-actifity" action="{{ route('administrator.system.activity.destroy', 0) }}">
     @csrf

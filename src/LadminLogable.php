@@ -25,8 +25,8 @@ trait LadminLogable {
     $model->ladmin_logable()->create([
       'user_id' => $user->id,
       'type' => $event,
-      'old_data' => json_encode($model->getOriginal()),
-      'new_data' => json_encode($model)
+      'old_data' => $model->getOriginal(),
+      'new_data' => $model
     ]);
 
   }

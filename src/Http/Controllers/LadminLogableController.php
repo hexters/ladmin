@@ -87,8 +87,8 @@ class LadminLogableController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id) {
-        
-        $data = LadminLogable::where('created_at', '<', now()->addDays('-7')->format('Y-m-d h:i:s'));
+        $life = config('ladmin.log_activity_life', 7);
+        $data = LadminLogable::where('created_at', '<', now()->addDays('-' . $life)->format('Y-m-d h:i:s'));
         $count = $data->count();
         $data->delete();
         

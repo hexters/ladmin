@@ -55,10 +55,10 @@
               </td>
             </tr>
 
-            @foreach ((Array) json_decode($item->new_data) as $field => $data)
+            @foreach ((Array) $item->new_data as $field => $data)
                 <tr>
                 <td>{{ $field }}</td>
-                  <td>{!! str_replace('"', '', json_encode($data)) !!}</td>
+                <td>{!!  is_array($data) ? json_encode($data) : $data !!}</td>
                 </tr>
             @endforeach
 
@@ -68,10 +68,10 @@
               </td>
             </tr>
 
-            @forelse ((Array) json_decode($item->old_data) as $field => $data)
+            @forelse ((Array) $item->old_data as $field => $data)
                 <tr>
                   <td>{{ $field }}</td>
-                  <td>{!! str_replace('"', '', json_encode($data)) !!}</td>
+                  <td>{!!  is_array($data) ? json_encode($data) : $data !!}</td>
                 </tr>
                 @empty 
                 <tr>

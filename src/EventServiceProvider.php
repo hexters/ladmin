@@ -5,7 +5,7 @@ namespace Hexters\Ladmin;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
 
-use Illuminate\Auth\Events\Lockout;
+use Illuminate\Auth\Events\Logout;
 use Illuminate\Auth\Events\Login;
 
 use Hexters\Ladmin\Listeners\LoginListener;
@@ -22,7 +22,7 @@ class EventServiceProvider extends ServiceProvider
       Login::class => [
           LoginListener::class,
       ],
-      Lockout::class => [
+      Logout::class => [
           LogOutListener::class
       ]
   ];

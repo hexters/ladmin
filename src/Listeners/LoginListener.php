@@ -30,19 +30,20 @@ class LoginListener
         
         try {
             $user = $event->user;
-            $new_data = [
+            $new_data = (Object) [
                 'ip' => $_SERVER['REMOTE_ADDR'],
                 'user_agent' => $_SERVER['HTTP_USER_AGENT'],
             ];
             
-            DB::table('ladmin_logables')->create([
+            DB::table('ladmin_logables')->insert([
                 'user_id' => $user->id,
                 'new_data' => json_encode($new_data),
                 'logable_type' => get_class($user),
                 'logable_id' => $user->id,
                 'old_data' => '[]',
                 'type' => 'login',
-                'state'
+                'created_at' => now(),
+                'updated_at' => now()
             ]);
         } catch (LadminException $e) {}
     }
