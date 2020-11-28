@@ -92,26 +92,22 @@ Ladmin::route(function() {
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
 ## Create Datatables server
-Create datatables server to handle your list data, [click here](https://github.com/hexters/ladmin#role--permission) for example uses
+Create datatables server to handle your list of data
 ```
 $ php artisan make:datatables UserDataTables  --model=User
 
 ```
-
-## Role & Permission
-Protect your module via Controller
+Example below
 ```
 . . .
 
-use App\DataTables\UserDataTables;  // Datatables Server
+use App\DataTables\UserDataTables;
 
-. . . 
 class UserController {
 
-. . .
+  . . .
 
-  public function index() {
-    ladmin()->allow(['administrator.account.admin.index']) // Call the gates based on menu `app/Menus/sidebar.php`
+  public function index() { 
 
     . . .
 
@@ -120,9 +116,29 @@ class UserController {
     // OR custom view and custom data
 
     return UserDataTables::view('your.custom.view', [ 'foo' => 'bar' ]);
+    
   }
 
-}
+. . .
+
+```
+
+## Role & Permission
+Protect your module via Controller
+```
+
+. . . 
+class UserController {
+
+  . . .
+
+  public function index() {
+
+    ladmin()->allow(['administrator.account.admin.index']) // Call the gates based on menu `app/Menus/sidebar.php`
+
+    . . .
+
+    
 ```
 
 For an other you can use `@can()` from blade or `auth()->user()->can()` more [Gates](https://laravel.com/docs/8.x/authorization#gates)
