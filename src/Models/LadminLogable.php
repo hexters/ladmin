@@ -13,6 +13,8 @@ class LadminLogable extends Model {
         'user_id',
         'new_data',
         'old_data',
+        'logable_type',
+        'logable_id',
         'type',
         'state'
     ];
