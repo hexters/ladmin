@@ -6,7 +6,7 @@ return [
     'name' => 'Account',
     'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     'route' => null,
-    'isActive' => 'account/*',
+    'isActive' => null,
     /**
      * You can use fontawesome or svg file, the svg file is viewable in the resources/assets/icons directory
      * Example to Custom SVG file 'icon' => 'somefolder.customsvgfile' --> resources/assets/icons/somefolder/customsvgfile.svg 
@@ -55,7 +55,7 @@ return [
     'name' => 'Access',
     'description' => 'Lorem ipsum dolor, sit amet consectetur adipisicing elit.',
     'route' => null,
-    'isActive' => 'access/*',
+    'isActive' => null,
     'icon' => 'lock-open',
     'id' => '',
     'gates' => [],
@@ -116,7 +116,7 @@ return [
     'name' => 'System',
     'description' => 'System application control',
     'route' => null,
-    'isActive' => 'system*',
+    'isActive' => null,
     'icon' => 'cog',
     'id' => '',
     'gates' => [],
