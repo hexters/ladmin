@@ -7,7 +7,7 @@ use Illuminate\View\Component;
 class Card extends Component {
 
     public $title;
-    
+    public $image;
     public $class;
 
     /**
@@ -15,9 +15,10 @@ class Card extends Component {
      *
      * @return void
      */
-    public function __construct($class = null, $title = null) {
+    public function __construct($class = null, $title = null, $image = null) {
         $this->class = $class;
         $this->title = $title;
+        $this->image = $image;
     }
 
     /**

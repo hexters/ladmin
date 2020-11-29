@@ -5,6 +5,10 @@
     </div>
   @endif
 
+  @if (empty($image))
+    <img src="{{ $image }}" class="card-img-top" alt="{{ $title }}">
+  @endif
+
   @if(empty($flat))
   <div class="card-body">
     @if($title)
