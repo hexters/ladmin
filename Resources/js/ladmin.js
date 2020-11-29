@@ -11,8 +11,7 @@ if(window.localStorage.getItem('side_bar_class')) {
 }
 
 btnToggle.addEventListener('click', function () {
-  let classes = content.className.split(' ');
-  if(classes.indexOf('ladmin-container-full') === -1) {
+  if(! content.classList.contains('ladmin-container-full') ) {
     content.className = 'ladmin-container ladmin-container-full';
     save_position('ladmin-container ladmin-container-full');
   } else {
@@ -50,16 +49,7 @@ menus.forEach(el => {
 
   let a = el.querySelector('a');
   a.addEventListener('click', function() {
-    let classList = el.classList.value;
-    let classes = classList.split(' ');
-    if((classes).indexOf('show') === -1) {
-      el.className = classes.join(' ') + ' show';
-    } else {
-      let classesNew = classes.filter(item => {
-        return item !== 'show';
-      })
-      el.className = classesNew.join(' ');
-    }
+    el.classList.toggle('show');
   })
 });
 
