@@ -286,3 +286,24 @@ Echo.channel(`ladmin`)
     });
 ```
 ![Example Image](https://github.com/hexters/ladmin/blob/master/notification.png?raw=true)
+
+## Options
+You can store the option for your application with the ladmin option, 
+### Create or Update option
+Data type of value is `String`, `Number` and `Array`
+```
+  ladmin()->update_option('my-option', ['foo', 'bar', 'baz']);
+  // out: boolean
+```
+
+### Get Option Value
+```
+  ladmin()->get_option('my-option');
+  // out: Array ['foo', 'bar', 'baz']
+```
+
+### Delete Option
+```
+ladmin()->delete_option('my-option');
+// out: boolean
+```
