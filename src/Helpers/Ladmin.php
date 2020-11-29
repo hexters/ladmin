@@ -119,8 +119,8 @@ class Ladmin {
   public function delete_option($name) {
     $option = LadminOption::where('option_name', $name)->first();
     if($option) {
-      $option->delete();
       Cache::forget($this->cacheAlias . $name);
+      return $option->delete();
     }
     return false;
   }
