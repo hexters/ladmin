@@ -19,6 +19,8 @@
 |Attribute|value|require|
 |-|-|-|
 |`class`|String|NO|
+|`title`|String|NO|
+|`image`|String URL|NO|
 
 #### Slots 
 |Slot Name|Require|
