@@ -7,6 +7,8 @@ use Illuminate\Support\Facades\Cache;
 
 class Ladmin {
 
+  protected $cacheAlias = 'ladmin-cache-';
+
   /**
    * Notification eloquent
    *
@@ -50,7 +52,7 @@ class Ladmin {
    * @return String
    */
   public function get_option($name) {
-    $value = Cache::get($name);
+    $value = Cache::get( $this->cacheAlias . $name);
     if(is_null($value)) {
       $option = LadminOption::where('option_name', $name)->first();
       if($option) {
@@ -59,7 +61,7 @@ class Ladmin {
          * Cache option
          */
         if(config('ladmin.cache_option', true)) {
-          Cache::rememberForever($name, function() use ($value) {
+          Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
             return $value;
           });
         }
@@ -92,8 +94,8 @@ class Ladmin {
      * Cache option
      */
     if(config('ladmin.cache_option', true)) {
-      Cache::forget($name);
-      Cache::rememberForever($name, function() use ($value) {
+      Cache::forget($this->cacheAlias . $name);
+      Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
         return $value;
       });
     }
@@ -111,7 +113,7 @@ class Ladmin {
     $option = LadminOption::where('option_name', $name)->first();
     if($option) {
       $option->delete();
-      Cache::forget($name);
+      Cache::forget($this->cacheAlias . $name);
     }
     return false;
   }
