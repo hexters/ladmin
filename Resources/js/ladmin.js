@@ -129,3 +129,12 @@ $(function() {
 
   $('[data-toggle="tooltip"]').tooltip();
 });
+
+window.sidebarMenu = function(val) {
+  const content = document.querySelector('.ladmin-container');
+  if(val === 'show') {
+    content.classList.remove('ladmin-container-full');
+  } else if(val === 'hide') {
+    content.classList.add('ladmin-container-full');
+  }
+}
