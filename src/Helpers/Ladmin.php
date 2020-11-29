@@ -51,7 +51,7 @@ class Ladmin {
    * @param [string] $name
    * @return String
    */
-  public function get_option($name) {
+  public function get_option($name, $default = null) {
     $value = Cache::get( $this->cacheAlias . $name);
     if(is_null($value)) {
       $option = LadminOption::where('option_name', $name)->first();
@@ -68,10 +68,12 @@ class Ladmin {
       }
     }
 
-    $array = json_decode($value);
-    $value = is_array($array) || is_object($array) ? $array : $value;
+    if(! is_null($value)) {
+      $array = json_decode($value);
+      $value = is_array($array) || is_object($array) ? $array : $value;
+    }
 
-    return $value;
+    return is_null($value) ? $default : $value;
   }
 
   /**
