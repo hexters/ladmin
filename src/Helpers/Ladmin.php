@@ -56,13 +56,15 @@ class Ladmin {
     if(is_null($value)) {
       $option = LadminOption::where('option_name', $name)->first();
       if($option) {
-        $value = $option->option_value;
+        $json = json_decode($option->option_value);
+        $value = is_array($json) || is_object($json) ? $json : $option->option_value;
         /**
          * Cache option
          */
         if(config('ladmin.cache_option', true)) {
-          Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
-            return $value;
+          $cached = $option->option_value;
+          Cache::rememberForever($this->cacheAlias . $name, function() use ($cached) {
+            return $cached;
           });
         }
       }
@@ -78,6 +80,7 @@ class Ladmin {
    * @return boolean
    */
   public function update_option($name, $value) {
+    $value = is_array($value) ? json_encode($value) : $value;
     $option = LadminOption::where('option_name', $name)->first();
     if($option) {
       $option->update([
