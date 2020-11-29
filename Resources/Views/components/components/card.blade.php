@@ -5,7 +5,7 @@
     </div>
   @endif
 
-  @if (empty($image))
+  @if ($image)
     <img src="{{ $image }}" class="card-img-top" alt="{{ $title }}">
   @endif
 
