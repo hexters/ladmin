@@ -45,6 +45,12 @@
     /**
      * Interval deleted log Activity
      */
-    'log_activity_life' => 7 // Days
+    'log_activity_life' => 7, // Days
+
+    /**
+     * Option cached
+     */
+
+     'cache_option' => true
     
   ];
