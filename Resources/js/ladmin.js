@@ -73,7 +73,10 @@ menus.forEach(el => {
     setActiveMenu(parent);
     
   }
-  setActiveMenu(activeMenus);
+
+  if(activeMenus) {
+    setActiveMenu(activeMenus);
+  }
 
   /**
    * Datatables render
@@ -98,7 +101,7 @@ menus.forEach(el => {
  * Jquery Section
  */
 $(function() {
-
+  
   $('.ladmin-datatable-base').each(function() {
     $(this).DataTable();
   });
