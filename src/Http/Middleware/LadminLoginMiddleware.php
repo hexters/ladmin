@@ -19,6 +19,16 @@ class LadminLoginMiddleware {
             return redirect()->route('administrator.login');
         }
 
+        if(auth()->guard(config('ladmin.auth.guard', 'web'))->check()) {
+            if(is_null(auth()->guard(config('ladmin.auth.guard', 'web'))->user()->role)) {
+                auth()->guard(config('ladmin.auth.guard', 'web'))->logout();
+                session()->flash('warning', [
+                    'Account not registered as admin'
+                ]);
+                return redirect()->route('administrator.login');
+            }
+        }
+
         Auth::shouldUse(config('ladmin.auth.guard', 'web'));
         return $next($request);
     }

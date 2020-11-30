@@ -1,6 +1,8 @@
 <?php 
 
 namespace Hexters\Ladmin\Helpers;
+
+use Exception;
 use Illuminate\Support\Facades\Gate;
 use Hexters\Ladmin\Models\LadminOption;
 use Illuminate\Support\Facades\Cache;
@@ -54,18 +56,22 @@ class Ladmin {
   public function get_option($name, $default = null) {
     $value = Cache::get( $this->cacheAlias . $name);
     if(is_null($value)) {
-      $option = LadminOption::where('option_name', $name)->first();
-      if($option) {
-        $value = $option->option_value;
-        /**
-         * Cache option
-         */
-        if(config('ladmin.cache_option', true)) {
-          Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
-            return $value;
-          });
+      
+      try {
+        $option = LadminOption::where('option_name', $name)->first();
+        if($option) {
+          $value = $option->option_value;
+          /**
+           * Cache option
+           */
+          if(config('ladmin.cache_option', true)) {
+            Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
+              return $value;
+            });
+          }
         }
-      }
+      } catch (Exception $e) {}
+
     }
 
     if(! is_null($value)) {
