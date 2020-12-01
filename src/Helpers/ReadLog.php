@@ -39,10 +39,7 @@ class ReadLog {
   public function json($file = 'laravel.log') {
     
     if(! file_exists(storage_path("logs/{$file}"))) {
-       return [
-           'result' => false,
-           'message' => 'File not found'
-       ]; 
+       return []; 
     }
 
     // Inspired by https://github.com/haruncpi/laravel-log-reader/blob/master/src/LaravelLogReader.php

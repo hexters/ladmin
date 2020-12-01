@@ -19,7 +19,7 @@ class LogController extends Controller
         $data['files'] = (new ReadLog)->get_files();
         $data['file'] = request()->get('log', (new ReadLog)->default_file());
         $data['logs'] = (new ReadLog)->json($data['file']);
-
+        
         return view('ladmin::logs.index', $data);
 
     }

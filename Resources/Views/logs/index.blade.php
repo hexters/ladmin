@@ -7,9 +7,11 @@
           <div class="top-button">
             <form action="">
               <select onchange="submit();" name="log" id="" class="form-control">
-                @foreach ($files as $item)
+                @forelse ($files as $item)
                   <option {{ $file == $item ? 'selected' : null }} value="{{ $item }}">File {{ $item }}</option>
-                @endforeach
+                @empty 
+                <option value="">- Not available log file -</option>
+                @endforelse
               </select>
             </form>
           </div>
@@ -36,7 +38,7 @@
                     <td>
                       <span class="badge badge-{{ $log['color'] ?? 'warning' }}">{{ $log['type'] ?? '-' }}</span>
                     </td>
-                    <td>{{ Str::limit($log['message'], 50) ?? '-' }}</td>
+                    <td>{{ isset($log['message']) ? Str::limit($log['message'], 50) : '-' }}</td>
                     <td class="text-center">
                       @include('ladmin::logs._partials._button_details', ['log' => $log, 'id' => $i])
                     </td>
