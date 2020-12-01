@@ -15,12 +15,12 @@ class LadminLoginMiddleware {
      */
     public function handle($request, Closure $next) {
 
-        if(auth()->guard(config('ladmin.auth.guard', 'web'))->guest()) {
+        if(Auth::guard(config('ladmin.auth.guard', 'web'))->guest()) {
             return redirect()->route('administrator.login');
         }
 
-        if(auth()->guard(config('ladmin.auth.guard', 'web'))->check()) {
-            if(is_null(auth()->guard(config('ladmin.auth.guard', 'web'))->user()->role)) {
+        if(Auth::guard(config('ladmin.auth.guard', 'web'))->check()) {
+            if(is_null(Auth::guard(config('ladmin.auth.guard', 'web'))->user()->role)) {
                 abort(403);
             }
         }

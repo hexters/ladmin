@@ -35,6 +35,10 @@ class LogOutListener
             return;
         }
 
+        if(is_null($user->role)) {
+            return;
+        }
+
         try {
             $new_data = [
                 'ip' => $_SERVER['REMOTE_ADDR'],

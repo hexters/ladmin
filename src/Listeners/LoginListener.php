@@ -36,6 +36,10 @@ class LoginListener
             return;
         }
 
+        if(is_null($user->role)) {
+            return;
+        }
+
         try {
 
             $new_data = [
