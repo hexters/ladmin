@@ -4,9 +4,11 @@
     <div class="row">
         <div class="col-md-6 col-12">
             <x-ladmin-card>
-                <h4 class="card-title">Welcome In Ladmin (Laravel Admin)</h4>
+                <h4 class="card-title">Welcome To The Ladmin Package</h4>
                 <p>With this package you can save time in creating an admin page, because it is equipped with a Login page, Reset Password Permission layout, etc.</p>
-                <p>If you encounter problems or if you have suggestions, please post them on the <a target="_blank" href="https://github.com/hexters/ladmin/issues">issue page</a></p>
+                <p>
+                    And you can do a merge request to register your plugin in the list of plugins, you can make it free or a paid package
+                </p>
             </x-ladmin-card>
         </div>
         <div class="col-md-6 col-12">

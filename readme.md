@@ -24,8 +24,7 @@ Make an Administrator page in 5 minutes
 - [Icons](https://github.com/hexters/ladmin#icons)
 - [Custom Style](https://github.com/hexters/ladmin#custom-style)
 - [Notification](https://github.com/hexters/ladmin#notification)
-- [Plugins](#)
-  - [Public Storage Plugin](https://github.com/hexters/ladmin-public-storage-plugin)
+- [Ladmin Awesome](https://github.com/hexters/ladmin/blob/master/readmes/plugins.md)
 
 
 ## Laravel Version
