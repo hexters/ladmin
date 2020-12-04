@@ -48,7 +48,7 @@ $ composer require hexters/ladmin
 ```
 
 Add this trait to your user model
-```
+```php
 . . .
 use Hexters\Ladmin\LadminTrait;
 
@@ -60,14 +60,15 @@ class User extends Authenticatable {
 ```
 
 Publish asset and system package
-```
+```bash
+
 $ php artisan vendor:publish --tag=assets --force
 $ php artisan vendor:publish --tag=core
 
 ```
 
 Attach role to user admin with database seed or other
-```
+```php
 . . .
 
   $role = \App\Models\Role::first();
@@ -80,12 +81,13 @@ Attach role to user admin with database seed or other
 ```
 
 Migrate database
-```
+```bash
+
 $ php artisan migrate --seed
 ```
 
 Add Ladmin route to your route project `routes/web.php`
-```
+```php
 . . .
 
 use Illuminate\Support\Facades\Route;
@@ -108,12 +110,13 @@ To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
 ## Create Datatables server
 Create datatables server to handle your list of data
-```
+```bash
+
 $ php artisan make:datatables UserDataTables  --model=User
 
 ```
 Example below
-```
+```php
 . . .
 
 use App\DataTables\UserDataTables;
@@ -140,7 +143,7 @@ class UserController extends Controller {
 
 ## Role & Permission
 Protect your module via Controller
-```
+```php
 
 . . . 
 class UserController extends Controller {
@@ -163,7 +166,8 @@ For an other you can use `@can()` from blade or `auth()->user()->can()` more [Ga
 ## User Activity
 
 Add this trait `Hexters\Ladmin\LadminLogable` to all the models you want to monitor. Inspired by [haruncpi/laravel-user-activity](https://github.com/haruncpi/laravel-user-activity)
-```
+```php
+
 . . .
 
 use Hexters\Ladmin\LadminLogable;
@@ -183,7 +187,7 @@ Ladmin layout in `resources/views/vendor/ladmin`
 
 Insert your module content to ladmin layout
 
-```
+```html
 
   <x-ladmin-layout>
     <x-slot name="title">Title Page</x-slot>
@@ -202,7 +206,7 @@ http://localhost:8000/administrator
 
 ### Datatables Render
 If you have a custom view for render data from [Datatables server](https://github.com/hexters/ladmin#create-datatables-server) you should call this component to render your table
-```
+```html
 <x-ladmin-datatables :fields="$fields" :options="$options" />
 ```
 #### Attributes
@@ -213,7 +217,7 @@ If you have a custom view for render data from [Datatables server](https://githu
 
 ## Icons 
 You can user [Fontawesome](https://fontawesome.com) or SVG file in `resources/assets/icons`, svg file retrieved from site [Heroicons](https://heroicons.com)
-```
+```php
   ladmin()->icon('fas fa-user')
 
   // OR
@@ -228,7 +232,7 @@ You can user [Fontawesome](https://fontawesome.com) or SVG file in `resources/as
 
 ## Custom Style
 Install node modules
-```
+```javascript
 $ npm i jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.net@1.10.21 datatables.net-bs4@1.10.21 vue --save
 
 // OR
@@ -238,7 +242,7 @@ $ yarn add jquery popper.js bootstrap @fortawesome/fontawesome-free datatables.n
 ```
 
 Add this code to your  `webpack.mix.js` file
-```
+```javascript
 mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
 ```
@@ -247,7 +251,7 @@ mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
 
 Set the true to activated notification
 
-```
+```php
 . . .
 
 'notification' => true
@@ -256,7 +260,7 @@ Set the true to activated notification
 ```
 
 Send notification
-```
+```php
 ladmin()
   ->notification()
     ->setTitle('new Invoice')
@@ -277,7 +281,7 @@ Notification required
 |`setGates`|Array|NO| default all gates |
 
 Listen with [Larave Echo Server](https://github.com/tlaverdure/laravel-echo-server)
-```
+```javascript
 Echo.channel(`ladmin`)
     .listen('.notification', (e) => {
         console.log(e.update);
@@ -290,19 +294,19 @@ Echo.channel(`ladmin`)
 You can store the option for your application with the ladmin option, 
 ### Create or Update option
 Data type of value is `String`, `Number` and `Array`
-```
+```php
   ladmin()->update_option('my-option', ['foo', 'bar', 'baz']);
   // out: boolean
 ```
 
 ### Get Option Value
-```
+```php
   ladmin()->get_option('my-option');
   // out: Array ['foo', 'bar', 'baz']
 ```
 
 ### Delete Option
-```
+```php
 ladmin()->delete_option('my-option');
 // out: boolean
 ```
