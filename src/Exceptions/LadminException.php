@@ -12,7 +12,7 @@ class LadminException extends Exception {
         $this->errorMessage = $errorMessage;
         $code = time() . rand(1, 100);
         $this->message = 'Error Code : ' . $code;
-        Log::error($this->message);
+        Log::error( 'ERROR CODE: ' . $code . ' - ' . $this->errorMessage);
     }
 
 }
