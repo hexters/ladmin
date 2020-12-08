@@ -1,3 +1,8 @@
+<div align="center">
+  <h1>Ladmin Plugins</h1>
+</div>
+
+
 ## **Plugins**
 |Plugin|Download|Author|Description|
 |-|-|-|-|
