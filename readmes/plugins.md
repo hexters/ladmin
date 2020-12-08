@@ -1,6 +1,3 @@
-## Ladmin Awesome
-
-
 ## **Plugins**
 |Plugin|Download|Author|Description|
 |-|-|-|-|
