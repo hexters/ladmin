@@ -38,7 +38,7 @@
           <li class="nav-item dropdown">
             
             <a id="navbarDropdown" class="nav-link dropdown-toggle pl-0" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-              <div style="width:40px;height:40px;" class="rounded-circle font-weight-bold d-flex align-items-center justify-content-center bg-primary text-white">{{ strtoupper(substr($ladminUser->name, 0, 2)) }}</div>
+              <img src="{{ $ladminUser->gravatar_url }}" alt="Avatar" class="img-thumbnail rounded-circle" width="40">
             </a>
 
             <ul style="right:0;" class="dropdown-menu mt-2 rounded shadow-sm dropdown-menu-right ladmin-top-menu" aria-labelledby="navbarDropdown">

@@ -247,6 +247,15 @@ mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
    .sass('resources/sass/ladmin/app.scss', 'public/css/ladmin/app.css');
 ```
 
+## Custom Avatar 
+As default admin uses gravatar. If you want to change it, add the `avatar_url` field to your `users` table.
+
+To use your avatar, you can call a mutator below, this method can handle your custom avatar also.
+```php
+  $user->gravatar_url
+  // out: gravatar url / your custom url
+```
+
 ## Notification
 
 Set the true to activated notification

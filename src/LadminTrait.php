@@ -96,4 +96,13 @@ trait LadminTrait {
   public function activities() {
     return $this->hasMany(LadminLogable::class, 'user_id', 'id');
   }
+
+  /**
+   * Gravatar
+   */
+    public function getGravatarUrlAttribute() {
+      $grav_url = "https://www.gravatar.com/avatar/" . md5( strtolower( trim( $this->email ) ) ) . "&s=100";
+      return isset($this->avatar_url) ? $this->avatar_url : $grav_url;
+    }
+
 }
