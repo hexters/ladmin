@@ -17,7 +17,7 @@ class FormGroup extends Component
      *
      * @return void
      */
-    public function __construct($label, $name, $colInput = 10, $help = null, $colLabel = 2, $type = 'horizontal') {
+    public function __construct($label, $name, $colInput = 8, $help = null, $colLabel = 4, $type = 'horizontal') {
         $this->label = $label;
         $this->name = $name;
         $this->type = $type;

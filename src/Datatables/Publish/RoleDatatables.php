@@ -8,7 +8,17 @@
 
   class RoleDatatables extends Datatables implements DataTablesInterface {
 
+
+    /**
+     * Datatables function
+     */
     public function render() {
+
+      /**
+       * Data from controller
+       */
+      $data = self::$data;
+
       return $this->eloquent(Role::query())
         ->addColumn('action', function($item) {
           return view('ladmin::table.action', [
@@ -27,7 +37,15 @@
         ->make(true);
     }
 
+    /**
+     * Datatables Option
+     */
     public function options() {
+
+      /**
+       * Data from controller
+       */
+      $data = self::$data;
 
       return [
         'title' => 'Roles',

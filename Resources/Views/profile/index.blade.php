@@ -1,7 +1,6 @@
 <x-ladmin-layout>
   <x-slot name="title">Profile</x-slot>
     
-<x-ladmin-card>
   <form action="{{ route('administrator.profile.store') }}" method="post">
     @csrf
 
@@ -13,6 +12,5 @@
       </button>
     </div>
   </form>
-</x-ladmin-card>
 
 </x-ladmin-layout>

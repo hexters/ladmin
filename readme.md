@@ -133,7 +133,13 @@ class UserController extends Controller {
 
     // OR custom view and custom data
 
-    return UserDataTables::view('your.custom.view', [ 'foo' => 'bar' ]);
+    return UserDataTables::view('your.custom.view', [ 
+      /**
+       * You can catch this data form blade or UserDatatables class 
+       * via static property `self$data`
+       */
+      'foo' => 'bar'
+    ]);
 
   }
 

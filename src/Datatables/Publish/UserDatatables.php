@@ -8,6 +8,12 @@
   class UserDatatables extends Datatables implements DataTablesInterface {
 
     public function render() {
+
+      /**
+       * Data from controller
+       */
+      $data = self::$data;
+
       return $this->eloquent(
           app(config('ladmin.user', App\Models\User::class))->with(['roles'])
         )
@@ -31,7 +37,15 @@
         ->make(true);
     }
 
+    /**
+     * Datatables Option
+     */
     public function options() {
+
+      /**
+       * Data from controller
+       */
+      $data = self::$data;
 
       return [
         'title' => 'User Admin',
