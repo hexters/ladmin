@@ -7,13 +7,18 @@ use Yajra\DataTables\Datatables as BaseDatatables;
 class Datatables extends BaseDatatables {
   
   /**
+   * Property [Array] required
+   */
+  public static $data;
+
+  /**
    * Render blade
    *
    * @param string $blade
    * @param array $data
    * 
    */
-  public static function view($blade = 'ladmin::ladmin.index', $data = []) {
+  public static function view(?String $blade = 'ladmin::ladmin.index', ?Array $data = []) {
     return self::build($blade, $data);
   }
 
@@ -25,7 +30,11 @@ class Datatables extends BaseDatatables {
    * 
    */
   private static function build($blade, $data = []) {
-    
+    /**
+     * Set data
+     */
+    static::$data = $data;
+
     $child = app(get_called_class());
 
     if(request()->ajax()) {

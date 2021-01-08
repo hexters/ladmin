@@ -1,5 +1,5 @@
 <div class="form-group {{ $type == 'horizontal' ? 'row' : '' }} ladmin-form-group">
-    <label for="{{ $name }}" class="{{ $type == 'horizontal' ? 'col-sm-' . $colLabel . ' col-form-label' : '' }} font-weight-bold">
+    <label for="{{ $name }}" class="{{ $type == 'horizontal' ? 'col-md-' . $colLabel . ' col-form-label' : '' }} font-weight-bold">
         {{ $label }}
         @if ($help)
             <button type="button" class="btn btn-sm btn-link" data-toggle="tooltip" data-placement="top" title="{{ $help }}">
@@ -7,7 +7,7 @@
             </button>
         @endif
     </label>
-    <div class="{{ $type == 'horizontal' ? 'col-sm-' . $colInput : '' }}">
+    <div class="{{ $type == 'horizontal' ? 'col-md-' . $colInput : '' }}">
         
         <div class="input-group border rounded">
             @if (isset($prepend))

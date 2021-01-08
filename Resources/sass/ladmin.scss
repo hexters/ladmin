@@ -15,6 +15,7 @@
   .ladmin-top-menu-footer {
     a {
       display: block;
+
       padding: .5rem;
       text-align: center;
       &:hover {
@@ -447,6 +448,17 @@ table.ladmin-datatables {
 .form-group-custom {
   input, 
   select {
+    border: none;
+    &:focus,
+    &:hover{
+      box-shadow: none;
+      border: none;
+    }
+  }
+}
+
+.ladmin-form-group {
+  .form-control {
     border: none;
     &:focus,
     &:hover{

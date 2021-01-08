@@ -8,14 +8,31 @@
 
   class {{ filename }} extends Datatables implements DataTablesInterface {
 
+    /**
+     * Datatables function
+     */
     public function render() {
+
+      /**
+       * Data from controller
+       */
+      $data = self::$data;
+
       return $this->eloquent({{ model }}::query())
         ->escapeColumns([])
         ->make(true);
     }
 
+    /**
+     * Datatables Option
+     */
     public function options() {
       
+      /**
+       * Data from controller
+       */
+      $data = self::$data;
+
       return [
         'title' => 'List Of {{ model }}',
         'fields' => [
