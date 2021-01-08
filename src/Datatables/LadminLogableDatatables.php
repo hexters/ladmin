@@ -44,8 +44,8 @@
           'bar' => 'baz',
           'baz' => 'bar',
         ],
+        'buttons' => view('ladmin::logable._button_delete'),
         'options' => [
-          'topButton' => view('ladmin::logable._button_delete'),
           'processing' => true,
           'serverSide' => true,
           "order" => [[0, "desc"]],

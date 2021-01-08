@@ -1,9 +1,6 @@
 <x-ladmin-card>
   <x-slot name="flat">
     <div class="table-responsive">
-      <div class="top-button">
-        {!! $options['topButton'] ?? null !!}
-      </div>
       <table class="table ladmin-datatables table-striped m-0" data-options='{!! json_encode($options) !!}'>
         <thead>
           <tr>

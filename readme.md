@@ -7,7 +7,7 @@
 
 Make an Administrator page in 5 minutes
 
-![Example Image](https://github.com/hexters/ladmin/blob/master/user.png?raw=true)
+![Example Image](https://github.com/hexters/ladmin/blob/master/examples/user.png?raw=true)
 
 ## Index 
 - [Laravel Version](https://github.com/hexters/ladmin#laravel-version)
@@ -39,7 +39,7 @@ Before using this package you must already have a login page or route login `rou
 
 *For member pages, you should use a different guard from admin or vice versa.*
 
-![Scheme](https://github.com/hexters/ladmin/blob/master/scheme.png?raw=true)
+![Scheme](https://github.com/hexters/ladmin/blob/master/examples/scheme.png?raw=true)
 
 ## Installation
 You can install this package via composer:
@@ -161,7 +161,7 @@ class UserController extends Controller {
 
 For an other you can use `@can()` from blade or `auth()->user()->can()` more [Gates](https://laravel.com/docs/8.x/authorization#gates)
 
-![Example Image](https://github.com/hexters/ladmin/blob/master/gates.png?raw=true)
+![Example Image](https://github.com/hexters/ladmin/blob/master/examples/gates.png?raw=true)
 
 ## User Activity
 
@@ -180,7 +180,7 @@ class Role extends Model {
 
 ```
 
-![Example Image](https://github.com/hexters/ladmin/blob/master/logable.png?raw=true)
+![Example Image](https://github.com/hexters/ladmin/blob/master/examples/activity.png?raw=true)
 
 ## Blade Layout
 Ladmin layout in `resources/views/vendor/ladmin`
@@ -191,6 +191,9 @@ Insert your module content to ladmin layout
 
   <x-ladmin-layout>
     <x-slot name="title">Title Page</x-slot>
+    <x-slot name="buttons">
+      {-- Top Buttons --}      
+    </x-slot>
 
     {-- Your content here --}    
 
@@ -202,7 +205,7 @@ And you can Access admin page in this link below.
 ```
 http://localhost:8000/administrator
 ```
-![Example Image](https://github.com/hexters/ladmin/blob/master/login.png?raw=true)
+![Example Image](https://github.com/hexters/ladmin/blob/master/examples/login.png?raw=true)
 
 ### Datatables Render
 If you have a custom view for render data from [Datatables server](https://github.com/hexters/ladmin#create-datatables-server) you should call this component to render your table
@@ -297,7 +300,7 @@ Echo.channel(`ladmin`)
         // Notification handle
     });
 ```
-![Example Image](https://github.com/hexters/ladmin/blob/master/notification.png?raw=true)
+![Example Image](https://github.com/hexters/ladmin/blob/master/examples/notification.png?raw=true)
 
 ## Options
 You can store the option for your application with the ladmin option, 

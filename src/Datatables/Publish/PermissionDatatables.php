@@ -32,8 +32,8 @@
           [ 'name' => 'Name' ],
           [ 'name' => 'Action', 'class' => 'text-center' ]
         ],
+        'buttons' => null,
         'options' => [
-          'topButton' => null,
           'processing' => true,
           'serverSide' => true,
           'ajax' => request()->fullurl(),

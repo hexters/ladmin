@@ -8,7 +8,7 @@ class Datatables extends Component {
     
     public $fields;
     public $options;
-    public $topButton;
+    public $buttons;
 
     /**
      * Create a new component instance.
@@ -17,7 +17,7 @@ class Datatables extends Component {
      */
     public function __construct($fields, $options) {
         $this->fields = $fields ?? [];
-        $this->topButton = $topButton = null;
+        $this->buttons = $buttons = null;
         $this->options = $options ?? [];
     }
 

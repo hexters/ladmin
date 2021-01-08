@@ -25,8 +25,8 @@
           'bar' => 'baz',
           'baz' => 'bar',
         ],
+        'buttons' => null, // e.g : view('user.actions.create')
         'options' => [
-          'topButton' => null,
           'processing' => true,
           'serverSide' => true,
           'ajax' => request()->fullurl(),

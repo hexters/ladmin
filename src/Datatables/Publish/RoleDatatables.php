@@ -36,8 +36,8 @@
           [ 'name' => 'Name' ],
           [ 'name' => 'Action', 'class' => 'text-center' ]
         ],
+        'buttons' => view('vendor.ladmin.role._partials._topButton'),
         'options' => [
-          'topButton' => view('vendor.ladmin.role._partials._topButton'),
           'processing' => true,
           'serverSide' => true,
           'ajax' => request()->fullurl(),

@@ -64,13 +64,15 @@
           <div class="container" style="position: relative;">
 
             <div class="row">
-              <div class="col-lg-6">
-                <h4>
+              <div class="col-lg-6 position-relative align-middle">
+                <h4 class="d-inline-block mr-2">
                   @if(request()->has('back'))
                     <a href="{{ request()->get('back') }}" class="btn btn-outline-primary btn-sm mr-1 px-3">&larr;</a>
                   @endif
                   {!! $title ?? 'Title Page' !!}
                 </h4>
+                {{ $buttons ?? null }}
+                
               </div>
               <div class="col-lg-6 breadcrumb-container">
                 <x-ladmin-breadcrumb />

@@ -90,8 +90,6 @@ menus.forEach(el => {
         search: '',
         searchPlaceholder: 'Search...'
       },
-      bLengthChange: false,
-      iDisplayLength: 50,
       ...options
     });
   });

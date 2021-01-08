@@ -11,6 +11,9 @@
       return $this->eloquent(
           app(config('ladmin.user', App\Models\User::class))->with(['roles'])
         )
+        ->addColumn('avatar', function($item) {
+          return "<img src=\"{$item->gravatar_url}\" class=\"rounded-circle img-thumbnail\" width=\"45\" alt=\"Avatar\">";
+        })
         ->editColumn('roles.name', function($item) {
           return $item->roles->pluck('name');
         })
@@ -36,19 +39,19 @@
       return [
         'title' => 'User Admin',
         'fields' => [
-          [ 'name' => 'ID', 'class' => 'text-center'],
+          [ 'name' => 'Avatar', 'class' => 'text-center'],
           [ 'name' => 'Name' ],
           [ 'name' => 'Email' ],
           [ 'name' => 'Role' ],
           [ 'name' => 'Action', 'class' => 'text-center' ]
         ],
+        'buttons' => view('vendor.ladmin.user._partials._topButton'),
         'options' => [
-          'topButton' => view('vendor.ladmin.user._partials._topButton'),
           'processing' => true,
           'serverSide' => true,
           'ajax' => request()->fullurl(),
           'columns' => [
-              ['data' => 'id', 'class' => 'text-center'],
+              ['data' => 'avatar', 'class' => 'text-center'],
               ['data' => 'name'],
               ['data' => 'email'],
               ['data' => 'roles.name', 'orderable' => false],

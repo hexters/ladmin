@@ -1,20 +1,25 @@
 <x-ladmin-layout>
   <x-slot name="title">System Log</x-slot>
-    
+  
+    <div class="row">
+      <div class="col-md-4 col-11">
+        <div class="mb-3">
+          <form action="" class="d-inline">
+            <select onchange="submit();" name="log" id="" class="form-control">
+              @forelse ($files as $item)
+                <option {{ $file == $item ? 'selected' : null }} value="{{ $item }}">File {{ $item }}</option>
+              @empty 
+              <option value="">- Not available log file -</option>
+              @endforelse
+            </select>
+          </form>
+        </div>
+      </div>
+    </div>
+
     <x-ladmin-card>
       <x-slot name="flat">
         <div class="table-responsive">
-          <div class="top-button">
-            <form action="">
-              <select onchange="submit();" name="log" id="" class="form-control">
-                @forelse ($files as $item)
-                  <option {{ $file == $item ? 'selected' : null }} value="{{ $item }}">File {{ $item }}</option>
-                @empty 
-                <option value="">- Not available log file -</option>
-                @endforelse
-              </select>
-            </form>
-          </div>
           <table class="table ladmin-datatables">
             <thead>
               <tr>

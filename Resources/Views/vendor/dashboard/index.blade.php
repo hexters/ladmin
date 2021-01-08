@@ -7,7 +7,7 @@
                 <h4 class="card-title">Welcome To The Ladmin Package</h4>
                 <p>With this package you can save time in creating an admin page, because it is equipped with a Login page, Reset Password Permission layout, etc.</p>
                 <p>
-                    Visit for more plugins in this link <a href="https://github.com/hexters/ladmin/blob/master/readmes/plugins.md" target="_blank">Ladmin Awesome</a>
+                    Visit for more plugins in this link <a href="https://github.com/hexters/ladmin/blob/master/readmes/plugins.md" target="_blank">Ladmin Plugins</a>
                 </p>
             </x-ladmin-card>
         </div>
