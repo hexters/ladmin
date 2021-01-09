@@ -79,6 +79,12 @@ Attach role to user admin with database seed or other
 
 . . .
 ```
+Ladmin need the database notification. see the documentation [Database Notifications](https://laravel.com/docs/8.x/notifications#database-notifications)
+
+```bash
+$ php artisan notifications:table
+
+```
 
 Migrate database
 ```bash
@@ -279,14 +285,6 @@ By default notification has activated, you can disable notification with set val
 'notification' => false
 
 . . .
-```
-
-Create database notification and see documentation [Database Notifications](https://laravel.com/docs/8.x/notifications#database-notifications)
-
-```bash
-$ php artisan notifications:table
-
-$ php artisan migrate
 ```
 
 Send notification
