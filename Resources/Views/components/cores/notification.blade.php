@@ -10,8 +10,14 @@
     </a>
 
     <ul class="dropdown-menu shadow-sm mt-3 rounded dropdown-menu-right ladmin-top-menu ladmin-notification-menu-component" aria-labelledby="navbarDropdown">
-        <li class="ladmin-top-menu-header text-center">
-          <strong>Notifications</strong>
+        <li class="ladmin-top-menu-header">
+          <form action="{{ route('administrator.notification.store') }}" method="POST">
+            @csrf
+            <button class="btn btn-link btn-sm float-right">
+              Mark all as read ?
+            </button>
+            <strong>Notifications</strong>
+          </form>
         </li>
         <li class="ladmin-top-menu-body-notification">
           

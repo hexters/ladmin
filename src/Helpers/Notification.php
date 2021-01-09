@@ -5,8 +5,6 @@ namespace Hexters\Ladmin\Helpers;
 use Exception;
 use Hexters\Ladmin\Notifications\AdminNotification;
 use Hexters\Ladmin\Exceptions\LadminException;
-use Hexters\Ladmin\Models\LadminNotification;
-use Hexters\Ladmin\Events\LadminNotificationEvent;
 use Hexters\Ladmin\Jobs\PrccessNotificationJob;
 
 class Notification {

@@ -6,8 +6,6 @@ use App\Models\Role;
 use Hexters\Ladmin\Models\LadminLogable;
 use Hexters\Ladmin\Notifications\ResetPasswordNotification;
 use Hexters\Ladmin\Exceptions\LadminException;
-use Hexters\Ladmin\Models\LadminNotification;
-use Hexters\Ladmin\Events\LadminNotificationEvent;
 
 trait LadminTrait {
 
@@ -45,38 +43,6 @@ trait LadminTrait {
       }
     }
     return $permissions;
-  }
-  
-  /**
-   * Notification model
-   *
-   * @return Model
-   */
-  public function getLadminNotificationsAttribute() {
-    return new LadminNotification;
-  }
-
-  /**
-   * Unread notification
-   *
-   * @return void
-   */
-  public function getLadminNotificationUnreadAttribute() {
-    return LadminNotification::whereNull('read_at')->limit(config('ladmin.notification_limit', 100));
-  }
-
-  /**
-   * Readed function notification
-   *
-   * @param [Integer] $id
-   * @return Boolean
-   */
-  public function makeReadedLadminNotification($id) {
-    try {
-      return LadminNotification::find($id)->update([
-        'read_at' => now()
-      ]);
-    } catch (LadminException $e) {}
   }
   
   /**

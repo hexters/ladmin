@@ -1,6 +1,13 @@
 <x-ladmin-layout>
   <x-slot name="title">List of Notifications</x-slot>
-    
+  
+  <div class="mb-3 text-right">
+    <form action="{{ route('administrator.notification.store') }}" method="POST">
+      @csrf 
+      <button class="btn btn-link">Mark all as read ?</button>
+    </form>
+  </div>
+
   <div class="mb-3">
     <div class="tracking-list">
       
@@ -11,7 +18,7 @@
         <div class="tracking-content">
 
           <form action="">
-            <div class="input-group">
+            <div class="input-group mb-1">
               <input type="search" placeholder="Search Notification..." value="{{ request()->get('src') }}" name="src" id="src" class="form-control border-0">
               <div class="input-group-append border-0">
                 <button class="btn btn-white bg-white" type="button" id="button-addon2">Search</button>

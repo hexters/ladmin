@@ -50,5 +50,14 @@ class NotificationController extends Controller {
         session()->flash('warning', ['Notification link not found.']);
         return redirect()->route('administrator.notification.index');
     }
+
+    public function store(Request $request) {
+
+        $request->user()->unreadNotifications()->update([
+            'read_at' => now()
+        ]);
+        return redirect()->back();
+
+    }
     
 }

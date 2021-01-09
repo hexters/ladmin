@@ -3,7 +3,6 @@
 namespace Hexters\Ladmin\Components\Cores;
 
 use Illuminate\View\Component;
-use Hexters\Ladmin\Models\LadminNotification;
 
 class Notification extends Component {
 
