@@ -188,6 +188,10 @@ class Role extends Model {
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/examples/activity.png?raw=true)
 
+## System Log
+
+![Example Image](https://github.com/hexters/ladmin/blob/master/examples/log.png?raw=true)
+
 ## Blade Layout
 Ladmin layout in `resources/views/vendor/ladmin`
 
