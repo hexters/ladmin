@@ -267,7 +267,7 @@ mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
 ```
 
 ## Custom Avatar 
-As default admin uses gravatar. If you want to change it, add the `avatar_url` field to your `users` table.
+By default admin uses gravatar. If you want to change it, add the `avatar_url` field to your` users` table and it must be a URL value.
 
 Call avatar url below
 ```php
