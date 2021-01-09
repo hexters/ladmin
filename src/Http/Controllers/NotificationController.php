@@ -18,10 +18,16 @@ class NotificationController extends Controller {
             return abort(404);
         }
 
-        $data['notifications'] = app(config('ladmin.user', App\Models\User::class))
-            ->ladmin_notifications->latest('id')
-            ->limit(config('ladmin.notification_limit', 100))
-            ->get();
+        $user = auth()->user();
+        
+
+        if(request()->has('src')) {
+            $notification = $user->notifications()->where('data', 'LIKE', '%' . request()->get('src', 'src') . '%')->latest()->paginate( request()->get('per_page', 10) );
+        } else {
+            $notification = $user->notifications()->latest()->paginate( request()->get('per_page', 10) );
+         }
+
+        $data['notifications'] = $notification;
 
         return view('ladmin::notification.index', $data);
     }
@@ -33,8 +39,16 @@ class NotificationController extends Controller {
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id) {
-        return app(config('ladmin.user', App\Models\User::class))->makeReadedLadminNotification($id);
+    public function show(Request $request, $id) {
+        $notification = $request->user()->notifications()->findOrFail($id);
+        $notification->markAsRead();
+        $url = $notification->data['link'] ?? null;
+        if($url) {
+            return redirect($url);
+        }
+
+        session()->flash('warning', ['Notification link not found.']);
+        return redirect()->route('administrator.notification.index');
     }
     
 }

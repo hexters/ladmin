@@ -38,7 +38,7 @@ class Ladmin {
       ], function() use ($function) {
   
         BaseRoute::resource('/', DashboardController::class)->only(['index']);
-        BaseRoute::resource('/notification', NotificationController::class)->only(['index', 'update']);
+        BaseRoute::resource('/notification', NotificationController::class)->only(['index', 'show']);
         BaseRoute::resource('/profile', ProfileController::class)->only(['index', 'store']);
 
         BaseRoute::group(['as' => 'account.', 'prefix' => 'account'], function() {

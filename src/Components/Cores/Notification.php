@@ -8,6 +8,7 @@ use Hexters\Ladmin\Models\LadminNotification;
 class Notification extends Component {
 
     public $notifications;
+    public $total;
 
     public $badge;
 
@@ -17,7 +18,9 @@ class Notification extends Component {
      * @return void
      */
     public function __construct() {
-      $this->notifications = LadminNotification::whereNull('read_at')->latest('id')->limit(10)->get();
+      $user = auth()->user();
+      $this->notifications = $user->unreadNotifications()->latest()->take(10)->get();
+      $this->total = $user->unreadNotifications()->count();
     }
 
     /**

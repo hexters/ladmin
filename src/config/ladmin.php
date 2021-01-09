@@ -36,12 +36,7 @@
      * Notification status
      */
     'notification' => env('LADMIN_NOTIFICATION', true),
-
-    /**
-     * Notification will only appear as many as 100 data
-     */
-    'notification_limit' => env('LADMIN_NOTIFICATION_LIMIT', 100),
-
+    
     /**
      * Interval deleted log Activity
      */

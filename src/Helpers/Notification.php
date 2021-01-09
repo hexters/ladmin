@@ -3,9 +3,11 @@
 namespace Hexters\Ladmin\Helpers;
 
 use Exception;
+use Hexters\Ladmin\Notifications\AdminNotification;
 use Hexters\Ladmin\Exceptions\LadminException;
 use Hexters\Ladmin\Models\LadminNotification;
 use Hexters\Ladmin\Events\LadminNotificationEvent;
+use Hexters\Ladmin\Jobs\PrccessNotificationJob;
 
 class Notification {
 
@@ -13,7 +15,7 @@ class Notification {
   private $link;
   private $image_link = null;
   private $description;
-  private $gates = [];
+  private $gates = null;
   private $menu;
 
   public function __construct() {
@@ -69,16 +71,18 @@ class Notification {
           $this->gates = $gates;
         }
       }
+        
+      if(! config('ladmin.notification', true) ) {
+        throw new Exception("Notification does not enabled");
+      }
       
-      $notification = LadminNotification::create([
+      dispatch(new PrccessNotificationJob([
         'title' => $this->title,
         'link' => $this->link,
         'image_link' => $this->image_link,
         'description' => $this->description,
-        'gates' => $this->gates,
-      ]);
-      
-      event(new LadminNotificationEvent($notification));
+        'gates' => $this->gates
+      ]));
 
       return [
         'result' => true

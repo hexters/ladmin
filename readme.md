@@ -105,6 +105,12 @@ Ladmin::route(function() {
 
 ```
 
+Installation finish, you can Access admin page in this link below.
+
+```
+http://localhost:8000/administrator
+```
+
 ## Manage Sidebar & Top Menu
 To add a menu open `app/Menus/sidebar.php` file and `top_right.php`
 
@@ -193,9 +199,7 @@ class Role extends Model {
 ![Example Image](https://github.com/hexters/ladmin/blob/master/examples/log.png?raw=true)
 
 ## Blade Layout
-Ladmin layout in `resources/views/vendor/ladmin`
-
-Insert your module content to ladmin layout
+Ladmin layout
 
 ```html
 
@@ -211,10 +215,6 @@ Insert your module content to ladmin layout
   
 ```
 
-And you can Access admin page in this link below.
-```
-http://localhost:8000/administrator
-```
 ![Example Image](https://github.com/hexters/ladmin/blob/master/examples/login.png?raw=true)
 
 ### Datatables Render
@@ -263,7 +263,7 @@ mix.js('resources/js/ladmin/app.js', 'public/js/ladmin/app.js')
 ## Custom Avatar 
 As default admin uses gravatar. If you want to change it, add the `avatar_url` field to your `users` table.
 
-To use your avatar, you can call a mutator below, this method can handle your custom avatar also.
+Call avatar url below
 ```php
   $user->gravatar_url
   // out: gravatar url / your custom url
@@ -271,14 +271,22 @@ To use your avatar, you can call a mutator below, this method can handle your cu
 
 ## Notification
 
-Set the true to activated notification
+By default notification has activated, you can disable notification with set value to `false`
 
 ```php
 . . .
 
-'notification' => true
+'notification' => false
 
 . . .
+```
+
+Create database notification and see documentation [Database Notifications](https://laravel.com/docs/8.x/notifications#database-notifications)
+
+```bash
+$ php artisan notifications:table
+
+$ php artisan migrate
 ```
 
 Send notification
@@ -302,12 +310,17 @@ Notification required
 |`setDescription`|String|YES|-|
 |`setGates`|Array|NO| default all gates |
 
-Listen with [Larave Echo Server](https://github.com/tlaverdure/laravel-echo-server)
+### Listening For Notifications
+
+Notifications will broadcast on a private channel formatted using a {notifiable}.{id} convention. View complete [Documentation](https://laravel.com/docs/8.x/notifications#listening-for-notifications)
+
 ```javascript
-Echo.channel(`ladmin`)
-    .listen('.notification', (e) => {
-        console.log(e.update);
-        // Notification handle
+
+  // Change App.Models.User bas on config('ladmin.user')
+
+  Echo.private('App.Models.User.' + userId)
+    .notification((notification) => {
+        console.log(notification.type);
     });
 ```
 ![Example Image](https://github.com/hexters/ladmin/blob/master/examples/notification.png?raw=true)
