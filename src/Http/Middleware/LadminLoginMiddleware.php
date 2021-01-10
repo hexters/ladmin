@@ -21,7 +21,7 @@ class LadminLoginMiddleware {
 
         if(Auth::guard(config('ladmin.auth.guard', 'web'))->check()) {
             if(is_null(Auth::guard(config('ladmin.auth.guard', 'web'))->user()->role)) {
-                abort(403);
+                abort(403, Auth::guard(config('ladmin.auth.guard', 'web'))->user()->name . ' Don\'t have access');
             }
         }
 
