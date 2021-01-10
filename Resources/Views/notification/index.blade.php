@@ -67,7 +67,8 @@
     </div>
   </div>
 
-  <div class="text-center">
+  <div class="text-right ladmin-pagination p-3">
+    <span class="mr-3 d-none d-sm-inline"> Page {{ $notifications->currentPage() }} / {{ $notifications->lastPage() }} &minus; Total {{ number_format($notifications->total(), 0) }} data</span>
     {{ $notifications->appends( request()->except(['page']) )->links() }}
   </div>
   
