@@ -9,7 +9,7 @@
               @forelse ($files as $item)
                 <option {{ $file == $item ? 'selected' : null }} value="{{ $item }}">File {{ $item }}</option>
               @empty 
-              <option value="">- Not available log file -</option>
+              <option value="">- Log file not available -</option>
               @endforelse
             </select>
           </form>

@@ -49,10 +49,7 @@
 
       return [
         'title' => 'Roles',
-        'fields' => [
-          [ 'name' => 'ID', 'class' => 'text-center'],
-          [ 'name' => 'Name' ],
-          [ 'name' => 'Action', 'class' => 'text-center' ]
+        'fields' => [ __('ID'), __('Name'), __('Action')
         ],
         'buttons' => view('vendor.ladmin.role._partials._topButton'),
         'options' => [

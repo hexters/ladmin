@@ -5,7 +5,7 @@
         <thead>
           <tr>
             @foreach ($fields as $field)
-              <th class="{{ $field['class'] ?? null }}">{{ $field['name'] }}</th>
+              <th>{{ $field }}</th>
             @endforeach
           </tr>
         </thead>

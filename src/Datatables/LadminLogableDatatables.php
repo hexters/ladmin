@@ -33,17 +33,7 @@
       
       return [
         'title' => 'List Of Activity',
-        'fields' => [
-          [ 'name' => 'Date'],
-          [ 'name' => 'Type', 'class' => 'text-center'],
-          [ 'name' => 'Model'],
-          [ 'name' => 'User'],
-          [ 'name' => 'Action'],
-        ],
-        'foos' => [ // Custom data array. You can call in your blade with variable $foos
-          'bar' => 'baz',
-          'baz' => 'bar',
-        ],
+        'fields' => [ __('Date'), __('Type'), __('Model'), __('User'), __('Action')],
         'buttons' => view('ladmin::logable._button_delete'),
         'options' => [
           'processing' => true,

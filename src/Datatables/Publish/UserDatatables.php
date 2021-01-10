@@ -52,14 +52,8 @@
 
       return [
         'title' => 'User Admin',
-        'fields' => [
-          [ 'name' => 'Avatar', 'class' => 'text-center'],
-          [ 'name' => 'Name' ],
-          [ 'name' => 'Email' ],
-          [ 'name' => 'Role' ],
-          [ 'name' => 'Action', 'class' => 'text-center' ]
-        ],
         'buttons' => view('vendor.ladmin.user._partials._topButton'),
+        'fields' => [ __('Avatar'), __('Name'), __('Email'), __('Role'), __('Action')],
         'options' => [
           'processing' => true,
           'serverSide' => true,

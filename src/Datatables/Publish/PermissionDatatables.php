@@ -44,11 +44,7 @@
 
       return [
         'title' => 'Select Role',
-        'fields' => [
-          [ 'name' => 'ID', 'class' => 'text-center'],
-          [ 'name' => 'Name' ],
-          [ 'name' => 'Action', 'class' => 'text-center' ]
-        ],
+        'fields' => [ __('ID'), __('Name'), __('Action')],
         'buttons' => null,
         'options' => [
           'processing' => true,
