@@ -13,7 +13,9 @@
                 <form method="POST" action="{{ route('administrator.password.update') }}">
                     @csrf
 
-                    <div class="my-3"></div>
+                    <div class="my-3">
+                        <x-ladmin-alert />
+                    </div>
 
                     <x-ladmin-input name="password" type="password" placeholder="New Password" class="px-5" old="true" required="true">
                         <x-slot name="prepend">

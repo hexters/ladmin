@@ -13,7 +13,9 @@
                 <form method="POST" action="{{ route('administrator.password.email') }}">
                     @csrf
 
-                    <div class="my-3"></div>
+                    <div class="my-3">
+                        <x-ladmin-alert />
+                    </div>
 
                     <x-ladmin-input name="email" type="email" placeholder="Email Address" class="px-5" old="true" required="true">
                         <x-slot name="prepend">
