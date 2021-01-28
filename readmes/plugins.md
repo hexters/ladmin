@@ -15,5 +15,5 @@
 |[Ladmin CoinPayment](https://ppmarket.org/browse/hexters-ladmin-coinpayment)|$ 7.25|[Hexters](hexters)|Handling transaction from package [hexters/CoinPayment](https://github.com/hexters/CoinPayment)|
 
 
-
-If you have a free or paid plugin for admin, please add it in this file and make a pull request to this file.
+## Submit Plugins
+If you have a free or paid plugin for admin, please add it in this file and make a pull requests to this file.
