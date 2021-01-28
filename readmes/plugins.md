@@ -12,7 +12,7 @@
 ## **Paid Plugins**
 |Plugin|Price|Author|Description|
 |-|-|-|-|
-|[Ladmin CoinPayment](https://ppmarket.org/browse/hexters-ladmin-coinpayment)|$ 7.25|[Hexters](hexters)|Ladmin Coinpayment is a plugin for handle transaction from package hexters/CoinPayment|
+|[Ladmin CoinPayment](https://ppmarket.org/browse/hexters-ladmin-coinpayment)|$ 7.25|[Hexters](hexters)|Handling transaction from package [hexters/CoinPayment](https://github.com/hexters/CoinPayment)|
 
 
 
