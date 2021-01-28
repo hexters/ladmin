@@ -8,3 +8,12 @@
 |-|-|-|-|
 |[Public Storage](https://github.com/hexters/ladmin-public-storage-plugin)|[![Total Downloads](https://poser.pugx.org/hexters/ladmin-public-storage-plugin/downloads)](https://packagist.org/packages/hexters/ladmin-public-storage-plugin)|[Hexters](hexters)|Example ladmin plugin|
 
+
+## **Paid Plugins**
+|Plugin|Price|Author|Description|
+|-|-|-|-|
+|[Ladmin CoinPayment](https://ppmarket.org/browse/hexters-ladmin-coinpayment)|$ 7.25|[Hexters](hexters)|Ladmin Coinpayment is a plugin for handle transaction from package hexters/CoinPayment|
+
+
+
+If you have a free or paid plugin for admin, please add it in this file and make a pull request to this file.
