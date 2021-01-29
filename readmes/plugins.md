@@ -6,13 +6,13 @@
 ## **Plugins**
 |Plugin|Download|Author|Description|
 |-|-|-|-|
-|[Public Storage](https://github.com/hexters/ladmin-public-storage-plugin)|[![Total Downloads](https://poser.pugx.org/hexters/ladmin-public-storage-plugin/downloads)](https://packagist.org/packages/hexters/ladmin-public-storage-plugin)|[Hexters](hexters)|Example ladmin plugin|
+|[Public Storage](https://github.com/hexters/ladmin-public-storage-plugin)|[![Total Downloads](https://poser.pugx.org/hexters/ladmin-public-storage-plugin/downloads)](https://packagist.org/packages/hexters/ladmin-public-storage-plugin)|[Hexters](https://github.com/hexters)|Example ladmin plugin|
 
 
 ## **Paid Plugins**
 |Plugin|Price|Author|Description|
 |-|-|-|-|
-|[Ladmin CoinPayment](https://ppmarket.org/browse/hexters-ladmin-coinpayment)|$ 7.25|[Hexters](hexters)|Handling transaction from package [hexters/CoinPayment](https://github.com/hexters/CoinPayment)|
+|[Ladmin CoinPayment](https://ppmarket.org/browse/hexters-ladmin-coinpayment)|$ 7.25|[Hexters](https://github.com/hexters)|Handling transaction from package [hexters/CoinPayment](https://github.com/hexters/CoinPayment)|
 
 
 ## Submit Plugins
