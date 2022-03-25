@@ -31,8 +31,8 @@ Make an Administrator page in 5 minutes
 
 |Version|Laravel|
 |:-:|:-:|
-| [v1.0.x](https://github.com/hexters/ladmin/blob/master/versions/1.0.md) | 7.x |
-| Last version | 8.x |
+| [v1.0.x](https://github.com/hexters/ladmin/blob/v1.0.3/readme.md) | 7.x |
+| v1.8.* | 8.x |
 
 ## Note
 Before using this package you must already have a login page or route login `route('login')` for your members, you can use [laravel/breeze](https://github.com/laravel/breeze), [larave/ui](https://github.com/laravel/ui) or [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html).
@@ -44,7 +44,7 @@ Before using this package you must already have a login page or route login `rou
 ## Installation
 You can install this package via composer:
 ```
-$ composer require hexters/ladmin
+$ composer require hexters/ladmin:1.8
 ```
 
 Add this trait to your user model
