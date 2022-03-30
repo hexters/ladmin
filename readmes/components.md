@@ -1,7 +1,7 @@
 ## Blade Components
 
 ### Card Component
-```
+```html
 <x-ladmin-card class="mb-3">
   <x-slot name="header">
     Card Header
@@ -29,7 +29,7 @@
 |footer|NO|
 
 ### Form Group Componenet
-```
+```html
 <x-ladmin-form-group name="money" label="Money" help="Information for form input" col-label="4" col-input="8">
   <x-slot name="prepend">
     <i class="fas fa-wallet"></i>
