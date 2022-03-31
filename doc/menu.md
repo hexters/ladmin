@@ -263,7 +263,7 @@ And also give permission to the button event on the blade, see the example below
 @endcan
 ```
 
-In addition to the `ladmin()->allows()` function you can also use the `auth()->user()->can()` function, click the [Documentation](https://laravel .com/docs/9.x/authorization#via-blade-templates) to see more details [Documentation](https://laravel .com/docs/9.x/authorization#via-blade-templates)
+In addition to the `ladmin()->allows()` function you can also use the `auth()->user()->can()` function, click the [Documentation](https://laravel.com/docs/9.x/authorization#via-blade-templates) to see more details [Documentation](https://laravel.com/docs/9.x/authorization#via-blade-templates)
 
 # Active Menu
 
