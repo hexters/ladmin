@@ -1,0 +1,24 @@
+.ladmin {
+    #ladmin-group-search-results {
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            li {
+                ul {
+                    list-style-type: none;
+                    margin: 0;
+                    padding: 0;
+                     li {
+                        > a {
+                            display: block;
+                            &:hover {
+                                background-color: rgba($color: $primary, $alpha: .03);
+                            }
+                        }
+                     }
+                }
+            }
+        }
+    }
+}

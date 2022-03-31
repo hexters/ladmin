@@ -1,137 +1,109 @@
 <?php
 
-namespace Hexters\Ladmin;
+namespace Hexters\Ladmin;;
 
+use Hexters\Ladmin\Console\Commands\GenerateDataTablesCommand;
+use Hexters\Ladmin\Console\Commands\GenerateMenuCommand;
+use Hexters\Ladmin\Console\Commands\GenerateSearchGroupCommand;
+use Hexters\Ladmin\Console\Commands\InstallPackageCommand;
+use Hexters\Ladmin\Console\Commands\InstallPackageModuleCommand;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
-use Hexters\Ladmin\Helpers\Menu;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Pagination\Paginator;
-/**
- * Components
- */
-use Hexters\Ladmin\Components\Components\Card;
-use Hexters\Ladmin\Components\Components\Input;
-use Hexters\Ladmin\Components\Components\Datatables;
-use Hexters\Ladmin\Components\Components\FormGroup;
-
-use Hexters\Ladmin\Components\Menus\Sidebar;
-use Hexters\Ladmin\Components\Menus\Toprightmenu;
-
-use Hexters\Ladmin\Components\Cores\Alert;
-use Hexters\Ladmin\Components\Cores\Layout;
-use Hexters\Ladmin\Components\Cores\Breadcrumb;
-use Hexters\Ladmin\Components\Cores\Notification;
-
-
-/**
- * Command
- */
-use Hexters\Ladmin\Commands\DataTablesCommand;
-
-
 
 class LadminServiceProvider extends ServiceProvider
 {
-    
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
     public function register()
     {
-        //
+
+        if (!file_exists(config_path('ladmin.php'))) {
+            $this->mergeConfigFrom(
+                __DIR__ . '/config/config.php',
+                'ladmin'
+            );
+        }
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
-    public function boot() {
-    
-        /**
-         * Pagination
-         */
-        Paginator::useBootstrap();
+    public function boot()
+    {
 
         /**
-         * Load view template
-         */
-        $this->loadViewsFrom( __DIR__ . '/../Resources/Views', 'ladmin');
-
-        /**
-         * Publish 
-         * php artisan vendor:publish --tag=assets --force
+         * Publish config file
          */
         $this->publishes([
-            __DIR__ . '/../dist/app.js' => public_path('/js/ladmin/app.js'),
-            __DIR__ . '/../dist/app.css' => public_path('/css/ladmin/app.css'),
-            __DIR__ . '/../Resources/sass/' => base_path('/resources/sass/ladmin'),
-            __DIR__ . '/../Resources/js/' => base_path('/resources/js/ladmin'),
-        ], 'assets');
-        
+            __DIR__ . '/config/config.php' => config_path('ladmin.php'),
+            __DIR__ . '/config/scout.php' => config_path('scout.php'),
+        ], 'ladmin-config');
+
         /**
-         * Publish 
-         * php artisan vendor:publish --tag=core
+         * Publish Ladmin module
          */
         $this->publishes([
-            __DIR__ . '/Menus/' => app_path('/Menus'),
-            __DIR__ . '/Datatables/Publish/' => app_path('/DataTables'),
-            __DIR__ . '/config/ladmin.php' => base_path('/config/ladmin.php'),
-            __DIR__ . '/Http/Controllers/Publish/' => app_path('Http/Controllers/Administrator'),
-            __DIR__ . '/Http/Middleware/LadminAuthenticate.php' => app_path('Http/Middleware/LadminAuthenticate.php'),
-            __DIR__ . '/Repositories/' => app_path('Repositories'),
-            __DIR__ . '/Models/Role.php' => app_path('/Models/Role.php'),
-            __DIR__ . '/../Resources/Views/vendor/' => base_path('/resources/views/vendor/ladmin/'),
-            __DIR__ . '/../Resources/assets/icons/' => base_path('/resources/assets/icons'),
-        ], 'core');
+            __DIR__ . '/../modules/Ladmin' => base_path('Modules/Ladmin'),
+        ], 'ladmin-module');
 
         /**
-         * Migration file
+         * Publish menu kernel
          */
-        $this->loadMigrationsFrom(__DIR__ . '/database/migrations/');
+        $this->publishes([
+            __DIR__ . '/../Menu' => app_path('Menu'),
+        ], 'ladmin-menu');
 
         /**
-         * Command
+         * Publish ladmin assets (js | css)
          */
+        $this->publishes([
+            __DIR__ . '/../assets' => public_path(''),
+        ], 'ladmin-asset');
+
+        /**
+         * Publish custom route stub
+         */
+        $this->publishes([
+            __DIR__ . '/../stubs' => base_path('stubs'),
+        ], 'ladmin-stub');
+
         if ($this->app->runningInConsole()) {
             $this->commands([
-                DataTablesCommand::class
+                GenerateMenuCommand::class,
+                GenerateDataTablesCommand::class,
+                InstallPackageCommand::class,
+                InstallPackageModuleCommand::class,
+                GenerateSearchGroupCommand::class,
             ]);
         }
 
-        /**
-         * View Component
+        /** 
+         * Register migration path
          */
-        $this->loadViewComponentsAs('ladmin', [
-            Card::class,
-            Input::class,
-            Sidebar::class,
-            Breadcrumb::class,
-            Toprightmenu::class,
-            Datatables::class,
-            Alert::class,
-            Notification::class,
-            FormGroup::class,
-            Layout::class
-        ]);
-        
+        $this->loadMigrationsFrom(__DIR__ . '/databases');
 
         /**
-         * definde gates
+         * Register gates access
          */
-        $menu = new Menu;
-        $gates = $menu->gates($menu->menus);
-        if(is_array($gates)) {
-            foreach($gates as $gate) {
-                Gate::define($gate, function(Authenticatable $user) use ($gate) {
-                    foreach($user->roles as $role) {
-                        return in_array($gate, $role->gates);
+        foreach (ladmin()->menu()->allGates() as $gate) {
+            Gate::define($gate, function (User $user) use ($gate) {
+                $gates = [];
+                foreach ($user->roles as $role) {
+                    if (!is_null($role->gates)) {
+                        array_push($gates, ...$role->gates);
+                    } else {
+                        array_push($gates);
                     }
-                });
-            }
+                }
+                return in_array($gate, $gates);
+            });
         }
+        
     }
 }

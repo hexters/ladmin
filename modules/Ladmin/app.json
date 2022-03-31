@@ -1,0 +1,11 @@
+{
+    "name": "ladmin",
+    "namespace": "Modules\\Ladmin\\",
+    "providers": [
+        "Modules\\Ladmin\\Providers\\LadminServiceProvider",
+        "Modules\\Ladmin\\Providers\\ComponentServiceProvider",
+        "Modules\\Ladmin\\Providers\\RouteServiceProvider",
+        "Modules\\Ladmin\\Providers\\EventServiceProvider"
+    ],
+    "status": "enabled"
+}

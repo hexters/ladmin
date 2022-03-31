@@ -12,6 +12,6 @@ class LadminOption extends Model
     protected $fillable = [
         'option_name',
         'option_value',
-        'type'
+        'type',
     ];
 }

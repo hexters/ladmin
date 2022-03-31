@@ -1,17 +1,28 @@
 {
     "name": "hexters/ladmin",
-    "description": "Package for handel admin page in laravel",
-    "keywords": ["Laravel", "Laravel Admin", "Admin Page"],
+    "type": "library",
+    "description": "Admin page scaffolding for Laravel.",
+    "keywords": [
+        "Laravel",
+        "Laravel Admin",
+        "Admin Page",
+        "Ladmin",
+        "Admin scaffolding"
+    ],
     "license": "MIT",
     "authors": [
         {
-            "name": "saifullah",
+            "name": "Asep",
             "email": "hexters@gmail.com"
         }
     ],
-    "require": {
-        "yajra/laravel-datatables-oracle": "~9.0",
-        "laravel/ui": "^3.0"
+    "autoload": {
+        "psr-4": {
+            "Hexters\\Ladmin\\": "src/"
+        },
+        "files": [
+            "./src/Helpers/helper.php"
+        ]
     },
     "extra": {
         "laravel": {
@@ -19,17 +30,12 @@
                 "Hexters\\Ladmin\\LadminServiceProvider",
                 "Hexters\\Ladmin\\EventServiceProvider"
             ],
-            "aliases": {
-                "Ladmin": "Hexters\\Ladmin\\Ladmin"
-            }
+            "aliases": {}
         }
     },
-    "autoload": {
-        "psr-4": {
-            "Hexters\\Ladmin\\": "src/"
-        },
-        "files": [
-            "src/Helpers/function.php"
-        ]
+    "require": {
+        "yajra/laravel-datatables-oracle": "~9.0",
+        "hexters/laramodule": "^1.0",
+        "laravel/scout": "^9.4"
     }
 }

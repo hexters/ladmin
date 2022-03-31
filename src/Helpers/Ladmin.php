@@ -1,134 +1,180 @@
-<?php 
+<?php
 
 namespace Hexters\Ladmin\Helpers;
 
-use Exception;
+use Closure;
 use Illuminate\Support\Facades\Gate;
-use Hexters\Ladmin\Models\LadminOption;
-use Illuminate\Support\Facades\Cache;
+use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Route;
+use Hexters\Ladmin\Http\Middleware\AuthMiddleware;
 
-class Ladmin {
+class Ladmin
+{
 
-  protected $cacheAlias = 'ladmin-cache-';
+    use LadminOption;
 
-  /**
-   * Notification eloquent
-   *
-   * @return Notification
-   */
-  public function notification() {
-    return new Notification;
-  }
-
-  /**
-   * This method for protect the controller
-   *
-   * @param [type] $gates
-   * @return boolean
-   */
-  public function allow($gates) {
-    if(Gate::denies($gates)) {
-      return abort(403);
-    }
-  }
-
-  /**
-   * Get icon from icon directory
-   *
-   * @param [type] $path
-   * @return String
-   */
-  public function icon($path) {
-    $pathName = str_replace('.', '/', trim($path)) . '.svg';
-    $basePath = base_path('/resources/assets/icons/' . $pathName);
-    if(file_exists($basePath)) {
-      return file_get_contents($basePath);
-    }
-    return '<i class="' . $path . '"></i>';
-  }
-
-  /**
-   * Get ladmin option
-   *
-   * @param [string] $name
-   * @return String
-   */
-  public function get_option($name, $default = null) {
-    $value = Cache::get( $this->cacheAlias . $name);
-    if(is_null($value)) {
-      
-      try {
-        $option = LadminOption::where('option_name', $name)->first();
-        if($option) {
-          $value = $option->option_value;
-          /**
-           * Cache option
-           */
-          if(config('ladmin.cache_option', true)) {
-            Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
-              return $value;
-            });
-          }
-        }
-      } catch (Exception $e) {}
-
-    }
-
-    if(! is_null($value)) {
-      $array = json_decode($value);
-      $value = is_array($array) || is_object($array) ? $array : $value;
-    }
-
-    return is_null($value) ? $default : $value;
-  }
-
-  /**
-   * Update option
-   *
-   * @param [string] $name
-   * @param [string] $value
-   * @return boolean
-   */
-  public function update_option($name, $value) {
-    $value = is_array($value) ? json_encode($value) : $value;
-    $option = LadminOption::where('option_name', $name)->first();
-    if($option) {
-      $option->update([
-        'option_value' => $value
-      ]);
-    } else {
-      LadminOption::create([
-        'option_name' => $name,
-        'option_value' => $value,
-      ]);
+    protected function templateModule()
+    {
+        return config('ladmin.template.module', 'ladmin');
     }
 
     /**
-     * Cache option
+     * Get ladmin version
+     *
+     * @return string
      */
-    if(config('ladmin.cache_option', true)) {
-      Cache::forget($this->cacheAlias . $name);
-      Cache::rememberForever($this->cacheAlias . $name, function() use ($value) {
-        return $value;
-      });
+    public function version()
+    {
+        return '2.0';
     }
 
-    return true;
-  }
-
-  /**
-   * Delete option
-   *
-   * @param [string] $name
-   * @return boolean
-   */
-  public function delete_option($name) {
-    $option = LadminOption::where('option_name', $name)->first();
-    if($option) {
-      Cache::forget($this->cacheAlias . $name);
-      return $option->delete();
+    /**
+     * Default model admin
+     *
+     * @return void
+     */
+    public function admin()
+    {
+        return app(config('ladmin.user'));
     }
-    return false;
-  }
 
+    /**
+     * Default model admin
+     *
+     * @return void
+     */
+    public function user()
+    {
+        return $this->admin();
+    }
+
+    /**
+     * Gropu ladmin route
+     *
+     * @param Closure $routes
+     * @return Closure
+     */
+    public function route(Closure $routes)
+    {
+        Route::group([
+            'middleware' => AuthMiddleware::class,
+            'prefix' => config('ladmin.prefix'),
+            'as' => 'ladmin.'
+        ], function () use ($routes) {
+            return $routes();
+        });
+    }
+
+    /**
+     * Gropu ladmin route
+     *
+     * @param Closure $routes
+     * @return Closure
+     */
+    public function routeApi(Closure $routes)
+    {
+        Route::group([
+            'prefix' => config('ladmin.prefix'),
+            'as' => 'ladmin.'
+        ], function () use ($routes) {
+            return $routes();
+        });
+    }
+
+    /**
+     * Load ladmin template
+     *
+     * @param [type] $blade
+     * @return void
+     */
+    public function view($blade, $data = [])
+    {
+        return view($this->view_path(blade: $blade), $data);
+    }
+
+    /**
+     * Load ladmin template
+     *
+     * @param [type] $blade
+     * @return void
+     */
+    public function view_path($blade)
+    {
+        $name = $this->templateModule();
+        return $name . '::' . config('ladmin.template.framework', 'bootstrap') . '.' . $blade;
+    }
+
+    /**
+     * Load ladmin template
+     *
+     * @param [type] $blade
+     * @return void
+     */
+    public function component($blade, $data = [])
+    {
+        $name = $this->templateModule();
+        return view($name . '::components.' . config('ladmin.template.framework', 'bootstrap') . '.' . $blade, $data);
+    }
+
+    /**
+     * Path ladmin template
+     *
+     * @param [type] $blade
+     * @return void
+     */
+    public function component_path($path)
+    {
+        $name = $this->templateModule();
+        return $name . '::components.' . config('ladmin.template.framework', 'bootstrap') . '.' . $path;
+    }
+
+
+    /**
+     * Get full url
+     *
+     * @return String
+     */
+    public function back($data = [])
+    {
+
+        if (is_array($data)) {
+            return  array_merge($data, ['back' => request()->fullUrl()]);
+        }
+
+        return [$data, 'back' => request()->fullUrl()];
+    }
+
+    /**
+     * Load Menu class
+     *
+     * @return \Hexters\Ladmin\Helpers\Menu
+     */
+    public function menu()
+    {
+        return new Menu();
+    }
+
+    /**
+     * Send notificaiton to user account
+     *
+     * @param \Illuminate\Foundation\Auth\User|null $user
+     * @return \Hexters\Ladmin\Helpers\Notification
+     */
+    public function notification(?User $user = null)
+    {
+        return new Notification($user);
+    }
+
+    /**
+     * Access page
+     *
+     * @param string $data
+     * @return void
+     */
+    public function allows($data)
+    {
+        if (!Gate::allows($data)) {
+            abort(403);
+        }
+    }
 }

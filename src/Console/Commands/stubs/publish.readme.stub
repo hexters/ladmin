@@ -1,0 +1,15 @@
+# {{ moduleTitle }}
+
+## Installation
+
+Add the repository by running the command below.
+
+```bash
+$ composer require {{ moduleName }}
+```
+
+Publish the module by running the command below.
+
+```bash
+$ php artisan vendor:publish --tag={{ name }}-module --force
+```

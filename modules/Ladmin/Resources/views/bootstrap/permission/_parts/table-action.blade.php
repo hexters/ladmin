@@ -1,0 +1,1 @@
+<a href="{{ route('ladmin.permission.show', ladmin()->back($role->id)) }}" class="btn btn-sm btn-outline-primary">Assign Permission</a>

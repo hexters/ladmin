@@ -1,97 +1,173 @@
-<?php 
+<?php
 
 namespace Hexters\Ladmin\Helpers;
 
-use Exception;
-use Hexters\Ladmin\Notifications\AdminNotification;
-use Hexters\Ladmin\Exceptions\LadminException;
-use Hexters\Ladmin\Jobs\PrccessNotificationJob;
+use Hexters\Ladmin\Exceptions\LadminNotificationException;
+use Hexters\Ladmin\Jobs\ProcessNotificaiton;
+use Illuminate\Foundation\Auth\User;
 
-class Notification {
+class Notification
+{
 
-  private $title;
-  private $link;
-  private $image_link = null;
-  private $description;
-  private $gates = null;
-  private $menu;
+    /**
+     * Notification title
+     *
+     * @var String
+     */
+    protected $title;
 
-  public function __construct() {
-    $this->menu = new Menu;
-  }
+    /**
+     * Notification link
+     *
+     * @var String
+     */
+    protected $link;
 
-  public function setTitle($title) {
-    $this->title = $title;
-    return $this;
-  }
+    /**
+     * Notification image link
+     *
+     * @var String|null
+     */
+    protected $image_link = null;
 
-  public function setLink($link) {
-    $this->link = $link;
-    return $this;
-  }
+    /**
+     * Notification description
+     *
+     * @var String
+     */
+    protected $description;
 
-  public function setImageLink($image_link) {
-    $this->image_link = $image_link;
-    return $this;
-  }
+    /**
+     * Notification gates
+     *
+     * @var Array|null
+     */
+    protected $gates = null;
 
-  public function setDescription($description) {
-    $this->description = $description;
-    return $this;
-  }
 
-  public function setGates($gates) {
+    /**
+     * Spesific user account
+     *
+     * @var \Illuminate\Foundation\Auth\User
+     */
+    protected $user;
 
-    if(is_array($gates)) {
-      $this->gates = $gates;
-    } else if( is_string($gates) ) {
-      $this->gates = [$gates];
+
+    /**
+     * Constructor
+     *
+     * @param \Illuminate\Foundation\Auth\User|null $user
+     */
+    public function __construct(?User $user = null)
+    {
+        $this->user = $user;
     }
 
-    return $this;
-  }
 
-  public function send() {
-    try {
-      if(empty($this->title)) {
-        throw new Exception('Title is required');
-      }
-      if(empty($this->link)) {
-        throw new Exception('Link is required');
-      }
-      if(empty($this->description)) {
-        throw new Exception('Description is required');
-      }
+    /**
+     * Set notificaiton title
+     *
+     * @param String $title
+     * @return void
+     */
+    public function setTitle(String $title)
+    {
+        $this->title = $title;
+        return $this;
+    }
 
-      if(is_null($this->gates) || count($this->gates) < 1 || empty($this->gates)) {
-        $gates = $this->menu->gates($this->menu->menus);
-        if( is_array($gates) ) {
-          $this->gates = $gates;
+    /**
+     * Set notification link
+     *
+     * @param String $link
+     * @return void
+     */
+    public function setLink(String $link)
+    {
+        $this->link = $link;
+        return $this;
+    }
+
+    /**
+     * Set notification image link url
+     *
+     * @param String $image_link
+     * @return void
+     */
+    public function setImageLink(String $image_link)
+    {
+        $this->image_link = $image_link;
+        return $this;
+    }
+
+    /**
+     * Set notification description
+     *
+     * @param String $description
+     * @return void
+     */
+    public function setDescription(String $description)
+    {
+        $this->description = $description;
+        return $this;
+    }
+
+    /**
+     * Set notification gates
+     *
+     * @param [type] $gates
+     * @return void
+     */
+    public function setGates($gates)
+    {
+
+        if (is_array($gates)) {
+            $this->gates = $gates;
+        } else if (is_string($gates)) {
+            $this->gates = [$gates];
         }
-      }
+
+        return $this;
+    }
+
+    /**
+     * Process notification
+     *
+     * @return void
+     */
+    public function send()
+    {
+        $user = $this->user ? $this->user : ladmin()->admin();
+        if (!method_exists($user, 'notify')) {
+            throw new LadminNotificationException(get_class($user) . ' class does not support sending notifications. Please visit the documentation https://laravel.com/docs/master/notifications#using-the-notifiable-trait');
+        }
+
+        if (empty($this->title)) {
+            throw new LadminNotificationException('Notification title is required');
+        }
+
+        if (empty($this->link)) {
+            throw new LadminNotificationException('Notification link is required');
+        }
+
+        if (empty($this->description)) {
+            throw new LadminNotificationException('Notification description is required');
+        }
+
+        if (is_null($this->gates) || count($this->gates) < 1 || empty($this->gates)) {
+            $this->gates = ladmin()->menu()->allGates();
+        }
         
-      if(! config('ladmin.notification', true) ) {
-        throw new Exception("Notification does not enabled");
-      }
-      
-      dispatch(new PrccessNotificationJob([
-        'title' => $this->title,
-        'link' => $this->link,
-        'image_link' => $this->image_link,
-        'description' => $this->description,
-        'gates' => $this->gates
-      ]));
+        dispatch(new ProcessNotificaiton([
+            'title' => $this->title,
+            'link' => $this->link,
+            'image_link' => $this->image_link,
+            'description' => $this->description,
+            'gates' => $this->gates
+        ], $this->user));
 
-      return [
-        'result' => true
-      ];
-    } catch(Exception $ex) {
-      return [
-        'result' => false,
-        'message' => $ex->getMessage()
-      ];
-    } catch (LadminException $e) {}
-  }
-
-
+        return [
+            'message' => 'Notifications will be sent immediately to ' . ($this->user->name ?? 'user'),
+        ];
+    }
 }

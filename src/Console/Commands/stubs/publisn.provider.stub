@@ -1,0 +1,33 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Support\ServiceProvider;
+
+class {{ className }} extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+        //
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        /**
+         * Publish module
+         */
+        $this->publishes([
+            __DIR__ . '/../modules/{{ moduleName }}' => base_path('Modules/{{ moduleName }}'),
+        ], '{{ moduleNameLower }}-module');
+    }
+}

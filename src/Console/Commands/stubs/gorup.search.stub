@@ -1,0 +1,64 @@
+<?php
+
+namespace {{ namespace }};
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Hexters\Ladmin\Searches\LadminGroupSearch;
+
+class {{ class }} extends Model
+{
+
+    use LadminGroupSearch;
+
+    /**
+     * Set gate & permission access
+     *
+     * @return array|null
+     */
+    protected function searchGates()
+    {
+        return null;
+    }
+
+    /**
+     * Group name 
+     *
+     * @return string
+     */
+    protected function searchGropuName()
+    {
+        return '{{ groupName }}';
+    }
+
+    /**
+     * Title search
+     *
+     * @return string
+     */
+    protected function searchTitle()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Description search
+     *
+     * @return string
+     */
+    protected function searchDescription()
+    {
+        return $this->id;
+    }
+
+    /**
+     * Set detail page
+     *
+     * @return string
+     */
+    protected function searchLinkDetails()
+    {
+        return null;
+    }
+    
+}
