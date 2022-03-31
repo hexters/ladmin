@@ -5,7 +5,7 @@
 [![License](https://poser.pugx.org/hexters/ladmin/license)](https://packagist.org/packages/hexters/ladmin)
 
 
-Make an Administrator page in 5 minutes
+Make an Administrator page in 5 minutes.
 
 ![Example Image](https://github.com/hexters/ladmin/blob/master/examples/user.png?raw=true)
 
