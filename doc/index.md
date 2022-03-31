@@ -28,4 +28,3 @@ http://localhost:8000/administrator/blog
 - [Utility & Helpers](https://github.com/hexters/ladmin/blob/master/doc/utility.md)
 - [Vendor Publish](https://github.com/hexters/ladmin/blob/master/doc/publish.md)
 - [Custom Style](https://github.com/hexters/ladmin/blob/master/doc/styling.md)
-- [Make Money or Make it Open Source](https://github.com/hexters/ladmin/blob/master/doc/opensource.md)
