@@ -28,3 +28,4 @@ http://localhost:8000/administrator/blog
 - [Utility & Helpers](https://github.com/hexters/ladmin/blob/master/doc/utility.md)
 - [Vendor Publish](https://github.com/hexters/ladmin/blob/master/doc/publish.md)
 - [Custom Style](https://github.com/hexters/ladmin/blob/master/doc/styling.md)
+- [Sample Template](https://github.com/hexters/paint)
