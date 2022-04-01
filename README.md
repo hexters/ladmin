@@ -76,7 +76,7 @@ Installation is complete, please access `http://localhost:8000/administrator`
 
 ![Login Page](https://github.com/hexters/assets/blob/main/ladmin/v2/captures/login-page.png?raw=true)
 
-# 🗂️ Custom namespaces
+# 🗂️ Custom Namespaces
 
 To call `view`, `language`, `config`, and `component` file, you need to add the prefix of module's name eg `blog`, see example below.
 
