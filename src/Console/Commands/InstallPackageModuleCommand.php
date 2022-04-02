@@ -58,7 +58,7 @@ class InstallPackageModuleCommand extends Command
 
         $namespace = [];
         foreach (explode('/', $this->name) as $name) {
-            $namespace[] = ucwords($name);
+            $namespace[] = ucwords(Str::of($name)->camel());
         }
         $this->namespace = implode('\\', $namespace) . '\\';
 
@@ -86,7 +86,7 @@ class InstallPackageModuleCommand extends Command
             $composer['license'] = $license;
         }
         if (isset($keywords)) {
-            $composer['keywords'] = explode(',', $keywords);
+            $composer['keywords'] = array_map(fn ($keyword) => $this->mappingKeywords($keyword), explode(',', $keywords));
         }
         if (count($authors) > 0) {
             $composer['authors'] = $authors;
@@ -133,11 +133,28 @@ class InstallPackageModuleCommand extends Command
         }
     }
 
+    /**
+     * Remove space in keywords
+     *
+     * @param String $keyword
+     * @return string
+     */
+    protected function mappingKeywords($keyword)
+    {
+        return trim($keyword);
+    }
+
+    /**
+     * Create module
+     *
+     * @param string $package
+     * @return void
+     */
     protected function createModule($package)
     {
 
         $folders = [
-            'modules',
+            'stubs',
             'src',
         ];
 
@@ -146,7 +163,7 @@ class InstallPackageModuleCommand extends Command
             File::makeDirectory($moduleDirectory);
         }
 
-        $dirs = explode('\\', rtrim($this->namespace, '\\'));
+        $dirs = explode('/', rtrim($this->name, '/'));
 
         $moduleDirectory = $moduleDirectory . DIRECTORY_SEPARATOR . strtolower(($dirs[0] ?? ''));
 
@@ -180,7 +197,7 @@ class InstallPackageModuleCommand extends Command
         file_put_contents($moduleDirectory . DIRECTORY_SEPARATOR . 'README.md', $this->contentReadme($package));
 
 
-        $targetPackage = $moduleDirectory . DIRECTORY_SEPARATOR . 'modules' . DIRECTORY_SEPARATOR . $package;
+        $targetPackage = $moduleDirectory . DIRECTORY_SEPARATOR . 'stubs' . DIRECTORY_SEPARATOR . $package;
         File::copyDirectory(base_path('Modules/' . $package), $targetPackage);
 
         $this->info('# Package generated successfully.');
@@ -198,11 +215,23 @@ class InstallPackageModuleCommand extends Command
         $this->line('');
     }
 
+    /**
+     * Get service provider name
+     *
+     * @param string $package
+     * @return string
+     */
     protected function providerName($package)
     {
         return ucwords($package) . "ServiceProvider";
     }
 
+    /**
+     * Content of service provider
+     *
+     * @param string $package
+     * @return string
+     */
     protected function contentProvider($package)
     {
         $stub = file_get_contents(__DIR__ . '/stubs/publisn.provider.stub');
@@ -219,6 +248,12 @@ class InstallPackageModuleCommand extends Command
         ], $stub);
     }
 
+    /**
+     * Content of README.md
+     *
+     * @param string $package
+     * @return string
+     */
     protected function contentReadme($package)
     {
         $stub = file_get_contents(__DIR__ . '/stubs/publish.readme.stub');

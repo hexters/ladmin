@@ -27,7 +27,7 @@ class {{ className }} extends ServiceProvider
          * Publish module
          */
         $this->publishes([
-            __DIR__ . '/../modules/{{ moduleName }}' => base_path('Modules/{{ moduleName }}'),
-        ], '{{ moduleNameLower }}-module');
+            __DIR__ . '/../stubs/{{ moduleName }}' => base_path('Modules/{{ moduleName }}'),
+        ], 'ladmin-{{ moduleNameLower }}-module');
     }
 }

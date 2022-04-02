@@ -9,29 +9,22 @@
         Edit Role
     </a>
 
-    <!-- Modal -->
-    <div class="modal fade" id="modal-edit-role-{{ $role->id }}" tabindex="-1"
-        aria-labelledby="modal-edit-role-{{ $role->id }}Label" aria-hidden="true">
-        <form action="{{ route('ladmin.role.update', $role->id) }}" method="POST">
-            @csrf
-            @method('PUT')
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header border-0">
-                        <h5 class="modal-title" id="modal-edit-role-{{ $role->id }}Label">Edit Role</h5>
-                        <x-ladmin-button type="button" color="white" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></x-ladmin-button>
-                    </div>
-                    <div class="modal-body">
-                        @include(ladmin()->view_path('role._parts._form'), ['role' => $role])
-                    </div>
-                    <div class="modal-footer border-0">
-                        <x-ladmin-button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</x-ladmin-button>
-                        <x-ladmin-button>Update</x-ladmin-button>
-                    </div>
-                </div>
-            </div>
-        </form>
-    </div>
+
+    <x-ladmin-modal id="modal-edit-role-{{ $role->id }}">
+        <x-slot name="title">Edit Role</x-slot>
+        <x-slot name="body">
+            <form action="{{ route('ladmin.role.update', $role->id) }}" method="POST" name="form-update-role-{{ $role->id }}" id="form-update-role-{{ $role->id }}">
+                @csrf
+                @method('PUT')
+                @include(ladmin()->view_path('role._parts._form'), ['role' => $role])
+            </form>
+        </x-slot>
+        <x-slot name="footer">
+            <x-ladmin-button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close
+            </x-ladmin-button>
+            <x-ladmin-button form="form-update-role-{{ $role->id }}">Update</x-ladmin-button>
+        </x-slot>
+    </x-ladmin-modal>
 @endcan
 
 @if ($role->id > 1)
@@ -41,28 +34,20 @@
             Delete
         </a>
 
-        <div class="modal text-start fade" id="modal-delete-role-{{ $role->id }}" tabindex="-1"
-            aria-labelledby="modal-delete-role-{{ $role->id }}Label" aria-hidden="true">
-            <form action="{{ route('ladmin.role.destroy', $role->id) }}" method="POST">
-                @csrf
-                @method('DELETE')
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header border-0">
-                            <h5 class="modal-title" id="modal-delete-role-{{ $role->id }}Label">Delete Role</h5>
-                            <x-ladmin-button type="button" color="white" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></x-ladmin-button>
-                        </div>
-                        <div class="modal-body">
-                            Are you sure you want to delete this role?
-                        </div>
-                        <div class="modal-footer border-0">
-                            <x-ladmin-button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</x-ladmin-button>
-                            <x-ladmin-button type="submit" class="btn btn-danger text-white">Delete</x-ladmin-button>
-                        </div>
-                    </div>
-                </div>
-            </form>
-        </div>
+        <x-ladmin-modal id="modal-delete-role-{{ $role->id }}" class="text-start">
+            <x-slot name="title">Delete Role</x-slot>
+            <x-slot name="body">
+                Are you sure you want to delete this role?
+            </x-slot>
+            <x-slot name="footer">
+                <form action="{{ route('ladmin.role.destroy', $role->id) }}" method="POST">
+                    @csrf
+                    @method('DELETE')
+                    <x-ladmin-button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No
+                    </x-ladmin-button>
+                    <x-ladmin-button type="submit" class="text-white" color="danger">Yes</x-ladmin-button>
+                </form>
+            </x-slot>
+        </x-ladmin-modal>
     @endcan
 @endif

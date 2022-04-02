@@ -14,6 +14,7 @@ use Modules\Ladmin\View\Components\GlobalSearch;
 use Modules\Ladmin\View\Components\GuestLayout;
 use Modules\Ladmin\View\Components\Input;
 use Modules\Ladmin\View\Components\MenuSidebar;
+use Modules\Ladmin\View\Components\Modal;
 use Modules\Ladmin\View\Components\Notification;
 use Modules\Ladmin\View\Components\Select;
 
@@ -50,6 +51,7 @@ class ComponentServiceProvider extends ServiceProvider
             Footer::class,
             Button::class,
             Select::class,
+            Modal::class,
         ]);
     }
     

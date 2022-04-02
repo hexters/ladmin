@@ -1,6 +1,8 @@
 # {{ moduleTitle }}
 
-## Installation
+View complete documentation for [Ladmin Package](https://github.com/hexters/ladmin)
+
+# Installation
 
 Add the repository by running the command below.
 
@@ -11,5 +13,5 @@ $ composer require {{ moduleName }}
 Publish the module by running the command below.
 
 ```bash
-$ php artisan vendor:publish --tag={{ name }}-module --force
+$ php artisan vendor:publish --tag=ladmin-{{ name }}-module --force
 ```
