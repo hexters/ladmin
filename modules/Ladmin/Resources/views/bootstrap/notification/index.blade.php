@@ -1,6 +1,6 @@
 <x-ladmin-auth-layout>
     <x-slot name="title">Notifications</x-slot>
-    
+
     <div class="row justify-content-center">
         <div class="col-lg-6">
             <div class="d-flex mb-3 justify-content-between align-items-center">
@@ -10,7 +10,8 @@
                             href="?state=all&{{ http_build_query(request()->except(['page', 'state'])) }}">All</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link {{ !($state === 'all') ? 'active' : null }}" href="?state=unread&{{ http_build_query(request()->except(['page', 'state'])) }}">Unread</a>
+                        <a class="nav-link {{ !($state === 'all') ? 'active' : null }}"
+                            href="?state=unread&{{ http_build_query(request()->except(['page', 'state'])) }}">Unread</a>
                     </li>
                 </ul>
                 <div class="text-end mb-3">
@@ -24,9 +25,9 @@
                     <input type="text" name="search" value="{{ request()->get('search', '') }}"
                         class="form-control border-0" placeholder="Search Notification..."
                         aria-label="Search Notification..." aria-describedby="button-addon2">
-                    <button class="btn border-0 bg-white" type="submit" id="button-addon2">
+                    <x-ladmin-button class="btn border-0 bg-white" type="submit" id="button-addon2">
                         <i class="fa fa-solid fa-magnifying-glass"></i>
-                    </button>
+                    </x-ladmin-button>
                 </div>
 
                 @foreach (request()->except(['search']) as $param => $value)

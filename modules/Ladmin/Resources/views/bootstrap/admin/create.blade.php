@@ -8,7 +8,7 @@
         @include(ladmin()->view_path('admin._parts._role'), ['admin' => ladmin()->admin()])
         
         <div class="text-end">
-            <button type="submit" class="btn btn-primary">Submit</button>
+            <x-ladmin-button>Submit</x-ladmin-button>
         </div>
 
     </form>

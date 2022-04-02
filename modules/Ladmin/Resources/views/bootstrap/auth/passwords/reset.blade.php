@@ -19,9 +19,9 @@
                         <input type="hidden" name="token" value="{{ $token }}">
 
                         <div class="text-end mb-3">
-                            <button class="btn btn-primary">
+                            <x-ladmin-button>
                                 Reset Password
-                            </button>
+                            </x-ladmin-button>
                         </div>
                     </x-slot>
                 </x-ladmin-card>

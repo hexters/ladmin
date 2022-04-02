@@ -1,7 +1,7 @@
-<button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
+<x-ladmin-button type="button" size="sm" data-bs-toggle="modal"
     data-bs-target="#modal-detail-log-{{ $i }}">
     View
-</button>
+</x-ladmin-button>
 
 <div class="modal fade text-start" id="modal-detail-log-{{ $i }}" tabindex="-1"
     aria-labelledby="modal-detail-log-{{ $i }}Label" aria-hidden="true">
@@ -9,7 +9,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="modal-detail-log-{{ $i }}Label">Log Details</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <x-ladmin-button type="button" class="btn-close" color="white" data-bs-dismiss="modal" aria-label="Close"></x-ladmin-button>
             </div>
             <div class="table-responsive">
                 <table class="table">

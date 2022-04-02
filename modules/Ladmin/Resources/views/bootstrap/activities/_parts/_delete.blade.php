@@ -1,6 +1,6 @@
-<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+<x-ladmin-button data-bs-toggle="modal" data-bs-target="#exampleModal">
     Delete Activity
-</button>
+</x-ladmin-button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -11,14 +11,14 @@
             <div class="modal-content">
                 <div class="modal-header border-0">
                     <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <x-ladmin-button type="button" color="white" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></x-ladmin-button>
                 </div>
                 <div class="modal-body">
                     Due you want to Delete data older than {{ config('ladmin.activity.delete_period', 7) }} days?
                 </div>
                 <div class="modal-footer  border-0">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
-                    <button type="submit" class="btn btn-primary">Yes</button>
+                    <x-ladmin-button type="button" color="secondary" data-bs-dismiss="modal">No</x-ladmin-button>
+                    <x-ladmin-button>Yes</x-ladmin-button>
                 </div>
             </div>
         </div>

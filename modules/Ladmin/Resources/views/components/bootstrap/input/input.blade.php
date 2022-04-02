@@ -9,6 +9,6 @@
         </div>
     @endif
     <div class="{{ $row[1] ?? null }}">
-        @include( ladmin()->component_path('input._' . $type) )
+        @include(ladmin()->component_path('input._' . $type))
     </div>
 </div>

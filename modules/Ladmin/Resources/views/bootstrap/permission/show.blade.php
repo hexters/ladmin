@@ -29,7 +29,7 @@
                     </x-slot>
                     <x-slot name="footer">
                         <div class="text-end">
-                            <button class="btn btn-primary" type="submit">Assign Permission</button>
+                            <x-ladmin-button>Assign Permission</x-ladmin-button>
                         </div>
                     </x-slot>
                 </x-ladmin-card>

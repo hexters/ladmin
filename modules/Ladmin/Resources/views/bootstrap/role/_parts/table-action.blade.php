@@ -19,14 +19,14 @@
                 <div class="modal-content">
                     <div class="modal-header border-0">
                         <h5 class="modal-title" id="modal-edit-role-{{ $role->id }}Label">Edit Role</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <x-ladmin-button type="button" color="white" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></x-ladmin-button>
                     </div>
                     <div class="modal-body">
                         @include(ladmin()->view_path('role._parts._form'), ['role' => $role])
                     </div>
                     <div class="modal-footer border-0">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Update</button>
+                        <x-ladmin-button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</x-ladmin-button>
+                        <x-ladmin-button>Update</x-ladmin-button>
                     </div>
                 </div>
             </div>
@@ -50,15 +50,15 @@
                     <div class="modal-content">
                         <div class="modal-header border-0">
                             <h5 class="modal-title" id="modal-delete-role-{{ $role->id }}Label">Delete Role</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                aria-label="Close"></button>
+                            <x-ladmin-button type="button" color="white" class="btn-close" data-bs-dismiss="modal"
+                                aria-label="Close"></x-ladmin-button>
                         </div>
                         <div class="modal-body">
                             Are you sure you want to delete this role?
                         </div>
                         <div class="modal-footer border-0">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button type="submit" class="btn btn-danger text-white">Delete</button>
+                            <x-ladmin-button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</x-ladmin-button>
+                            <x-ladmin-button type="submit" class="btn btn-danger text-white">Delete</x-ladmin-button>
                         </div>
                     </div>
                 </div>

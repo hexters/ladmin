@@ -5,6 +5,7 @@ namespace Modules\Ladmin\Providers;
 use Illuminate\Support\ServiceProvider;
 use Modules\Ladmin\View\Components\Alert;
 use Modules\Ladmin\View\Components\AuthLayout;
+use Modules\Ladmin\View\Components\Button;
 use Modules\Ladmin\View\Components\Card;
 use Modules\Ladmin\View\Components\DataTables;
 use Modules\Ladmin\View\Components\Error;
@@ -14,6 +15,7 @@ use Modules\Ladmin\View\Components\GuestLayout;
 use Modules\Ladmin\View\Components\Input;
 use Modules\Ladmin\View\Components\MenuSidebar;
 use Modules\Ladmin\View\Components\Notification;
+use Modules\Ladmin\View\Components\Select;
 
 class ComponentServiceProvider extends ServiceProvider
 {
@@ -46,6 +48,8 @@ class ComponentServiceProvider extends ServiceProvider
             DataTables::class,
             GlobalSearch::class,
             Footer::class,
+            Button::class,
+            Select::class,
         ]);
     }
     

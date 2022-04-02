@@ -14,9 +14,9 @@
                         <x-ladmin-input class="mb-3" placeholder="E-mail Address" name="email" type="email" />
     
                         <div class="text-end mb-3">
-                            <button class="btn btn-primary">
+                            <x-ladmin-button>
                                 Send Password Reset Link
-                            </button>
+                            </x-ladmin-button>
                         </div>
                     </x-slot>
                 </x-ladmin-card>

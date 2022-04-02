@@ -7,12 +7,12 @@
                         <li>{!! $message !!}</li>
                     @endforeach
                 </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <x-ladmin-button type="button" class="btn-close" color="white" data-bs-dismiss="alert" aria-label="Close"></x-ladmin-button>
             @else
                 <ul class="m-0">
                     <li>{!! session()->get($type) !!}</li>
                 </ul>
-                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <x-ladmin-button type="button" class="btn-close" color="white" data-bs-dismiss="alert" aria-label="Close"></x-ladmin-button>
             @endif
         </div>
     @endif

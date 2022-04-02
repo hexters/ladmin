@@ -5,6 +5,6 @@
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        <x-ladmin-button type="button" class="btn-close" color="white" data-bs-dismiss="alert" aria-label="Close"></x-ladmin-button>
     </div>
 @endif

@@ -6,7 +6,7 @@ $exists = $admin
 @endphp
 
 <div class="row d-flex mb-3 align-items-top">
-    <label for="email" class="form-label col-lg-3">Admin Roles <span class="text-danger">*</span></label>
+    <label for="roles" class="form-label col-lg-3">Admin Roles <span class="text-danger">*</span></label>
     <div class="col">
         <select name="roles[]" id="roles" class="form-control @error('roles') is-invalid @enderror" multiple>
             @foreach (Modules\Ladmin\Models\LadminRole::all() as $role)

@@ -12,7 +12,7 @@
         <input type="hidden" name="id" value="{{ $admin->id }}">
 
         <div class="text-end">
-            <button type="submit" class="btn btn-primary">Update</button>
+            <x-ladmin-button>Update</x-ladmin-button>
         </div>
 
     </form>

@@ -5,23 +5,16 @@
         <div class="col-md-4 col-11">
             <div class="mb-3">
                 <form action="" class="d-inline">
-                    <select onchange="submit();" name="log" id="" class="form-control">
-                        @forelse ($files as $item)
-                            <option {{ $file == $item ? 'selected' : null }} value="{{ $item }}">File
-                                {{ $item }}</option>
-                        @empty
-                            <option value="">- Log file not available -</option>
-                        @endforelse
-                    </select>
+                    <x-ladmin-select empty="- Log file not available -" name="log" onchange="submit();" :value="$file" :options="$files" />
                 </form>
             </div>
         </div>
         @can(['system.log.destroy'])
             <div class="col">
 
-                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modal-delete-file">
+                <x-ladmin-button type="button" data-bs-toggle="modal" data-bs-target="#modal-delete-file">
                     Delete File
-                </button>
+                </x-ladmin-button>
 
                 <div class="modal fade" id="modal-delete-file" tabindex="-1" aria-labelledby="modal-delete-fileLabel"
                     aria-hidden="true">
@@ -29,18 +22,18 @@
                         <div class="modal-content">
                             <div class="modal-header border-0">
                                 <h5 class="modal-title" id="modal-delete-fileLabel">Delete File</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <x-ladmin-button type="button" class="btn-close" color="white" data-bs-dismiss="modal"
+                                    aria-label="Close"></x-ladmin-button>
                             </div>
                             <div class="modal-body">
                                 Are you sure you want to delete {{ $file }} file?
                             </div>
                             <div class="modal-footer border-0">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">No</button>
+                                <x-ladmin-button type="button" color="secondary" data-bs-dismiss="modal">No</x-ladmin-button>
                                 <form action="{{ route('ladmin.systemlog.destroy', $file) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <button type="submit" class="btn btn-primary">Yes</button>
+                                    <x-ladmin-button>Yes</x-ladmin-button>
                                 </form>
                             </div>
                         </div>
