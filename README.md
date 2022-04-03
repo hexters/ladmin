@@ -150,4 +150,4 @@ For component view, if you have component named `\Modules\Blog\View\Components\I
 ```
 
 # 📖 Documentation
-View complete [documentation](https://github.com/hexters/ladmin/blob/master/doc/index.md)
+View complete [documentation](https://github.com/hexters/ladmin/wiki)
