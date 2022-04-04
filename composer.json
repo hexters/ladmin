@@ -34,6 +34,7 @@
         }
     },
     "require": {
+        "php": "^8.0",
         "yajra/laravel-datatables-oracle": "~9.0",
         "hexters/laramodule": "^1.0",
         "laravel/scout": "^9.4"
