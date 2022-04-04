@@ -1,6 +1,6 @@
 # Make Money or Make it Open Source
 
-You can sell the modules that you have created on several PHP Software sales provider platforms such as [`https://ppmarket.org`](https://ppmarket.org/developers), [`https://packagist.com`](https://packagist.com/) or others. You can also make it Open Source by uploading your pakcage at [`https://packagist.org`](https://packagist.org/)
+You can sell the modules that you have created on several PHP Software sales provider platforms such as [`https://ppmarket.org`](https://ppmarket.org/developers), [`https://packagist.com`](https://packagist.com/vendors) or others. You can also make it Open Source by uploading your pakcage at [`https://packagist.org`](https://packagist.org/)
 
 Start by publishing the module that has been created by running the command below.
 
@@ -31,7 +31,7 @@ Upload your package to [github](https://github.com) or [gitlab](https://gitlab.c
 
 ## Selling
 
-You can sell it at [`https://ppmarket.org`](https://ppmarket.org/developers), or at [`https://packagist.com`](https://packagist.com). You can start by registering and [uploading](https://ppmarket.org/member/package/create) your package by sending a link to your `private` github or gitlab repository.
+You can sell it at [`https://ppmarket.org`](https://ppmarket.org/developers), or at [`https://packagist.com`](https://packagist.com/vendors). You can start by registering and [uploading](https://ppmarket.org/member/package/create) your package by sending a link to your `private` github or gitlab repository.
 
 ## Make it Open Source
 You can also share your packages for free on [`https://packagist.org`](https://packagist.org) by sending a link to your `public` github repository.

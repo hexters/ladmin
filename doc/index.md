@@ -29,3 +29,4 @@ http://localhost:8000/administrator/blog
 - [Vendor Publish](https://github.com/hexters/ladmin/blob/master/doc/publish.md)
 - [Custom Style](https://github.com/hexters/ladmin/blob/master/doc/styling.md)
 - [Sample Template](https://github.com/hexters/paint)
+- [Make Money](https://github.com/hexters/ladmin/blob/master/doc/opensource.md)
