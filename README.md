@@ -24,7 +24,7 @@ Schema for apps that have a login page for members. You can use [laravel/breeze]
 
 # ℹ️ What's New ?
 
-Now **Ladmin** comes of implementing **Modular**'s concept where each module was made separately to manage your application easily. [Click here for more details.](https://github.com/hexters/ladmin/blob/master/doc/module.md)
+Now **Ladmin** comes of implementing **Modular**'s concept where each module was made separately to manage your application easily. [Click here for more details.](https://github.com/hexters/ladmin/wiki/Module)
 
 ```bash
 $ php artisan module:make-menu PostMenu --module=Blog
