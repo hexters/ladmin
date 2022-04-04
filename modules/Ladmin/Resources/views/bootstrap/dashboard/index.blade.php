@@ -10,11 +10,11 @@
                                 <i class="fa text-primary fa-regular fa-3x fa-book-open"></i>
                             </div>
                             <div>
-                                <a href="https://github.com/hexters/ladmin/blob/master/doc/index.md" target="_blank" class="text-decoration-none">
-                                    <h5 class="card-title">Documentation</h5>
+                                <a href="https://github.com/hexters/ladmin/wiki" target="_blank" class="text-decoration-none">
+                                    <h5 class="card-title">Wiki</h5>
                                 </a>
                                 <p class="text-muted">
-                                    For now all documentation can be accessed on the page via the github repository page.
+                                    For your guide ladmin has provided a wiki documentation for your project reference.
                                 </p>
                             </div>
                         </div>
@@ -30,7 +30,7 @@
                                 <i class="fa text-primary fa-3x fa-solid fa-rocket"></i>
                             </div>
                             <div>
-                                <a href="https://github.com/hexters/ladmin/blob/master/doc/module.md" target="_blank" class="text-decoration-none">
+                                <a href="https://github.com/hexters/ladmin/wiki/Module" target="_blank" class="text-decoration-none">
                                     <h5 class="card-title">Artisan</h5>
                                 </a>
                                 <p class="text-muted">
