@@ -29,7 +29,7 @@ class Access extends BaseMenu
      *
      * @var string
      */
-    protected $icon = 'fa fa-regular fa-user-lock'; // fontawesome
+    protected $icon = 'fa-solid fa-user-lock'; // fontawesome
 
     /**
      * Menu Description

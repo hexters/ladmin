@@ -28,7 +28,7 @@ class Account extends BaseMenu
      *
      * @var string
      */
-    protected $icon = 'fa fa-regular fa-user-group'; // fontawesome
+    protected $icon = 'fa-solid fa-user-group'; // fontawesome
 
     /**
      * Menu Description

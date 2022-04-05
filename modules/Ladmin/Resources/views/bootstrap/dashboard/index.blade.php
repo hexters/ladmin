@@ -7,7 +7,7 @@
                     <x-slot name="body">
                         <div class="d-flex align-item-top">
                             <div class="me-3">
-                                <i class="fa text-primary fa-regular fa-3x fa-book-open"></i>
+                                <i class="fa-3x text-primary fa-solid fa-book-open"></i>
                             </div>
                             <div>
                                 <a href="https://github.com/hexters/ladmin/wiki" target="_blank" class="text-decoration-none">
@@ -27,7 +27,7 @@
 
                         <div class="d-flex align-item-top">
                             <div class="me-3">
-                                <i class="fa text-primary fa-3x fa-solid fa-rocket"></i>
+                                <i class="fa-brands fa-laravel text-primary fa-3x"></i>
                             </div>
                             <div>
                                 <a href="https://github.com/hexters/ladmin/wiki/Module" target="_blank" class="text-decoration-none">

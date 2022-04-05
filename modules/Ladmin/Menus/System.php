@@ -29,7 +29,7 @@ class System extends BaseMenu
      *
      * @var string
      */
-    protected $icon = 'fa fa-regular fa-gears'; // fontawesome
+    protected $icon = 'fa-solid fa-gears'; // fontawesome
 
     /**
      * Menu description

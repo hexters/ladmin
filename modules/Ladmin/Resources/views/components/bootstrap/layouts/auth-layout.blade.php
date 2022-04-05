@@ -62,7 +62,7 @@
                     <div>
                         <strong class="text-primary"
                             title="{{ $user->name }}">{{ Str::limit($user->name, 10) }}</strong>
-                        <i class="fa fa-regular text-muted fa-caret-down"></i>
+                        <i class="fa fa-solid text-muted fa-caret-down"></i>
                     </div>
                     <small class="text-muted" title="{{ $role }}">{{ Str::limit($role, 10) }}</small>
                     <ul class="dropdown-menu mt-3">
