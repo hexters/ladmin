@@ -48,8 +48,11 @@ trait LadminOption
                 $this->cache()->forever($key, $value);
             }
         }
-
-        $convert = json_decode($value, true);
+        
+        $convert = null;
+        if($value) {
+            $convert = json_decode($value, true);
+        }
 
         return is_array($convert) ? $convert : $value;
     }
@@ -75,9 +78,9 @@ trait LadminOption
      * @param String $key
      * @return array|String
      */
-    public function getOption($key)
+    public function getOption($key, $default = null)
     {
-        return $this->convertOption($key);
+        return $this->convertOption($key) ?? $default;
     }
 
     /**
