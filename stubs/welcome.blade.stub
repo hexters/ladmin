@@ -4,7 +4,7 @@
     
     <p>
         Create <code>Menu</code> class and add it to <code>app/Menu/Sidebar.php</code> class. <a target="_blank"
-            href="https://github.com/hexters/ladmin/blob/master/doc/menu.md">Follow the Documentation</a>
+            href="https://github.com/hexters/ladmin/wiki/Menu">Follow the Documentation</a>
     </p>
     
 </x-ladmin-auth-layout>
