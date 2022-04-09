@@ -3,6 +3,7 @@
 namespace Modules\Ladmin\Models;
 
 use Hexters\Ladmin\LadminAccount;
+use Hexters\Ladmin\LadminLoggable;
 use Hexters\Ladmin\UuidGenerator;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -12,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Admin extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, LadminAccount, LadminAccount, UuidGenerator;
+    use HasApiTokens, HasFactory, Notifiable, LadminAccount, LadminAccount, UuidGenerator, LadminLoggable;
 
     /**
      * Table name
