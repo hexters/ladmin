@@ -2,6 +2,7 @@
 
 namespace Hexters\Ladmin\Console\Commands;
 
+use Illuminate\Support\Str;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Schema;
 
@@ -16,7 +17,7 @@ class InstallPackageCommand extends Command
      *
      * @var string
      */
-    protected $signature = 'ladmin:install';
+    protected $signature = 'ladmin:install {--with-admin-table}';
 
     /**
      * The console command description.
@@ -32,21 +33,51 @@ class InstallPackageCommand extends Command
      */
     public function handle()
     {
-        $this->info('Installing...');
 
+        $withAdmin = $this->option('with-admin-table');
+
+        $this->info('Installing...');
+        
         $this->checkModuleFoler();
 
         $this->overideComposerJson();
 
         $this->call('vendor:publish', [
-            '--tag' => 'ladmin-config',
-            '--force' => true
-        ]);
-
-        $this->call('vendor:publish', [
             '--tag' => 'ladmin-module',
             '--force' => true
         ]);
+
+        if ($withAdmin) {
+            $this->call('vendor:publish', [
+                '--tag' => 'ladmin-config-with-admin',
+                '--force' => true
+            ]);
+
+            $this->call('vendor:publish', [
+                '--tag' => 'ladmin-account-migration',
+                '--force' => true
+            ]);
+
+            $this->call('vendor:publish', [
+                '--tag' => 'ladmin-account-model',
+                '--force' => true
+            ]);
+
+            $this->call('vendor:publish', [
+                '--tag' => 'ladmin-account-factory',
+                '--force' => true
+            ]);
+
+            $this->call('vendor:publish', [
+                '--tag' => 'ladmin-database-seeder',
+                '--force' => true
+            ]);
+        } else {
+            $this->call('vendor:publish', [
+                '--tag' => 'ladmin-config',
+                '--force' => true
+            ]);
+        }
 
         $this->call('vendor:publish', [
             '--tag' => 'ladmin-menu',
@@ -63,26 +94,26 @@ class InstallPackageCommand extends Command
             '--force' => true
         ]);
 
-        if (!Schema::hasTable('notifications')) {
+        if ( ! $this->hasNotificationMigration() ) {
             $this->call('notifications:table');
         }
-        
+
         $this->info('Please wait a moment for dump-autoload...');
 
-        exec( 'composer dump-autoload' );
-        
+        exec('composer dump-autoload');
+
         $this->line('');
-        
+
         $this->line('----------------------------------------------------');
         $this->line('# 1. Now please run migrate, for install ladmin database tables');
         $this->info('php artisan migrate --seed');
-        
+
         $this->line('');
 
         $this->line('# 2. And run seed ladmin module, for assign role and permission to existing user.');
         $this->info('php artisan module:seed Ladmin');
         $this->line('----------------------------------------------------');
-        
+
         $this->line('');
         $this->info('Instalation finished successfully. 🏁');
         $this->line('');
@@ -92,6 +123,22 @@ class InstallPackageCommand extends Command
         $this->line('----------------------------------------------------');
     }
 
+    /**
+     * Check notification migration file
+     */
+    protected function hasNotificationMigration() {
+        $exists = false;
+        foreach(scandir(base_path('database/migrations')) as $file) {
+            if(Str::of($file)->contains('create_notifications_table')) {
+                $exists = true;
+            }
+        }
+        return $exists;
+    }
+
+    /**
+     * Overide composer json
+     */
     protected function overideComposerJson()
     {
 
@@ -116,6 +163,9 @@ class InstallPackageCommand extends Command
         }
     }
 
+    /**
+     * Check module exists
+     */
     protected function checkModuleFoler()
     {
         $folder = base_path('Modules');

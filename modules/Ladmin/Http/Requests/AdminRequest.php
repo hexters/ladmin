@@ -28,13 +28,13 @@ class AdminRequest extends FormRequest
     {
         $roles = [
             'name' => ['required', 'max:30'],
-            'email' => ['required', Rule::unique(config('ladmin.auth.broker'), 'email'), 'email'],
+            'email' => ['required', Rule::unique(ladmin()->getAdminTable(), 'email'), 'email'],
             'password' => ['required', 'confirmed', 'min:6'],
             'roles' => ['required', 'array']
         ];
 
         if ($this->id) {
-            $roles['email'] = ['required', Rule::unique(config('ladmin.auth.broker'), 'email')->ignore($this->id), 'email'];
+            $roles['email'] = ['required', Rule::unique(ladmin()->getAdminTable(), 'email')->ignore($this->id), 'email'];
             $roles['password'] = ['nullable', 'confirmed', 'min:6'];
         }
         

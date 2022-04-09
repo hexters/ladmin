@@ -49,6 +49,20 @@ class Ladmin
     }
 
     /**
+     * Get table name
+     */
+    public function getAdminTable() {
+        return $this->admin()->getTable();
+    }
+
+    /**
+     * Get table name
+     */
+    public function getUserTable() {
+        return $this->getAdminTable();
+    }
+
+    /**
      * Gropu ladmin route
      *
      * @param Closure $routes
