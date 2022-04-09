@@ -14,7 +14,7 @@ The magic of creating an Administrator page.
 |:-:|:-:|
 | [v1.0.x](https://github.com/hexters/ladmin/blob/v1.0.3/readme.md) | 7.x |
 | [v1.8.*](https://github.com/hexters/ladmin/blob/v1.8.3/readme.md)| 8.x |
-|v2.0.*|9.x|
+|v2.*|9.x|
 
 Schema for apps that have a login page for members. You can use [laravel/breeze](https://github.com/laravel/breeze), [larave/ui](https://github.com/laravel/ui), [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html), etc.
 
