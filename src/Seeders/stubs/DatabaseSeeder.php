@@ -27,12 +27,22 @@ class DatabaseSeeder extends Seeder
             ]);
         }
 
+        $this->command->line('');
+        $this->command->info('# Login Accounts');
+        $this->command->line('');
+        $this->command->line('View complete account in `' . ladmin()->getAdminTable() . '` table in your database.');
+        $this->command->line('');
+
         /**
          * Create dummy ladmin account 
          */
-        \Modules\Ladmin\Models\Admin::factory(10)->create()
+        \Modules\Ladmin\Models\Admin::factory(3)->create()
             ->each(function ($admin) use ($role) {
                 $admin->roles()->sync([$role->id]);
+
+                $this->command->line('--------------------------------------------');
+                $this->command->info('email     : ' . $admin->email);
+                $this->command->info('password  : password');
             });
     }
 }
