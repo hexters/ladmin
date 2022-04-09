@@ -16,15 +16,12 @@ The magic of creating an Administrator page.
 | [v1.8.*](https://github.com/hexters/ladmin/blob/v1.8.3/readme.md)| 8.x |
 |v2.0.*|9.x|
 
-# 🎛️ Scheme
-
 Schema for apps that have a login page for members. You can use [laravel/breeze](https://github.com/laravel/breeze), [larave/ui](https://github.com/laravel/ui), [laravel jetstream](https://jetstream.laravel.com/1.x/introduction.html), etc.
 
 ![Scheme Member](https://github.com/hexters/assets/blob/main/ladmin/v2/captures/scheme.png?raw=true)
-
 # ℹ️ What's New ?
 
-Now **Ladmin** comes of implementing **Modular**'s concept where each module was made separately to manage your application easily. [Click here for more details.](https://github.com/hexters/ladmin/wiki/Module)
+Now **Ladmin** comes with the concept of **HMVC** (Hierarchical Model View Controller) . [Click here for more details.](https://github.com/hexters/ladmin/wiki/Module)
 
 ```bash
 $ php artisan module:make-menu PostMenu --module=Blog
@@ -37,6 +34,29 @@ Follow the steps below to get started faster! Add the repository by running the 
 ```bash
 $ composer require hexters/ladmin
 ```
+
+Follow the installation with the `--with-admin-table` option.
+```
+$ php artisan ladmin:install --with-admin-table
+```
+
+Run migrate and seed, to install ladmin database tables
+```bash
+$ php artisan migrate --seed
+```
+
+And run seeder ladmin module, to assign role and permission to existing user.
+```bash
+$ php artisan module:seed Ladmin
+```
+
+Installation is complete, please access `http://localhost:8000/administrator`
+
+![Login Page](https://github.com/hexters/assets/blob/main/ladmin/v2/captures/login-page.png?raw=true)
+
+# 🧰 Manual Installation
+
+If you want to use the `App\Models\User` model class as a login account, then follow the steps below.
 
 Use `\Hexters\Ladmin\LadminAccount` into model `\App\Modules\User` see the example.
 ```php
@@ -57,8 +77,9 @@ Open file `\Database\Seeders\DatabaseSeeder`, add the code below or you can crea
 
 ```
 
-Install ladmin component and assets.
-```bash
+Follow the installation below.
+
+```
 $ php artisan ladmin:install
 ```
 
@@ -72,9 +93,8 @@ And run seeder ladmin module, to assign role and permission to existing user.
 $ php artisan module:seed Ladmin
 ```
 
-Installation is complete, please access `http://localhost:8000/administrator`
+And please access `http://localhost:8000/administrator`
 
-![Login Page](https://github.com/hexters/assets/blob/main/ladmin/v2/captures/login-page.png?raw=true)
 
 # 🗂️ Custom Namespaces
 
