@@ -23,7 +23,7 @@ class LadminServiceProvider extends ServiceProvider
 
         if (!file_exists(config_path('ladmin.php'))) {
             $this->mergeConfigFrom(
-                __DIR__ . '/config/config.php',
+                __DIR__ . '/config/ladmin-default.php',
                 'ladmin'
             );
         }
