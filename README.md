@@ -138,5 +138,8 @@ Follow the documentation to view complete `slots` and `stacks` in layout compone
 </x-ladmin-auth-layout>
 ```
 
+# 👓 Ladmin Awesome
+View package & template collections in [Ladmin Awesome](https://github.com/hexters/ladmin-awesome)
+
 # 📖 Documentation
 View complete [Documentation here](https://github.com/hexters/ladmin/wiki)
