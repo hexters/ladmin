@@ -27,7 +27,7 @@
                         @if (in_array(config('app.debug'), [true, 'true', 'TRUE']))
                             <small class="text-muted ps-1 mt-3">
                                 * How to use this group search follow our <a
-                                    href="https://github.com/hexters/ladmin/blob/master/doc/global-search.md"
+                                    href="https://github.com/hexters/ladmin/wiki/Group-Search"
                                     target="_blank">Documentation here</a>
                             </small>
                         @endif
