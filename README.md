@@ -24,7 +24,7 @@ Schema for apps that have a login page for members. You can use [laravel/breeze]
 Now **Ladmin** comes with the concept of **HMVC** (Hierarchical Model View Controller) . [Click here for more details.](https://github.com/hexters/ladmin/wiki/Module)
 
 ```bash
-$ php artisan module:make-menu PostMenu --module=Blog
+$ php artisan module:make Blog
 ```
 
 # 🚀 Quickstart
