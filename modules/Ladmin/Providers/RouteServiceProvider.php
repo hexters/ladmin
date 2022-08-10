@@ -22,10 +22,7 @@ class RouteServiceProvider extends ServiceProvider
         $this->configureRateLimiting();
 
         $this->routes(function () {
-            Route::middleware('api')
-                ->namespace($this->namespace)
-                ->group(module_path('ladmin', 'routes/api.php'));
-
+            
             Route::middleware(['web', GuestMiddleware::class])
                 ->prefix(config('ladmin.prefix'))
                 ->as('ladmin.')
