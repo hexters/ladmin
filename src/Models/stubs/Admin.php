@@ -13,7 +13,7 @@ use Laravel\Sanctum\HasApiTokens;
 
 class Admin extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable, LadminAccount, LadminAccount, UuidGenerator, LadminLoggable;
+    use HasApiTokens, HasFactory, Notifiable, LadminAccount, UuidGenerator, LadminLoggable;
 
     /**
      * Table name
