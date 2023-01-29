@@ -102,3 +102,8 @@ Get modules & template collections in [Ladmin Awesome](https://github.com/hexter
 
 # 📖 Documentation
 View complete [Documentation here](https://github.com/hexters/ladmin/wiki)
+
+# Donate
+If this Laravel package was useful to you, please consider donating some coffee ☕☕☕☕
+
+- Patreon : [**hexters**](https://www.patreon.com/hexters)
