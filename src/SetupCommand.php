@@ -75,7 +75,7 @@ class SetupCommand extends Command
         $this->line('');
         $this->info('Open in Browser : ' . url('/administrator'));
         $this->line('');
-        $this->line('cd Modules/Ladmin && npm install');
+        $this->info('cd Modules/Ladmin && npm install');
         $this->line('');
     }
 }
