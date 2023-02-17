@@ -1,0 +1,22 @@
+{
+  "Modules/Ladmin/Resources/js/ladmin.js": {
+    "file": "assets/ladmin-69b650c4.js",
+    "isEntry": true,
+    "src": "Modules/Ladmin/Resources/js/ladmin.js"
+  },
+  "Modules/Ladmin/Resources/sass/ladmin.scss": {
+    "file": "assets/ladmin-4e3f915f.css",
+    "isEntry": true,
+    "src": "Modules/Ladmin/Resources/sass/ladmin.scss"
+  },
+  "resources/css/app.css": {
+    "file": "assets/app-4ed993c7.js",
+    "isEntry": true,
+    "src": "resources/css/app.css"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app-fc4adb72.js",
+    "isEntry": true,
+    "src": "resources/js/app.js"
+  }
+}

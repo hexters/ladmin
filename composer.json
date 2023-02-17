@@ -2,6 +2,7 @@
     "name": "hexters/ladmin",
     "type": "library",
     "description": "Admin page scaffolding for Laravel.",
+    "license": "MIT",
     "keywords": [
         "Laravel",
         "Laravel Admin",
@@ -9,7 +10,6 @@
         "Ladmin",
         "Admin scaffolding"
     ],
-    "license": "MIT",
     "authors": [
         {
             "name": "Asep",
@@ -19,24 +19,18 @@
     "autoload": {
         "psr-4": {
             "Hexters\\Ladmin\\": "src/"
-        },
-        "files": [
-            "./src/Helpers/helper.php"
-        ]
+        }
     },
     "extra": {
         "laravel": {
             "providers": [
-                "Hexters\\Ladmin\\LadminServiceProvider",
-                "Hexters\\Ladmin\\EventServiceProvider"
+                "Hexters\\Ladmin\\LadminModuleServiceProvider"
             ],
-            "aliases": {}
+            "aliases": []
         }
     },
     "require": {
-        "php": "^8.0",
-        "yajra/laravel-datatables-oracle": "~9.0",
-        "laravel/scout": "9.*",
-        "hexters/laramodule": "^1.0"
+        "ladmin/engine": "^0.0.1",
+        "yajra/laravel-datatables-oracle": "^10.0"
     }
 }
