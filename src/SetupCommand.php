@@ -70,13 +70,12 @@ class SetupCommand extends Command
         $this->info('Please wait while installing @hexters/ladmin-vite-input');
         Process::path(base_path(''))->run('npm install -D @hexters/ladmin-vite-input');
 
-        $this->info('Please wait while installing node modules');
-        Process::path(base_path(''))->run('cd ' . module_path('Ladmin') . ' && npm install');
-
         $this->line('');
         $this->line('----------------------------------------------------');
         $this->line('');
-        $this->info('Visit : ' . url('/administrator'));
+        $this->info('Open in Browser : ' . url('/administrator'));
+        $this->line('');
+        $this->line('cd Modules/Ladmin && npm install');
         $this->line('');
     }
 }
