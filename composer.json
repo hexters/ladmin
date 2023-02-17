@@ -30,7 +30,7 @@
         }
     },
     "require": {
-        "ladmin/engine": "^0.0.1",
+        "ladmin/engine": "0.*",
         "yajra/laravel-datatables-oracle": "^10.0"
     }
 }
