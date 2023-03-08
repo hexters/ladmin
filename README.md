@@ -29,7 +29,7 @@ Follow the installation to start build awesome apps.
 ```bash
 php artisan ladmin:install --and=ladmin:setup
 ```
-If you use [Laravel Sail](https://laravel.com/docs/master/sail#main-content), please run composer autoload before run migration and seed
+If you use [Laravel Sail](https://laravel.com/docs/master/sail#main-content), please run composer dumpautoload before run migration and seed
 ```bash
 sail composer dumpautoload
 
