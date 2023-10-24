@@ -20,17 +20,7 @@ class SetupCommand extends Command
      * @var string
      */
     protected $description = 'Setup ladmin component';
-
-    /**
-     * Create a new command instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        parent::__construct();
-    }
-
+    
     /**
      * Execute the console command.
      *
@@ -39,8 +29,28 @@ class SetupCommand extends Command
     public function handle()
     {
         $this->call('vendor:publish', [
-            '--tag' => 'ladmin-module, ladmin-module-assets, ladmin-module-menu, ladmin-module-vite-config, ladmin-module-route-stub',
-            '--force' => true,
+            '--tag' => 'ladmin-module',
+            '--force' => true
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'ladmin-module-assets',
+            '--force' => true
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'ladmin-module-menu',
+            '--force' => true
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'ladmin-module-vite-config',
+            '--force' => true
+        ]);
+
+        $this->call('vendor:publish', [
+            '--tag' => 'ladmin-module-route-stub',
+            '--force' => true
         ]);
 
 
