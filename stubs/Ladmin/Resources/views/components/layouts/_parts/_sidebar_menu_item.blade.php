@@ -12,7 +12,7 @@ $type = $menu['type'] ?? 'menu';
         id="{{ $menu['id'] ?? null }}">
         <a href="{{ $route }}" target="{{ $menu['target'] }}">
             <i class="{{ $menu['icon'] }}"></i>
-            <span class="title">{{ $menu['name'] }}</span>
+            <span class="title">{{ __($menu['name']) }}</span>
         </a>
 
         @if (isset($menu['submenus']) && count($menu['submenus']) > 0)
@@ -27,7 +27,7 @@ $type = $menu['type'] ?? 'menu';
             <hr />
         @else
             <div class="px-4 my-3">
-                <strong>{{ $menu['name'] }}</strong>
+                <strong>{{ __($menu['name']) }}</strong>
             </div>
         @endif
     </li>

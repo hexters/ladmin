@@ -39,28 +39,8 @@ class SetupCommand extends Command
     public function handle()
     {
         $this->call('vendor:publish', [
-            '--tag' => 'ladmin-module',
-            '--force' => true
-        ]);
-
-        $this->call('vendor:publish', [
-            '--tag' => 'ladmin-module-assets',
-            '--force' => true
-        ]);
-
-        $this->call('vendor:publish', [
-            '--tag' => 'ladmin-module-menu',
-            '--force' => true
-        ]);
-
-        $this->call('vendor:publish', [
-            '--tag' => 'ladmin-module-vite-config',
-            '--force' => true
-        ]);
-
-        $this->call('vendor:publish', [
-            '--tag' => 'ladmin-module-route-stub',
-            '--force' => true
+            '--tag' => 'ladmin-module, ladmin-module-assets, ladmin-module-menu, ladmin-module-vite-config, ladmin-module-route-stub',
+            '--force' => true,
         ]);
 
 
@@ -75,7 +55,7 @@ class SetupCommand extends Command
         $this->line('');
         $this->info('Open in Browser : ' . url('/administrator'));
         $this->line('');
-        $this->info('cd Modules/Ladmin && npm install');
+        $this->info('php artisan module:npm --install');
         $this->line('');
     }
 }

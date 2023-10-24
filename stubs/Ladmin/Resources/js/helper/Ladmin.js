@@ -1,4 +1,4 @@
-import axios from "axios";
+import DataTable from "datatables.net-bs5";
 
 class Ladmin {
 
@@ -245,10 +245,13 @@ class Ladmin {
         ladmiDatatables.forEach((el) => {
             let options = el.getAttribute('data-options');
             options = JSON.parse(options);
-            $(el).DataTable({
+            const table = new DataTable(el, {
                 language: {
                     search: '',
-                    searchPlaceholder: 'Search...'
+                    searchPlaceholder: 'Search...',
+                },
+                initComplete: () => {
+                    this.loadAjaxComponent();
                 },
                 ...options
             });
@@ -331,16 +334,22 @@ class Ladmin {
     }
 
     loadAjaxComponent() {
-
         let ajaxs = document.querySelectorAll('[data-role="ajax"]');
         ajaxs.forEach(async (el) => {
             let ajax = el.getAttribute('data-route')
             if (ajax) {
                 let response = await fetch(ajax).then(data => data.text());
                 el.innerHTML = response;
+
+                const event = new CustomEvent('ladmin:onajaxload', {
+                    detail: {
+                        response: response
+                    }
+                });
+
+                el.dispatchEvent(event);
             }
         });
-
     }
 
 }
