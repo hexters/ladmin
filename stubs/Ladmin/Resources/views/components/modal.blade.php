@@ -2,8 +2,8 @@
 
 <div {{ $attributes->merge(['class' => 'modal fade', 'id' => $id]) }} tabindex="-1"
     aria-labelledby="{{ $id }}" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content modal-{{ $size }}">
+    <div class="modal-dialog modal-{{ $size }}">
+        <div class="modal-content">
             <div class="modal-header border-bottom-0">
                 <h5 class="modal-title" id="{{ $id }}">
                     {{ $title ?? 'Modal Title' }}
