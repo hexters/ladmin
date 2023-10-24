@@ -47,15 +47,11 @@ Installation is complete, please access `http://localhost:8000/administrator`
 
 # Customization Color and Assets
 
-To change the ladmin style, you just need to run `Vite`, before that you should install nodejs modules in `Modules/Ladmin` folder. Follow this steps below.
+To change the ladmin style, you just need to run `Vite`, before that you should install nodejs modules in `Modules` folder. You just run command below.
 
 ```bash
 
-// Install node modules 
-
-cd Modules/Ladmin && npm install
-
-// Go back to directory root project and run vitejs
+php artisan module:npm --install
 
 npm run dev
 
