@@ -17,6 +17,11 @@
 |[v2.*](https://github.com/hexters/ladmin/tree/2.1.0)|9.x|
 |[v3.*](https://github.com/hexters/ladmin/blob/master/README.md)|10.x|
 
+> # Attention Laravel 11 Version
+> For Laravel 11 we recommend you use the plugin from [Filament Hexa](https://github.com/hexters/hexa-docs/)
+> 
+> ![Filament Hexa](https://github.com/hexters/assets/raw/main/hexa/v1/edit.png?raw=true)
+
 # 🚀 Quickstart
 
 Follow the steps below to get started faster! Add the repository by running the command below.
