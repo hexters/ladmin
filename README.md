@@ -18,7 +18,7 @@
 |[v3.*](https://github.com/hexters/ladmin/blob/master/README.md)|10.x|
 
 > # Attention Laravel 11 Version
-> For Laravel 11 we recommend you use the plugin from [Filament Hexa](https://github.com/hexters/hexa-docs/)
+> For Laravel 11 we recommend you use the plugin from [Filament Hexa](https://github.com/hexters/hexa-lite) Effortless role and permission management plugin for Filament
 > 
 > ![Filament Hexa](https://github.com/hexters/assets/raw/main/hexa/v1/edit.png?raw=true)
 
